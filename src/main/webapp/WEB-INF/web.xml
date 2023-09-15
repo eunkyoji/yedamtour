@@ -16,4 +16,13 @@
 		<filter-name>CharterSet</filter-name>
 		<url-pattern>*</url-pattern>
 	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>Tiles</servlet-name>
+		<servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tiles</servlet-name>
+		<url-pattern>*.tiles</url-pattern>
+	</servlet-mapping>
 </web-app>
