@@ -13,7 +13,7 @@
 	<!-- ===============================================-->
 	<!--    Document Title-->
 	<!-- ===============================================-->
-	<title>Jadoo | Travel Agency Landing Page UI</title>
+	<title><tiles:getAsString name="title" /></title>
 
 
 	<!-- ===============================================-->
