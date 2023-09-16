@@ -8,7 +8,7 @@
 </head>
 <body>
 	<main id="main" class="main">
-
+<!-- 
 		<div class="pagetitle">
 			<h1>Data Tables</h1>
 			<nav>
@@ -18,7 +18,7 @@
 					<li class="breadcrumb-item active">Data</li>
 				</ol>
 			</nav>
-		</div>
+		</div> -->
 		<!-- End Page Title -->
 
 		<section class="section">

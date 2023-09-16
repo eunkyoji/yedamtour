@@ -141,6 +141,9 @@
 				</ul></li>
 			<!-- End Icons Nav -->
 
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="memberlist.do"> <i class="bi bi-person"></i> <span>회원목록</span>
+			</a></li>
 			<li class="nav-heading">Pages</li>
 
 			<li class="nav-item"><a class="nav-link collapsed"
