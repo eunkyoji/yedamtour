@@ -7,59 +7,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6 col-sm-6 col-6 header-top-left">
-						<ul>
-							<li><a href="#">Visit Us</a></li>
-							<li><a href="#">Buy Tickets</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-6 col-sm-6 col-6 header-top-right">
-						<div class="header-social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-								class="fa fa-twitter"></i></a> <a href="#"><i
-								class="fa fa-dribbble"></i></a> <a href="#"><i
-								class="fa fa-behance"></i></a>
-						</div>
-					</div>
-				</div>
+	<nav
+		class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block"
+		data-navbar-on-scroll="data-navbar-on-scroll">
+		<div class="container">
+			<a class="navbar-brand" href="index.html"><img
+				src="jadoo/public/assets/img/logo.svg" height="34" alt="logo" /></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"> </span>
+			</button>
+			<div
+				class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0"
+				id="navbarSupportedContent">
+				<ul
+					class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
+					<li class="nav-item px-3 px-xl-4"><a
+						class="nav-link fw-medium" aria-current="page" href="#">Service</a></li>
+					<li class="nav-item px-3 px-xl-4"><a
+						class="nav-link fw-medium" aria-current="page" href="#booking">Booking</a></li>
+					<li class="nav-item px-3 px-xl-4"><a
+						class="nav-link fw-medium" aria-current="page" href="#destination">Destination</a></li>
+					<li class="nav-item px-3 px-xl-4"><a
+						class="nav-link fw-medium" aria-current="page" href="#testimonial">Community</a></li>
+					<li class="nav-item px-3 px-xl-4"><a
+						class="nav-link fw-medium" aria-current="page" href="#!">Login</a></li>
+					<li class="nav-item px-3 px-xl-4"><a
+						class="btn btn-outline-dark order-1 order-lg-0 fw-medium"
+						href="#!">Sign Up</a></li>
+					<li class="nav-item dropdown px-3 px-lg-0"><a
+						class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium"
+						href="#" id="navbarDropdown" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">EN</a>
+						<ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg"
+							style="border-radius: 0.3rem;" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#!">EN</a></li>
+							<li><a class="dropdown-item" href="#!">BN</a></li>
+						</ul></li>
+				</ul>
 			</div>
 		</div>
-		<div class="container main-menu">
-			<div class="row align-items-center justify-content-between d-flex">
-				<div id="logo">
-					<a href="index.html"><img src="travelista/img/logo.png" alt="" title="" /></a>
-				</div>
-				<nav id="nav-menu-container">
-					<ul class="nav-menu">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="packages.html">Packages</a></li>
-						<li><a href="hotels.html">Hotels</a></li>
-						<li><a href="insurance.html">Insurence</a></li>
-						<li class="menu-has-children"><a href="">Blog</a>
-							<ul>
-								<li><a href="blog-home.html">Blog Home</a></li>
-								<li><a href="blog-single.html">Blog Single</a></li>
-							</ul></li>
-						<li class="menu-has-children"><a href="">Pages</a>
-							<ul>
-								<li><a href="elements.html">Elements</a></li>
-								<li class="menu-has-children"><a href="">Level 2 </a>
-									<ul>
-										<li><a href="#">Item One</a></li>
-										<li><a href="#">Item Two</a></li>
-									</ul></li>
-							</ul></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
-				</nav>
-				<!-- #nav-menu-container -->
-			</div>
-		</div>
-	</header>
+	</nav>
 </body>
 </html>

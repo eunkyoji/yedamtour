@@ -10,7 +10,11 @@
 		<put-attribute name="footer" value="/WEB-INF/views/layouts/tourfooter.jsp" />
 	</definition>
 	
-	<definition name="adminhome" template="/WEB-INF/views/layouts/adminlayout.jsp">
+	<definition name="WILDCARD:*/*" extends="userhome">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+	<!-- definition name="adminhome" template="/WEB-INF/views/layouts/adminlayout.jsp">
 		<put-attribute name="title" value="my home" />
 		<put-attribute name="header" value="/WEB-INF/views/layouts/adminheader.jsp" />
 		<put-attribute name="menu" value="/WEB-INF/views/layouts/adminmenu.jsp" />
@@ -18,12 +22,8 @@
 		<put-attribute name="footer" value="/WEB-INF/views/layouts/adminfooter.jsp" />
 	</definition>
 	
-	<definition name="WILDCARD:*/*" extends="userhome">
-		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
-	</definition>
-	
 	<definition name="WILDCARD:admin/*/*" extends="adminhome">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
-	</definition>
+	</definition-->
 
 </tiles-definitions>

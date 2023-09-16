@@ -3,438 +3,222 @@
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
-<!-- Start price Area -->
-<section class="price-area section-gap">
+</head>
+<section style="padding-top: 7rem;">
+	<div class="bg-holder"
+		style="background-image: url(jadoo/public/assets/img/메인배너.jpg);"></div>
+	<!--/.bg-holder-->
+
 	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-8">
-				<div class="title text-center">
-					<h1 class="mb-10">We Provide Affordable Prices</h1>
-					<p>Well educated, intellectual people, especially scientists at
-						all times demonstrate considerably.</p>
+		<div class="row align-items-center">
+			<div class="col-md-7 col-lg-6 text-md-start text-center py-6">
+				<h4 class="fw-bold text-danger mb-3">Best Destinations around
+					the world</h4>
+				<h1 class="hero-title">전국 호텔, 펜션, 캠핑부터 교통, 항공권 까지.</h1>
+				<link rel="stylesheet"
+					href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+				<link rel="stylesheet"
+					href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+				<p class="mb-4 fw-medium">
+					예담 투어에서<br>실시간 예약 하세요!
+				</p>
+				<div class="modal fade" id="popupVideo" tabindex="-1"
+					aria-labelledby="popupVideo" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg">
+						<div class="modal-content">
+							<iframe class="rounded" style="width: 100%; max-height: 500px;"
+								height="500px" src="https://www.youtube.com/embed/_lhdhL4UDIo"
+								title="YouTube video player"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen="allowfullscreen"></iframe>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	</div>
+</section>
+
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="pt-5 pt-md-9" id="booking">
+
+	<div class="container">
+		<div class="position-absolute z-index--1 end-0 d-none d-lg-block">
+			<img src="jadoo/public/assets/img/category/shape.svg" style="max-width: 200px"
+				alt="booking" />
+		</div>
+		<div class="mb-7 text-center">
+			<h5 class="text-secondary">지금 바로 예매하기!</h5>
+			<h3
+				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Booking
+				Services</h3>
 		</div>
 		<div class="row">
-			<div class="col-lg-4">
-				<div class="single-price">
-					<h4>Cheap Packages</h4>
-					<ul class="price-list">
-						<li class="d-flex justify-content-between align-items-center">
-							<span>New York</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Maldives</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Sri Lanka</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Nepal</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Thiland</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Singapore</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-					</ul>
+			<div class="col-lg-3 col-sm-6 mb-6">
+				<div
+					class="card service-card shadow-hover rounded-3 text-center align-items-center">
+					<div class="card-body p-xxl-5 p-4">
+						<img src="jadoo/public/assets/img/category/icon1.png" width="75" alt="Service" />
+						<h4 class="mb-3">숙소</h4>
+						<p class="mb-0 fw-medium">Built Wicket longer admire do barton
+							vanity itself do in it.</p>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<div class="single-price">
-					<h4>Luxury Packages</h4>
-					<ul class="price-list">
-						<li class="d-flex justify-content-between align-items-center">
-							<span>New York</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Maldives</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Sri Lanka</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Nepal</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Thiland</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Singapore</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-					</ul>
+			<div class="col-lg-3 col-sm-6 mb-6">
+				<div
+					class="card service-card shadow-hover rounded-3 text-center align-items-center">
+					<div class="card-body p-xxl-5 p-4">
+						<img src="jadoo/public/assets/img/category/icon2.png" width="75" alt="Service" />
+						<h4 class="mb-3">교통/항공</h4>
+						<p class="mb-0 fw-medium">Engrossed listening. Park gate sell
+							they west hard for the.</p>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<div class="single-price">
-					<h4>Camping Packages</h4>
-					<ul class="price-list">
-						<li class="d-flex justify-content-between align-items-center">
-							<span>New York</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Maldives</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Sri Lanka</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Nepal</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Thiland</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Singapore</span> <a href="#" class="price-btn">$1500</a>
-						</li>
-					</ul>
+			<div class="col-lg-3 col-sm-6 mb-6">
+				<div
+					class="card service-card shadow-hover rounded-3 text-center align-items-center">
+					<div class="card-body p-xxl-5 p-4">
+						<img src="jadoo/public/assets/img/category/icon3.png" width="75" alt="Service" />
+						<h4 class="mb-3">티켓</h4>
+						<p class="mb-0 fw-medium">Barton vanity itself do in it.
+							Preferd to men it engrossed listening.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- end of .container-->
+
 </section>
-<!-- End price Area -->
+<!-- <section> close ============================-->
+<!-- ============================================-->
 
 
-<!-- Start other-issue Area -->
-<section class="other-issue-area section-gap">
+
+
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="pt-5" id="destination">
+
 	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-9">
-				<div class="title text-center">
-					<h1 class="mb-10">Other issues we can help you with</h1>
-					<p>We all live in an age that belongs to the young at heart.
-						Life that is.</p>
-				</div>
-			</div>
+		<div
+			class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4">
+		</div>
+		<div class="mb-7 text-center">
+			<h5 class="text-secondary">인기 여행지</h5>
+			<h3
+				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top
+				Destinations</h3>
 		</div>
 		<div class="row">
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/o1.jpg" alt="">
+			<div class="col-md-4 mb-4">
+				<div class="card overflow-hidden shadow">
+					<img class="card-img-top" src="jadoo/public/assets/img/제주.jpg" alt="Jejo Island" />
+					<div class="card-body py-4 px-3">
+						<div
+							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+							<h4 class="text-secondary fw-medium">
+								<a class="link-900 text-decoration-none stretched-link"
+									href="#!">Jejo Island</a>
+							</h4>
+							<span class="fs-1 fw-medium">00,000원</span>
+						</div>
 					</div>
-					<a href="#">
-						<h4>Rent a Car</h4>
-					</a>
-					<p>The preservation of human life is the ultimate value, a
-						pillar of ethics and the foundation.</p>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/o2.jpg" alt="">
+			<div class="col-md-4 mb-4">
+				<div class="card overflow-hidden shadow">
+					<img class="card-img-top" src="jadoo/public/assets/img/부산.jpg" alt="Busan" />
+					<div class="card-body py-4 px-3">
+						<div
+							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+							<h4 class="text-secondary fw-medium">
+								<a class="link-900 text-decoration-none stretched-link"
+									href="#!">Busan</a>
+							</h4>
+							<span class="fs-1 fw-medium">00,000원</span>
+						</div>
 					</div>
-					<a href="#">
-						<h4>Cruise Booking</h4>
-					</a>
-					<p>I was always somebody who felt quite sorry for myself, what
-						I had not got compared.</p>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/o3.jpg" alt="">
+			<div class="col-md-4 mb-4">
+				<div class="card overflow-hidden shadow">
+					<img class="card-img-top" src="jadoo/public/assets/img/경주.jpg" alt="Gyeongjo" />
+					<div class="card-body py-4 px-3">
+						<div
+							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+							<h4 class="text-secondary fw-medium">
+								<a class="link-900 text-decoration-none stretched-link"
+									href="#!">Gyeongjo</a>
+							</h4>
+							<span class="fs-1 fw-medium">00,000원</span>
+						</div>
 					</div>
-					<a href="#">
-						<h4>To Do List</h4>
-					</a>
-					<p>The following article covers a topic that has recently moved
-						to center stage–at least it seems.</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="single-other-issue">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/o4.jpg" alt="">
-					</div>
-					<a href="#">
-						<h4>Food Features</h4>
-					</a>
-					<p>There are many kinds of narratives and organizing
-						principles. Science is driven by evidence.</p>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- end of .container-->
+
 </section>
-<!-- End other-issue Area -->
+<!-- <section> close ============================-->
+<!-- ============================================-->
+
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
 
 
-<!-- Start testimonial Area -->
-<section class="testimonial-area section-gap">
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="pt-6">
+
 	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-8">
-				<div class="title text-center">
-					<h1 class="mb-10">Testimonial from our Clients</h1>
-					<p>The French Revolution constituted for the conscience of the
-						dominant aristocratic class a fall from</p>
-				</div>
+		<div class="py-8 px-5 position-relative text-center"
+			style="background-color: rgba(223, 215, 249, 0.199); border-radius: 129px 20px 20px 20px;">
+			<div
+				class="position-absolute start-100 top-0 translate-middle ms-md-n3 ms-n4 mt-3">
+				<img src="jadoo/public/assets/img/cta/send.png" style="max-width: 70px;"
+					alt="send icon" />
 			</div>
-		</div>
-		<div class="row">
-			<div class="active-testimonial">
-				<div class="single-testimonial item d-flex flex-row">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/elements/user1.png" alt="">
-					</div>
-					<div class="desc">
-						<p>Do you want to be even more successful? Learn to love
-							learning and growth. The more effort you put into improving your
-							skills, the bigger the payoff you.</p>
-						<h4>Harriet Maxwell</h4>
-						<div class="star">
-							<span class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span class="fa fa-star"></span>
+			<div class="position-absolute end-0 top-0 z-index--1">
+				<img src="jadoo/public/assets/img/cta/shape-bg2.png" width="264" alt="cta shape" />
+			</div>
+			<div
+				class="position-absolute start-0 bottom-0 ms-3 z-index--1 d-none d-sm-block">
+				<img src="jadoo/public/assets/img/cta/shape-bg1.png" style="max-width: 340px;"
+					alt="cta shape" />
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-8 col-md-10">
+					<h2 class="text-secondary lh-1-7 mb-7">Subscribe to get
+						information, latest news and other interesting offers about Cobham</h2>
+					<form class="row g-3 align-items-center w-lg-75 mx-auto">
+						<div class="col-sm">
+							<div class="input-group-icon">
+								<input class="form-control form-little-squirrel-control"
+									type="email" placeholder="Enter email " aria-label="email" />
+									<img class="input-box-icon" src="jadoo/public/assets/img/cta/mail.svg" width="17"
+									alt="mail" />
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="single-testimonial item d-flex flex-row">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/elements/user2.png" alt="">
-					</div>
-					<div class="desc">
-						<p>A purpose is the eternal condition for success. Every
-							former smoker can tell you just how hard it is to stop smoking
-							cigarettes. However.</p>
-						<h4>Carolyn Craig</h4>
-						<div class="star">
-							<span class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
+						<div class="col-sm-auto">
+							<button class="btn btn-danger orange-gradient-btn fs--1">Subscribe</button>
 						</div>
-					</div>
-				</div>
-				<div class="single-testimonial item d-flex flex-row">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/elements/user1.png" alt="">
-					</div>
-					<div class="desc">
-						<p>Do you want to be even more successful? Learn to love
-							learning and growth. The more effort you put into improving your
-							skills, the bigger the payoff you.</p>
-						<h4>Harriet Maxwell</h4>
-						<div class="star">
-							<span class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-						</div>
-					</div>
-				</div>
-				<div class="single-testimonial item d-flex flex-row">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/elements/user2.png" alt="">
-					</div>
-					<div class="desc">
-						<p>A purpose is the eternal condition for success. Every
-							former smoker can tell you just how hard it is to stop smoking
-							cigarettes. However.</p>
-						<h4>Carolyn Craig</h4>
-						<div class="star">
-							<span class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-						</div>
-					</div>
-				</div>
-				<div class="single-testimonial item d-flex flex-row">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/elements/user1.png" alt="">
-					</div>
-					<div class="desc">
-						<p>Do you want to be even more successful? Learn to love
-							learning and growth. The more effort you put into improving your
-							skills, the bigger the payoff you.</p>
-						<h4>Harriet Maxwell</h4>
-						<div class="star">
-							<span class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-						</div>
-					</div>
-				</div>
-				<div class="single-testimonial item d-flex flex-row">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/elements/user2.png" alt="">
-					</div>
-					<div class="desc">
-						<p>A purpose is the eternal condition for success. Every
-							former smoker can tell you just how hard it is to stop smoking
-							cigarettes. However.</p>
-						<h4>Carolyn Craig</h4>
-						<div class="star">
-							<span class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span
-								class="fa fa-star checked"></span> <span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- end of .container-->
+
 </section>
-<!-- End testimonial Area -->
-
-<!-- Start home-about Area -->
-<section class="home-about-area">
-	<div class="container-fluid">
-		<div class="row align-items-center justify-content-end">
-			<div class="col-lg-6 col-md-12 home-about-left">
-				<h1>
-					Did not find your Package? <br> Feel free to ask us. <br>
-					We‘ll make it for you
-				</h1>
-				<p>inappropriate behavior is often laughed off as “boys will be
-					boys,” women face higher conduct standards especially in the
-					workplace. That’s why it’s crucial that, as women, our behavior on
-					the job is beyond reproach. inappropriate behavior is often
-					laughed.</p>
-				<a href="#" class="primary-btn text-uppercase">request custom
-					price</a>
-			</div>
-			<div class="col-lg-6 col-md-12 home-about-right no-padding">
-				<img class="img-fluid" src="travelista/img/about-img.jpg" alt="">
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End home-about Area -->
-
-
-<!-- Start blog Area -->
-<section class="recent-blog-area section-gap">
-	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-60 col-lg-9">
-				<div class="title text-center">
-					<h1 class="mb-10">Latest from Our Blog</h1>
-					<p>With the exception of Nietzsche, no other madman has
-						contributed so much to human sanity as has.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="active-recent-blog-carusel">
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/b1.jpg" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li><a href="#">Travel</a></li>
-								<li><a href="#">Life Style</a></li>
-							</ul>
-						</div>
-						<a href="#"><h4 class="title">Low Cost Advertising</h4></a>
-						<p>Acres of Diamonds… you’ve read the famous story, or at
-							least had it related to you. A farmer.</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/b2.jpg" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li><a href="#">Travel</a></li>
-								<li><a href="#">Life Style</a></li>
-							</ul>
-						</div>
-						<a href="#"><h4 class="title">Creative Outdoor Ads</h4></a>
-						<p>Acres of Diamonds… you’ve read the famous story, or at
-							least had it related to you. A farmer.</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/b3.jpg" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li><a href="#">Travel</a></li>
-								<li><a href="#">Life Style</a></li>
-							</ul>
-						</div>
-						<a href="#"><h4 class="title">It's Classified How To
-								Utilize Free</h4></a>
-						<p>Acres of Diamonds… you’ve read the famous story, or at
-							least had it related to you. A farmer.</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/b1.jpg" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li><a href="#">Travel</a></li>
-								<li><a href="#">Life Style</a></li>
-							</ul>
-						</div>
-						<a href="#"><h4 class="title">Low Cost Advertising</h4></a>
-						<p>Acres of Diamonds… you’ve read the famous story, or at
-							least had it related to you. A farmer.</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/b2.jpg" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li><a href="#">Travel</a></li>
-								<li><a href="#">Life Style</a></li>
-							</ul>
-						</div>
-						<a href="#"><h4 class="title">Creative Outdoor Ads</h4></a>
-						<p>Acres of Diamonds… you’ve read the famous story, or at
-							least had it related to you. A farmer.</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="travelista/img/b3.jpg" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li><a href="#">Travel</a></li>
-								<li><a href="#">Life Style</a></li>
-							</ul>
-						</div>
-						<a href="#"><h4 class="title">It's Classified How To
-								Utilize Free</h4></a>
-						<p>Acres of Diamonds… you’ve read the famous story, or at
-							least had it related to you. A farmer.</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End recent-blog Area -->
+<!-- <section> close ============================-->
+<!-- ============================================-->
+<body>
 </body>
 </html>
