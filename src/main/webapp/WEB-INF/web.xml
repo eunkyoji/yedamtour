@@ -10,7 +10,7 @@
 
 	<filter>
 		<filter-name>CharterSet</filter-name>
-		<filter-class>co.yedam.prj.common.EncodingFiter</filter-class>
+		<filter-class>co.yedam.yedamtour.common.EncodingFiter</filter-class>
 		<init-param>
 			<param-name>encode</param-name>
 			<param-value>utf-8</param-value>
