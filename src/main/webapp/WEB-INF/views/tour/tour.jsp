@@ -12,16 +12,11 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-md-7 col-lg-6 text-md-start text-center py-6">
-				<h4 class="fw-bold text-danger mb-3">Best Destinations around
-					the world</h4>
-				<h1 class="hero-title">전국 호텔, 펜션, 캠핑부터 교통, 항공권 까지.</h1>
-				<link rel="stylesheet"
-					href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-				<link rel="stylesheet"
-					href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-				<p class="mb-4 fw-medium">
-					예담 투어에서<br>실시간 예약 하세요!
-				</p>
+				<h4 class="fw-bold text-danger mb-3">전국 호텔, 펜션, 캠핑부터 교통, 항공권 까지!</h4>
+				<h1 class="hero-title">여가의 모든 순간을 책임질 수 있도록.</h1>
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+				<p class="mb-4 fw-medium"></p>
 				<div class="modal fade" id="popupVideo" tabindex="-1"
 					aria-labelledby="popupVideo" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered modal-lg">
@@ -50,10 +45,9 @@
 				alt="booking" />
 		</div>
 		<div class="mb-7 text-center">
-			<h5 class="text-secondary">지금 바로 예매하기!</h5>
+			<h5 class="text-secondary">어떤 종류의 여행이든 몇 번의 클릭만으로!</h5>
 			<h3
-				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Booking
-				Services</h3>
+				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">지금 바로 예약하기</h3>
 		</div>
 		<div class="row">
 			<div class="col-lg-3 col-sm-6 mb-6">
@@ -62,8 +56,7 @@
 					<div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon1.png" width="75" alt="Service" />
 						<h4 class="mb-3">숙소</h4>
-						<p class="mb-0 fw-medium">Built Wicket longer admire do barton
-							vanity itself do in it.</p>
+						<p class="mb-0 fw-medium">호텔, 리조트, 펜션, 풀빌라<br>모두</p>
 					</div>
 				</div>
 			</div>
@@ -73,8 +66,7 @@
 					<div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon2.png" width="75" alt="Service" />
 						<h4 class="mb-3">교통/항공</h4>
-						<p class="mb-0 fw-medium">Engrossed listening. Park gate sell
-							they west hard for the.</p>
+						<p class="mb-0 fw-medium">일반석부터 일등석, 직항과 환승 및 편도까지, 계획과 예산에 맞게</p>
 					</div>
 				</div>
 			</div>
@@ -84,8 +76,7 @@
 					<div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon3.png" width="75" alt="Service" />
 						<h4 class="mb-3">티켓</h4>
-						<p class="mb-0 fw-medium">Barton vanity itself do in it.
-							Preferd to men it engrossed listening.</p>
+						<p class="mb-0 fw-medium">인기 입장권 및 공연</p>
 					</div>
 				</div>
 			</div>
@@ -109,10 +100,9 @@
 			class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4">
 		</div>
 		<div class="mb-7 text-center">
-			<h5 class="text-secondary">인기 여행지</h5>
+			<h5 class="text-secondary">어디로 가시나요?</h5>
 			<h3
-				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top
-				Destinations</h3>
+				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">인기 노선별 특가</h3>
 		</div>
 		<div class="row">
 			<div class="col-md-4 mb-4">
@@ -175,48 +165,6 @@
 
 <!-- ============================================-->
 <!-- <section> begin ============================-->
-<section class="pt-6">
-
-	<div class="container">
-		<div class="py-8 px-5 position-relative text-center"
-			style="background-color: rgba(223, 215, 249, 0.199); border-radius: 129px 20px 20px 20px;">
-			<div
-				class="position-absolute start-100 top-0 translate-middle ms-md-n3 ms-n4 mt-3">
-				<img src="jadoo/public/assets/img/cta/send.png" style="max-width: 70px;"
-					alt="send icon" />
-			</div>
-			<div class="position-absolute end-0 top-0 z-index--1">
-				<img src="jadoo/public/assets/img/cta/shape-bg2.png" width="264" alt="cta shape" />
-			</div>
-			<div
-				class="position-absolute start-0 bottom-0 ms-3 z-index--1 d-none d-sm-block">
-				<img src="jadoo/public/assets/img/cta/shape-bg1.png" style="max-width: 340px;"
-					alt="cta shape" />
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-8 col-md-10">
-					<h2 class="text-secondary lh-1-7 mb-7">Subscribe to get
-						information, latest news and other interesting offers about Cobham</h2>
-					<form class="row g-3 align-items-center w-lg-75 mx-auto">
-						<div class="col-sm">
-							<div class="input-group-icon">
-								<input class="form-control form-little-squirrel-control"
-									type="email" placeholder="Enter email " aria-label="email" />
-									<img class="input-box-icon" src="jadoo/public/assets/img/cta/mail.svg" width="17"
-									alt="mail" />
-							</div>
-						</div>
-						<div class="col-sm-auto">
-							<button class="btn btn-danger orange-gradient-btn fs--1">Subscribe</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end of .container-->
-
-</section>
 <!-- <section> close ============================-->
 <!-- ============================================-->
 <body>
