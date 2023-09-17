@@ -10,12 +10,12 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>Data Tables</h1>
+			<h1>게시판관리</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item">Tables</li>
-					<li class="breadcrumb-item active">Data</li>
+					<li class="breadcrumb-item">게시판관리</li>
+					<li class="breadcrumb-item active">공지사항</li>
 				</ol>
 			</nav>
 		</div>
@@ -27,15 +27,7 @@
 
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">Datatables</h5>
-							<p>
-								Add lightweight datatables to your project with using the <a
-									href="https://github.com/fiduswriter/Simple-DataTables"
-									target="_blank">Simple DataTables</a> library. Just add
-								<code>.datatable</code>
-								class name to any table you wish to conver to a datatable
-							</p>
-
+							<h5 class="card-title">공지사항</h5>
 							<!-- Table with stripped rows -->
 							<table class="table datatable">
 								<thead>
@@ -55,6 +47,9 @@
 							</table>
 							<!-- End Table with stripped rows -->
 
+						<div align="right">
+							<button type="button" class="btn btn-primary" onclick="location.href = 'noticewrite.do'">글쓰기</button>
+						</div>
 						</div>
 					</div>
 

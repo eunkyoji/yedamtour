@@ -103,7 +103,8 @@
 					<li><a href="tables-data.html"> <i class="bi bi-circle"></i><span>Data
 								Tables</span>
 					</a></li>
-				</ul></li>
+				</ul>
+			</li>
 			<!-- End Tables Nav -->
 
 			<li class="nav-item"><a class="nav-link collapsed"
@@ -138,12 +139,21 @@
 					</a></li>
 					<li><a href="icons-boxicons.html"> <i class="bi bi-circle"></i><span>Boxicons</span>
 					</a></li>
-				</ul></li>
+				</ul>
+			</li>
+			<li class="nav-item"><a class="nav-link collapsed" data-bs-target="#board-nav" data-bs-toggle="collapse" href="#">
+					<i class="bi bi-layout-text"></i>
+					<span>게시판 관리</span>
+					<i class="bi bi-chevron-down ms-auto"></i>
+			</a>
+				<ul id="board-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+					<li><a href="noticelist.do"> <i class="bi bi-circle"></i><span>공지사항</span></a></li>
+					<li><a href="qanda.do"><i class="bi bi-circle"></i><span>Q & A</span></a></li>
+					<li><a href="freeboard.do"><i class="bi bi-circle"></i><span>자유게시판</span></a></li>
+				</ul>
+			</li>
 			<!-- End Icons Nav -->
 
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="memberlist.do"> <i class="bi bi-person"></i> <span>회원목록</span>
-			</a></li>
 			<li class="nav-heading">Pages</li>
 
 			<li class="nav-item"><a class="nav-link collapsed"

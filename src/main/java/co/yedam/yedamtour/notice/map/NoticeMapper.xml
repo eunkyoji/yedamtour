@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.notice.map.NoticeMapper">
+	<select id="noticeSelectList" resultType="co.yedam.yedamtour.notice.service.NoticeVO">
+	</select>
+	<select id="noticeSelect" resultType="co.yedam.yedamtour.notice.service.NoticeVO">
+	</select>
+	<insert id="noticeInsert" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
+		<selectKey keyProperty="noticeId" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(NOTICE_ID), 0) + 1 AS ID
+			  FROM TOUR_NOTICE
+		</selectKey>
+		INSERT INTO TOUR_NOTICE
+		VALUES(#{noticeId), #{noticeTitle}, #{noticeContent}, #{noticeImg}, sysdate, '')
+	</insert>
+	<update id="noticeUpdate" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
+	</update>
+	<delete id="noticeDelete" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
+	</delete>
+</mapper>
