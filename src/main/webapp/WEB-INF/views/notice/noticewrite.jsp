@@ -39,7 +39,7 @@
 									</div>
 								</div>
 								<div class="card-body">
-									<div id="editor" style="height: 500px">
+									<div id="editor" >
 										<p id="noticeContent" name="noticeContent"></p>
 									</div>
 								</div>

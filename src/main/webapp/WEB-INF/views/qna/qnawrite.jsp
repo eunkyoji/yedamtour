@@ -20,7 +20,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
 							<li class="breadcrumb-item">게시판관리</li>
-							<li class="breadcrumb-item">공지사항</li>
+							<li class="breadcrumb-item">Q & A</li>
 							<li class="breadcrumb-item active">글쓰기</li>
 						</ol>
 					</nav>
@@ -30,7 +30,7 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">공지사항</h4>
+									<h4 class="card-title">Q & A</h4>
 								</div>
 								<div style="padding: 25px">
 									<div class="input-group mb-3">

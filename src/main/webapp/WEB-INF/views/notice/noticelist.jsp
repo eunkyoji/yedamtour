@@ -58,5 +58,23 @@
 		</section>
 
 	</main>
+	<form id="sform" action="noticedetails.do" method="post">
+		<input type="hidden" id="noticeId" name="noticeId">
+	</form>
+	<script type="text/javascript">
+	var TableBackgroundNormalColor = "#ffffff";
+	var TableBackgroundMouseoverColor = "#f5f3f3";
+	
+	// These two functions need no customization.
+	function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor; }
+	function RestoreBackgroundColor(row) { row.style.backgroundColor = TableBackgroundNormalColor; }
+	
+	//게시글 상세조회
+	function noticeSelect(id){
+		let form = document.getElementById("sform");
+		form.noticeId.value = id;
+		form.submit();
+	}
+	</script>
 </body>
 </html>
