@@ -31,8 +31,16 @@
 						class="nav-link fw-medium" aria-current="page" href="#">Transportation</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="#">Tickets</a></li>
-					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#">Community</a></li>
+					<li class="nav-item dropdown px-3 px-lg-0"><a
+						class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium"
+						href="#" id="navbarDropdown" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Community</a>
+						<ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg"
+							style="border-radius: 0.3rem;" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="noticelist.do">공지사항</a></li>
+							<li><a class="dropdown-item" href="qnalist.do">Q & A</a></li>
+							<li><a class="dropdown-item" href="freeboradlist.do">자유게시판</a></li>
+						</ul></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="#!">Login</a></li>
 					<li class="nav-item px-3 px-xl-4"><a

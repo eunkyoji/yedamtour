@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="shortcut icon" href="niceadmin/assets_mazer/images/favicon.svg" type="image/x-icon">
 </head>
 
@@ -19,7 +18,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
 							<li class="breadcrumb-item">게시판관리</li>
-							<li class="breadcrumb-item">공지사항</li>
+							<li class="breadcrumb-item">자유게시판</li>
 							<li class="breadcrumb-item active">글쓰기</li>
 						</ol>
 					</nav>
@@ -29,13 +28,13 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">공지사항</h4>
+									<h4 class="card-title">자유게시판</h4>
 								</div>
 								<div style="padding: 25px">
 									<div class="input-group mb-3">
 										<span class="input-group-text" id="basic-addon1">제목</span>
 										<input type="text" class="form-control" aria-label="Username"
-												aria-describedby="basic-addon1" id="noticeTitle", name="noticeTitle">
+												aria-describedby="basic-addon1" id="noticeTitle" name="noticeTitle">
 									</div>
 								</div>
 								<div class="card-body">
@@ -47,6 +46,10 @@
 						</div>
 					</div>
 				</section>
+				<div align="right">
+					<button type="submit" class="btn btn-primary" onclick="location.href = 'freeboardwrite.do'">저장</button>
+					<button type="reset" class="btn btn-primary" onclick="location.href = 'freeboardwrite.do'">취소</button>
+				</div>
 			</div>
 		</div>
 	</div>
