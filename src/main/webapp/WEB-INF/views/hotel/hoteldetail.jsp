@@ -20,13 +20,8 @@
 
 					<!-- Contact Content -->
 					<div class="col-lg-5">
-						<div class="contact_content">
-							<div class="contact_logo">
-								<div class="logo">
 									<h2>웨스턴 그레이스 호텔</h2>
 									</a>
-								</div>
-							</div>
 							<div class="contact_section_text">
 								<br>
 								<p>레스토랑, 카페, 연회장 등의 부대시설을 이용 할 수 있습니다 전 객실 오션뷰로 아름다운 영종도바다를
@@ -67,14 +62,11 @@
 									</li>
 								</ul>
 							</div>
-						</div>
 					</div>
 
 					<!-- Contact Image -->
 					<div class="col-lg-7 contact_section_col">
-						<div class="contact_image">
 							<img src="jadoo/public/assets/img/rooms/hotel1.jpg" alt="">
-						</div>
 					</div>
 					<!-- Contact Image Close-->
 
