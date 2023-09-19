@@ -30,8 +30,11 @@ public class StayMain extends HttpServlet {
 		hotels = dao.hotelSelectList();
 		request.setAttribute("hotels", hotels);
 		
+//		System.out.println(hotels.get(0).getHotelService());
+		
 		String page = "staymain/staymain";
 		ViewResolve.forward(request, response, page);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

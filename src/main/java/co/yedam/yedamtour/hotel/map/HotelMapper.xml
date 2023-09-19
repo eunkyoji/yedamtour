@@ -25,6 +25,8 @@
 		  	<if test="hotelImg != null"> HOTEL_IMG = #{hotelImg},</if>
 		  	<if test="hotelBedtype != null"> HOTEL_BEDTYPE = #{hotelBedtype},</if>
 		  	<if test="hotelService != null"> HOTEL_SERVICE = #{hotelService},</if>
+		  	<if test="hotelAddress != null"> HOTEL_ADDRESS = #{hotelAddress},</if>
+		  	<if test="hotelCall != null"> HOTEL_CALL = #{hotelCall},</if>
 		  </set>
 	WHERE HOTEL_ID = #{hotelId}
 	</update>

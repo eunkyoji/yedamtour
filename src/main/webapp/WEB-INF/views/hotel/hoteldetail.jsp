@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,13 +16,12 @@
 	<section class="pt-5 pt-md-9" id="booking">
 		<br> <br>
 		<div class="contact_section">
-			<div class="container">
+			<div class="container">			
 				<div class="row">
 
 					<!-- Contact Content -->
 					<div class="col-lg-5">
-									<h2>웨스턴 그레이스 호텔</h2>
-									</a>
+					<h2>웨스턴 그레이스 호텔</h2></a>
 							<div class="contact_section_text">
 								<br>
 								<p>레스토랑, 카페, 연회장 등의 부대시설을 이용 할 수 있습니다 전 객실 오션뷰로 아름다운 영종도바다를
@@ -179,5 +179,10 @@
 				</div>
 	</section>
 	<!-- Rooms Section End -->
+	
+<script>
+
+</script>
+	
 </body>
 </html>

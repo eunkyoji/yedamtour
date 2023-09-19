@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,14 +59,14 @@
 		<div class="container">
 			<h4>인기 추천 TOP</h4>
 			<br>
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<c:forEach items="${tour_hotel }" var="h">
+				<div class="row">
+				<c:forEach items="${hotels }" var="h">
+					<div class="col-lg-4 col-md-6">
 						<div class="room-item">
-							<img src="jadoo/public/assets/img/${h.hotelImg }" alt="">
+							<img src="img/rooms/${h.hotelImg }" alt="">
 							<div class="ri-text">
 								<a href="hoteldetail.do"><h4>${h.hotelName }</h4></a>
-								<h3>${h.hotelPrice }<span>/1박</span>
+								<h3>${h.hotelPrice }원~<span>/1박</span>
 								</h3>
 								<table>
 									<tbody>
@@ -86,154 +87,13 @@
 								<a href="hoteldetail.do" class="primary-btn">More Details</a>
 							</div>
 						</div>
-					</c:forEach>
-				</div>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
 	<!-- Rooms Section End -->
-
-	<!-- <div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel2.jpg" alt="">
-						<div class="ri-text">
-							<h4>강릉 세인트존스 호텔</h4>
-							<h3>
-								113,000원~<span>/1박</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">최대 인원:</td>
-										<td>2인</td>
-									</tr>
-									<tr>
-										<td class="r-o">베드:</td>
-										<td>더블 침대</td>
-									</tr>
-									<tr>
-										<td class="r-o">서비스:</td>
-										<td>무료 Wifi, LCD TV, 금연객실</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="#" class="primary-btn">More Details</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/pension1.jpg" alt="">
-						<div class="ri-text">
-							<h4>가평 리버마운틴펜션 (워터 슬라이드)</h4>
-							<h3>
-								80,750원~<span>/1박</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">최대 인원:</td>
-										<td>커플, 3인 가족</td>
-									</tr>
-									<tr>
-										<td class="r-o">베드:</td>
-										<td>퀸 침대</td>
-									</tr>
-									<tr>
-										<td class="r-o">서비스:</td>
-										<td>무료 Wifi, LCD TV, 금연객실</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="#" class="primary-btn">More Details</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel4.jpg" alt="">
-						<div class="ri-text">
-							<h4>영등포 GMS 호텔</h4>
-							<h3>
-								90,000원~<span>/1박</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">최대 인원:</td>
-										<td>2인</td>
-									</tr>
-									<tr>
-										<td class="r-o">베드:</td>
-										<td>더블 침대</td>
-									</tr>
-									<tr>
-										<td class="r-o">서비스:</td>
-										<td>무료 Wifi, LCD TV, 금연객실</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="#" class="primary-btn">More Details</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel5.jpg" alt="">
-						<div class="ri-text">
-							<h4>스카이베이 호텔 경포</h4>
-							<h3>
-								80,000원<span>/1박</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">최대 인원:</td>
-										<td>2인</td>
-									</tr>
-									<tr>
-										<td class="r-o">베드:</td>
-										<td>더블 침대</td>
-									</tr>
-									<tr>
-										<td class="r-o">서비스:</td>
-										<td>무료 Wifi, LCD TV, 금연객실</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="#" class="primary-btn">More Details</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel6.jpg" alt="">
-						<div class="ri-text">
-							<h4>인천 파크마린호텔</h4>
-							<h3>
-								77,700원~<span>/1박</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">최대 인원:</td>
-										<td>2인</td>
-									</tr>
-									<tr>
-										<td class="r-o">베드:</td>
-										<td>더블 침대</td>
-									</tr>
-									<tr>
-										<td class="r-o">서비스:</td>
-										<td>무료 Wifi, LCD TV, 금연객실</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="#" class="primary-btn">More Details</a>
-						</div>
-					</div>
-				</div> -->
-	<!-- Js Plugins -->
+	
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
@@ -242,8 +102,6 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-
-
 
 </body>
 </html>
