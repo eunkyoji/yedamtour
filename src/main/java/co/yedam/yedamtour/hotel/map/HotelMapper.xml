@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.hotel.map.HotelMapper">
+	<select id="hotelSelectList" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
+	SELECT * FROM TOUR_HOTEL
+	</select>
+	
+	<select id="hotelSelect" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
+	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId}
+	
+	</select>
+	<insert id="hotelInsert" parameterType="co.yedam.yedamtour.hotel.service.HotelVO">
+	INSERT INTO TOUR_HOTEL(HOTEL_ID, HOTEL_NAME, HOTEL_DETAIL, HOTEL_PRICE)
+	VALUES (#{hotelId}, #{hotelName}, #{hotelDetail}, #{hotelPrice})
+	</insert>
+	
+	<update id="hotelUpdate" parameterType="co.yedam.yedamtour.hotel.service.HotelVO">
+	UPDATE TOUR_HOTEL
+	 <set>
+		  	<if test="hotelName != null"> HOTEL_NAME = #{hotelName},</if>
+		  	<if test="hotelDetail != null"> HOTEL_DETAIL = #{hotelDetail},</if>
+		  	<if test="hotelPrice != null"> HOTEL_PRICE = #{hotelPrice},</if>
+		  	<if test="hotelSale != null"> HOTEL_SALE = #{hotelSale},</if>
+		  	<if test="hotelCount != null"> HOTEL_COUNT = #{hotelCount},</if>
+		  	<if test="hotelImg != null"> HOTEL_IMG = #{hotelImg},</if>
+		  	<if test="hotelBedtype != null"> HOTEL_BEDTYPE = #{hotelBedtype},</if>
+		  	<if test="hotelService != null"> HOTEL_SERVICE = #{hotelService},</if>
+		  </set>
+	WHERE HOTEL_ID = #{hotelId}
+	</update>
+	
+	<delete id="hotelDelete" parameterType="co.yedam.yedamtour.hotel.service.HotelVO">
+	DELETE TOUR_HOTEL
+	WHERE HOTEL_ID = #{hotelId}
+	</delete>
+</mapper>
