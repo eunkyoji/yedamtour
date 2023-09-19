@@ -11,7 +11,7 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <body>
-<form id="frm" action="noticewriter.do" method="post" enctype="multipart/form-data">
+
 	<main id="main" class="main">
 		<div id="app">
 			<div class="pagetitle">
@@ -30,7 +30,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">공지사항</h5>
-
+							<form id="frm" action="noticewriter.do" method="post" enctype="multipart/form-data">
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">
@@ -40,8 +40,7 @@
 										name="noticeTitle">
 										<span class="input-group-text" id="basic-addon1">이미지</span> 
 										<input type="file" class="form-control" aria-label="Username"
-										aria-describedby="basic-addon1" id="noticeImg"
-										name="noticeImg">
+										aria-describedby="basic-addon1" id="imgfile" name="imgfile" required="required">
 								</div>
 							</div>
 							<div class="input-group mb-3">
@@ -54,6 +53,7 @@
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'noticelist.do'">목록</button>
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 			<input type="hidden" name="noticeWriter" value="hong@gmail.com">
 		</div>
 	</main>
-</form>
+
 	<script type="text/javascript">
 
 	</script>

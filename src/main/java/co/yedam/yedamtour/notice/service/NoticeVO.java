@@ -14,4 +14,5 @@ public class NoticeVO {
 	private int			noticeCount;
 	private LocalDate 	noticeWriteDate;
 	private LocalDate 	noticeUpdateDate;
+	private String		noticeThumb;
 }

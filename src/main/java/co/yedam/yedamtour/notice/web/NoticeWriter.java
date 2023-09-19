@@ -1,5 +1,6 @@
 package co.yedam.yedamtour.notice.web;
 
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import co.yedam.yedamtour.common.ThumbNail;
 import co.yedam.yedamtour.notice.service.NoticeService;
 import co.yedam.yedamtour.notice.service.NoticeVO;
 import co.yedam.yedamtour.notice.serviceImpl.NoticeServiceImpl;
@@ -23,6 +25,7 @@ public class NoticeWriter extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ThumbNail thumbNail = new ThumbNail();
 		NoticeService dao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
 		
@@ -37,7 +40,26 @@ public class NoticeWriter extends HttpServlet {
 		
 		String imgFileName = multi.getOriginalFileName("imgfile");	// 원본파일명
 		String realImg = multi.getFilesystemName("imgfile");	// 저장되는 파일명
+		vo.setNoticeImg(realImg);	// img file명을 저장한다.
 		
+		//썸네일 만들기
+		String fileExt = imgFileName.substring(imgFileName.lastIndexOf(".")+1); //확장자 명
+		String thumb = thumbNail.makeThumbnail(saveDir + File.separator + imgFileName, imgFileName, fileExt, saveDir + File.separator); //썸네일 생성
+		thumb = thumb.substring(thumb.lastIndexOf("\\")+1);	// 넘어온 결과에서 파일경로를 잘라내고 파일명만 얻음
+		vo.setNoticeThumb(thumb);
+		
+		System.out.println("====== " + multi.getParameter("noticeWriter"));
+		vo.setNoticeTitle("test");
+		vo.setNoticeContent(multi.getParameter("noticeContent"));
+		vo.setNoticeWriter("hong@gmail.com");
+		
+		int n = dao.noticeInsert(vo);
+		System.out.println(n + "================================");
+		if( n != 0 ) {
+			response.sendRedirect("noticelist.do");
+		} else {
+			
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
