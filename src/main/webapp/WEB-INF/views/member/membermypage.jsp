@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -66,11 +67,9 @@
 							<div class="d-flex justify-content-center py-4">
 								<a href="index.html"
 									class="logo d-flex align-items-center w-auto"> <img
-									src="niceadmin/assets/img/logo.png" alt="">
-									
-									 <span
+									src="niceadmin/assets/img/logo.png" alt=""> <span
 									class="d-none d-lg-block">마이페이지</span>
-									
+
 								</a>
 							</div>
 							<!-- End Logo -->
@@ -83,8 +82,8 @@
 										<h5 class="card-title text-center pb-0 fs-4">나의 정보</h5>
 									</div>
 
-									<form class="row g-3 needs-validation"
-										action="memberedit.do" method="post">
+									<form class="row g-3 needs-validation" action="memberedit.do"
+										method="post">
 
 										<div class="col-12">
 											<label for="memberId" class="form-label">아이디</label>
@@ -92,11 +91,13 @@
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
 												<input type="email" name="memberId" class="form-control"
 													id="memberId" value="${list.memberId }" readonly="readonly">
-												<button onclick="edit()" style="font-size: 10px; height: 19px">수정</button>
+												<button onclick="edit()"
+													style="font-size: 10px; height: 19px" type="button">수정</button>
 
-												<button onclick="commit()" id="btnId" style="font-size: 10px; height: 19px;display: none" type="submit">확인</button>
+												<button onclick="idCheck()" id="btnId"
+													style="font-size: 10px; height: 19px; display: none" type="button">확인</button>
 
-												
+
 											</div>
 										</div>
 
@@ -104,12 +105,13 @@
 											<label for="yourUsername" class="form-label">이름</label>
 											<div class="input-group has-validation">
 												<input type="email" name="username" class="form-control"
-													id="yourUsername" value="${list.memberName }" readonly="readonly">
+													id="yourUsername" value="${list.memberName }"
+													readonly="readonly">
 												<button style="font-size: 10px; height: 19px;">수정</button>
 
-												<button style="font-size: 10px; height: 19px; display: none" >확인</button>
+												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												
+
 											</div>
 										</div>
 
@@ -117,12 +119,13 @@
 											<label for="yourNickname" class="form-label">닉네임</label>
 											<div class="input-group has-validation">
 												<input type="text" name="usernickname" class="form-control"
-													id="yourNickname" value="${list.memberNickname }" readonly="readonly">
+													id="yourNickname" value="${list.memberNickname }"
+													readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												
+
 											</div>
 										</div>
 
@@ -131,12 +134,13 @@
 											<label for="yourTel" class="form-label">전화번호</label>
 											<div class="input-group has-validation">
 												<input type="tel" name="usertel" class="form-control"
-													id="yourTel" value="${list.memberPhone }" readonly="readonly">
+													id="yourTel" value="${list.memberPhone }"
+													readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
+												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												
+
 											</div>
 										</div>
 
@@ -147,12 +151,13 @@
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
 												<input type="email" name="useremail" class="form-control"
-													id="yourEmail" value="${list.memberEmail }" readonly="readonly">
+													id="yourEmail" value="${list.memberEmail }"
+													readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
+												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												
+
 											</div>
 										</div>
 
@@ -160,12 +165,13 @@
 											<label for="yourPassword" class="form-label">비밀번호</label>
 											<div class="input-group has-validation">
 												<input type="password" name="password" class="form-control"
-													id="yourPassword" required placeholder="비밀번호" readonly="readonly">
+													id="yourPassword" required placeholder="비밀번호"
+													readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
+												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												
+
 											</div>
 										</div>
 
@@ -174,7 +180,7 @@
 												재확인</label> <input type="password" name="password-check"
 												class="form-control" id="yourPasswordCheck" required
 												placeholder="비밀번호 다시 입력">
-											
+
 										</div>
 
 
@@ -211,25 +217,43 @@
 	</main>
 	<!-- End #main -->
 	<script>
-	function edit() {
-		document.querySelector("#btnId").setAttribute("style","display: block; font-size: 10px; height: 19px;");
-		document.getElementById('memberId').removeAttribute("readonly");
-		console.log(document.getElementById('memberId'));
-		
-		//document.querySelector(".Check").setAttribute("style","display: block;");
-		
-		
-		console.log(document.querySelector(".Check"));
+		function edit() {
+			document.querySelector("#btnId").setAttribute("style",
+					"display: block; font-size: 10px; height: 19px;");
+			document.getElementById('memberId').removeAttribute("readonly");
+			console.log(document.getElementById('memberId'));
 
-	}
-	function commit(){
-		document.getElementById('memberId').setAttribute("readonly","readonly");
-		
-	}
+			//document.querySelector(".Check").setAttribute("style","display: block;");
+
+			console.log(document.querySelector(".Check"));
+
+		}
+		function idCheck() {
+			let newId = document.getElementById('memberId').value
+			console.log(newId);
+			if (newId != '') {
+				fetch('check.do?id='+newId)
+				.then(function(e){
+					return e.text();
+					
+				}).then(x => {alert(x)
+					
+					if(x != "'이미 존재하는 아이디입니다.'"){
+					document.getElementById('memberId').setAttribute("readonly",
+					"readonly");	
+					}
+				})
+			}
+			
+		}
+
+		function memberUpdate() {
+
+		}
 	</script>
-	
-	
-	
+
+
+
 
 	<a href="#"
 		class="back-to-top d-flex align-items-center justify-content-center"><i

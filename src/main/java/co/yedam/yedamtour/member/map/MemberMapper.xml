@@ -10,8 +10,8 @@
 		resultType="co.yedam.yedamtour.member.service.MemberVO">
 		SELECT *
 		FROM TOUR_MEMBER
-		WHERE MEMBER_ID = #{memberId} AND MEMBER_PASSWORD =
-		#{memberPassword}
+		WHERE MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
+		
 	</select>
 	<select id="signupIdSelect"
 		resultType="co.yedam.yedamtour.member.service.MemberVO">
