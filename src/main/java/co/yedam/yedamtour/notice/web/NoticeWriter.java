@@ -38,23 +38,23 @@ public class NoticeWriter extends HttpServlet {
 													  "utf-8",	// encoding 타입
 													  new DefaultFileRenamePolicy());	// 중복파일 리네임(ex: 파일(1))
 		
-		String imgFileName = multi.getOriginalFileName("imgfile");	// 원본파일명
-		String realImg = multi.getFilesystemName("imgfile");	// 저장되는 파일명
-		vo.setNoticeImg(realImg);	// img file명을 저장한다.
-		
-		//썸네일 만들기
-		String fileExt = imgFileName.substring(imgFileName.lastIndexOf(".")+1); //확장자 명
-		String thumb = thumbNail.makeThumbnail(saveDir + File.separator + imgFileName, imgFileName, fileExt, saveDir + File.separator); //썸네일 생성
-		thumb = thumb.substring(thumb.lastIndexOf("\\")+1);	// 넘어온 결과에서 파일경로를 잘라내고 파일명만 얻음
-		vo.setNoticeThumb(thumb);
-		
-		System.out.println("====== " + multi.getParameter("noticeWriter"));
-		vo.setNoticeTitle("test");
+		if( multi.getOriginalFileName("imgfile") != null) {
+			String imgFileName = multi.getOriginalFileName("imgfile");	// 원본파일명
+			String realImg = multi.getFilesystemName("imgfile");	// 저장되는 파일명
+			vo.setNoticeImg(realImg);	// img file명을 저장한다.
+			
+			//썸네일 만들기
+			String fileExt = imgFileName.substring(imgFileName.lastIndexOf(".")+1); //확장자 명
+			String thumb = thumbNail.makeThumbnail(saveDir + File.separator + imgFileName, imgFileName, fileExt, saveDir + File.separator); //썸네일 생성
+			thumb = thumb.substring(thumb.lastIndexOf("\\")+1);	// 넘어온 결과에서 파일경로를 잘라내고 파일명만 얻음
+			vo.setNoticeThumb(thumb);
+		}
+		vo.setNoticeTitle(multi.getParameter("noticeTitle"));
 		vo.setNoticeContent(multi.getParameter("noticeContent"));
 		vo.setNoticeWriter("hong@gmail.com");
 		
 		int n = dao.noticeInsert(vo);
-		System.out.println(n + "================================");
+		
 		if( n != 0 ) {
 			response.sendRedirect("noticelist.do");
 		} else {

@@ -37,19 +37,18 @@
 									<span class="input-group-text" id="basic-addon1">제목</span> <input
 										type="text" class="form-control" aria-label="Username"
 										aria-describedby="basic-addon1" id="noticeTitle"
-										name="noticeTitle">
+										name="noticeTitle" value="${n.noticeTitle }">
 										<span class="input-group-text" id="basic-addon1">이미지</span> 
 										<input type="file" class="form-control" aria-label="Username"
-										aria-describedby="basic-addon1" id="imgfile" name="imgfile" required="required">
+										aria-describedby="basic-addon1" id="imgfile" name="imgfile" value="${n.noticeImg }">
 								</div>
 							</div>
 							<div class="input-group mb-3">
-								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="noticeContent" name="noticeContent"></textarea>
+								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="noticeContent" name="noticeContent">${n.noticeContent}</textarea>
 							</div>
 							<!-- End Quill Editor Full -->
 							<div align="right">
-								<button type="submit" class="btn btn-primary"
-									onclick="location.href = 'noticewrite.do'">저장</button>
+								<button type="submit" class="btn btn-primary" onclick="location.href = 'noticewrite.do'">저장</button>
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'noticelist.do'">목록</button>
 							</div>

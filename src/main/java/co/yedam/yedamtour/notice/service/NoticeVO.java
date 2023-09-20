@@ -1,18 +1,20 @@
 package co.yedam.yedamtour.notice.service;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import lombok.Data;
 
 @Data
 public class NoticeVO {
-	private int notice_id;
+	private int 		noticeId;
 	private String 		noticeTitle;
 	private String 		noticeContent;
 	private String 		noticeImg;
 	private String		noticeWriter;
 	private int			noticeCount;
-	private LocalDate 	noticeWriteDate;
-	private LocalDate 	noticeUpdateDate;
+	private Date 		noticeWriteDate;
+	private Date 		noticeUpdateDate;
 	private String		noticeThumb;
+	private int			rownum;
+	private String		noticeViewDate;
 }

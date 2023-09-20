@@ -20,7 +20,7 @@
 			</nav>
 		</div>
 		<!-- End Page Title -->
-
+		<form id="frm" action="noticewriter.do" method="post" enctype="multipart/form-data">
 		<section class="section">
 			<div class="row">
 				<div class="col-lg-12">
@@ -30,22 +30,33 @@
 							<h5 class="card-title">공지사항 상세</h5>
 							<!-- Table with stripped rows -->
 							<div class="card">
-								<img src="niceadmin/assets/img/card.jpg" class="card-img-top" alt="...">
+								<img src="niceadmin/assets/img/${n.noticeImg}" class="card-img-top" alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Card with an image on top</h5>
-									<p class="card-text">Some quick example text to build on
-										the card title and make up the bulk of the card's content.</p>
+									<h5 class="card-title">${n.noticeTitle }</h5>
+									<textarea >${n.noticeContent }
+									</textarea>
 								</div>
 							</div>
 							<!-- End Table with stripped rows -->
-
+							<div align="right">
+								<button type="button" class="btn btn-primary" onclick="noticeModify(${n.noticeId})">수정</button>
+								<button type="button" class="btn btn-primary" onclick="location.href = 'noticelist.do'">목록</button>
+							</div>
 						</div>
 					</div>
 
 				</div>
 			</div>
 		</section>
-
+		</form>
+		<form id="sform" action="noticemodify.do" method="post">
+			<input type="hidden" id="noticeId" name="noticeId">
+		</form>
 	</main>
+	<script type="text/javascript">
+		let form = document.getElementById("sform");
+		form.noticeId.value = id;
+		form.submit();
+	</script>
 </body>
 </html>

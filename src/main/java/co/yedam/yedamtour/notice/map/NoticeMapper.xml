@@ -2,11 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.yedamtour.notice.map.NoticeMapper">
 	<select id="noticeSelectList" resultType="co.yedam.yedamtour.notice.service.NoticeVO">
-		SELECT * FROM TOUR_NOTICE
+		SELECT ROWNUM, A.* FROM(
+			SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_COUNT, NOTICE_WRITER, NOTICE_WRITE_DATE, NOTICE_UPDATE_DATE  
+			  FROM TOUR_NOTICE
+			 ORDER BY NOTICE_ID DESC) A
 	</select>
 	<select id="noticeSelect" resultType="co.yedam.yedamtour.notice.service.NoticeVO">
 		SELECT * FROM TOUR_NOTICE
-		 WHERE TOUR_NOTICE_ID = #{noticeId}
+		 WHERE NOTICE_ID = #{noticeId}
 	</select>
 	<insert id="noticeInsert" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
 		<selectKey keyProperty="noticeId" resultType="int" order="BEFORE">
@@ -14,10 +17,7 @@
 			  FROM TOUR_NOTICE
 		</selectKey>
 		INSERT INTO TOUR_NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_WRITER, NOTICE_IMG, NOTICE_THUMB, NOTICE_COUNT, NOTICE_WRITE_DATE)
-		VALUES(#{noticeId), #{noticeTitle}, #{noticeContent}, #{noticeWriter}, #{noticeImg}, #{noticeThumb}, 0, SYSDATE)
+		VALUES(#{noticeId}, #{noticeTitle}, #{noticeContent}, #{noticeWriter}, #{noticeImg}, #{noticeThumb}, 0, SYSDATE)
 	</insert>
-	<update id="noticeUpdate" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
-	</update>
-	<delete id="noticeDelete" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
-	</delete>
+	
 </mapper>

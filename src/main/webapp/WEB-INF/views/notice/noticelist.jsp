@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link href="webapp/css/noticelist.css" rel="stylesheet">
 <body>
 	<main id="main" class="main">
 
@@ -38,25 +40,36 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="noticedetail.do">
-										<th scope="row">1</th>
-										<td>Brandon Jacob</td>
-										<td>Designer</td>
-									</tr>
+									<c:choose>
+										<c:when test="${empty notices }">
+											<tr>
+												<td colspan="7" align="center">등록된 게시물이 없습니다.</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${notices}" var="n">
+												<tr onmouseover="this.style.background='white'" onmouseout="this.style.background='#f5f3f3'"
+													onclick="noticeselect(${n.noticeId})">
+													<th scope="row">${n.rownum }</th>
+													<td>${n.noticeTitle }</td>
+													<td>${n.noticeViewDate }</td>
+												</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
 
-						<div align="right">
-							<button type="button" class="btn btn-primary" onclick="location.href = 'noticewriteform.do'">글쓰기</button>
-						</div>
+							<div align="right">
+								<button type="button" class="btn btn-primary" onclick="location.href = 'noticewriteform.do'">글쓰기</button>
+							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</section>
-
+	
 	</main>
 	<form id="sform" action="noticedetails.do" method="post">
 		<input type="hidden" id="noticeId" name="noticeId">
@@ -66,7 +79,7 @@
 	var TableBackgroundMouseoverColor = "#f5f3f3";
 	
 	// These two functions need no customization.
-	function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor; }
+	function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor}
 	function RestoreBackgroundColor(row) { row.style.backgroundColor = TableBackgroundNormalColor; }
 	
 	//게시글 상세조회
