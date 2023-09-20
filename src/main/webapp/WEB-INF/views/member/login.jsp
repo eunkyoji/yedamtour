@@ -109,6 +109,7 @@
 													name="remember" value="true" id="rememberMe"> <label
 													class="form-check-label" for="rememberMe">Remember
 													me</label>
+													<a style="float: right;" href="membersearch.do">ID/PW찾기</a>
 											</div>
 										</div>
 										<div class="col-12">
@@ -116,9 +117,9 @@
 										</div>
 										<div class="col-12">
 											<p class="small mb-0">
-												Don't have account? <a href="pages-register.html">Create
-													an account</a>
+												 <a style="float: right;" href="signupform.do">회원가입</a>
 											</p>
+											<a href="membermypage.do">마이페이지테스트</a>
 										</div>
 									</form>
 

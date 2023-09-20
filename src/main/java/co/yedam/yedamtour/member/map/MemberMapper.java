@@ -14,4 +14,6 @@ public interface MemberMapper {
 	int memberInsert(MemberVO vo);
 
 	int memberDelete(MemberVO vo);
+	
+	MemberVO signupIdSelect(MemberVO vo);
 }

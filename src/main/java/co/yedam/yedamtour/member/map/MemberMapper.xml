@@ -8,11 +8,45 @@
 	</select>
 	<select id="memberSelect"
 		resultType="co.yedam.yedamtour.member.service.MemberVO">
-		SELECT * 
+		SELECT *
 		FROM TOUR_MEMBER
-		WHERE MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
-		
+		WHERE MEMBER_ID = #{memberId} AND MEMBER_PASSWORD =
+		#{memberPassword}
+	</select>
+	<select id="signupIdSelect"
+		resultType="co.yedam.yedamtour.member.service.MemberVO">
+		SELECT *
+		FROM TOUR_MEMBER
+		WHERE MEMBER_ID = #{memberId}
 	</select>
 
+	<insert id="memberInsert"
+		parameterType="co.yedam.yedamtour.member.service.MemberVO">
+		INSERT INTO TOUR_MEMBER
+		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberPhone},#{memberNickname})
+	</insert>
+	<update id="memberUpdate">
+	UPDATE TOUR_MEMBER SET
+	<if test="memberId != null">
+			MEMBER_ID = #{memberId}
+		</if>
+		<if test="memberPassword != null">
+			MEMBER_PASSWORD = #{memberPassword}
+		</if>
+		<if test="memberName != null">
+			MEMBER_NAME = #{memberName}
+		</if>
+		<if test="memberEmail != null">
+			MEMBER_EMAIL = #{memberEmail}
+		</if>
+		<if test="memberPhone != null">
+			MEMBER_PHONE = #{memberPhone}
+		</if>
+		<if test="memberNickname != null">
+			MEMBER_NICKNAME = #{memberNickname}
+		</if>
+		
+	
+	</update>
 
 </mapper>

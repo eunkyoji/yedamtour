@@ -39,4 +39,9 @@ public class MemberServiceImpl implements MemberService{
 		return map.memberDelete(vo);
 	}
 
+	@Override
+	public MemberVO signupIdSelect(MemberVO vo) {
+		return map.signupIdSelect(vo);
+	}
+
 }

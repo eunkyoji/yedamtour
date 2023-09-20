@@ -9,6 +9,8 @@ public interface MemberService {
 	int memberInsert(MemberVO vo);
 	int memberDelete(MemberVO vo);
 	
+	MemberVO signupIdSelect(MemberVO vo);
+	
 
 
 }

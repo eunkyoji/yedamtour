@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.yedamtour.common.ViewResolve;
 
-@WebServlet("/signup.do")
+@WebServlet("/signupform.do")
 public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

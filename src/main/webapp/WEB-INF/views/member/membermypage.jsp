@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -64,8 +66,11 @@
 							<div class="d-flex justify-content-center py-4">
 								<a href="index.html"
 									class="logo d-flex align-items-center w-auto"> <img
-									src="niceadmin/assets/img/logo.png" alt=""> <span
+									src="niceadmin/assets/img/logo.png" alt="">
+									
+									 <span
 									class="d-none d-lg-block">마이페이지</span>
+									
 								</a>
 							</div>
 							<!-- End Logo -->
@@ -78,19 +83,20 @@
 										<h5 class="card-title text-center pb-0 fs-4">나의 정보</h5>
 									</div>
 
-									<form class="row g-3 needs-validation" novalidate>
+									<form class="row g-3 needs-validation"
+										action="memberedit.do" method="post">
 
 										<div class="col-12">
-											<label for="yourId" class="form-label">아이디</label>
+											<label for="memberId" class="form-label">아이디</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="email" name="userid" class="form-control"
-													id="yourId" required placeholder="yedamtour@naver.com">
-												<button style="font-size: 10px; height: 19px">수정</button>
+												<input type="email" name="memberId" class="form-control"
+													id="memberId" value="${list.memberId }" readonly="readonly">
+												<button onclick="edit()" style="font-size: 10px; height: 19px">수정</button>
 
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
+												<button onclick="commit()" id="btnId" style="font-size: 10px; height: 19px;display: none" type="submit">확인</button>
 
-												<div class="invalid-feedback">아이디를 입력해 주세요.</div>
+												
 											</div>
 										</div>
 
@@ -98,12 +104,12 @@
 											<label for="yourUsername" class="form-label">이름</label>
 											<div class="input-group has-validation">
 												<input type="email" name="username" class="form-control"
-													id="yourUsername" required placeholder="이름">
+													id="yourUsername" value="${list.memberName }" readonly="readonly">
 												<button style="font-size: 10px; height: 19px;">수정</button>
 
-												<button style="font-size: 10px; height: 19px; display: none">확인</button>
+												<button style="font-size: 10px; height: 19px; display: none" >확인</button>
 
-												<div class="invalid-feedback">성함을 입력해 주세요.</div>
+												
 											</div>
 										</div>
 
@@ -111,12 +117,12 @@
 											<label for="yourNickname" class="form-label">닉네임</label>
 											<div class="input-group has-validation">
 												<input type="text" name="usernickname" class="form-control"
-													id="yourNickname" required placeholder="닉네임">
+													id="yourNickname" value="${list.memberNickname }" readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												<div class="invalid-feedback">닉네임을 입력해 주세요.</div>
+												
 											</div>
 										</div>
 
@@ -125,12 +131,12 @@
 											<label for="yourTel" class="form-label">전화번호</label>
 											<div class="input-group has-validation">
 												<input type="tel" name="usertel" class="form-control"
-													id="yourTel" required placeholder="01011111111">
+													id="yourTel" value="${list.memberPhone }" readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
 												<button style="font-size: 10px; height: 19px;display: none">확인</button>
 
-												<div class="invalid-feedback">전화번호를 입력해 주세요.</div>
+												
 											</div>
 										</div>
 
@@ -141,12 +147,12 @@
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
 												<input type="email" name="useremail" class="form-control"
-													id="yourEmail" required placeholder="이메일">
+													id="yourEmail" value="${list.memberEmail }" readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
 												<button style="font-size: 10px; height: 19px;display: none">확인</button>
 
-												<div class="invalid-feedback">이메일을 입력해 주세요.</div>
+												
 											</div>
 										</div>
 
@@ -154,21 +160,21 @@
 											<label for="yourPassword" class="form-label">비밀번호</label>
 											<div class="input-group has-validation">
 												<input type="password" name="password" class="form-control"
-													id="yourPassword" required placeholder="비밀번호">
+													id="yourPassword" required placeholder="비밀번호" readonly="readonly">
 												<button style="font-size: 10px; height: 19px">수정</button>
 
 												<button style="font-size: 10px; height: 19px;display: none">확인</button>
 
-												<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+												
 											</div>
 										</div>
 
-										<div class="col-12" style="display: none">
+										<div class="col-12 Check" style="display: none">
 											<label for="yourPasswordCheck" class="form-label">비밀번호
 												재확인</label> <input type="password" name="password-check"
 												class="form-control" id="yourPasswordCheck" required
 												placeholder="비밀번호 다시 입력">
-											<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+											
 										</div>
 
 
@@ -204,6 +210,26 @@
 		</div>
 	</main>
 	<!-- End #main -->
+	<script>
+	function edit() {
+		document.querySelector("#btnId").setAttribute("style","display: block; font-size: 10px; height: 19px;");
+		document.getElementById('memberId').removeAttribute("readonly");
+		console.log(document.getElementById('memberId'));
+		
+		//document.querySelector(".Check").setAttribute("style","display: block;");
+		
+		
+		console.log(document.querySelector(".Check"));
+
+	}
+	function commit(){
+		document.getElementById('memberId').setAttribute("readonly","readonly");
+		
+	}
+	</script>
+	
+	
+	
 
 	<a href="#"
 		class="back-to-top d-flex align-items-center justify-content-center"><i

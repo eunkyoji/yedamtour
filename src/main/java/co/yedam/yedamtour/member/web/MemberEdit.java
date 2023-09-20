@@ -1,7 +1,6 @@
 package co.yedam.yedamtour.member.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,44 +13,28 @@ import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
 import co.yedam.yedamtour.member.service.MemberService;
 import co.yedam.yedamtour.member.service.MemberVO;
 
-@WebServlet("/login.do")
-public class LoginController extends HttpServlet {
+@WebServlet("/memberedit.do")
+public class MemberEdit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public LoginController() {
+	public MemberEdit() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 로그인
-		
 		HttpSession session = request.getSession();
-
+		MemberVO vo2 = new MemberVO();
 		MemberService dao = new MemberServiceImpl();
-		MemberVO vo = new MemberVO();
-
-		vo.setMemberId(request.getParameter("memberId"));
-		vo.setMemberPassword(request.getParameter("memberPassword"));
-		
-		vo = dao.memberSelect(vo);
 		String page = null;
-		if(vo != null) {
-			
-			session.setAttribute("id", vo.getMemberId());
-			session.setAttribute("password", vo.getMemberPassword());
-			
-			page = "tour.do";
+		vo2.setMemberId(request.getParameter("memberId"));
+		int result = dao.memberUpdate(vo2);
+		if (result == 1) {
+			session.setAttribute("id", vo2.getMemberId());
+			session.setAttribute("pw", vo2.getMemberPassword());
+			page = "membermypage.do";
 			response.sendRedirect(page);
-		} else {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
 
-			out.write("<script>alert('아이디 혹은 비밀번호가 다릅니다.');"
-					+ "history.go(-1);</script>");
-			
-			out.flush();
-			out.close();
 		}
 	}
 

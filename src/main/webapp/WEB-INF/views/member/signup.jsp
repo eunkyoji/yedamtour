@@ -74,65 +74,66 @@
 										<p class="text-center small">아래 빈칸에 정보를 기입해주세요. </p>
 									</div>
 
-									<form class="row g-3 needs-validation" novalidate>
+									<form class="row g-3 needs-validation"
+										action="signup.do" method="post">
 									
 									<div class="col-12">
-											<label for="yourUsername" class="form-label">이름</label>
+											<label for="memberName" class="form-label">이름</label>
 											<div class="input-group has-validation">
-												<input type="email" name="username" class="form-control"
-													id="yourUsername" required placeholder="이름 입력">
+												<input type="text" name="memberName" class="form-control"
+													id="memberName" required placeholder="이름 입력">
 												<div class="invalid-feedback">성함을 입력해 주세요.</div>
 											</div>
 										</div>
 
 										<div class="col-12">
-											<label for="yourId" class="form-label">아이디</label><label for="yourId" >&nbsp;아이디는 이메일형식입니다.</label>
+											<label for="memberId" class="form-label">아이디</label><label for="memberId" >&nbsp;아이디는 이메일형식입니다.</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="email" name="userid" class="form-control"
-													id="yourId" required placeholder="ex: yedamtour@naver.com">
+												<input type="email" name="memberId" class="form-control"
+													id="memberId" required placeholder="ex: yedamtour@naver.com">
 												<div class="invalid-feedback">아이디를 입력해 주세요.</div>
 											</div>
 										</div>
 
 										<div class="col-12">
-											<label for="yourPassword" class="form-label">비밀번호</label>
-											<input type="password" name="password" class="form-control"
-												id="yourPassword" required placeholder="비밀번호 입력">
+											<label for="memberPassword" class="form-label">비밀번호</label>
+											<input type="password" name="memberPassword" class="form-control"
+												id="memberPassword" required placeholder="비밀번호 입력">
 											<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 										</div>
 
 										<div class="col-12">
-											<label for="yourPasswordCheck" class="form-label">비밀번호 재확인</label>
-											<input type="password" name="password-check" class="form-control"
-												id="yourPasswordCheck" required placeholder="비밀번호 다시 입력">
+											<label for="memberPasswordCheck" class="form-label">비밀번호 재확인</label>
+											<input type="password" name="memberPasswordCheck" class="form-control"
+												id="memberPasswordCheck" required placeholder="비밀번호 다시 입력">
 											<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 										</div>
 										
 										<div class="col-12">
-											<label for="yourEmail" class="form-label">이메일</label>
+											<label for="memberEmail" class="form-label">이메일</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="email" name="useremail" class="form-control"
-													id="yourEmail" required placeholder="이메일 수신혜택을 받을 이메일 입력">
+												<input type="email" name="memberEmail" class="form-control"
+													id="memberEmail" placeholder="X">
 												<div class="invalid-feedback">이메일을 입력해 주세요.</div>
 											</div>
 										</div>
 										
 										<div class="col-12">
-											<label for="yourTel" class="form-label">전화번호</label>
+											<label for="memberPhone" class="form-label">전화번호</label>
 											<div class="input-group has-validation">
-												<input type="tel" name="usertel" class="form-control"
-													id="yourTel" required placeholder="숫자만 입력">
+												<input type="tel" name="memberPhone" class="form-control"
+													id="memberPhone" required placeholder="숫자만 입력">
 												<div class="invalid-feedback">전화번호를 입력해 주세요.</div>
 											</div>
 										</div>
 										
 										<div class="col-12">
-											<label for="yourNickname" class="form-label">닉네임</label>
+											<label for="memberNickname" class="form-label">닉네임</label>
 											<div class="input-group has-validation">
-												<input type="text" name="usernickname" class="form-control"
-													id="yourNickname" required placeholder="닉네임 입력">
+												<input type="text" name="memberNickname" class="form-control"
+													id="memberNickname" required placeholder="닉네임 입력">
 												<div class="invalid-feedback">닉네임을 입력해 주세요.</div>
 											</div>
 										</div>
@@ -141,7 +142,8 @@
 										<div class="col-12">
 											<button class="btn btn-primary w-100" type="submit">가입</button>
 										</div>
-										<a href="tour.do">dd</a>
+										<a href="tour.do">홈가기</a>
+										
 									</form>
 
 								</div>

@@ -11,7 +11,7 @@ public class MemberVO {
 		String memberName;
 		String memberEmail;
 		String memberPhone;
-		String memberNickName;
+		String memberNickname;
 	
 	
 }
