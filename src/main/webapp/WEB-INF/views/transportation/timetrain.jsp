@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,27 +28,28 @@
 				</div>
 				<div class="row mb-5">
 					<form class="col-md-12" method="post">
+					<c:forEach items="${trains } var="t">
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="product-name">등급</th>
-										<th class="product-price">출발시간</th>
+										<th class="product-name">${t.trainGrade }등급</th>
+										<th class="product-price">${t.trainDeptime }출발시간</th>
 										<th class="product-arrow"></th>
-										<th class="product-quantity">도착시간</th>
-										<th class="product-total">가격</th>
+										<th class="product-quantity">${t.trainArrtime }도착시간</th>
+										<th class="product-total">${t.trainPrice }가격</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 
 										<td class="product-name">
-											<h2 class="h5 text-black">우등</h2>
+											<h2 class="h5 text-black">${t.trainGrade }우등</h2>
 										</td>
-										<td>06:00</td>
+										<td>${t.trainDeptime }06:00</td>
 										<td>-></td>
-										<td>08:00</td>
-										<td>20,000원</td>
+										<td>${t.trainArrtime }08:00</td>
+										<td>${t.trainPrice }20,000원</td>
 									</tr>
 
 									<tr>
@@ -63,6 +65,7 @@
 								</tbody>
 							</table>
 						</div>
+						</c:forEach>
 					</form>
 				</div>
 				<div class="row">

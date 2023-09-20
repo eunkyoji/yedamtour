@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,9 +44,9 @@
                       <label for="id_label_single">출발지</label>
                       <label for="id_label_single" style="width: 100%;">
                         <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                        <!-- <c:foreach item="${members }" var="m"> -->
-                          <option value="Seoul">서울경부</option>
-                          <option value="Gwangju">광주</option>
+                        <c:forEach items="${buses }" var="b">
+                          <option value="Seoul">${b.busStart }</option>
+                         <!--  <option value="Gwangju">광주</option>
                           <option value="Busan">부산</option>
                           <option value="Sasang">부산사상</option>
                           <option value="Dongseoul">동서울</option>
@@ -54,8 +55,8 @@
                           <option value="Usung">유성</option>
                           <option value="Chenan">천안</option>
                           <option value="Dongdaegu">동대구</option>
-                          <option value="Sungnam">성남</option>
-                          <!-- </c:foreach> -->
+                          <option value="Sungnam">성남</option> -->
+                        </c:forEach>
                         </select>
                       </label>
                     </div>
@@ -66,8 +67,9 @@
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
                         <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                          <option value="Seoul">서울경부</option>
-                          <option value="Gwangju">광주</option>
+                        <c:forEach items="${buses }" var="b">
+                          <option value="Seoul">${b.busFinish }</option>
+                         <!--  <option value="Gwangju">광주</option>
                           <option value="Busan">부산</option>
                           <option value="Sasang">부산사상</option>
                           <option value="Dongseoul">동서울</option>
@@ -76,7 +78,8 @@
                           <option value="Usung">유성</option>
                           <option value="Chenan">천안</option>
                           <option value="Dongdaegu">동대구</option>
-                          <option value="Sungnam">성남</option>
+                          <option value="Sungnam">성남</option> -->
+                          </c:forEach>
                         </select>
                       </label>
                       </div>
@@ -90,8 +93,9 @@
                       <label for="id_label_single">인원</label>
                       <label for="id_label_single" style="width: 100%;">
                         <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
+                        <c:forEach items="${buses }" var="b">
+                          <option value="1">${b.busPerson }</option>
+                         <!--  <option value="2">2</option>
                           <option value="3">3</option>
                           <option value="4">4</option>
                           <option value="5">5</option>
@@ -99,7 +103,8 @@
                           <option value="7">7</option>
                           <option value="8">8</option>
                           <option value="9">9</option>
-                          <option value="10">10</option>
+                          <option value="10">10</option> -->
+                          </c:forEach>
                         </select>
                       </label>
                     </div>
@@ -110,9 +115,11 @@
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
                         <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                          <option value="Normal">일반</option>
-                          <option value="Udeung">우등</option>
-                          <option value="Premium">프리미엄</option>
+                         <c:forEach items="${buses }" var="b">
+                          <option value="Normal">${b.busGrade }</option>
+                          <!-- <option value="Udeung">우등</option>
+                          <option value="Premium">프리미엄</option> -->
+                          </c:forEach>
                         </select>
                       </label>
                       </div>
