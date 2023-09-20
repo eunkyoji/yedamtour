@@ -60,6 +60,12 @@ public class NoticeWriter extends HttpServlet {
 		} else {
 			
 		}
+		String attech = multi.getOriginalFileName("attechfile");
+		if( attech != null ) {
+			String attechFile = multi.getFilesystemName("attechfile");
+			vo.setNoticeImg(attechFile);
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
