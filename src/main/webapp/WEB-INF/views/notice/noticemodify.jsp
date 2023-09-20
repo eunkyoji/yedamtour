@@ -30,7 +30,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">공지사항</h5>
-							<form id="frm" action="noticewriter.do" method="post" enctype="multipart/form-data">
+							<form id="frm" action="noticeupdate.do" method="post" enctype="multipart/form-data">
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">

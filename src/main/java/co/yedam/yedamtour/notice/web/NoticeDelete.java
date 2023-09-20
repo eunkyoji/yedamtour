@@ -7,30 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.yedamtour.common.ViewResolve;
+import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.notice.service.NoticeService;
 import co.yedam.yedamtour.notice.service.NoticeVO;
 import co.yedam.yedamtour.notice.serviceImpl.NoticeServiceImpl;
 
-@WebServlet("/noticemodify.do")
-public class NoticeModify extends HttpServlet {
+@WebServlet("/noticedelete.do")
+public class NoticeDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public NoticeModify() {
+    public NoticeDelete() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NoticeService dao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
-		System.out.println(request.getParameter("noticeId"));
+		
 		vo.setNoticeId(Integer.valueOf(request.getParameter("noticeId")));
-		vo = dao.noticeSelect(vo);
 		
-		request.setAttribute("n", vo);
+		int n = dao.noticeDelete(vo);
 		
-		String page = "admin/notice/noticemodify";
-		ViewResolve.forward(request, response, page);
+		if( n != 0 ) {
+			//response.sendRedirect("noticelist.do");
+			AlertControl.alertAndGo(response, "게시물이 삭제 되었습니다.", "noticelist.do");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

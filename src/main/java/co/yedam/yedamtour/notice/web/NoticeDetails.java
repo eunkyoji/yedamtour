@@ -15,7 +15,7 @@ import co.yedam.yedamtour.notice.service.NoticeService;
 import co.yedam.yedamtour.notice.service.NoticeVO;
 import co.yedam.yedamtour.notice.serviceImpl.NoticeServiceImpl;
 
-@WebServlet("/noticedetails.do")
+@WebServlet("/noticedetail.do")
 public class NoticeDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,7 +43,7 @@ public class NoticeDetails extends HttpServlet {
 		
 		request.setAttribute("n", vo);
 		
-		String page = "admin/notice/noticedetails";
+		String page = "admin/notice/noticedetail";
 		ViewResolve.forward(request, response, page);
 	}
 

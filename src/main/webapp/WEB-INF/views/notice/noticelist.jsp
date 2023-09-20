@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <link href="webapp/css/noticelist.css" rel="stylesheet">
+
 <body>
 	<main id="main" class="main">
 
@@ -31,7 +32,7 @@
 						<div class="card-body">
 							<h5 class="card-title">공지사항</h5>
 							<!-- Table with stripped rows -->
-							<table class="table datatable">
+							<table class="table">
 								<thead>
 									<tr>
 										<th scope="col">순번</th>
@@ -48,8 +49,7 @@
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${notices}" var="n">
-												<tr onmouseover="this.style.background='white'" onmouseout="this.style.background='#f5f3f3'"
-													onclick="noticeselect(${n.noticeId})">
+												<tr style="cursor:pointer" onclick="noticeSelect(${n.noticeId})">
 													<th scope="row">${n.rownum }</th>
 													<td>${n.noticeTitle }</td>
 													<td>${n.noticeViewDate }</td>
@@ -71,19 +71,24 @@
 		</section>
 	
 	</main>
-	<form id="sform" action="noticedetails.do" method="post">
+	<form id="sform" action="noticedetail.do" method="post">
 		<input type="hidden" id="noticeId" name="noticeId">
 	</form>
 	<script type="text/javascript">
+	// Specify the normal table row background color
+	//   and the background color for when the mouse 
+	//   hovers over the table row.
+	
 	var TableBackgroundNormalColor = "#ffffff";
 	var TableBackgroundMouseoverColor = "#f5f3f3";
 	
 	// These two functions need no customization.
-	function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor}
+	function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor; }
 	function RestoreBackgroundColor(row) { row.style.backgroundColor = TableBackgroundNormalColor; }
 	
 	//게시글 상세조회
 	function noticeSelect(id){
+		console.log(id + "==========================");
 		let form = document.getElementById("sform");
 		form.noticeId.value = id;
 		form.submit();
