@@ -14,20 +14,17 @@
 
 	<!-- Contact -->
 	<section class="pt-5 pt-md-9" id="booking">
-		<br> <br>
+		<br><br>
 		<div class="contact_section">
 			<div class="container">			
 				<div class="row">
-
 					<!-- Contact Content -->
 					<div class="col-lg-5">
-					<h2>웨스턴 그레이스 호텔</h2></a>
-							<div class="contact_section_text">
-								<br>
-								<p>레스토랑, 카페, 연회장 등의 부대시설을 이용 할 수 있습니다 전 객실 오션뷰로 아름다운 영종도바다를
-									감상하실 수 있으며 영종씨사이드파크 레일바이크, 영종진공원, 영종역사관, 영종관광어시장, 구읍뱃터가 도보
-									5분거리내 위치하고 있습니다.</p>
-							</div>
+					<h2>${hotels.hotelName }</h2><span>${hotels.hotelAddress }</span>
+						<div class="contact_section_text">
+							<br><br>
+							<p>${hotels.hotelDetail }</p>
+						</div>
 							<div class="contact_section_info">
 								<ul>
 									<li
@@ -37,9 +34,7 @@
 												class="d-flex flex-column align-items-center justify-content-center">
 												<img src="images/icon_1.png" alt="">
 											</div>
-										</div> <br>
-									<br>
-									<div>　　　* 인천 중구 중산동 1955-1　　　* +82 123 456 789</div>
+										</div><br>
 									</li>
 									<li
 										class="d-flex flex-row align-items-center justify-content-start">
@@ -52,9 +47,7 @@
 									</li>
 									<li
 										class="d-flex flex-row align-items-center justify-content-start">
-										<div>
-											<br> <img
-												src="jadoo/public/assets/img/icons/bathicon.png" alt="">
+										<div><img src="jadoo/public/assets/img/icons/bathicon.png" alt="">
 											<img src="jadoo/public/assets/img/icons/parkicon.png" alt="">
 											<img src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
 											<img src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
@@ -63,10 +56,9 @@
 								</ul>
 							</div>
 					</div>
-
 					<!-- Contact Image -->
 					<div class="col-lg-7 contact_section_col">
-							<img src="jadoo/public/assets/img/rooms/hotel1.jpg" alt="">
+							<img src="jadoo/public/assets/img/rooms/${hotels.hotelImg }" alt="">
 					</div>
 					<!-- Contact Image Close-->
 
@@ -180,9 +172,7 @@
 	</section>
 	<!-- Rooms Section End -->
 	
-<script>
-
-</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 	
 </body>
 </html>

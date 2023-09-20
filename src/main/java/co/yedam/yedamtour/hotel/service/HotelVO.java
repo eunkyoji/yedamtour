@@ -15,5 +15,4 @@ public class HotelVO {
 	private String hotelBedtype;
 	private String hotelService;
 	private String hotelAddress;
-	private int hotelCall;
 }

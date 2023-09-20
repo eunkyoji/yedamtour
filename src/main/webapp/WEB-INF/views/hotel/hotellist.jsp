@@ -66,8 +66,8 @@
 							<div class="room-item">
 								<img src="img/rooms/${h.hotelImg }" alt="">
 								<div class="ri-text">
-									<a href="hoteldetail.do"><h4>${h.hotelName }</h4></a>
-									<h3>${h.hotelPrice }원~<span>/1박</span>
+									<h4>${h.hotelName }</h4>
+									<h3>${h.hotelPrice }만원~<span>/1박</span>
 									</h3>
 									<table>
 										<tbody>
@@ -85,8 +85,7 @@
 											</tr>
 										</tbody>
 									</table>
-									<a class="primary-btn" onclick="hotelSelect(${h.hotelId })">More
-										Details</a>
+									<a class="primary-btn" onclick="hotelSelect(${h.hotelId })">More Details</a>
 								</div>
 							</div>
 						</div>

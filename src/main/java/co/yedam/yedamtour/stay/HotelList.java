@@ -28,7 +28,7 @@ public class HotelList extends HttpServlet {
 		List<HotelVO> hotels = new ArrayList<HotelVO>();		
 		
 		hotels = dao.hotelSelectList();
-		request.setAttribute("hotels", hotels);		
+		request.setAttribute("hotels", hotels);
 		
 		String page = "hotel/hotellist";
 		ViewResolve.forward(request, response, page);
