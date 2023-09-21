@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import lombok.Data;
 
+
 @Data
 public class BusVO {
 	private int busId;
@@ -12,7 +13,7 @@ public class BusVO {
 	private Date busGoday;
 	private Date busComeday;
 	private String busGrade;
-	private int busPrice;
+	private String busPrice;
 	private String busPerson;
 	private String busDeptime;
 	private String busArrtime;

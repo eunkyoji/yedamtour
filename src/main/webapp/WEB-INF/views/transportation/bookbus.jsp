@@ -36,7 +36,7 @@
           <div class="col">
            <img src="jadoo/public/assetsbook/images/bus.jpg"  alt="steps" style="width: 650px;"/></div>
           <div class="col probootstrap-animate">
-            <form action="timebus.do" class="probootstrap-form">
+            <form id="search" action="timebus.do" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
@@ -44,10 +44,10 @@
                       <label for="id_label_single">출발지</label>
                       <label for="id_label_single" style="width: 100%;">
                         <select name="start" class="js-example-basic-single js-states form-control" id="start" style="width: 100%;">                        
-                          <option value="Seoul">서울</option>
-                          <option value="Gwangju">광주</option>
-                          <option value="Daegeon">대전복합</option>
-                          <option value="Dongdaegu">동대구</option>
+                          <option value="서울">서울</option>
+                          <option value="광주">광주</option>
+                          <option value="대전복합">대전복합</option>
+                          <option value="동대구">동대구</option>
                         </select>
                       </label>
                     </div>
@@ -57,11 +57,11 @@
                       <label for="id_label_single2">도착지</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">                    
-                          <option value="Seoul">서울</option>
-                         <option value="Gwangju">광주</option>
-                          <option value="Daegeon">대전복합</option>
-                          <option value="Dongdaegu">동대구</option>                          
+                        <select name="finish" class="js-example-basic-single js-states form-control" id="finish" style="width: 100%;">                    
+                          <option value="서울">서울</option>
+                         <option value="광주">광주</option>
+                          <option value="대전복합">대전복합</option>
+                          <option value="동대구">동대구</option>                          
                         </select>
                       </label>
                       </div>
@@ -76,7 +76,7 @@
                     <div class="form-group">
                       <label for="probootstrap-date-departure">가는날</label>
                       <div class="probootstrap-date-wrap">                     
-                        <input type="text" id="probootstrap-date-departure" class="form-control" placeholder="">
+                        <input type="text" id="probootstrap-date-departure" class="form-control" name="startDate" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -84,7 +84,7 @@
                     <div class="form-group">
                       <label for="probootstrap-date-arrival">오는날</label>
                       <div class="probootstrap-date-wrap">                       
-                        <input type="text" id="probootstrap-date-arrival" class="form-control" placeholder="">
+                        <input type="text" id="probootstrap-date-arrival" class="form-control" name="finishDate" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -124,6 +124,25 @@
           </div>
         </div>
       </div>
+      
+      <script type="text/javascript">
+      function searchList(){ // ajax post 방식
+  		let form = document.getElementById("search");
+  		let start = form.start.value;
+  		let finish = form.finish.value;
+  		//const formData = new FormData(form); // 자바스크립트 FormData class
+  		//let payload = formData;
+  		let payload = "start=" + start + "&finish=" + finish;
+  		let url = "timebus.do";
+  		fetch(url,{
+  			method: "POST",
+  			headers: {'Content-Type': 'application/x-www.form-urlencoded'},
+  			body: payload
+  		}).then(response=>response.json())
+  		  .then(json=>htmlViews(json));
+  	}
+      </script>
+      
     <script src="jadoo/public/assetsbook/js/jquery.min.js"></script>
     
     <script src="jadoo/public/assetsbook/js/popper.min.js"></script>
