@@ -52,7 +52,7 @@ public class FreeBoardWrite extends HttpServlet {
 		}
 		vo.setFreeBoardTitle(multi.getParameter("freeBoardTitle"));
 		vo.setFreeBoardContent(multi.getParameter("reeBoardContent"));
-		vo.setFreeBoardWriter("hong@gmail.com");
+		vo.setFreeBoardWriter("user1");
 		
 		int n = dao.freeBoardInsert(vo);
 		

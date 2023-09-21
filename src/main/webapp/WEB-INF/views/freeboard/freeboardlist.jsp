@@ -29,13 +29,13 @@
 								</thead>
 								<tbody>
 									<c:choose>
-										<c:when test="${empty freeboard }">
+										<c:when test="${empty list }">
 											<tr>
 												<td colspan="6" align="center">등록된 게시물이 없습니다.</td>
 											</tr>
 										</c:when>
 										<c:otherwise>
-											<c:forEach items="${freeboard}" var="f">
+											<c:forEach items="${list}" var="f">
 												<tr style="cursor:pointer" onclick="freeBoardSelect(${f.freeBoardId})">
 													<th scope="row">${f.rownum }</th>
 													<td>${f.freeBoardThumb}</td>
