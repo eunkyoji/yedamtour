@@ -50,8 +50,8 @@ public class FreeBoardWrite extends HttpServlet {
 			thumb = thumb.substring(thumb.lastIndexOf("\\")+1);	// 넘어온 결과에서 파일경로를 잘라내고 파일명만 얻음
 			vo.setFreeBoardThumb(thumb);
 		}
-		vo.setFreeBoardTitle(multi.getParameter("noticeTitle"));
-		vo.setFreeBoardContent(multi.getParameter("noticeContent"));
+		vo.setFreeBoardTitle(multi.getParameter("freeBoardTitle"));
+		vo.setFreeBoardContent(multi.getParameter("reeBoardContent"));
 		vo.setFreeBoardWriter("hong@gmail.com");
 		
 		int n = dao.freeBoardInsert(vo);

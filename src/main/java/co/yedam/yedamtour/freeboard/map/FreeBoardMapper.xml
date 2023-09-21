@@ -19,7 +19,7 @@
 			  FROM TOUR_FREEBOARD
 		</selectKey>
 		INSERT INTO TOUR_FREEBOARD(FREEBOARD_ID, FREEBOARD_TITLE, FREEBOARD_CONTENT, FREEBOARD_IMG, FREEBOARD_WRITER, FREEBOARD_WRITE_DATE, FREEBOARD_THUMB)
-		VALUES(#{freeBoardId}, #{freeboardTitle}, #{freeboardContent}, #{freeboardImg}, #{freeboardWriter}, SYSDATE, #{freeboardThumb})
+		VALUES(#{freeBoardId}, #{freeBoardTitle}, #{freeBoardContent}, #{freeBoardImg}, #{freeBoardWriter}, SYSDATE, #{freeBoardThumb})
 	</insert>
 	<update id="freeBoardUpdate" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
 	</update>

@@ -25,21 +25,21 @@
 								<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">제목</span> <input
 										type="text" class="form-control" aria-label="Username"
-										aria-describedby="basic-addon1" id="freeboardTitle"
-										name="freeboardTitle" value="${n.noticeTitle }">
+										aria-describedby="basic-addon1" id="freeBoardTitle"
+										name="freeBoardTitle">
 										<span class="input-group-text" id="basic-addon1">이미지</span> 
 										<input type="file" class="form-control" aria-label="Username"
 										aria-describedby="basic-addon1" id="imgfile" name="imgfile" placeholder="jpg, png, gif">
 								</div>
 							</div>
 							<div class="input-group mb-3">
-								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="freeboardContent" name="freeboardContent"></textarea>
+								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="freeBoardContent" name="freeBoardContent"></textarea>
 							</div>
 							<!-- End Quill Editor Full -->
 							<div align="right">
-								<button type="submit" class="btn btn-primary" onclick="location.href = 'noticewrite.do'">저장</button>
+								<button type="submit" class="btn btn-primary" onclick="location.href = 'freeboardwrite.do'">저장</button>
 								<button type="reset" class="btn btn-primary">취소</button>
-								<button type="reset" class="btn btn-primary" onclick="location.href = 'noticelist.do'">목록</button>
+								<button type="reset" class="btn btn-primary" onclick="location.href = 'freeboardlist.do'">목록</button>
 							</div>
 							</form>
 						</div>
