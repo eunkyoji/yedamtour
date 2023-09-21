@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,19 +9,6 @@
 </head>
 <body>
 	<main id="main" class="main">
-
-		<div class="pagetitle">
-			<h1>게시판관리</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item">게시판관리</li>
-					<li class="breadcrumb-item active">자유게시판</li>
-				</ol>
-			</nav>
-		</div>
-		<!-- End Page Title -->
-
 		<section class="section">
 			<div class="row">
 				<div class="col-lg-12">
@@ -29,10 +17,11 @@
 						<div class="card-body">
 							<h5 class="card-title">자유게시판</h5>
 							<!-- Table with stripped rows -->
-							<table class="table datatable">
+							<table class="table">
 								<thead>
 									<tr>
 										<th scope="col">번호</th>
+										<th scope="col">이미지</th>
 										<th scope="col">제목</th>
 										<th scope="col">작성자</th>
 										<th scope="col">작성일</th>
@@ -40,19 +29,31 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="freeboarddetail.do"><!-- onclick="noticeSelect(${n.rowNum})"-->
-										<th scope="row">1</th>
-										<td>Brandon Jacob</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-									</tr>
+									<c:choose>
+										<c:when test="${empty list }">
+											<tr>
+												<td colspan="6" align="center">등록된 게시물이 없습니다.</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${list}" var="f">
+												<tr style="cursor:pointer" onclick="freeBoardSelect(${f.freeBoardId})">
+													<th scope="row">${f.rownum }</th>
+													<td><img src="attech/freeboard/${f.freeBoardThumb}"></td>
+													<td>${f.freeBoardTitle}</td>
+													<td>${f.freeBoardNicName }</td>
+													<td>${f.freeBoardViewDate }</td>
+													<td>${f.freeBoardHit }</td>
+												</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
 
 						<div align="right">
-							<button type="button" class="btn btn-primary" onclick="location.href = 'freeboardwrite.do'">글쓰기</button>
+							<button type="button" class="btn btn-primary" onclick="location.href = 'freeboardwriteform.do'">글쓰기</button>
 						</div>
 						</div>
 					</div>
@@ -60,7 +61,20 @@
 				</div>
 			</div>
 		</section>
-
 	</main>
+	<form id="sform" action="freeboarddetail.do" method="post">
+		<input type="hidden" id="freeBoardId" name="freeBoardId">
+	</form>
+	
+	<script>
+		//게시글 상세조회
+		
+		function freeBoardSelect(id){
+			console.log(id + "==========================");
+			let form = document.getElementById("sform");
+			form.freeBoardId.value = id;
+			form.submit();
+		}
+	</script>
 </body>
 </html>

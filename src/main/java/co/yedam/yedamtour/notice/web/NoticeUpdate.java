@@ -52,15 +52,14 @@ public class NoticeUpdate extends HttpServlet {
 		}
 		vo.setNoticeTitle(multi.getParameter("noticeTitle"));
 		vo.setNoticeContent(multi.getParameter("noticeContent"));
-		vo.setNoticeWriter("hong@gmail.com");
 		
 		int n = dao.noticeUpdate(vo);
-		
+		System.out.println(n + "=============================");
 		if( n != 0 ) {
 			//response.sendRedirect("noticelist.do");
 			AlertControl.alertAndGo(response, "게시글이 수정 되었습니다.", "noticelist.do");
 		} else {
-			
+			AlertControl.alertAndGo(response, "수정이 실패 되었습니다.", "noticelist.do");
 		}
 		String attech = multi.getOriginalFileName("attechfile");
 		if( attech != null ) {

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.common.ThumbNail;
 import co.yedam.yedamtour.notice.service.NoticeService;
 import co.yedam.yedamtour.notice.service.NoticeVO;
@@ -56,7 +57,8 @@ public class NoticeWriter extends HttpServlet {
 		int n = dao.noticeInsert(vo);
 		
 		if( n != 0 ) {
-			response.sendRedirect("noticelist.do");
+			//response.sendRedirect("noticelist.do");
+			AlertControl.alertAndGo(response, "저장 되었습니다.", "noticelist.do");
 		} else {
 			
 		}

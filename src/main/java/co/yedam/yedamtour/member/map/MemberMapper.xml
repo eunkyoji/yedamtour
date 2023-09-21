@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.member.map.MemberMapper">
+	<select id="memberSelectList"
+		resultType="co.yedam.yedamtour.member.service.MemberVO">
+		SELECT *
+		FROM TOUR_MEMBER
+	</select>
+	<select id="memberSelect"
+		resultType="co.yedam.yedamtour.member.service.MemberVO">
+		SELECT *
+		FROM TOUR_MEMBER
+		WHERE MEMBER_ID = #{memberId} AND
+		MEMBER_PASSWORD = #{memberPassword}
+
+	</select>
+	<select id="signupIdSelect"
+		resultType="co.yedam.yedamtour.member.service.MemberVO">
+		SELECT *
+		FROM TOUR_MEMBER
+		WHERE MEMBER_ID = #{memberId}
+	</select>
+
+	<insert id="memberInsert"
+		parameterType="co.yedam.yedamtour.member.service.MemberVO">
+		INSERT INTO TOUR_MEMBER
+		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberPhone},#{memberNickname})
+	</insert>
+	<update id="memberUpdate"
+		parameterType="co.yedam.yedamtour.member.service.MemberVO">
+		UPDATE TOUR_MEMBER
+		<set>
+			<if test="memberId != null">
+				MEMBER_ID = #{memberId},
+			</if>
+			<if test="memberPassword != null">
+				MEMBER_PASSWORD = #{memberPassword},
+			</if>
+			<if test="memberName != null">
+				MEMBER_NAME = #{memberName},
+			</if>
+			<if test="memberEmail != null">
+				MEMBER_EMAIL = #{memberEmail},
+			</if>
+			<if test="memberPhone != null">
+				MEMBER_PHONE = #{memberPhone},
+			</if>
+			<if test="memberNickname != null">
+				MEMBER_NICKNAME = #{memberNickname}
+			</if>
+		</set>
+		WHERE MEMBER_ID = #{memberId}
+
+	</update>
+	<delete id="memberDelete"
+	parameterType="co.yedam.yedamtour.member.service.MemberVO">
+	DELETE FROM TOUR_MEMBER
+	WHERE member_id = #{memberId}
+	</delete>
+</mapper>

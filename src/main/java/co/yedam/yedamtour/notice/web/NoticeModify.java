@@ -23,7 +23,7 @@ public class NoticeModify extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NoticeService dao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
-		System.out.println(request.getParameter("noticeId"));
+		
 		vo.setNoticeId(Integer.valueOf(request.getParameter("noticeId")));
 		vo = dao.noticeSelect(vo);
 		

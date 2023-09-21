@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.yedamtour.common.ViewResolve;
+import co.yedam.yedamtour.freeboard.service.FreeBoardService;
+import co.yedam.yedamtour.freeboard.service.FreeBoardVO;
+import co.yedam.yedamtour.freeboard.serviceImpl.FreeBoardServiceImpl;
 
 @WebServlet("/freeboarddetail.do")
 public class FreeBoardDetails extends HttpServlet {
@@ -18,6 +21,14 @@ public class FreeBoardDetails extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FreeBoardService dao = new FreeBoardServiceImpl();
+		FreeBoardVO vo = new FreeBoardVO();
+		
+		vo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
+		
+		vo = dao.freeBoardSelect(vo);
+		request.setAttribute("f", vo);
+		
 		String page = "admin/freeboard/freeboarddetail";
 		ViewResolve.forward(request, response, page);
 	}

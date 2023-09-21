@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,8 @@
 <title>Pages / Login - NiceAdmin Bootstrap Template</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <!-- Favicons -->
 <link href="niceadmin/assets/img/favicon.png" rel="icon">
 <link href="niceadmin/assets/img/apple-touch-icon.png"
@@ -66,6 +68,7 @@
 									class="logo d-flex align-items-center w-auto"> <img
 									src="niceadmin/assets/img/logo.png" alt=""> <span
 									class="d-none d-lg-block">마이페이지</span>
+
 								</a>
 							</div>
 							<!-- End Logo -->
@@ -73,115 +76,127 @@
 							<div class="card mb-3">
 
 								<div class="card-body">
+									<form class="row g-3 needs-validation" id="test" method="post">
 
-									<div class="pt-4 pb-2">
-										<h5 class="card-title text-center pb-0 fs-4">나의 정보</h5>
-									</div>
+										<div class="pt-4 pb-2">
+											<h5 class="card-title text-center pb-0 fs-4">나의 정보</h5>
+										</div>
 
-									<form class="row g-3 needs-validation" novalidate>
+
 
 										<div class="col-12">
-											<label for="yourId" class="form-label">아이디</label>
+											<label for="memberId" class="form-label">아이디</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="email" name="userid" class="form-control"
-													id="yourId" required placeholder="yedamtour@naver.com">
-												<button style="font-size: 10px; height: 19px">수정</button>
+												<input type="email" name="memberId" class="form-control"
+													id="memberId" value="${list.memberId }">
+												<button class="editBtn"
+													style="font-size: 10px; height: 19px; display: none"
+													type="button">수정</button>
 
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
+												<button style="font-size: 10px; height: 19px" type="button"
+													id="idCheck" value="No" onclick="memberIdCheck()">중복체크</button>
 
-												<div class="invalid-feedback">아이디를 입력해 주세요.</div>
+											
+									
+											</div>
+										</div>
+
+
+										<div class="col-12">
+											<label for="memberName" class="form-label">이름</label>
+											<div class="input-group has-validation">
+												<input type="text" name="memberName" class="form-control"
+													id="memberName" value="${list.memberName }">
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
+
 											</div>
 										</div>
 
 										<div class="col-12">
-											<label for="yourUsername" class="form-label">이름</label>
+											<label for="memberNickname" class="form-label">닉네임</label>
 											<div class="input-group has-validation">
-												<input type="email" name="username" class="form-control"
-													id="yourUsername" required placeholder="이름">
-												<button style="font-size: 10px; height: 19px;">수정</button>
+												<input type="text" name="memberNickname"
+													class="form-control" id="memberNickname"
+													value="${list.memberNickname }">
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												<div class="invalid-feedback">성함을 입력해 주세요.</div>
+
 											</div>
 										</div>
 
+
 										<div class="col-12">
-											<label for="yourNickname" class="form-label">닉네임</label>
+											<label for="memberPhone" class="form-label">전화번호</label>
 											<div class="input-group has-validation">
-												<input type="text" name="usernickname" class="form-control"
-													id="yourNickname" required placeholder="닉네임">
-												<button style="font-size: 10px; height: 19px">수정</button>
+												<input type="tel" name="memberPhone" class="form-control"
+													id="memberPhone" value="${list.memberPhone }"
+													>
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												<div class="invalid-feedback">닉네임을 입력해 주세요.</div>
-											</div>
-										</div>
 
-
-										<div class="col-12">
-											<label for="yourTel" class="form-label">전화번호</label>
-											<div class="input-group has-validation">
-												<input type="tel" name="usertel" class="form-control"
-													id="yourTel" required placeholder="01011111111">
-												<button style="font-size: 10px; height: 19px">수정</button>
-
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
-
-												<div class="invalid-feedback">전화번호를 입력해 주세요.</div>
 											</div>
 										</div>
 
 
 
 										<div class="col-12">
-											<label for="yourEmail" class="form-label">이메일</label>
+											<label for="memberEmail" class="form-label">이메일</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="email" name="useremail" class="form-control"
-													id="yourEmail" required placeholder="이메일">
-												<button style="font-size: 10px; height: 19px">수정</button>
+												<input type="email" name="memberEmail" class="form-control"
+													id="memberEmail" value="${list.memberEmail }"
+													>
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
+												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												<div class="invalid-feedback">이메일을 입력해 주세요.</div>
+
 											</div>
 										</div>
 
 										<div class="col-12">
-											<label for="yourPassword" class="form-label">비밀번호</label>
+											<label for="memberPassword" class="form-label">비밀번호</label>
 											<div class="input-group has-validation">
-												<input type="password" name="password" class="form-control"
-													id="yourPassword" required placeholder="비밀번호">
-												<button style="font-size: 10px; height: 19px">수정</button>
+												<input type="password" name="memberPassword" class="form-control"
+													id="memberPassword" required placeholder="비밀번호" value="${list.memberPassword }">
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
-												<button style="font-size: 10px; height: 19px;display: none">확인</button>
+												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
-												<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+
 											</div>
 										</div>
 
-										<div class="col-12" style="display: none">
-											<label for="yourPasswordCheck" class="form-label">비밀번호
-												재확인</label> <input type="password" name="password-check"
-												class="form-control" id="yourPasswordCheck" required
+										<div class="col-12 Check" style="display: none">
+											<label for="passwordCheck" class="form-label">비밀번호
+												재확인</label> <input type="password" name="passwordCheck"
+												class="form-control" id="passwordCheck" required
 												placeholder="비밀번호 다시 입력">
-											<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+
 										</div>
-
-
-
-
-
-
-
-										<div class="col-12">
-											<button class="btn btn-primary w-100" type="submit">가입</button>
-										</div>
-										<a href="tour.do">home</a>
 									</form>
+
+
+
+
+
+
+									<div class="col-12">
+										<button id="memberDelete" class="btn btn-primary w-100"
+											type="button">회원탈퇴</button>
+									</div>
+									<a href="tour.do">home</a>
+
 
 								</div>
 							</div>
@@ -196,6 +211,9 @@
 
 						</div>
 						<!-- 컨테이너 끝나는 부분-->
+						<form id="selectfrm" action="memberedit.do" method="POST">
+											<input type="hidden" id="useId" name="useId" value="${list.memberId }" readonly="readonly">
+											</form>	
 					</div>
 				</div>
 
@@ -204,6 +222,159 @@
 		</div>
 	</main>
 	<!-- End #main -->
+	<script>
+	/* 	function edit() {
+			document.querySelector("#idCheck").setAttribute("style",
+					"display: block; font-size: 10px; height: 19px;");
+			document.getElementById('memberId').removeAttribute("readonly");
+			console.log(document.getElementById('memberId'));
+
+			//document.querySelector(".Check").setAttribute("style","display: block;");
+
+			console.log(document.querySelector(".Check"));
+
+		} */
+		
+		//수정누르면 작동
+		$('.editBtn').on('click', function(){
+			
+			console.log("aaaaa");
+			$.ajax({
+				url:'memberedit.do',
+				method:'post',
+				data:{id : $('#memberId').val(),
+				 password : $('#memberPassword').val(),
+				 name : $('#memberName').val(),
+				 nickname : $('#memberNickname').val(),
+				 phone : $('#memberPhone').val(),
+				 email : $('#memberEmail').val()
+				},
+				success: function(e){
+					alert("정보를 변경하는데 성공했습니다.");		
+				},
+				error: function(e){
+					alert("정보를 변경하는데 실패했습니다.");
+				}
+			})
+			})
+		
+			$('#memberDelete').on('click', function(){
+			console.log("aaaaa");
+			$.ajax({
+				url:'memberdelete.do',
+				method:'post',
+				data:{id : $('#memberId').val()
+				},
+				success: function(e){
+					alert("회원탈퇴가 처리되었습니다.");
+					let url ="tour.do"
+					location.replace(url);
+					
+				},
+				error: function(e){
+					console.log(e);
+				}
+			})
+			})
+			
+			
+			
+			
+		function memberIdCheck() {  //aJax 사용
+			let url = "check.do"
+			let payload = document.getElementById("memberId").value;
+			console.log(payload);
+			url = url + "?memberId=" + payload;
+			
+			fetch(url)  //get 방식
+				.then(response => response.text())
+				.then(text => membercheck(text));
+		}
+		
+		function membercheck(str) {
+			var email = document.getElementById("memberId").value
+			var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+				if(exptext.test(email)==false){
+				//이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
+				alert("이메일형식이 올바르지 않습니다.");
+				}else if(str == 'Yes' ) {
+					
+				alert("사용가능한 아이디 입니다.");
+				document.getElementById("idCheck").value = "Yes";
+				document.getElementById("editBtn").setAttribute("style","display: block");
+				}else{
+				alert("이미 사용하는 아이디 입니다.");
+				document.getElementById("memberId").focus();
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//add event
+		/* $('#btnId').on('click', function(){
+			let id = $('#memberId').val();			
+			$.ajax({
+				url:'check.do',
+				method:'post',
+				data:{'id' : id},
+				success: function(e){
+					console.log(e.retCode);
+					if(e.retCode == "Fail"){
+						alert('사용불가능한 아이디입니다.');
+					}else{
+						alert('사용가능한 아이디입니다.')	;
+					}					
+				},
+				error: function(e){
+					console.log(e);
+				}
+			})
+		}) */
+		
+		/* function idCheck() {
+			let newId = document.getElementById('memberId').value
+			console.log(newId);
+			if (newId != '') {
+				fetch('check.do?id='+newId)
+				.then(function(e){
+					return e.text();
+					
+				}).then(x => {alert(x)
+					
+					if(x != "'이미 존재하는 아이디입니다.'"){
+					document.getElementById('memberId').setAttribute("readonly",
+					"readonly");	
+					}
+				})
+			}
+			
+		}
+
+		
+		
+		function memberDel(){
+			fetch('memberdelete.do')
+			.then(function(){
+				
+			})
+		} */
+	</script>
+
+
+
 
 	<a href="#"
 		class="back-to-top d-flex align-items-center justify-content-center"><i

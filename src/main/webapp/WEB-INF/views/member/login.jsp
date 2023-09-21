@@ -12,7 +12,8 @@
 
 <!-- Favicons -->
 <link href="niceadmin/assets/img/favicon.png" rel="icon">
-<link href="niceadmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="niceadmin/assets/img/apple-touch-icon.png"
+	rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -27,10 +28,14 @@
 	rel="stylesheet">
 <link href="niceadmin/assets/vendor/boxicons/css/boxicons.min.css"
 	rel="stylesheet">
-<link href="niceadmin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-<link href="niceadmin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-<link href="niceadmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="niceadmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+<link href="niceadmin/assets/vendor/quill/quill.snow.css"
+	rel="stylesheet">
+<link href="niceadmin/assets/vendor/quill/quill.bubble.css"
+	rel="stylesheet">
+<link href="niceadmin/assets/vendor/remixicon/remixicon.css"
+	rel="stylesheet">
+<link href="niceadmin/assets/vendor/simple-datatables/style.css"
+	rel="stylesheet">
 
 <!-- Template Main CSS File -->
 <link href="niceadmin/assets/css/style.css" rel="stylesheet">
@@ -76,23 +81,24 @@
 											password to login</p>
 									</div>
 
-									<form class="row g-3 needs-validation" novalidate>
+									<form class="row g-3 needs-validation"
+										action="login.do" method="post">
 
 										<div class="col-12">
-											<label for="yourUsername" class="form-label">Username</label>
+											<label for="yourUsername" class="form-label">아이디</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="text" name="username" class="form-control"
-													id="yourUsername" required>
+												<input type="email" name="memberId" class="form-control"
+													id="memberId" required>
 												<div class="invalid-feedback">Please enter your
 													username.</div>
 											</div>
 										</div>
 
 										<div class="col-12">
-											<label for="yourPassword" class="form-label">Password</label>
-											<input type="password" name="password" class="form-control"
-												id="yourPassword" required>
+											<label for="yourPassword" class="form-label">비밀번호</label>
+											<input type="password" name="memberPassword" class="form-control"
+												id="memberPassword" required>
 											<div class="invalid-feedback">Please enter your
 												password!</div>
 										</div>
@@ -103,6 +109,7 @@
 													name="remember" value="true" id="rememberMe"> <label
 													class="form-check-label" for="rememberMe">Remember
 													me</label>
+													<a style="float: right;" href="membersearch.do">ID/PW찾기</a>
 											</div>
 										</div>
 										<div class="col-12">
@@ -110,9 +117,9 @@
 										</div>
 										<div class="col-12">
 											<p class="small mb-0">
-												Don't have account? <a href="pages-register.html">Create
-													an account</a>
+												 <a style="float: right;" href="signupform.do">회원가입</a>
 											</p>
+											<a href="membermypage.do">마이페이지테스트</a>
 										</div>
 									</form>
 
@@ -143,11 +150,13 @@
 
 	<!-- Vendor JS Files -->
 	<script src="niceadmin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-	<script src="niceadmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="niceadmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="niceadmin/assets/vendor/chart.js/chart.umd.js"></script>
 	<script src="niceadmin/assets/vendor/echarts/echarts.min.js"></script>
 	<script src="niceadmin/assets/vendor/quill/quill.min.js"></script>
-	<script src="niceadmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
+	<script
+		src="niceadmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
 	<script src="niceadmin/assets/vendor/tinymce/tinymce.min.js"></script>
 	<script src="niceadmin/assets/vendor/php-email-form/validate.js"></script>
 
