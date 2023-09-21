@@ -7,8 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
 import co.yedam.yedamtour.member.service.MemberService;
 import co.yedam.yedamtour.member.service.MemberVO;
@@ -23,19 +23,24 @@ public class MemberEdit extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		MemberVO vo2 = new MemberVO();
 		MemberService dao = new MemberServiceImpl();
-		String page = null;
-		vo2.setMemberId(request.getParameter("memberId"));
-		int result = dao.memberUpdate(vo2);
-		if (result == 1) {
-			session.setAttribute("id", vo2.getMemberId());
-			session.setAttribute("pw", vo2.getMemberPassword());
-			page = "membermypage.do";
-			response.sendRedirect(page);
+		MemberVO vo = new MemberVO();
+		String pw = request.getParameter("password");
+		vo.setMemberId(request.getParameter("id"));
+		vo.setMemberName(request.getParameter("name"));
+		vo.setMemberNickname(request.getParameter("nickname"));
+		vo.setMemberPhone(request.getParameter("phone"));
+		vo.setMemberEmail(request.getParameter("email"));
+		System.out.println(request.getParameter("id"));
+		System.out.println(vo);
 
+		if (pw != null) {
+			vo.setMemberPassword(request.getParameter("password"));
 		}
+		int result = dao.memberUpdate(vo);
+		System.out.println(result);
+		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
