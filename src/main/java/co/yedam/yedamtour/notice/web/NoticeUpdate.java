@@ -11,16 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.common.ThumbNail;
 import co.yedam.yedamtour.notice.service.NoticeService;
 import co.yedam.yedamtour.notice.service.NoticeVO;
 import co.yedam.yedamtour.notice.serviceImpl.NoticeServiceImpl;
 
-@WebServlet("/noticewriter.do")
-public class NoticeWriter extends HttpServlet {
+@WebServlet("/noticeupdate.do")
+public class NoticeUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public NoticeWriter() {
+    public NoticeUpdate() {
         super();
     }
 
@@ -53,10 +54,11 @@ public class NoticeWriter extends HttpServlet {
 		vo.setNoticeContent(multi.getParameter("noticeContent"));
 		vo.setNoticeWriter("hong@gmail.com");
 		
-		int n = dao.noticeInsert(vo);
+		int n = dao.noticeUpdate(vo);
 		
 		if( n != 0 ) {
-			response.sendRedirect("noticelist.do");
+			//response.sendRedirect("noticelist.do");
+			AlertControl.alertAndGo(response, "게시글이 수정 되었습니다.", "noticelist.do");
 		} else {
 			
 		}
@@ -65,7 +67,6 @@ public class NoticeWriter extends HttpServlet {
 			String attechFile = multi.getFilesystemName("attechfile");
 			vo.setNoticeImg(attechFile);
 		}
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
