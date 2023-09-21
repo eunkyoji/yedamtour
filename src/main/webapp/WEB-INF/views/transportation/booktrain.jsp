@@ -34,92 +34,34 @@
 <div class="container">
  <div class="row mt-5">
           <div class="col">
-           <img src="jadoo/public/assetsbook/images/bus.jpg"  alt="steps" style="width: 650px;"/></div>
+           <img src="jadoo/public/assetsbook/images/train.jpg"  alt="steps" style="width: 650px;"/></div>
           <div class="col probootstrap-animate">
-            <form action="timebus.do" class="probootstrap-form">
+            <form action="timetrain.do" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
                     <div class="form-group">
-                      <label for="id_label_single">From</label>
+                      <label for="id_label_single">출발지</label>
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                         <c:forEach items="${trains }" var="t">
-                          <option value="Seoul">${t.trainStart }</option>
-                          <option value="Gwangju">광주</option>
-                          <option value="Busan">부산</option>
-                          <option value="Sasang">부산사상</option>
-                          <option value="Dongseoul">동서울</option>
-                          <option value="Daegeon">대전복합</option>
-                          <option value="Jeonju">전주</option>
-                          <option value="Usung">유성</option>
-                          <option value="Chenan">천안</option>
+                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                      
+                          <option value="Seoul">서울</option>
                           <option value="Dongdaegu">동대구</option>
-                          <option value="Sungnam">성남</option>
-                          </c:forEach>
+                          <option value="Busan">부산</option>
+                          <option value="Daejeon">대전</option>                       
                         </select>
                       </label>
                     </div>
                   </div>
                   <div class="col-md">
                     <div class="form-group">
-                      <label for="id_label_single2">To</label>
+                      <label for="id_label_single2">도착지</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
                         <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                        <c:forEach items="${trains }" var="t">
-                          <option value="Seoul">${t.trainFinish }</option>
-                          <option value="Gwangju">광주</option>
-                          <option value="Busan">부산</option>
-                          <option value="Sasang">부산사상</option>
-                          <option value="Dongseoul">동서울</option>
-                          <option value="Daegeon">대전복합</option>
-                          <option value="Jeonju">전주</option>
-                          <option value="Usung">유성</option>
-                          <option value="Chenan">천안</option>
+                         <option value="Seoul">서울</option>
                           <option value="Dongdaegu">동대구</option>
-                          <option value="Sungnam">성남</option>
-                          </c:forEach>
-                        </select>
-                      </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- END row -->
-                <div class="row mb-3">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="id_label_single">Personnel</label>
-                      <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                        <c:forEach items="${trains }" var="t">
-                          <option value="1">${t.trainPerson }</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                          </c:forEach>
-                        </select>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="id_label_single2">Grade</label>
-                      <div class="probootstrap_select-wrap">
-                        <label for="id_label_single2" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                        <c:forEach items="${trains }" var="t">
-                          <option value="Normal">${t.trainGrade }</option>
-                          <option value="Udeung">우등</option>
-                          <option value="Premium">프리미엄</option>
-                          </c:forEach>
+                          <option value="Busan">부산</option>
+                          <option value="Daejeon">대전</option>
                         </select>
                       </label>
                       </div>
@@ -130,7 +72,7 @@
                 <div class="row mb-5">
                   <div class="col-md">
                     <div class="form-group">
-                      <label for="probootstrap-date-departure">Departure</label>
+                      <label for="probootstrap-date-departure">가는날</label>
                       <div class="probootstrap-date-wrap">                     
                         <input type="text" id="probootstrap-date-departure" class="form-control" placeholder="">
                       </div>
@@ -138,21 +80,42 @@
                   </div>
                   <div class="col-md">
                     <div class="form-group">
-                      <label for="probootstrap-date-arrival">Arrival</label>
+                      <label for="probootstrap-date-arrival">오는날</label>
                       <div class="probootstrap-date-wrap">                       
                         <input type="text" id="probootstrap-date-arrival" class="form-control" placeholder="">
                       </div>
                     </div>
                   </div>
                 </div>
+                <div class="row mb-3">
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="id_label_single">인원</label>
+                      <label for="id_label_single" style="width: 100%;">
+                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                        
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>                         
+                        </select>
+                      </label>
+                    </div>
+                  </div>               
+                </div>
+                <!-- END row -->
                 <div class="row">
                   <div class="col-md">
-                    <label for="round" class="mr-5"><input type="radio" id="round" name="direction">  Round</label>
-                    <label for="oneway"><input type="radio" id="oneway" name="direction">  Oneway</label>
+                    <label for="round" class="mr-5"><input type="radio" id="round" name="direction">  왕복</label>
+                    <label for="oneway"><input type="radio" id="oneway" name="direction">  편도</label>
                   </div>
                   <div class="col-md">
-                    <a href="bustime.do"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
-                    <a href="bustime.do"></a>
+                    <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
                   </div>
                 </div>
               </div>

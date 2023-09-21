@@ -3,16 +3,18 @@
 <mapper namespace="co.yedam.yedamtour.bus.map.BusMapper">
 
 	<select id="busSelectList" resultType="co.yedam.yedamtour.bus.service.BusVO">
-		SELECT * FROM TOUR_BUS
+		SELECT * FROM TOUR_BUS 
+		where bus_start = #{busStart} and bus_finish = #{busFinish}
 	</select>
 	
 	<select id="busSelect" resultType="co.yedam.yedamtour.bus.service.BusVO">
-		select * from tour_bus where bus_id = #{busId}
+		SELECT * FROM TOUR_BUS WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
 	</select>
 	
 	<insert id="busInsert" parameterType="co.yedam.yedamtour.bus.service.BusVO">
-		insert into toue_bus
-		values(#{busId}, #{busStart}, #{busFinish}, )
+		INSERT INTO TOUR_BUS
+		VALUES(#{busId}, #{busStart}, #{busFinish}, #{busGoday}, #{busComeday},
+		#{busGrade}, #{busPrice}, #{busPerson}, #{busDeptime}, #{busArrtime}, #{busSeats},)
 	</insert>
 	
 	<update id="busUpdate" parameterType="co.yedam.yedamtour.bus.service.BusVO">

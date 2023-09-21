@@ -28,7 +28,7 @@
 				</div>
 				<div class="row mb-5">
 					<form class="col-md-12" method="post">
-					<c:forEach items="${buses } var="b">
+					<c:forEach items="${buses }" var="b">
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
@@ -64,6 +64,7 @@
 							</table>
 						</div>
 						</c:forEach>
+					</form>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
@@ -74,9 +75,10 @@
 			</div>
 		</div>
 
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<!-- <script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
-	<script src="js/custom.js"></script>
+	<script src="js/custom.js"></script> -->
 </body>
+
 
 </html>

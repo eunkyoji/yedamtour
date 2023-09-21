@@ -28,7 +28,7 @@
 				</div>
 				<div class="row mb-5">
 					<form class="col-md-12" method="post">
-					<c:forEach items="${airplanes } var="a">
+					<c:forEach items="${airplanes }" var="a">
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
@@ -57,9 +57,9 @@
 										<td class="product-name">
 											<h2 class="h5 text-black">일반</h2>
 										</td>
-										<td>07:00</td>
+										<td>${a.airplaneArrtime }07:00</td>
 										<td>-></td>
-										<td>09:00</td>
+										<td>${a.airplaneDeptime }09:00</td>
 										<td>16,000원</td>
 									</tr>
 								</tbody>

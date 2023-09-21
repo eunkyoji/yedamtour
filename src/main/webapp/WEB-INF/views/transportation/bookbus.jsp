@@ -43,20 +43,11 @@
                     <div class="form-group">
                       <label for="id_label_single">출발지</label>
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                        <c:forEach items="${buses }" var="b">
-                          <option value="Seoul">${b.busStart }</option>
-                         <!--  <option value="Gwangju">광주</option>
-                          <option value="Busan">부산</option>
-                          <option value="Sasang">부산사상</option>
-                          <option value="Dongseoul">동서울</option>
+                        <select name="start" class="js-example-basic-single js-states form-control" id="start" style="width: 100%;">                        
+                          <option value="Seoul">서울</option>
+                          <option value="Gwangju">광주</option>
                           <option value="Daegeon">대전복합</option>
-                          <option value="Jeonju">전주</option>
-                          <option value="Usung">유성</option>
-                          <option value="Chenan">천안</option>
                           <option value="Dongdaegu">동대구</option>
-                          <option value="Sungnam">성남</option> -->
-                        </c:forEach>
                         </select>
                       </label>
                     </div>
@@ -66,20 +57,11 @@
                       <label for="id_label_single2">도착지</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                        <c:forEach items="${buses }" var="b">
-                          <option value="Seoul">${b.busFinish }</option>
-                         <!--  <option value="Gwangju">광주</option>
-                          <option value="Busan">부산</option>
-                          <option value="Sasang">부산사상</option>
-                          <option value="Dongseoul">동서울</option>
+                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">                    
+                          <option value="Seoul">서울</option>
+                         <option value="Gwangju">광주</option>
                           <option value="Daegeon">대전복합</option>
-                          <option value="Jeonju">전주</option>
-                          <option value="Usung">유성</option>
-                          <option value="Chenan">천안</option>
-                          <option value="Dongdaegu">동대구</option>
-                          <option value="Sungnam">성남</option> -->
-                          </c:forEach>
+                          <option value="Dongdaegu">동대구</option>                          
                         </select>
                       </label>
                       </div>
@@ -87,44 +69,6 @@
                   </div>
                 </div>
                 <!-- END row -->
-                <div class="row mb-3">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="id_label_single">인원</label>
-                      <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                        <c:forEach items="${buses }" var="b">
-                          <option value="1">${b.busPerson }</option>
-                         <!--  <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option> -->
-                          </c:forEach>
-                        </select>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="id_label_single2">등급</label>
-                      <div class="probootstrap_select-wrap">
-                        <label for="id_label_single2" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                         <c:forEach items="${buses }" var="b">
-                          <option value="Normal">${b.busGrade }</option>
-                          <!-- <option value="Udeung">우등</option>
-                          <option value="Premium">프리미엄</option> -->
-                          </c:forEach>
-                        </select>
-                      </label>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <!-- END row -->
                 <div class="row mb-5">
@@ -145,14 +89,34 @@
                     </div>
                   </div>
                 </div>
+                <div class="row mb-3">
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="id_label_single">인원</label>
+                      <label for="id_label_single" style="width: 100%;">
+                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                       
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>                         
+                        </select>
+                      </label>
+                    </div>
+                  </div>                 
                 <div class="row">
                   <div class="col-md">
                     <label for="round" class="mr-5"><input type="radio" id="round" name="direction">  왕복</label>
                     <label for="oneway"><input type="radio" id="oneway" name="direction">  편도</label>
                   </div>
                   <div class="col-md">
-                    <a href="bustime.do"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
-                    <a href="bustime.do"></a>
+                    <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
+                    <a href="#"></a>
                   </div>
                 </div>
               </div>
@@ -173,6 +137,6 @@
     <script src="jadoo/public/assetsbook/js/select2.min.js"></script>
 
     <script src="jadoo/public/assetsbook/js/main.js"></script>
-    </section>
+    </section>    
 </body>
 </html>
