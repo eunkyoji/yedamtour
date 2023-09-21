@@ -39,10 +39,10 @@
 							style="border-radius: 0.3rem;" aria-labelledby="navbarDropdown">
 							<li><a class="dropdown-item" href="noticelist.do">공지사항</a></li>
 							<li><a class="dropdown-item" href="qnalist.do">Q & A</a></li>
-							<li><a class="dropdown-item" href="freeboradlist.do">자유게시판</a></li>
+							<li><a class="dropdown-item" href="freeboardlist.do">자유게시판</a></li>
 						</ul></li>
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#!">Login</a></li>
+						class="nav-link fw-medium" aria-current="page" href="login.do">Login</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="#!">Sign Up</a></li>
 					<li class="nav-item px-3 px-xl-4"><a

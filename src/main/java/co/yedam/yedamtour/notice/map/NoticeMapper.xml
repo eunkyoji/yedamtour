@@ -22,12 +22,13 @@
 	<update id="noticeUpdate" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
 		UPDATE TOUR_NOTICE
 			<set>
-				<if test="noticeTitle != null">NOTICE_TITLE = #{noticeTitle},</if>
-				<if test="noticeContent != null">NOTICE_CONTENT = #{noticeContent},</if>
-				<if test="noticeImg != null">NOTICE_IMG = #{noticeImg},</if>
-				<if test="noticeThumb != null">NOTICE_THUMB = #{noticeThumb}</if>
-				NOTICE_UPDATE_DATE = SYSDATE
+				<if test="noticeTitle != null">NOTICE_TITLE = #{noticeTitle}</if>
+				<if test="noticeContent != null">,NOTICE_CONTENT = #{noticeContent}</if>
+				<if test="noticeImg != null">,NOTICE_IMG = #{noticeImg}</if>
+				<if test="noticeThumb != null">,NOTICE_THUMB = #{noticeThumb}</if>
+				,NOTICE_UPDATE_DATE = SYSDATE
 			</set>
+			
 		 WHERE NOTICE_ID = #{noticeId}
 	</update>
 	<delete id="noticeDelete" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">

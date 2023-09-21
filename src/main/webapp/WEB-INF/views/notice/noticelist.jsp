@@ -11,19 +11,6 @@
 
 <body>
 	<main id="main" class="main">
-
-		<div class="pagetitle">
-			<h1>게시판관리</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item">게시판관리</li>
-					<li class="breadcrumb-item active">공지사항</li>
-				</ol>
-			</nav>
-		</div>
-		<!-- End Page Title -->
-
 		<section class="section">
 			<div class="row">
 				<div class="col-lg-12">
@@ -88,7 +75,6 @@
 	
 	//게시글 상세조회
 	function noticeSelect(id){
-		console.log(id + "==========================");
 		let form = document.getElementById("sform");
 		form.noticeId.value = id;
 		form.submit();

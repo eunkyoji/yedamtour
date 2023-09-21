@@ -14,17 +14,6 @@
 
 	<main id="main" class="main">
 		<div id="app">
-			<div class="pagetitle">
-				<h1>게시판관리</h1>
-				<nav>
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-						<li class="breadcrumb-item">게시판관리</li>
-						<li class="breadcrumb-item">공지사항</li>
-						<li class="breadcrumb-item active">글쓰기</li>
-					</ol>
-				</nav>
-			</div>
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
@@ -52,6 +41,7 @@
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'noticelist.do'">목록</button>
 							</div>
+							<input type="hidden" id="noticeId" name="noticeId" value="${n.noticeId }">
 							</form>
 						</div>
 					</div>
