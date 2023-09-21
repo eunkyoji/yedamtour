@@ -26,7 +26,8 @@
 		INSERT INTO TOUR_MEMBER
 		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberPhone},#{memberNickname})
 	</insert>
-	<update id="memberUpdate" parameterType="co.yedam.yedamtour.member.service.MemberVO">
+	<update id="memberUpdate"
+		parameterType="co.yedam.yedamtour.member.service.MemberVO">
 		UPDATE TOUR_MEMBER
 		<set>
 			<if test="memberId != null">
@@ -51,5 +52,9 @@
 		WHERE MEMBER_ID = #{memberId}
 
 	</update>
-
+	<delete id="memberDelete"
+	parameterType="co.yedam.yedamtour.member.service.MemberVO">
+	DELETE FROM TOUR_MEMBER
+	WHERE member_id = #{memberId}
+	</delete>
 </mapper>

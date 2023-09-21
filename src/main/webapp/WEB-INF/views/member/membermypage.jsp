@@ -90,15 +90,15 @@
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
 												<input type="email" name="memberId" class="form-control"
 													id="memberId" value="${list.memberId }">
-												<button id="editBtn"
+												<button class="editBtn"
 													style="font-size: 10px; height: 19px; display: none"
 													type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px" type="button"
 													id="idCheck" value="No" onclick="memberIdCheck()">중복체크</button>
 
-
-
+											
+									
 											</div>
 										</div>
 
@@ -106,13 +106,10 @@
 										<div class="col-12">
 											<label for="memberName" class="form-label">이름</label>
 											<div class="input-group has-validation">
-												<input type="email" name="memberName" class="form-control"
-													id="memberName" value="${list.memberName }"
-													readonly="readonly">
-												<button style="font-size: 10px; height: 19px;">수정</button>
-
-												<button style="font-size: 10px; height: 19px; display: none">확인</button>
-
+												<input type="text" name="memberName" class="form-control"
+													id="memberName" value="${list.memberName }">
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
 											</div>
 										</div>
@@ -122,8 +119,9 @@
 											<div class="input-group has-validation">
 												<input type="text" name="memberNickname"
 													class="form-control" id="memberNickname"
-													value="${list.memberNickname }" readonly="readonly">
-												<button style="font-size: 10px; height: 19px">수정</button>
+													value="${list.memberNickname }">
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
@@ -137,8 +135,9 @@
 											<div class="input-group has-validation">
 												<input type="tel" name="memberPhone" class="form-control"
 													id="memberPhone" value="${list.memberPhone }"
-													readonly="readonly">
-												<button style="font-size: 10px; height: 19px">수정</button>
+													>
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
@@ -154,8 +153,9 @@
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
 												<input type="email" name="memberEmail" class="form-control"
 													id="memberEmail" value="${list.memberEmail }"
-													readonly="readonly">
-												<button style="font-size: 10px; height: 19px">수정</button>
+													>
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
@@ -167,9 +167,9 @@
 											<label for="memberPassword" class="form-label">비밀번호</label>
 											<div class="input-group has-validation">
 												<input type="password" name="memberPassword" class="form-control"
-													id="memberPassword" required placeholder="비밀번호"
-													readonly="readonly">
-												<button style="font-size: 10px; height: 19px">수정</button>
+													id="memberPassword" required placeholder="비밀번호" value="${list.memberPassword }">
+												<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
@@ -192,8 +192,8 @@
 
 
 									<div class="col-12">
-										<button onclick="memberDel()" class="btn btn-primary w-100"
-											type="submit">회원탈퇴</button>
+										<button id="memberDelete" class="btn btn-primary w-100"
+											type="button">회원탈퇴</button>
 									</div>
 									<a href="tour.do">home</a>
 
@@ -211,6 +211,9 @@
 
 						</div>
 						<!-- 컨테이너 끝나는 부분-->
+						<form id="selectfrm" action="memberedit.do" method="POST">
+											<input type="hidden" id="useId" name="useId" value="${list.memberId }" readonly="readonly">
+											</form>	
 					</div>
 				</div>
 
@@ -232,14 +235,10 @@
 
 		} */
 		
-		$('#editBtn').on('click', function(){
-			let id = $('#memberId').val();
-			let password = $('#memberPassword').val();
-			let name = $('#memberName').val();
-			let nickname = $('#memberNickname').val();
-			let phone = $('#memberPhone').val();
-			let email = $('#memberEmail').val();
+		//수정누르면 작동
+		$('.editBtn').on('click', function(){
 			
+			console.log("aaaaa");
 			$.ajax({
 				url:'memberedit.do',
 				method:'post',
@@ -251,14 +250,36 @@
 				 email : $('#memberEmail').val()
 				},
 				success: function(e){
-					alert("성공");		
+					alert("정보를 변경하는데 성공했습니다.");		
+				},
+				error: function(e){
+					alert("정보를 변경하는데 실패했습니다.");
+				}
+			})
+			})
+		
+			$('#memberDelete').on('click', function(){
+			console.log("aaaaa");
+			$.ajax({
+				url:'memberdelete.do',
+				method:'post',
+				data:{id : $('#memberId').val()
+				},
+				success: function(e){
+					alert("회원탈퇴가 처리되었습니다.");
+					let url ="tour.do"
+					location.replace(url);
+					
 				},
 				error: function(e){
 					console.log(e);
 				}
 			})
 			})
-		
+			
+			
+			
+			
 		function memberIdCheck() {  //aJax 사용
 			let url = "check.do"
 			let payload = document.getElementById("memberId").value;
