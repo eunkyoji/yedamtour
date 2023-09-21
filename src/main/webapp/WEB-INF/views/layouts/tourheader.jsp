@@ -11,7 +11,7 @@
 		class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block"
 		data-navbar-on-scroll="data-navbar-on-scroll">
 		<div class="container">
-			<a class="navbar-brand" href="index.html"><p>
+			<a class="navbar-brand" href="tour.do"><p>
 					<b>YDTour</b>
 				<p></a>
 			<button class="navbar-toggler" type="button"
@@ -26,7 +26,7 @@
 				<ul
 					class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#">Stays</a></li>
+						class="nav-link fw-medium" aria-current="page" href="staymain.do">Stays</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="#">Transportation</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
@@ -39,10 +39,11 @@
 							style="border-radius: 0.3rem;" aria-labelledby="navbarDropdown">
 							<li><a class="dropdown-item" href="noticelist.do">공지사항</a></li>
 							<li><a class="dropdown-item" href="qnalist.do">Q & A</a></li>
-							<li><a class="dropdown-item" href="freeboradlist.do">자유게시판</a></li>
+							<li><a class="dropdown-item" href="freeboardlist.do">자유게시판</a></li>
 						</ul></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="loginform.do">Login</a></li>
+						class="nav-link fw-medium" aria-current="page" href="login.do">Login</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="signup.do">Sign Up</a></li>
 					<li class="nav-item px-3 px-xl-4"><a

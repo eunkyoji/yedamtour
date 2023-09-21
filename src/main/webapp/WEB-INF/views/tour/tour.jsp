@@ -54,8 +54,8 @@
 				<div
 					class="card service-card shadow-hover rounded-3 text-center align-items-center">
 					<div class="card-body p-xxl-5 p-4">
-						<img src="jadoo/public/assets/img/category/icon1.png" width="75" alt="Service" />
-						<h4 class="mb-3">숙소</h4>
+						<img src="jadoo/public/assets/img/category/icon1.jpg" width="75" alt="Service" />
+						<h4 class="mb-3"><a href="staymain.do">숙소</a></h4>
 						<p class="mb-0 fw-medium">호텔, 리조트, 펜션, 풀빌라<br>모두</p>
 					</div>
 				</div>
@@ -137,13 +137,13 @@
 			</div>
 			<div class="col-md-4 mb-4">
 				<div class="card overflow-hidden shadow">
-					<img class="card-img-top" src="jadoo/public/assets/img/경주.jpg" alt="Gyeongjo" />
+					<img class="card-img-top" src="jadoo/public/assets/img/경주.jpg" alt="Gyeongju" />
 					<div class="card-body py-4 px-3">
 						<div
 							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
 							<h4 class="text-secondary fw-medium">
 								<a class="link-900 text-decoration-none stretched-link"
-									href="#!">Gyeongjo</a>
+									href="#!">Gyeongju</a>
 							</h4>
 							<span class="fs-1 fw-medium">00,000원</span>
 						</div>

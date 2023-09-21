@@ -146,7 +146,7 @@
 	color: inherit;
 }
 
-.datatable-table th button,
+.datatable-table th button
 .datatable-pagination-list button {
     color: inherit;
     border: 0;
