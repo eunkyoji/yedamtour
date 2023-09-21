@@ -20,6 +20,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public NoticeVO noticeSelect(NoticeVO vo) {
+		
 		return map.noticeSelect(vo);
 	}
 

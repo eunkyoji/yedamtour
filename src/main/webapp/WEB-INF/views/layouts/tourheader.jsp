@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,15 +42,18 @@
 							<li><a class="dropdown-item" href="qnalist.do">Q & A</a></li>
 							<li><a class="dropdown-item" href="freeboardlist.do">자유게시판</a></li>
 						</ul></li>
+					<c:if test="${empty id}">
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="loginform.do">Login</a></li>
-						class="nav-link fw-medium" aria-current="page" href="login.do">Login</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="signup.do">Sign Up</a></li>
+					</c:if>
+					<c:if test="${not empty id}">
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="#">My Page</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="#">Logout</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

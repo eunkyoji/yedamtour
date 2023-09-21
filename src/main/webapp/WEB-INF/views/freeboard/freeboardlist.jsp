@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
 								<thead>
 									<tr>
 										<th scope="col">번호</th>
-										<th scope="col"></th>
+										<th scope="col">이미지</th>
 										<th scope="col">제목</th>
 										<th scope="col">작성자</th>
 										<th scope="col">작성일</th>
@@ -38,7 +39,7 @@
 											<c:forEach items="${list}" var="f">
 												<tr style="cursor:pointer" onclick="freeBoardSelect(${f.freeBoardId})">
 													<th scope="row">${f.rownum }</th>
-													<td>${f.freeBoardThumb}</td>
+													<td><img src="attech/freeboard/${f.freeBoardThumb}"></td>
 													<td>${f.freeBoardTitle}</td>
 													<td>${f.freeBoardNicName }</td>
 													<td>${f.freeBoardViewDate }</td>
@@ -65,14 +66,15 @@
 		<input type="hidden" id="freeBoardId" name="freeBoardId">
 	</form>
 	
-	<style>
+	<script>
 		//게시글 상세조회
+		
 		function freeBoardSelect(id){
 			console.log(id + "==========================");
 			let form = document.getElementById("sform");
 			form.freeBoardId.value = id;
 			form.submit();
 		}
-	</style>
+	</script>
 </body>
 </html>
