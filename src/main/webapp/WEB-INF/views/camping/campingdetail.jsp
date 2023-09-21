@@ -66,7 +66,7 @@
 				</div>
 			</div>
 		</div>
-	</section><<br><br><br><br><br>	  
+	</section><br><br><br><br><br>	  
 
 	<!-- Rooms Section Begin -->
 	<section class="rooms-section spad">
@@ -76,101 +76,50 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel1.jpg" alt="">
+						<img src="img/rooms/${campings.campingRoomImg1 }" alt="">
 						<div class="ri-text">
-							<h4>Premium King Room</h4>
+							<h4>${campings.campingRoomName1 }</h4>
 							<h3>
-								159$<span>/Pernight</span>
+								${campings.campingRoomPrice1 }만원~<span>/1박</span>
 							</h3>
 							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">Size:</td>
-										<td>30 ft</td>
-									</tr>
-									<tr>
-										<td class="r-o">Capacity:</td>
-										<td>Max persion 3</td>
-									</tr>
-									<tr>
-										<td class="r-o">Bed:</td>
-										<td>King Beds</td>
-									</tr>
-									<tr>
-										<td class="r-o">Services:</td>
-										<td>Wifi, Television, Bathroom,...</td>
-									</tr>
-								</tbody>
 							</table>
-							<a href="bookingpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel2.jpg" alt="">
+						<img src="img/rooms/${campings.campingRoomImg2 }" alt="">
 						<div class="ri-text">
-							<h4>Deluxe Room</h4>
+							<h4>${campings.campingRoomName2 }</h4>
 							<h3>
-								159$<span>/Pernight</span>
+								${campings.campingRoomPrice2 }만원~<span>/1박</span>
 							</h3>
 							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">Size:</td>
-										<td>30 ft</td>
-									</tr>
-									<tr>
-										<td class="r-o">Capacity:</td>
-										<td>Max persion 5</td>
-									</tr>
-									<tr>
-										<td class="r-o">Bed:</td>
-										<td>King Beds</td>
-									</tr>
-									<tr>
-										<td class="r-o">Services:</td>
-										<td>Wifi, Television, Bathroom,...</td>
-									</tr>
-								</tbody>
 							</table>
-							<a href="#" class="primary-btn">예약하러 가기</a>
+							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel3.jpg" alt="">
+						<img src="img/rooms/${campings.campingRoomImg3 }" alt="">
 						<div class="ri-text">
-							<h4>Double Room</h4>
+							<h4>${campings.campingRoomName3 }</h4>
 							<h3>
-								159$<span>/Pernight</span>
+								${campings.campingRoomPrice3 }만원~<span>/1박</span>
 							</h3>
 							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">Size:</td>
-										<td>30 ft</td>
-									</tr>
-									<tr>
-										<td class="r-o">Capacity:</td>
-										<td>Max persion 2</td>
-									</tr>
-									<tr>
-										<td class="r-o">Bed:</td>
-										<td>King Beds</td>
-									</tr>
-									<tr>
-										<td class="r-o">Services:</td>
-										<td>Wifi, Television, Bathroom,...</td>
-									</tr>
-								</tbody>
 							</table>
-							<a href="#" class="primary-btn">예약하러 가기</a>
+							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 	</section>
 	<!-- Rooms Section End -->
+
 </body>
 </html>

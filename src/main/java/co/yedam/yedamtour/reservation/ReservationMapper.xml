@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.reservation.ReservationMapper">
+<select id="reservationSelect" resultType="co.yedam.yedamtour.reservation.ReservationVO">
+SELECT * FROM TOUR_RESERVATION WHERE RESERVATION_ID = #{reservationId}
+</select>
+
+<insert id="reservationInsert" parameterType="co.yedam.yedamtour.reservation.ReservationVO">
+INSERT INTO TOUR_RESERVATION (RESERVATION_ID)
+VALUES (#{reservationId})
+</insert>
+
+<delete id="reservationDelete" parameterType="co.yedam.yedamtour.reservation.ReservationVO">
+DELETE TOUR_RESERVATION
+WHERE RESERVATION_ID = #{reservationId}
+</delete>
+</mapper>

@@ -9,6 +9,7 @@
 	href="jadoo/public/assets/css/stay/bookingpage.css" type="text/css">
 </head>
 <body>
+
 	<section class="pt-5 pt-md-9" id="booking">
 		<div class="contact_section">
 			<div class="container">
@@ -26,35 +27,19 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="product-thumbnail">Image</th>
-										<th class="product-name">Product</th>
-										<th class="product-price">Price</th>
-										<th class="product-total">Total</th>
-										<th class="product-remove">Remove</th>
+										<th class="product-name">예약 정보</th>
+										<th class="product-room">객실</th>
+										<th class="product-price">가격</th>
+										<th class="product-remove">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td class="product-thumbnail"><img
-											src="images/product-1.png" alt="Image" class="img-fluid">
-										</td>
+									<tr>										
 										<td class="product-name">
-											<h2 class="h5 text-black">Product 1</h2>
+											<h2 class="h5 text-black">${hotels.hotelName }</h2>
 										</td>
-										<td>$49.00</td>
-										<td>$49.00</td>
-										<td><a href="#" class="btn btn-black btn-sm">X</a></td>
-									</tr>
-
-									<tr>
-										<td class="product-thumbnail"><img
-											src="images/product-2.png" alt="Image" class="img-fluid">
-										</td>
-										<td class="product-name">
-											<h2 class="h5 text-black">Product 2</h2>
-										</td>
-										<td>$49.00</td>
-										<td>$49.00</td>
+										<td></td>
+										<td>${hotels.hotelPrice }만원</td>
 										<td><a href="#" class="btn btn-black btn-sm">X</a></td>
 									</tr>
 								</tbody>
@@ -69,12 +54,12 @@
 							<div class="col-md-7">
 								<div class="row">
 									<div class="col-md-12 text-right border-bottom mb-5">
-										<h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+										<h3 class="text-black h4 text-uppercase">총 상품</h3>
 									</div>
 								</div>
 								<div class="row mb-5">
 									<div class="col-md-6">
-										<span class="text-black">Total</span>
+										<span class="text-black">합계</span>
 									</div>
 									<div class="col-md-6 text-right">
 										<strong class="text-black">$230.00</strong>

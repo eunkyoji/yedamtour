@@ -14,8 +14,7 @@
 
 	<!-- Contact -->
 	<section class="pt-5 pt-md-9" id="booking">
-		<br>
-		<br>
+		<br> <br>
 		<div class="contact_section">
 			<div class="container">
 				<div class="row">
@@ -24,8 +23,7 @@
 						<h2>${hotels.hotelName }</h2>
 						<span>${hotels.hotelAddress }</span>
 						<div class="contact_section_text">
-							<br>
-							<br>
+							<br> <br>
 							<p>${hotels.hotelDetail }</p>
 						</div>
 						<div class="contact_section_info">
@@ -37,8 +35,7 @@
 											class="d-flex flex-column align-items-center justify-content-center">
 											<img src="images/icon_1.png" alt="">
 										</div>
-									</div>
-									<br>
+									</div> <br>
 								</li>
 								<li
 									class="d-flex flex-row align-items-center justify-content-start">
@@ -71,7 +68,6 @@
 			</div>
 		</div>
 	</section>
-	<
 	<br>
 	<br>
 	<br>
@@ -94,7 +90,9 @@
 							</h3>
 							<table>
 							</table>
-							<a href="bookingpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="reservationpage.do?hotelId=${hotels.hotelId }"
+								class="primary-btn" onclick="hotelSelect(${hotels.hotelId })">예약하러
+								가기</a>
 						</div>
 					</div>
 				</div>
@@ -108,7 +106,7 @@
 							</h3>
 							<table>
 							</table>
-							<a href="bookingpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
@@ -122,7 +120,7 @@
 							</h3>
 							<table>
 							</table>
-							<a href="bookingpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
@@ -130,8 +128,20 @@
 		</div>
 	</section>
 	<!-- Rooms Section End -->
+	<form id="sform" action="reservationpage.do" method="post">
+		<input type="hidden" id="hotelId" name="hotelId">
+	</form>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<script>
+function hotelSelect(id){
+			console.log(id);
+			let form = document.getElementById("sform");
+			form.hotelId.value = id;
+			form.submit();
+		}
+</script>
 
 </body>
 </html>

@@ -25,6 +25,15 @@ UPDATE TOUR_CAMPING
 		  	<if test="campingImg != null"> CAMPING_IMG = #{campingImg},</if>
 		  	<if test="campingService != null"> CAMPING_SERVICE = #{campingService},</if>
 		  	<if test="campingAddress != null"> CAMPING_ADDRESS = #{campingAddress},</if>
+		  	<if test="campingRoomImg1 != null"> CAMPING_ROOM_IMG1 = #{campingRoomImg1},</if>
+		  	<if test="campingRoomImg2 != null"> CAMPING_ROOM_IMG2 = #{campingRoomImg2},</if>
+		  	<if test="campingRoomImg3 != null"> CAMPING_ROOM_IMG3 = #{campingRoomImg3},</if>
+		  	<if test="campingRoomName1 != null"> CAMPING_ROOM_NAME1 = #{campingRoomName1},</if>
+		  	<if test="campingRoomName2 != null"> CAMPING_ROOM_NAME2 = #{campingRoomName2},</if>
+		  	<if test="campingRoomName3 != null"> CAMPING_ROOM_NAME3 = #{campingRoomName3},</if>
+		  	<if test="campingRoomPrice1 != null"> CAMPING_ROOM_PRICE1 = #{campingRoomPrice1},</if>
+		  	<if test="campingRoomPrice2 != null"> CAMPING_ROOM_PRICE2 = #{campingRoomPrice2},</if>
+		  	<if test="campingRoomPrice3 != null"> CAMPING_ROOM_PRICE3 = #{campingRoomPrice3}</if>
 		  </set>
 	WHERE CAMPING_ID = #{campingId}
 </update>

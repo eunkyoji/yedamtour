@@ -85,7 +85,7 @@
 											</tr>
 										</tbody>
 									</table>
-									<a class="primary-btn" onclick="hotelSelect(${h.hotelId })">More Details</a>
+									<a class="primary-btn" onclick="hotelSelect(${h.hotelId })">자세히 보기</a>
 								</div>
 							</div>
 						</div>

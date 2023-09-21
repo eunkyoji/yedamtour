@@ -21,8 +21,8 @@ public class HotelVO {
 	private String hotelRoomName1;
 	private String hotelRoomName2;
 	private String hotelRoomName3;
-	private String hotelRoomPrice1;
-	private String hotelRoomPrice2;
-	private String hotelRoomPrice3;
+	private int hotelRoomPrice1;
+	private int hotelRoomPrice2;
+	private int hotelRoomPrice3;
 	
 }
