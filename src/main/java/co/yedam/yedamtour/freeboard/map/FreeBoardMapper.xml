@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.freeboard.map.FreeBoardMapper">
+	<select id="freeBoardSelectList" resultType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
+		SELECT ROWNUM, A.FREEBOARD_ID, A.FREEBOARD_TITLE, A.FREEBOARD_CONTENT, A.FREEBOARD_WRITER, A.FREEBOARD_IMG, A.FREEBOARD_WRITE_DATE, A.FREEBOARD_UPDATE_DATE, A.FREEBOARD_HIT, A.FREEBOARD_THUMB, A.FREEBOARD_NICNAME
+		  FROM (
+		  	SELECT F.FREEBOARD_ID, F.FREEBOARD_TITLE, F.FREEBOARD_CONTENT, F.FREEBOARD_WRITER, F.FREEBOARD_IMG, F.FREEBOARD_WRITE_DATE, F.FREEBOARD_UPDATE_DATE, F.FREEBOARD_HIT, F.FREEBOARD_THUMB,
+		  			(SELECT MEMBER_NICKNAME
+		  			  FROM TOUR_MEMBER
+		  			  WHERE MEMBER_ID = F.FREEBOARD_WRITER) FREEBOARD_NICNAME
+		  	  FROM TOUR_FREEBOARD F
+		  	 ORDER BY FREEBOARD_ID DESC) A
+	</select>
+	<select id="freeBoardSelect" resultType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
+	</select>
+	<insert id="freeBoardInsert" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
+		<selectKey keyProperty="freeBoardId" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(FREEBOARD_ID), 0) + 1 AS ID
+			  FROM TOUR_FREEBOARD
+		</selectKey>
+		INSERT INTO TOUR_FREEBOARD(FREEBOARD_ID, FREEBOARD_TITLE, FREEBOARD_CONTENT, FREEBOARD_IMG, FREEBOARD_WRITER, FREEBOARD_WRITE_DATE, FREEBOARD_THUMB)
+		VALUES(#{freeBoardId}, #{freeBoardTitle}, #{freeBoardContent}, #{freeBoardImg}, #{freeBoardWriter}, SYSDATE, #{freeBoardThumb})
+	</insert>
+	<update id="freeBoardUpdate" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
+	</update>
+	<delete id="freeBoardDelete" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
+	</delete>
+	<update id="freeBoardHitUpdate">
+		UPDATE TOUR_FREEBOARD
+		   SET FREEBOARD_HIT = FREEBOARD_HIT + 1
+		 WHERE FREEBOARD_ID = #{freeboardId}
+	</update>	
+</mapper>
