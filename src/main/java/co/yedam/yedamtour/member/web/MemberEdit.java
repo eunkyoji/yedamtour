@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
 import co.yedam.yedamtour.member.service.MemberService;
 import co.yedam.yedamtour.member.service.MemberVO;
@@ -26,17 +25,18 @@ public class MemberEdit extends HttpServlet {
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		String pw = request.getParameter("password");
+		String id = request.getParameter("useId");
+		System.out.println(id);
+		
 		vo.setMemberId(request.getParameter("id"));
 		vo.setMemberName(request.getParameter("name"));
 		vo.setMemberNickname(request.getParameter("nickname"));
 		vo.setMemberPhone(request.getParameter("phone"));
 		vo.setMemberEmail(request.getParameter("email"));
+		vo.setMemberPassword(request.getParameter("password"));
 		System.out.println(request.getParameter("id"));
-		System.out.println(vo);
 
-		if (pw != null) {
-			vo.setMemberPassword(request.getParameter("password"));
-		}
+	
 		int result = dao.memberUpdate(vo);
 		System.out.println(result);
 		
