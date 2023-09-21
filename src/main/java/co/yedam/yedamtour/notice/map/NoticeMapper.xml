@@ -17,6 +17,7 @@
 			  FROM TOUR_NOTICE
 		</selectKey>
 		INSERT INTO TOUR_NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_WRITER, NOTICE_IMG, NOTICE_THUMB, NOTICE_COUNT, NOTICE_WRITE_DATE)
+
 		VALUES(#{noticeId}, #{noticeTitle}, #{noticeContent}, #{noticeWriter}, #{noticeImg}, #{noticeThumb}, 0, SYSDATE)
 	</insert>
 	<update id="noticeUpdate" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">

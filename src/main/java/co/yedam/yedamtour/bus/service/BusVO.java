@@ -2,6 +2,9 @@ package co.yedam.yedamtour.bus.service;
 
 import java.sql.Date;
 
+import lombok.Data;
+
+@Data
 public class BusVO {
 	private int busId;
 	private String busStart;
@@ -11,4 +14,7 @@ public class BusVO {
 	private String busGrade;
 	private int busPrice;
 	private String busPerson;
+	private String busDeptime;
+	private String busArrtime;
+	private String busSeats;
 }

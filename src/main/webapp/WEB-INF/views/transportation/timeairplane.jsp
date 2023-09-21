@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,27 +28,28 @@
 				</div>
 				<div class="row mb-5">
 					<form class="col-md-12" method="post">
+					<c:forEach items="${airplanes }" var="a">
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="product-name">등급</th>
-										<th class="product-price">출발시간</th>
+										<th class="product-name">${a.airplaneGrade }등급</th>
+										<th class="product-price">${a.airplaneDeptime }출발시간</th>
 										<th class="product-arrow"></th>
-										<th class="product-quantity">도착시간</th>
-										<th class="product-total">가격</th>
+										<th class="product-quantity">${a.airplaneArrtime }도착시간</th>
+										<th class="product-total">${a.airplanePrice }가격</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 
 										<td class="product-name">
-											<h2 class="h5 text-black">우등</h2>
+											<h2 class="h5 text-black">${a.airplaneGrade }우등</h2>
 										</td>
-										<td>06:00</td>
+										<td>${a.airplaneDeptime }06:00</td>
 										<td>-></td>
-										<td>08:00</td>
-										<td>20,000원</td>
+										<td>${a.airplaneArrtime }08:00</td>
+										<td>${a.airplanePrice }20,000원</td>
 									</tr>
 
 									<tr>
@@ -55,14 +57,15 @@
 										<td class="product-name">
 											<h2 class="h5 text-black">일반</h2>
 										</td>
-										<td>07:00</td>
+										<td>${a.airplaneArrtime }07:00</td>
 										<td>-></td>
-										<td>09:00</td>
+										<td>${a.airplaneDeptime }09:00</td>
 										<td>16,000원</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
+						</c:forEach>
 					</form>
 				</div>
 				<div class="row">

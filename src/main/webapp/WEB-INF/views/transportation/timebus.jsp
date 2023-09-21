@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,31 +28,30 @@
 				</div>
 				<div class="row mb-5">
 					<form class="col-md-12" method="post">
+					<c:forEach items="${buses }" var="b">
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="product-name">등급</th>
-										<th class="product-price">출발시간</th>
+										<th class="product-name">${b.busGrade }</th>
+										<th class="product-price">${b.busDeptime }출발시간</th>
 										<th class="product-arrow"></th>
-										<th class="product-quantity">도착시간</th>
-										<th class="product-total">가격</th>
+										<th class="product-quantity">${b.busArrtime }도착시간</th>
+										<th class="product-total">${b.busPrice }가격</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 
 										<td class="product-name">
-											<h2 class="h5 text-black">우등</h2>
+											<h2 class="h5 text-black">${b.busGrade }우등</h2>
 										</td>
-										<td>06:00</td>
+										<td>${b.busDeptime }06:00</td>
 										<td>-></td>
-										<td>08:00</td>
-										<td>20,000원</td>
+										<td>${b.busArrtime }08:00</td>
+										<td>${b.busPrice }20,000원</td>
 									</tr>
-
 									<tr>
-
 										<td class="product-name">
 											<h2 class="h5 text-black">일반</h2>
 										</td>
@@ -63,6 +63,7 @@
 								</tbody>
 							</table>
 						</div>
+						</c:forEach>
 					</form>
 				</div>
 				<div class="row">
@@ -74,9 +75,10 @@
 			</div>
 		</div>
 
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<!-- <script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
-	<script src="js/custom.js"></script>
+	<script src="js/custom.js"></script> -->
 </body>
+
 
 </html>
