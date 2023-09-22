@@ -17,4 +17,5 @@ public class CampingVO {
 	private String campingRoomImg;
 	private String campingRoomName;
 	private int campingRoomPrice;
+	private int campingSubId;
 }

@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.yedamtour.hotel.map.HotelMapper">
 	<select id="hotelSelectList" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
-	SELECT * FROM TOUR_HOTEL
+	SELECT * FROM TOUR_HOTEL WHERE HOTEL_SUB_ID IS NULL
+	</select>
+	
+	<select id="hotelDetailSelectList" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
+	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId}
 	</select>
 	
 	<select id="hotelSelect" resultType="co.yedam.yedamtour.hotel.service.HotelVO">

@@ -38,4 +38,9 @@ public class CampingServiceImpl implements CampingService {
 		return map.campingDelete(vo);
 	}
 
+	@Override
+	public List<CampingVO> campingDetailSelectList(CampingVO vo) {
+		return map.campingDetailSelectList(vo);
+	}
+
 }

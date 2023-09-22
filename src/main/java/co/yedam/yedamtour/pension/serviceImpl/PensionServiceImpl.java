@@ -38,4 +38,9 @@ public class PensionServiceImpl implements PensionService {
 		return map.pensionDelete(vo);
 	}
 
+	@Override
+	public List<PensionVO> pensionDetailSelectList(PensionVO vo) {
+		return map.pensionDetailSelectList(vo);
+	}
+
 }
