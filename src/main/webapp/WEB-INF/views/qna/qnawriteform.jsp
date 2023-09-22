@@ -23,10 +23,9 @@
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">
-									<span class="input-group-text" id="basic-addon1">제목</span> <input
-										type="text" class="form-control" aria-label="Username"
-										aria-describedby="basic-addon1" id="qnaTitle"
-										name="qnaTitle"">
+									<span class="input-group-text" id="basic-addon1">제목</span>
+									<input type="text" class="form-control" aria-label="Username"
+										aria-describedby="basic-addon1" id="qnaTitle" name="qnaTitle"">
 								</div>
 							</div>
 							<div class="input-group mb-3">
@@ -39,7 +38,7 @@
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 							</div>
 							<div>
-								<input type="hidden" name="qnaWriter" value="user1">
+								<input type="hidden" name="qnaWriter" id="qnaWriter" value="user1">
 							</div>
 							</form>
 						</div>

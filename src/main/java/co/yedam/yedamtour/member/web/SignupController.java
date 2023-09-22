@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.common.SHA256;
 import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
@@ -65,8 +66,9 @@ public class SignupController extends HttpServlet {
 		String page = null;
 
 		if (result == 1) {
-			page = "member/login.jsp";
-			ViewResolve.forward(request, response, page);
+//			page = "member/login.jsp";
+//			ViewResolve.forward(request, response, page);
+			AlertControl.alertAndGo(response, "가입이 완료되었습니다.", "loginform.do");
 		}
 
 	}
