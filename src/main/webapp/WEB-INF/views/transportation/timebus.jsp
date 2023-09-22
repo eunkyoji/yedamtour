@@ -49,7 +49,7 @@
 										<td>${b.busDeptime }</td>
 										<td>-></td>
 										<td>${b.busArrtime }</td>
-										<td>${b.busPrice }원</td>
+										<td>${b.busPrice }</td>
 									</tr>
 									
 						</c:forEach>
@@ -87,7 +87,7 @@
 										<td>${b.busDeptime }</td>
 										<td>-></td>
 										<td>${b.busArrtime }</td>
-										<td>${b.busPrice }원</td>
+										<td>${b.busPrice }</td>
 									</tr>
 									
 						</c:forEach>

@@ -14,8 +14,8 @@ public class AirplaneServiceImpl implements AirplaneService {
 	private AirplaneMapper map = sqlSession.getMapper(AirplaneMapper.class);
 	
 	@Override
-	public List<AirplaneVO> airplaneSelectList() {
-		return map.airplaneSelectList();
+	public List<AirplaneVO> airplaneSelectList(AirplaneVO vo) {
+		return map.airplaneSelectList(vo);
 	}
 
 	@Override
@@ -36,6 +36,11 @@ public class AirplaneServiceImpl implements AirplaneService {
 	@Override
 	public int airplaneDelete(AirplaneVO vo) {
 		return map.airplaneDelete(vo);
+	}
+
+	@Override
+	public List<AirplaneVO> airplaneSelectList1(AirplaneVO vo) {
+		return map.airplaneSelectList1(vo);
 	}
 
 }

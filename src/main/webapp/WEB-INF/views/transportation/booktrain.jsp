@@ -43,11 +43,11 @@
                     <div class="form-group">
                       <label for="id_label_single">출발지</label>
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                      
-                          <option value="Seoul">서울</option>
-                          <option value="Dongdaegu">동대구</option>
-                          <option value="Busan">부산</option>
-                          <option value="Daejeon">대전</option>                       
+                        <select name="start" class="js-example-basic-single js-states form-control" id="start" style="width: 100%;">                      
+                          <option value="서울">서울</option>
+                          <option value="동대구">동대구</option>
+                          <option value="부산">부산</option>
+                          <option value="대전">대전</option>                       
                         </select>
                       </label>
                     </div>
@@ -57,11 +57,11 @@
                       <label for="id_label_single2">도착지</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                         <option value="Seoul">서울</option>
-                          <option value="Dongdaegu">동대구</option>
-                          <option value="Busan">부산</option>
-                          <option value="Daejeon">대전</option>
+                        <select name="finish" class="js-example-basic-single js-states form-control" id="finish" style="width: 100%;">
+                         <option value="서울">서울</option>
+                          <option value="동대구">동대구</option>
+                          <option value="부산">부산</option>
+                          <option value="대전">대전</option>
                         </select>
                       </label>
                       </div>
@@ -74,7 +74,7 @@
                     <div class="form-group">
                       <label for="probootstrap-date-departure">가는날</label>
                       <div class="probootstrap-date-wrap">                     
-                        <input type="text" id="probootstrap-date-departure" class="form-control" placeholder="">
+                        <input type="text" id="probootstrap-date-departure" class="form-control" name="startDate" placeholder="">
                       </div>
                     </div>
                   </div>
@@ -82,7 +82,7 @@
                     <div class="form-group">
                       <label for="probootstrap-date-arrival">오는날</label>
                       <div class="probootstrap-date-wrap">                       
-                        <input type="text" id="probootstrap-date-arrival" class="form-control" placeholder="">
+                        <input type="text" id="probootstrap-date-arrival" class="form-control" name="finishDate" placeholder="">
                       </div>
                     </div>
                   </div>

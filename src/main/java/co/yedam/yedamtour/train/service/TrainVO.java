@@ -2,6 +2,9 @@ package co.yedam.yedamtour.train.service;
 
 import java.sql.Date;
 
+import lombok.Data;
+
+@Data
 public class TrainVO {
 	private int trainId;
 	private String trainStart;
@@ -9,6 +12,9 @@ public class TrainVO {
 	private Date trainGoday;
 	private Date trainComeday;
 	private String trainGrade;
-	private int trainPrice;
+	private String trainPrice;
 	private String trainPerson;
+	private String trainDeptime;
+	private String trainArrtime;
+	private String trainSeats;
 }

@@ -3,14 +3,18 @@
 <mapper namespace="co.yedam.yedamtour.train.map.TrainMapper">
 
 	<select id="trainSelectList" resultType="co.yedam.yedamtour.train.service.TrainVO">
-		SELECT * FROM TOUR_TRAIN
+		SELECT * FROM TOUR_TRAIN WHERE TRAIN_START = #{trainStart} AND TRAIN_FINISH = #{trainFinish}
+		order by train_deptime
 	</select>
 	
 	<select id="trainSelect" resultType="co.yedam.yedamtour.train.service.TrainVO">
-	
+		SELECT * FROM TOUR_TRAIN WHERE TRAIN_START = #{trainStart} AND TRAIN_FINISH = #{trainFinish}
 	</select>
 	
 	<insert id="trainInsert" parameterType="co.yedam.yedamtour.train.service.TrainVO">
+		INSERT INTO TOUR_TRAIN
+		VALUES(#{trainId}, #{trainStart}, #{trainFinish}, #{trainGoday}, #{trainComeday},
+		#{trainGrade}, #{trainPrice}, #{trainPerson}, #{trainDeptime}, #{trainArrtime}, #{trainSeats})
 		
 	</insert>
 	
