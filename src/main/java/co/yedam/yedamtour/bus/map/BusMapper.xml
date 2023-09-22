@@ -3,8 +3,8 @@
 <mapper namespace="co.yedam.yedamtour.bus.map.BusMapper">
 
 	<select id="busSelectList" resultType="co.yedam.yedamtour.bus.service.BusVO">
-		SELECT * FROM TOUR_BUS 
-		where bus_start = #{busStart} and bus_finish = #{busFinish}
+		SELECT * FROM TOUR_BUS WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
+		
 	</select>
 	
 	<select id="busSelect" resultType="co.yedam.yedamtour.bus.service.BusVO">

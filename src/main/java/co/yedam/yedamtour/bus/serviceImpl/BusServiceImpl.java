@@ -14,9 +14,9 @@ public class BusServiceImpl implements BusService {
 	private BusMapper map = sqlSession.getMapper(BusMapper.class);
 	
 	@Override
-	public List<BusVO> busSelectList() {
+	public List<BusVO> busSelectList(BusVO vo) {
 		// TODO Auto-generated method stub
-		return map.busSelectList();
+		return map.busSelectList(vo);
 	}
 
 	@Override
