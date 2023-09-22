@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -50,7 +51,7 @@
 				<div align="center">
 					<img class="detailImg" src="ticket/img/아쿠아리움.jpg" alt="아쿠아리움">
 
-					<h2 class="detailtitle">대구 아쿠아리움</h2>
+					<h2 class="detailtitle">${a.themeparkName}</h2>
 				</div>
 
 			</div>
@@ -62,7 +63,7 @@
 			<div class="text-center mx-auto mb-5 wow fadeInUp"
 				data-wow-delay="0.1s" style="max-width: 600px;">
 				<h6 class="section-title bg-white text-center text-primary px-3">상세정보</h6>
-				<h1 class="display-6 mb-4"></h1>
+				<h1 class="display-6 mb-4">${a.themeparkName}</h1>
 			</div>
 			<div class="row g-4">
 				<div class=" wow fadeInUp" data-wow-delay="0.1s">

@@ -88,19 +88,21 @@
 			<c:forEach items="${vo}" var="a">
 				<div class="row g-4">
 					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-						<a  class="aqualist service-item d-block rounded text-center alllist p-4"
-							href=""> <img class="img-fluid rounded mb-4"
-							src="ticket/img/에버랜드.jpg" alt="">
+						<a
+							class="aqualist service-item d-block rounded text-center alllist p-4"
+							href="detailticket.do?id=${a.themeparkId}"> <img
+							class="img-fluid rounded mb-4"
+							src="ticket/img/themepark/에버랜드.jpg" alt="">
 							<h4 class="mb-0">${a.themeparkName }</h4> <span>가격</span><br>
 							<span>상세내용</span> <input type="hidden" class="ticketId"
 							name="ticketId" value=${a.themeparkId }>
-							
+
 
 						</a>
 					</div>
 					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 						<a class="service-item d-block rounded text-center alllist p-4"
-							href="detailticket.do"> <img class="img-fluid rounded mb-4"
+							href="#"> <img class="img-fluid rounded mb-4"
 							src="ticket/img/아쿠아리움.jpg" alt="">
 							<h4 class="mb-0">대구 아쿠아리움</h4> <span>가격</span><br> <span>상세내용</span>
 						</a>
@@ -124,23 +126,7 @@
 	<script src="ticket/lib/owlcarousel/owl.carousel.min.js"></script>
 	<script src="ticket/lib/lightbox/js/lightbox.min.js"></script>
 	<script>
-		$('.aqualist').on('click', function() {
-			console.log("ddddddddddddddd")
-			$.ajax({
-				url : 'detailticket.do',
-				method : 'post',
-				data : {
-					id : $('.ticketId').val()
-					
-				},
-				success : function(e) {
-					console.log('성공');
-				},
-				error : function(e) {
-					console.log(e);
-				}
-			})
-		})
+		
 	</script>
 </body>
 </html>

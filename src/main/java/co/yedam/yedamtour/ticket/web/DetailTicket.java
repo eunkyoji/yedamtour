@@ -26,13 +26,14 @@ public class DetailTicket extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ThemeparkService dao = new ThemeparkServiceImpl();
 		ThemeparkVO vo = new ThemeparkVO();
-		System.out.println(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
+		System.out.println(id);
+		vo.setThemeparkId(id);
 		
-//		vo.setThemeparkId(id);
-//		
-//		vo = dao.themeparkSelect(vo);
-//		request.setAttribute("vo", vo);
-//		
+		vo = dao.themeparkSelect(vo);
+		request.setAttribute("vo", vo);
+		String page = "ticket/detailticket";
+		ViewResolve.forward(request, response, page);
 		
 	}
 
