@@ -10,18 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.yedamtour.common.ViewResolve;
 
 /**
- * Servlet implementation class QandA
+ * Servlet implementation class QandAWrite
  */
-@WebServlet("/qnalist.do")
-public class QandA extends HttpServlet {
+@WebServlet("/qnawriteform.do")
+public class QandAWriteForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public QandA() {
+    public QandAWriteForm() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String page = "admin/qna/qnalist";
+		String page = "admin/qna/qnawriteform";
 		ViewResolve.forward(request, response, page);
 	}
 

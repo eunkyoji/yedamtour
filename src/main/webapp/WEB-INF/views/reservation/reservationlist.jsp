@@ -9,15 +9,6 @@
 <body>
 	<main id="main" class="main">
 
-		<div class="pagetitle">
-			<h1>게시판관리</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item active">예약정보 리스트</li>
-				</ol>
-			</nav>
-		</div>
 		<!-- End Page Title -->
 
 		<section class="section">
@@ -28,7 +19,7 @@
 						<div class="card-body">
 							<h5 class="card-title">예약정보 리스트</h5>
 							<!-- Table with stripped rows -->
-							<table class="table datatable">
+							<table class="table">
 								<thead>
 									<tr>
 										<th scope="col">순번</th>

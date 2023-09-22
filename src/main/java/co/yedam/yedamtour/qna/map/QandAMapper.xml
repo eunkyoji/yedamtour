@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.qna.map.QandAMapper">
+	<select id="qnaSelectList" resultType="co.yedam.yedamtour.qna.service.QandAVO">
+		SELECT * FROM TOUR_QNA
+	</select>
+	<select id="qnaSelect" resultType="co.yedam.yedamtour.qna.service.QandAVO">
+	</select>
+	<insert id="qnaInsert" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
+		<selectKey keyProperty="qnaId" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(QNA_ID), 0) + 1 AS ID
+			  FROM TOUR_QNA
+		</selectKey>
+		INSERT INTO TOUR_QNA(QNA_ID, QNA_TITLE, QNA_CONTENT, QNA_WRITER, QNA_WRITE_DATE)
+		VALUES(#{qnaId}, #{qnaTitle}, #{qnaContent}, #{qnaWriter}, SYSDATE)
+	</insert>
+	<update id="qnaUpdate" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
+	</update>
+	<delete id="qnaDelete" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
+	</delete>
+</mapper>

@@ -20,26 +20,18 @@
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title">공지사항</h5>
-								<!-- Table with stripped rows 
-								<div class="card">
-									<c:if test="${n.noticeImg} != null">
-									<img src="attech/notice/${n.noticeImg}" class="card-img-top" alt="...">
-									</c:if>
-									<div class="card-body">
-										<h5 class="card-title">${n.noticeTitle }</h5>
-										<p>${n.noticeContent}</p>
-									</div>
-								</div>
-							
-							<!-- End Table with stripped rows -->
-
 								<div class="card mb-3">
 									<div class="row g-0">
-										<c:if test="${not empty n.noticeImg } ">
-										<div class="col-md-4">
-											<img src="attech/notice/${n.noticeImg}" class="img-fluid rounded-start" alt="...">
-										</div>
-										</c:if>
+										<c:choose>
+											<c:when test="${empty n.noticeImg }">
+											</c:when>
+											<c:otherwise>
+												<div class="col-md-4">
+														<img src="attech/notice/${n.noticeImg}" class="img-fluid rounded-start" alt="...">
+												</div>
+											</c:otherwise>
+										</c:choose>
+										
 										<div class="col-md-8">
 											<div class="card-body">
 												<h5 class="card-title">${n.noticeTitle }</h5>

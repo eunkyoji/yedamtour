@@ -1,4 +1,4 @@
-package co.yedam.yedamtour.manager;
+package co.yedam.yedamtour.qna.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,26 +11,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.yedamtour.common.ViewResolve;
-import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
-import co.yedam.yedamtour.member.service.MemberService;
-import co.yedam.yedamtour.member.service.MemberVO;
+import co.yedam.yedamtour.qna.service.QandAService;
+import co.yedam.yedamtour.qna.service.QandAVO;
+import co.yedam.yedamtour.qna.serviceImpl.QandAServiceImpl;
 
-@WebServlet("/memberlist.do")
-public class MemberList extends HttpServlet {
+/**
+ * Servlet implementation class QandA
+ */
+@WebServlet("/qnalist.do")
+public class QandAList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MemberList() {
+    public QandAList() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberService dao = new MemberServiceImpl();
-		List<MemberVO> members = new ArrayList<MemberVO>();
+		QandAService dao = new QandAServiceImpl();
+		List<QandAVO> qnalists = new ArrayList<QandAVO>();
 		
-		members = dao.memberSelectList();
-		request.setAttribute("members", members);
+		qnalists = dao.qnaSelectList();
+		System.out.println(qnalists.get(0));
+		request.setAttribute("qnalists", qnalists);
 		
-		String page = "admin/manager/memberlist";
+		String page = "admin/qna/qnalist";
 		ViewResolve.forward(request, response, page);
 	}
 

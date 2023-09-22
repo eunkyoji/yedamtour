@@ -39,7 +39,14 @@
 											<c:forEach items="${list}" var="f">
 												<tr style="cursor:pointer" onclick="freeBoardSelect(${f.freeBoardId})">
 													<th scope="row">${f.rownum }</th>
+													<c:choose>
+													<c:when test="${empty f.freeBoardThumb }">
+													<td></td>
+													</c:when>
+													<c:otherwise>
 													<td><img src="attech/freeboard/${f.freeBoardThumb}"></td>
+													</c:otherwise>
+													</c:choose>
 													<td>${f.freeBoardTitle}</td>
 													<td>${f.freeBoardNicName }</td>
 													<td>${f.freeBoardViewDate }</td>
