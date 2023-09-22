@@ -15,31 +15,26 @@ public class BusServiceImpl implements BusService {
 	
 	@Override
 	public List<BusVO> busSelectList(BusVO vo) {
-		// TODO Auto-generated method stub
 		return map.busSelectList(vo);
 	}
 
 	@Override
 	public BusVO busSelect(BusVO vo) {
-		// TODO Auto-generated method stub
 		return map.busSelect(vo);
 	}
 
 	@Override
 	public int busInsert(BusVO vo) {
-		// TODO Auto-generated method stub
 		return map.busInsert(vo);
 	}
 
 	@Override
 	public int busUpdate(BusVO vo) {
-		// TODO Auto-generated method stub
 		return map.busUpdate(vo);
 	}
 
 	@Override
 	public int busDelete(BusVO vo) {
-		// TODO Auto-generated method stub
 		return map.busDelete(vo);
 	}
 

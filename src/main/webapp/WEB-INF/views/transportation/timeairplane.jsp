@@ -21,62 +21,92 @@
 </head>
 
 <body>
+
 		<div class="untree_co-section before-footer-section">
+			<form action="resultairplane.do" class="col-md-12" method="post">
 			<div class="container" style="margin-top: 200px;">
 				<div class="intro-excerpt" style="text-align: center">
-					<h1>2023.09.19(화)</h1>
+					<h1>${startDate}</h1>
+					<input type="hidden" name="startDate" value="${startDate }">
 				</div>
+				
 				<div class="row mb-5">
-					<form class="col-md-12" method="post">
-					<c:forEach items="${airplanes }" var="a">
+					
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="product-name">${a.airplaneGrade }등급</th>
-										<th class="product-price">${a.airplaneDeptime }출발시간</th>
+									<th>선택</th>
+										<th class="product-name">등급</th>
+										<th class="product-price">출발시간</th>
 										<th class="product-arrow"></th>
-										<th class="product-quantity">${a.airplaneArrtime }도착시간</th>
-										<th class="product-total">${a.airplanePrice }가격</th>
+										<th class="product-quantity">도착시간</th>
+										<th class="product-total">가격</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-
-										<td class="product-name">
-											<h2 class="h5 text-black">${a.airplaneGrade }우등</h2>
-										</td>
-										<td>${a.airplaneDeptime }06:00</td>
-										<td>-></td>
-										<td>${a.airplaneArrtime }08:00</td>
-										<td>${a.airplanePrice }20,000원</td>
-									</tr>
-
-									<tr>
-
-										<td class="product-name">
-											<h2 class="h5 text-black">일반</h2>
-										</td>
-										<td>${a.airplaneArrtime }07:00</td>
-										<td>-></td>
-										<td>${a.airplaneDeptime }09:00</td>
-										<td>16,000원</td>
-									</tr>
+									<c:forEach items="${airplanes }" var="a">
+										<tr>
+										<td><input type="radio" value="${a.airplaneId }" name="direction"></td>
+											<td class="product-name">
+												<h2 class="h5 text-black">${a.airplaneGrade }</h2>
+											</td>
+											<td>${a.airplaneDeptime }</td>
+											<td>-></td>
+											<td>${a.airplaneArrtime }</td>
+											<td>${a.airplanePrice }</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>
-						</c:forEach>
-					</form>
+				</div>
+			</div>
+			<div class="container" style="margin-top: 200px;">
+				<div class="intro-excerpt" style="text-align: center">
+					<h1>${finishDate}</h1>
+					<input type="hidden" name="startDate" value="${finishDate }">
+				</div>
+				<div class="row mb-5">
+					
+						<div class="site-blocks-table">
+							<table class="table">
+								<thead>
+									<tr>
+									<th>선택</th>
+										<th class="product-name">등급</th>
+										<th class="product-price">출발시간</th>
+										<th class="product-arrow"></th>
+										<th class="product-quantity">도착시간</th>
+										<th class="product-total">가격</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${airplanes }" var="a">
+										<tr>
+											<td><input type="radio" value="${a.airplaneId }" name="direction1"></td>
+											<td class="product-name">
+												<h2 class="h5 text-black">${a.airplaneGrade }</h2>
+											</td>
+											<td>${a.airplaneDeptime }</td>
+											<td>-></td>
+											<td>${a.airplaneArrtime }</td>
+											<td>${a.airplanePrice }</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<button class="btn btn-black btn-lg py-3 btn-block"
-							onclick="window.location='resultairplane.do'">예매내역 확인</button>
+						<button type="submit" class="btn btn-black btn-lg py-3 btn-block">예매내역 확인</button>
 					</div>
 				</div>
 			</div>
+			</form>
 		</div>
-
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
 	<script src="js/custom.js"></script>

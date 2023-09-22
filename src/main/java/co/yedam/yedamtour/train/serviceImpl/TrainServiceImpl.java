@@ -14,32 +14,27 @@ public class TrainServiceImpl implements TrainService {
 	private TrainMapper map = sqlSession.getMapper(TrainMapper.class);
 
 	@Override
-	public List<TrainVO> trainSelectList() {
-		// TODO Auto-generated method stub
-		return map.trainSelectList();
+	public List<TrainVO> trainSelectList(TrainVO vo) {
+		return map.trainSelectList(vo);
 	}
 
 	@Override
 	public TrainVO trainSelect(TrainVO vo) {
-		// TODO Auto-generated method stub
 		return map.trainSelect(vo);
 	}
 
 	@Override
 	public int trainInsert(TrainVO vo) {
-		// TODO Auto-generated method stub
 		return map.trainInsert(vo);
 	}
 
 	@Override
 	public int trainUpdate(TrainVO vo) {
-		// TODO Auto-generated method stub
 		return map.trainUpdate(vo);
 	}
 
 	@Override
 	public int trainDelete(TrainVO vo) {
-		// TODO Auto-generated method stub
 		return map.trainDelete(vo);
 	}
 
