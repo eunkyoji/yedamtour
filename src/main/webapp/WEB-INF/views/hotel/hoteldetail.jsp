@@ -82,45 +82,40 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${hotels.hotelRoomImg1 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${hotels.hotelRoomName1 }</h4>
-							<h3>
-								${hotels.hotelRoomPrice1 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do?hotelId=${hotels.hotelId }"
-								class="primary-btn" onclick="hotelSelect(${hotels.hotelId })">예약하러
-								가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${hotels.hotelRoomImg2 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${hotels.hotelRoomName2 }</h4>
-							<h3>
-								${hotels.hotelRoomPrice2 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${hotels.hotelRoomImg3 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${hotels.hotelRoomName3 }</h4>
-							<h3>
-								${hotels.hotelRoomPrice3 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
@@ -128,20 +123,8 @@
 		</div>
 	</section>
 	<!-- Rooms Section End -->
-	<form id="sform" action="reservationpage.do" method="post">
-		<input type="hidden" id="hotelId" name="hotelId">
-	</form>
 
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-
-	<script>
-function hotelSelect(id){
-			console.log(id);
-			let form = document.getElementById("sform");
-			form.hotelId.value = id;
-			form.submit();
-		}
-</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>	
 
 </body>
 </html>

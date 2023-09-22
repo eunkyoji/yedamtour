@@ -76,43 +76,40 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${campings.campingRoomImg1 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${campings.campingRoomName1 }</h4>
-							<h3>
-								${campings.campingRoomPrice1 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${campings.campingRoomImg2 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${campings.campingRoomName2 }</h4>
-							<h3>
-								${campings.campingRoomPrice2 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${campings.campingRoomImg3 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${campings.campingRoomName3 }</h4>
-							<h3>
-								${campings.campingRoomPrice3 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>

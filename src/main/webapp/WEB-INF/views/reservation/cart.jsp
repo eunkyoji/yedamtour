@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet"
-	href="jadoo/public/assets/css/stay/bookingpage.css" type="text/css">
+	href="jadoo/public/assets/css/stay/cart.css" type="text/css">
 </head>
 <body>
 

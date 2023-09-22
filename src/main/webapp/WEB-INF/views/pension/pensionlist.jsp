@@ -72,7 +72,7 @@
 										<tbody>
 											<tr>
 												<td class="r-o">최대 인원:</td>
-												<td>${p.pensionCount }</td>
+												<td>${p.pensionCount }인</td>
 											</tr>
 											<tr>
 												<td class="r-o">서비스:</td>
@@ -80,7 +80,7 @@
 											</tr>
 										</tbody>
 									</table>
-							<a class="primary-btn" onclick="pensionSelect(${p.pensionId })">More Details</a>
+							<a class="primary-btn" onclick="pensionSelect(${p.pensionId })">자세히 보기</a>
 								</div>
 							</div>
 						</div>

@@ -25,12 +25,9 @@
 		  	<if test="pensionImg != null"> PENSION_IMG = #{pensionImg},</if>
 		  	<if test="pensionService != null"> PENSION_SERVICE = #{pensionService},</if>
 		  	<if test="pensionAddress != null"> PENSION_ADDRESS = #{pensionAddress},</if>
-		  	<if test="pensionRoomImg1 != null"> PENSION_ROOM_IMG1 = #{pensionRoomImg1},</if>
-		  	<if test="pensionRoomImg2 != null"> PENSION_ROOM_IMG2 = #{pensionRoomImg2},</if>
-		  	<if test="pensionRoomImg3 != null"> PENSION_ROOM_IMG3 = #{pensionRoomImg3},</if>
-		  	<if test="pensionRoomPrice1 != null"> PENSION_ROOM_PRICE1 = #{pensionRoomPrice1},</if>
-		  	<if test="pensionRoomPrice2 != null"> PENSION_ROOM_PRICE2 = #{pensionRoomPrice2},</if>
-		  	<if test="pensionRoomPrice3 != null"> PENSION_ROOM_PRICE3 = #{pensionRoomPrice3}</if>
+		  	<if test="pensionRoomImg != null"> PENSION_ROOM_IMG = #{pensionRoomImg},</if>
+		  	<if test="pensionRoomName != null"> PENSION_ROOM_NAME = #{pensionRoomName},</if>
+		  	<if test="pensionRoomPrice != null"> PENSION_ROOM_PRICE3 = #{pensionRoomPrice}</if>
 		  </set>
 	WHERE PENSION_ID = #{pensionId}
 	</update>

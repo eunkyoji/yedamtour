@@ -1,4 +1,4 @@
-package co.yedam.yedamtour.reservation;
+package co.yedam.yedamtour.stay;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ import co.yedam.yedamtour.reservation.ReservationServiceImpl;
 import co.yedam.yedamtour.reservation.ReservationVO;
 
 
-@WebServlet("/reservationpage.do")
-public class ReservationPage extends HttpServlet {
+@WebServlet("/cart.do")
+public class Cart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
-    public ReservationPage() {
+    public Cart() {
         super();
     }
 
@@ -35,7 +35,7 @@ public class ReservationPage extends HttpServlet {
 		dao.reservationInsert(vo);
 		request.setAttribute("reservations", reservations);
 				
-		String page = "reservation/reservationpage";
+		String page = "reservation/cart";
 		ViewResolve.forward(request, response, page);
 	}
 	

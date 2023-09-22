@@ -14,13 +14,7 @@ public class PensionVO {
 	private String pensionImg;
 	private String pensionAddress;
 	private String pensionService;
-	private String pensionRoomImg1;
-	private String pensionRoomImg2;
-	private String pensionRoomImg3;
-	private String pensionRoomName1;
-	private String pensionRoomName2;
-	private String pensionRoomName3;
-	private int pensionRoomPrice1;
-	private int pensionRoomPrice2;
-	private int pensionRoomPrice3;
+	private String pensionRoomImg;
+	private String pensionRoomName;
+	private int pensionRoomPrice;
 }

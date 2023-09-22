@@ -80,7 +80,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<a class="primary-btn" onclick="campingSelect(${c.campingId })">More Details</a>
+							<a class="primary-btn" onclick="campingSelect(${c.campingId })">자세히 보기</a>
 						</div>
 					</div>
 				</div>

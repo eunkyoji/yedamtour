@@ -79,43 +79,40 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${pensions.pensionRoomImg1 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${pensions.pensionRoomName1 }</h4>
-							<h3>
-								${pensions.pensionRoomPrice1 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${pensions.pensionRoomImg2 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${pensions.pensionRoomName2 }</h4>
-							<h3>
-								${pensions.pensionRoomPrice2 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="room-item">
-						<img src="img/rooms/${pensions.pensionRoomImg3 }" alt="">
+						<img src="img/rooms/" alt="">
 						<div class="ri-text">
-							<h4>${pensions.pensionRoomName3 }</h4>
-							<h3>
-								${pensions.pensionRoomPrice3 }만원~<span>/1박</span>
+							<h4></h4>
+							<h3>만원~<span>/1박</span>
 							</h3>
 							<table>
 							</table>
-							<a href="reservationpage.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>

@@ -26,15 +26,9 @@
 		  	<if test="hotelBedtype != null"> HOTEL_BEDTYPE = #{hotelBedtype},</if>
 		  	<if test="hotelService != null"> HOTEL_SERVICE = #{hotelService},</if>
 		  	<if test="hotelAddress != null"> HOTEL_ADDRESS = #{hotelAddress},</if>
-		  	<if test="hotelRoomImg1 != null"> HOTEL_ROOM_IMG1 = #{hotelRoomImg1},</if>
-		  	<if test="hotelRoomImg2 != null"> HOTEL_ROOM_IMG2 = #{hotelRoomImg2},</if>
-		  	<if test="hotelRoomImg3 != null"> HOTEL_ROOM_IMG3 = #{hotelRoomImg3},</if>
-		  	<if test="hotelRoomName1 != null"> HOTEL_ROOM_NAME1 = #{hotelRoomName1},</if>
-		  	<if test="hotelRoomName2 != null"> HOTEL_ROOM_NAME2 = #{hotelRoomName2},</if>
-		  	<if test="hotelRoomName3 != null"> HOTEL_ROOM_NAME3 = #{hotelRoomName3}</if>
-		  	<if test="hotelRoomPrice1 != null"> HOTEL_ROOM_PRICE1 = #{hotelRoomPrice1}</if>
-		  	<if test="hotelRoomPrice2 != null"> HOTEL_ROOM_PRICE2 = #{hotelRoomPrice2}</if>
-		  	<if test="hotelRoomPrice3 != null"> HOTEL_ROOM_PRICE3 = #{hotelRoomPrice3}</if>
+		  	<if test="hotelRoomImg != null"> HOTEL_ROOM_IMG = #{hotelRoomImg},</if>
+		  	<if test="hotelRoomName != null"> HOTEL_ROOM_NAME = #{hotelRoomName},</if>
+		  	<if test="hotelRoomPrice != null"> HOTEL_ROOM_PRICE = #{hotelRoomPrice}</if>
 		  </set>
 	WHERE HOTEL_ID = #{hotelId}
 	</update>
