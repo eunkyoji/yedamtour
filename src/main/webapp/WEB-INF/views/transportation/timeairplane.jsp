@@ -65,7 +65,7 @@
 			<div class="container" style="margin-top: 200px;">
 				<div class="intro-excerpt" style="text-align: center">
 					<h1>${finishDate}</h1>
-					<input type="hidden" name="startDate" value="${finishDate }">
+					<input type="hidden" name="finishDate" value="${finishDate }">
 				</div>
 				<div class="row mb-5">
 					

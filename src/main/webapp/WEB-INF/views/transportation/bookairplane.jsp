@@ -92,7 +92,7 @@
                     <div class="form-group">
                       <label for="id_label_single">인원</label>
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                        
+                        <select class="js-example-basic-single js-states form-control" id="id_label_single" name="person" style="width: 100%;">                        
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>

@@ -21,10 +21,10 @@ width: 400px;
                   <div>
                   <h5 class="fw-medium">가는날</h5>
                     <h5 class="fw-medium">${startDate}</h5>
-                    <p class="fs--1 mb-3 fw-medium">${startAir.airplaneStart } -> >${startAir.airplaneFinish }</p>
+                    <p class="fs--1 mb-3 fw-medium">${startAir.airplaneStart } -> ${startAir.airplaneFinish }</p>
                     <p class="fs--1 mb-3 fw-medium">등급: ${startAir.airplaneGrade }</p>
                     <p class="fs--1 mb-3 fw-medium">인원: ${startAir.airplanePerson }</p>
-                    <p class="fs--1 mb-3 fw-medium">좌석: ${startAir.airplaneSeats }</p>     
+                    <p class="fs--1 mb-3 fw-medium">가격: ${startAir.airplanePrice }</p>     
                   </div>
                 </div>
               </div>
@@ -36,10 +36,10 @@ width: 400px;
                   <div>
                   <h5 class="fw-medium">오는날</h5>
                      <h5 class="fw-medium">${finishDate }</h5>
-                    <p class="fs--1 mb-3 fw-medium">>${finishAir.airplaneStart } -> >${finishAir.airplaneFinish }</p>
+                    <p class="fs--1 mb-3 fw-medium">${finishAir.airplaneFinish } -> ${finishAir.airplaneStart }</p>
                     <p class="fs--1 mb-3 fw-medium">등급: ${finishAir.airplaneGrade }</p>
                     <p class="fs--1 mb-3 fw-medium">인원: ${finishAir.airplanePerson }</p>
-                    <p class="fs--1 mb-3 fw-medium">좌석: ${finishAir.airplaneSeats }</p>
+                    <p class="fs--1 mb-3 fw-medium">가격: ${finishAir.airplanePrice }</p>
                     </div>               
                   </div>
                 </div>
