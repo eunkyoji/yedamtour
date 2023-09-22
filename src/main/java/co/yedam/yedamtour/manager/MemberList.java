@@ -1,6 +1,7 @@
 package co.yedam.yedamtour.manager;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,14 @@ public class MemberList extends HttpServlet {
 		List<MemberVO> members = new ArrayList<MemberVO>();
 		
 		members = dao.memberSelectList();
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+		
+		for(int i = 0; i < members.size(); i++ ) {
+			String registDate = simpleDateFormat.format(members.get(i).getMemberRegist());
+			members.get(i).setMemberViewDate(registDate);
+		}
+		
 		request.setAttribute("members", members);
 		
 		String page = "admin/manager/memberlist";

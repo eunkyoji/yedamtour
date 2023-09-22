@@ -24,7 +24,7 @@
 	<insert id="memberInsert"
 		parameterType="co.yedam.yedamtour.member.service.MemberVO">
 		INSERT INTO TOUR_MEMBER
-		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberPhone},#{memberNickname})
+		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberPhone},#{memberNickname}, SYSDATE)
 	</insert>
 	<update id="memberUpdate"
 		parameterType="co.yedam.yedamtour.member.service.MemberVO">

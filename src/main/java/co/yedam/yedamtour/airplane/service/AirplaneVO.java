@@ -2,6 +2,8 @@ package co.yedam.yedamtour.airplane.service;
 
 import java.sql.Date;
 
+import lombok.Data;
+@Data
 public class AirplaneVO {
 	private int airplaneId;
 	private String airplaneStart;
@@ -9,6 +11,9 @@ public class AirplaneVO {
 	private Date airplaneGoday;
 	private Date airplaneComeday;
 	private String airplaneGrade;
-	private int airplanePrice;
+	private String airplanePrice;
 	private String airplanePerson;
+	private String airplaneDeptime;
+	private String airplaneArrtime;
+	private String airplaneSeats;
 }

@@ -1,5 +1,7 @@
 package co.yedam.yedamtour.member.service;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +13,8 @@ public class MemberVO {
 		String memberName;
 		String memberPhone;
 		String memberNickname;
-		int	rownum;
+		Date   memberRegist;
+		int	   rownum;
+		String memberViewDate;
 	
 }

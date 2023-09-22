@@ -46,7 +46,7 @@
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="loginform.do">Login</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
-						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="signup.do">Sign Up</a></li>
+						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="signupform.do">Sign Up</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 					<li class="nav-item px-3 px-xl-4"><a

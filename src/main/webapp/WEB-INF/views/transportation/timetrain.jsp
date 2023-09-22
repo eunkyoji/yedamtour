@@ -24,48 +24,73 @@
 		<div class="untree_co-section before-footer-section">
 			<div class="container" style="margin-top: 200px;">
 				<div class="intro-excerpt" style="text-align: center">
-					<h1>2023.09.19(화)</h1>
+					<h1>${date[0] }</h1>
 				</div>
 				<div class="row mb-5">
 					<form class="col-md-12" method="post">
-					<c:forEach items="${trains }" var="t">
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="product-name">${t.trainGrade }등급</th>
-										<th class="product-price">${t.trainDeptime }출발시간</th>
+										<th class="product-name">등급</th>
+										<th class="product-price">출발시간</th>
 										<th class="product-arrow"></th>
-										<th class="product-quantity">${t.trainArrtime }도착시간</th>
-										<th class="product-total">${t.trainPrice }가격</th>
+										<th class="product-quantity">도착시간</th>
+										<th class="product-total">가격</th>
 									</tr>
 								</thead>
 								<tbody>
+					<c:forEach items="${trains }" var="t">
 									<tr>
 
 										<td class="product-name">
-											<h2 class="h5 text-black">${t.trainGrade }우등</h2>
+											<h2 class="h5 text-black">${t.trainGrade }</h2>
 										</td>
-										<td>${t.trainDeptime }06:00</td>
+										<td>${t.trainDeptime }</td>
 										<td>-></td>
-										<td>${t.trainArrtime }08:00</td>
-										<td>${t.trainPrice }20,000원</td>
-									</tr>
-
-									<tr>
-
-										<td class="product-name">
-											<h2 class="h5 text-black">${t.trainGrade }일반</h2>
-										</td>
-										<td>${t.trainArrtime }07:00</td>
-										<td>-></td>
-										<td>${t.trainDeptime }09:00</td>
-										<td>${t.trainPrice }16,000원</td>
-									</tr>
+										<td>${t.trainArrtime }</td>
+										<td>${t.trainPrice }</td>
+									</tr>								
+						</c:forEach>
 								</tbody>
 							</table>
 						</div>
+					</form>
+				</div>			
+			</div>
+			<div class="container" style="margin-top: 200px;">
+				<div class="intro-excerpt" style="text-align: center">
+					<h1>${date[1] }</h1>
+				</div>
+				<div class="row mb-5">
+					<form class="col-md-12" method="post">
+						<div class="site-blocks-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="product-name">등급</th>
+										<th class="product-price">출발시간</th>
+										<th class="product-arrow"></th>
+										<th class="product-quantity">도착시간</th>
+										<th class="product-total">가격</th>
+									</tr>
+								</thead>
+								<tbody>
+					<c:forEach items="${trains }" var="t">
+									<tr>
+
+										<td class="product-name">
+											<h2 class="h5 text-black">${t.trainGrade }</h2>
+										</td>
+										<td>${t.trainDeptime }</td>
+										<td>-></td>
+										<td>${t.trainArrtime }</td>
+										<td>${t.trainPrice }</td>
+									</tr>
 						</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</form>
 				</div>
 				<div class="row">

@@ -4,7 +4,7 @@
 
 	<select id="busSelectList" resultType="co.yedam.yedamtour.bus.service.BusVO">
 		SELECT * FROM TOUR_BUS WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
-		
+		order by bus_deptime
 	</select>
 	
 	<select id="busSelect" resultType="co.yedam.yedamtour.bus.service.BusVO">
@@ -14,7 +14,7 @@
 	<insert id="busInsert" parameterType="co.yedam.yedamtour.bus.service.BusVO">
 		INSERT INTO TOUR_BUS
 		VALUES(#{busId}, #{busStart}, #{busFinish}, #{busGoday}, #{busComeday},
-		#{busGrade}, #{busPrice}, #{busPerson}, #{busDeptime}, #{busArrtime}, #{busSeats},)
+		#{busGrade}, #{busPrice}, #{busPerson}, #{busDeptime}, #{busArrtime}, #{busSeats})
 	</insert>
 	
 	<update id="busUpdate" parameterType="co.yedam.yedamtour.bus.service.BusVO">

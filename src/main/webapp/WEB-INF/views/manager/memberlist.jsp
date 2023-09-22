@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,14 +33,14 @@
 								</thead>
 								<tbody>
 									<c:forEach items="${members}" var="m">
-									<tr>
-										<th scope="row">${m.rownum }</th>
-										<td>${m.memberId }</td>
-										<td>${m.memberName }</td>
-										<td>${m.memberPhone }</td>
-										<td>${m.memberNickname }</td>
-										<td>${m.memberRegist }</td>
-									</tr>
+										<tr>
+											<th scope="row">${m.rownum }</th>
+											<td>${m.memberId }</td>
+											<td>${m.memberName }</td>
+											<td>${m.memberPhone }</td>
+											<td>${m.memberNickname }</td>
+											<td>${m.memberViewDate }</td>
+										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
