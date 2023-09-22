@@ -27,7 +27,7 @@
 				<ul
 					class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="staymain.do">Stays</a></li>
+						class="nav-link fw-medium" aria-current="page" href="hotellist.do">Stays</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="transportation.do">Transportation</a></li>
 					<li class="nav-item px-3 px-xl-4"><a

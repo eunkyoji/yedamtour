@@ -9,19 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.yedamtour.common.ViewResolve;
 
-/**
- * Servlet implementation class Payment
- */
-@WebServlet("/payment.do")
-public class Payment extends HttpServlet {
+@WebServlet("/thankyou.do")
+public class Thankyou extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public Payment() {
+    public Thankyou() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String page = "staymain/payment";
+		String page = "reservation/thankyou";
 		ViewResolve.forward(request, response, page);
 	}
 

@@ -55,7 +55,7 @@
 					class="card service-card shadow-hover rounded-3 text-center align-items-center">
 					<div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon1.jpg" width="75" alt="Service" />
-						<h4 class="mb-3"><a href="staymain.do">숙소</a></h4>
+						<h4 class="mb-3"><a href="hotellist.do">숙소</a></h4>
 						<p class="mb-0 fw-medium">호텔, 리조트, 펜션, 풀빌라<br>모두</p>
 					</div>
 				</div>
