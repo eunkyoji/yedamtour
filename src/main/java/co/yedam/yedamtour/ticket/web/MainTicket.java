@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.yedamtour.common.ViewResolve;
-import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
-import co.yedam.yedamtour.member.service.MemberService;
-import co.yedam.yedamtour.member.service.MemberVO;
+import co.yedam.yedamtour.ticket.service.ThemeparkService;
+import co.yedam.yedamtour.ticket.service.ThemeparkVO;
+import co.yedam.yedamtour.ticket.serviceImpl.ThemeparkServiceImpl;
 
 @WebServlet("/mainticket.do")
 public class MainTicket extends HttpServlet {
@@ -24,10 +24,10 @@ public class MainTicket extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberService dao = new MemberServiceImpl();
-		List<MemberVO> vo = new ArrayList<>();
+		ThemeparkService dao = new ThemeparkServiceImpl();
+		List<ThemeparkVO> vo = new ArrayList<>();
 		
-		vo = dao.memberSelectList();
+		vo = dao.themeparkSelectList();
 		request.setAttribute("vo", vo);
 		
 		

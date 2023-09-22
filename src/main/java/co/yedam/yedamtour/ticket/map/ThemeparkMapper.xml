@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.yedam.yedamtour.ticket.map.Themepark">
+<mapper namespace="co.yedam.yedamtour.ticket.map.ThemeparkMapper">
 	<select id="themeparkSelectList"
 		resultType="co.yedam.yedamtour.ticket.service.ThemeparkVO">
-		SELECT *
-		FROM TOUR_THEMEPARK
+		select *
+		from tour_themepark
 	</select>
 	<select id="themeparkSelect"
 		resultType="co.yedam.yedamtour.ticket.service.ThemeparkVO">
 		SELECT *
 		FROM TOUR_THEMEPARK
-		Where themepark_id = #{themeparkId}
+		Where themepark_id =
+		#{themeparkId}
 	</select>
 
 

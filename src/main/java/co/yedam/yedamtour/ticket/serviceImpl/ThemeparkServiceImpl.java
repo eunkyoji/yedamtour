@@ -1,4 +1,4 @@
-package co.yedam.yedamtour.ticket;
+package co.yedam.yedamtour.ticket.serviceImpl;
 
 import java.util.List;
 
