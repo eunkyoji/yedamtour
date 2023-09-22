@@ -31,7 +31,7 @@
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="transportation.do">Transportation</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#">Tickets</a></li>
+						class="nav-link fw-medium" aria-current="page" href="mainticket.do">Tickets</a></li>
 					<li class="nav-item dropdown px-3 px-lg-0"><a
 						class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium"
 						href="#" id="navbarDropdown" role="button"
@@ -50,7 +50,7 @@
 					</c:if>
 					<c:if test="${not empty id}">
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#">My Page</a></li>
+						class="nav-link fw-medium" aria-current="page" href="membermypage.do">My Page</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="#">Logout</a></li>
 					</c:if>
