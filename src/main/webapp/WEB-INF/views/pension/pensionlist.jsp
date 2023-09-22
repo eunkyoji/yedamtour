@@ -72,7 +72,7 @@
 										<tbody>
 											<tr>
 												<td class="r-o">최대 인원:</td>
-												<td>${p.pensionCount }인</td>
+												<td>2~4인</td>
 											</tr>
 											<tr>
 												<td class="r-o">서비스:</td>

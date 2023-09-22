@@ -28,7 +28,8 @@
 		  	<if test="hotelAddress != null"> HOTEL_ADDRESS = #{hotelAddress},</if>
 		  	<if test="hotelRoomImg != null"> HOTEL_ROOM_IMG = #{hotelRoomImg},</if>
 		  	<if test="hotelRoomName != null"> HOTEL_ROOM_NAME = #{hotelRoomName},</if>
-		  	<if test="hotelRoomPrice != null"> HOTEL_ROOM_PRICE = #{hotelRoomPrice}</if>
+		  	<if test="hotelRoomPrice != null"> HOTEL_ROOM_PRICE = #{hotelRoomPrice},</if>
+		  	<if test="hotelSubId != null"> HOTEL_SUB_ID = #{hotelSubId}</if>
 		  </set>
 	WHERE HOTEL_ID = #{hotelId}
 	</update>

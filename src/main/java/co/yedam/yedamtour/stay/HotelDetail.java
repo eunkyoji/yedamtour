@@ -31,7 +31,7 @@ public class HotelDetail extends HttpServlet {
 		int id = Integer.valueOf(request.getParameter("hotelId"));
 		vo.setHotelId(id);
 		vo = dao.hotelSelect(vo);
-		request.setAttribute("hotels", vo);
+		request.setAttribute("hotels", hotels);
 		
 		String page = "hotel/hoteldetail";
 		ViewResolve.forward(request, response, page);

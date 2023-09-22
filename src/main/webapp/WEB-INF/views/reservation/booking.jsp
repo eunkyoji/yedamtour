@@ -28,18 +28,18 @@
 
 								<div class="form-group row mb-5">
 									<div class="col-md-6">
-										<label for="c_email_address" class="text-black rowtitle"> 이메일 주소<span
+										<label for="c_email_address" class="text-black rowtitle">이메일 주소<span
 											class="text-danger"> *</span>
 										</label> <input type="text" class="form-control" id="c_email_address"
 											name="c_email_address">
 									</div>
 									<div class="col-md-6">
-										<label for="c_phone" class="text-black rowtitle"> 휴대폰 번호<span
+										<label for="c_phone" class="text-black rowtitle">휴대폰 번호<span
 											class="text-danger"> *</span></label> <input type="text"
 											class="form-control" id="c_phone" name="c_phone">
 									</div>
 									<div class="form-group">
-										<label for="c_country" class="text-black rowtitle"> 인원 수 <span
+										<label for="c_country" class="text-black rowtitle">인원 수 <span
 											class="text-danger"> *</span></label> <select id="c_country"
 											class="form-control">
 											<option value="1">인원수를 선택하세요.</option>
@@ -108,8 +108,8 @@
 									</div>
 
 									<div class="row">
-									<div class="col-md-12"><a href="thankyou.do" style="color:white">
-										<button class="btn-lg">결제하기</a></button>
+									<div class="col-md-12"><a href="cart.do" style="color:white">
+										<button class="btn-lg">예약하기</a></button>
 									</div>
 
 								</div>

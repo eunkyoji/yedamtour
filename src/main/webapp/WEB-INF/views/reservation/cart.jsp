@@ -48,7 +48,7 @@
 					</form>
 				</div>
 
-				<div class="row">
+				<div class="row row2">
 					<div class="col-md-6 pl-5">
 						<div class="row justify-content-end">
 							<div class="col-md-7">
@@ -67,7 +67,7 @@
 								</div>
 
 								<div class="row">
-									<div class="col-md-12"><a href="payment.do" style="color:white">
+									<div class="col-md-12"><a href="thankyou.do" style="color:white">
 										<button class="btn btn-black btn-lg py-3 btn-block">결제하기</a>
 										</button>
 									</div>

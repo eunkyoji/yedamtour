@@ -73,7 +73,7 @@
 										<tbody>
 											<tr>
 												<td class="r-o">최대 인원:</td>
-												<td>${h.hotelCount }인</td>
+												<td>2~3인</td>
 											</tr>
 											<tr>
 												<td class="r-o">베드:</td>
