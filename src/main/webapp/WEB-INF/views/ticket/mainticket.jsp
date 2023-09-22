@@ -83,18 +83,17 @@
 			<div class="text-center mx-auto mb-5 wow fadeInUp"
 				data-wow-delay="0.1s" style="max-width: 600px;">
 				<h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-				<h1 class="display-6 mb-4">We Focuse On Making The Best In All
-					Sectors</h1>
+				<h1 class="display-6 mb-4">추천 리스트</h1>
 			</div>
-			<c:forEach items="${vo}" var="t">
 
 
 				<div class="row g-4">
 					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 						<a class="service-item d-block rounded text-center alllist p-4"
 							href=""> <img class="img-fluid rounded mb-4"
-							src="ticket/img/에버랜드.jpg" alt="">
-							<h4 class="mb-0">${t.memberId }</h4> <span>가격</span><br> <span>상세내용</span>
+							src="ticket/img/themepark/에버랜드.jpg" alt="">
+							<h4 class="mb-0">에버랜드</h4> <span>가격 :&nbsp; 35000원</span>
+							<br> <span>간략한 정보입력</span>
 
 						</a>
 					</div>
@@ -106,7 +105,6 @@
 						</a>
 					</div>
 				</div>
-			</c:forEach>
 
 
 		</div>
