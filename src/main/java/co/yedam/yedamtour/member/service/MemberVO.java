@@ -9,7 +9,6 @@ public class MemberVO {
 		String memberId;
 		String memberPassword;
 		String memberName;
-		String memberEmail;
 		String memberPhone;
 		String memberNickname;
 	

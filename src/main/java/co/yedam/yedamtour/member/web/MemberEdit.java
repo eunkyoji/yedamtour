@@ -32,13 +32,15 @@ public class MemberEdit extends HttpServlet {
 		vo.setMemberName(request.getParameter("name"));
 		vo.setMemberNickname(request.getParameter("nickname"));
 		vo.setMemberPhone(request.getParameter("phone"));
-		vo.setMemberEmail(request.getParameter("email"));
 		vo.setMemberPassword(request.getParameter("password"));
 		System.out.println(request.getParameter("id"));
 
 	
 		int result = dao.memberUpdate(vo);
 		System.out.println(result);
+		if(result ==1) {
+		
+		}
 		
 
 	}

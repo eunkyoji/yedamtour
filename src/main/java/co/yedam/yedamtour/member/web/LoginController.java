@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import co.yedam.yedamtour.common.SHA256;
 import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
 import co.yedam.yedamtour.member.service.MemberService;
 import co.yedam.yedamtour.member.service.MemberVO;
@@ -32,7 +33,7 @@ public class LoginController extends HttpServlet {
 		MemberVO vo = new MemberVO();
 
 		vo.setMemberId(request.getParameter("memberId"));
-		vo.setMemberPassword(request.getParameter("memberPassword"));
+		vo.setMemberPassword(SHA256.encrypt(request.getParameter("memberPassword")));
 		
 		vo = dao.memberSelect(vo);
 		String page = null;

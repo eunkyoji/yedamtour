@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.yedamtour.common.SHA256;
 import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
 import co.yedam.yedamtour.member.service.MemberService;
@@ -36,9 +37,8 @@ public class SignupController extends HttpServlet {
 
 			if (pw1.equals(pw2)) {
 				vo.setMemberId(request.getParameter("memberId"));
-				vo.setMemberPassword(request.getParameter("memberPassword"));
+				vo.setMemberPassword(SHA256.encrypt(request.getParameter("memberPassword")));
 				vo.setMemberName(request.getParameter("memberName"));
-				vo.setMemberEmail(request.getParameter("memberEmail"));
 				vo.setMemberPhone(request.getParameter("memberPhone"));
 				vo.setMemberNickname(request.getParameter("memberNickname"));
 			} else {

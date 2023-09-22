@@ -81,11 +81,11 @@
 											password to login</p>
 									</div>
 
-									<form class="row g-3 needs-validation"
-										action="login.do" method="post">
+									<form class="row g-3 needs-validation" action="login.do"
+										method="post">
 
 										<div class="col-12">
-											<label for="yourUsername" class="form-label">아이디</label>
+											<label for="memberId" class="form-label">아이디</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
 												<input type="email" name="memberId" class="form-control"
@@ -96,8 +96,8 @@
 										</div>
 
 										<div class="col-12">
-											<label for="yourPassword" class="form-label">비밀번호</label>
-											<input type="password" name="memberPassword" class="form-control"
+											<label for="memberPassword" class="form-label">비밀번호</label> <input
+												type="password" name="memberPassword" class="form-control"
 												id="memberPassword" required>
 											<div class="invalid-feedback">Please enter your
 												password!</div>
@@ -108,8 +108,7 @@
 												<input class="form-check-input" type="checkbox"
 													name="remember" value="true" id="rememberMe"> <label
 													class="form-check-label" for="rememberMe">Remember
-													me</label>
-													<a style="float: right;" href="membersearch.do">ID/PW찾기</a>
+													me</label> <a style="float: right;" href="membersearch.do">ID/PW찾기</a>
 											</div>
 										</div>
 										<div class="col-12">
@@ -117,7 +116,7 @@
 										</div>
 										<div class="col-12">
 											<p class="small mb-0">
-												 <a style="float: right;" href="signupform.do">회원가입</a>
+												<a style="float: right;" href="signupform.do">회원가입</a>
 											</p>
 											<a href="membermypage.do">마이페이지테스트</a>
 										</div>
@@ -162,6 +161,7 @@
 
 	<!-- Template Main JS File -->
 	<script src="niceadmin/assets/js/main.js"></script>
+
 
 </body>
 </html>

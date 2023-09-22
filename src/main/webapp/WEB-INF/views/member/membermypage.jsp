@@ -75,8 +75,8 @@
 
 							<div class="card mb-3">
 
-								<div class="card-body">
-									<form class="row g-3 needs-validation" id="test" method="post">
+								<form class="row g-3 needs-validation" id="test" method="post">
+									<div class="card-body">
 
 										<div class="pt-4 pb-2">
 											<h5 class="card-title text-center pb-0 fs-4">나의 정보</h5>
@@ -97,8 +97,8 @@
 												<button style="font-size: 10px; height: 19px" type="button"
 													id="idCheck" value="No" onclick="memberIdCheck()">중복체크</button>
 
-											
-									
+
+
 											</div>
 										</div>
 
@@ -108,8 +108,8 @@
 											<div class="input-group has-validation">
 												<input type="text" name="memberName" class="form-control"
 													id="memberName" value="${list.memberName }">
-												<button class="editBtn" style="font-size: 10px; height: 19px"
-												type="button">수정</button>
+												<button class="editBtn"
+													style="font-size: 10px; height: 19px" type="button">수정</button>
 
 											</div>
 										</div>
@@ -120,8 +120,8 @@
 												<input type="text" name="memberNickname"
 													class="form-control" id="memberNickname"
 													value="${list.memberNickname }">
-												<button class="editBtn" style="font-size: 10px; height: 19px"
-												type="button">수정</button>
+												<button class="editBtn"
+													style="font-size: 10px; height: 19px" type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
@@ -134,92 +134,75 @@
 											<label for="memberPhone" class="form-label">전화번호</label>
 											<div class="input-group has-validation">
 												<input type="tel" name="memberPhone" class="form-control"
-													id="memberPhone" value="${list.memberPhone }"
-													>
-												<button class="editBtn" style="font-size: 10px; height: 19px"
-												type="button">수정</button>
+													id="memberPhone" value="${list.memberPhone }">
+												<button class="editBtn"
+													style="font-size: 10px; height: 19px" type="button">수정</button>
 
 												<button style="font-size: 10px; height: 19px; display: none">확인</button>
 
 
 											</div>
 										</div>
-
-
-
-										<div class="col-12">
-											<label for="memberEmail" class="form-label">이메일</label>
-											<div class="input-group has-validation">
-												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="email" name="memberEmail" class="form-control"
-													id="memberEmail" value="${list.memberEmail }"
-													>
-												<button class="editBtn" style="font-size: 10px; height: 19px"
-												type="button">수정</button>
-
-												<button style="font-size: 10px; height: 19px; display: none">확인</button>
-
-
-											</div>
-										</div>
-
-										<div class="col-12">
-											<label for="memberPassword" class="form-label">비밀번호</label>
-											<div class="input-group has-validation">
-												<input type="password" name="memberPassword" class="form-control"
-													id="memberPassword" required placeholder="비밀번호" value="${list.memberPassword }">
-												<button class="editBtn" style="font-size: 10px; height: 19px"
-												type="button">수정</button>
-
-												<button style="font-size: 10px; height: 19px; display: none">확인</button>
-
-
-											</div>
-										</div>
-
-										<div class="col-12 Check" style="display: none">
-											<label for="passwordCheck" class="form-label">비밀번호
-												재확인</label> <input type="password" name="passwordCheck"
-												class="form-control" id="passwordCheck" required
-												placeholder="비밀번호 다시 입력">
-
-										</div>
-									</form>
-
-
-
-
-
+									</div>
 
 									<div class="col-12">
-										<button id="memberDelete" class="btn btn-primary w-100"
-											type="button">회원탈퇴</button>
+										<label for="memberPassword" class="form-label">비밀번호</label>
+										<div class="input-group has-validation">
+											<input type="password" name="memberPassword"
+												class="form-control" id="memberPassword" required
+												placeholder="비밀번호" value="${list.memberPassword }">
+											<button class="editBtn" style="font-size: 10px; height: 19px"
+												type="button">수정</button>
+
+											<button style="font-size: 10px; height: 19px; display: none">확인</button>
+
+
+										</div>
 									</div>
-									<a href="tour.do">home</a>
+
+									<div class="col-12 Check" style="display: none">
+										<label for="passwordCheck" class="form-label">비밀번호 재확인</label>
+										<input type="password" name="passwordCheck"
+											class="form-control" id="passwordCheck" required
+											placeholder="비밀번호 다시 입력">
+
+									</div>
+								</form>
 
 
+
+
+
+
+								<div class="col-12">
+									<button id="memberDelete" class="btn btn-primary w-100"
+										type="button">회원탈퇴</button>
 								</div>
-							</div>
+								<a href="tour.do">home</a>
 
-							<div class="credits">
-								<!-- All the links in the footer should remain intact. -->
-								<!-- You can delete the links only if you purchased the pro version. -->
-								<!-- Licensing information: https://bootstrapmade.com/license/ -->
-								<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-								Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-							</div>
 
+							</div>
 						</div>
-						<!-- 컨테이너 끝나는 부분-->
-						<form id="selectfrm" action="memberedit.do" method="POST">
-											<input type="hidden" id="useId" name="useId" value="${list.memberId }" readonly="readonly">
-											</form>	
+
+						<div class="credits">
+							<!-- All the links in the footer should remain intact. -->
+							<!-- You can delete the links only if you purchased the pro version. -->
+							<!-- Licensing information: https://bootstrapmade.com/license/ -->
+							<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+							Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+						</div>
+
 					</div>
+					<!-- 컨테이너 끝나는 부분-->
+					<form id="selectfrm" action="memberedit.do" method="POST">
+						<input type="hidden" id="useId" name="useId"
+							value="${list.memberId }" readonly="readonly">
+					</form>
 				</div>
-
 			</section>
-
 		</div>
+
+
 	</main>
 	<!-- End #main -->
 	<script>
@@ -247,7 +230,6 @@
 				 name : $('#memberName').val(),
 				 nickname : $('#memberNickname').val(),
 				 phone : $('#memberPhone').val(),
-				 email : $('#memberEmail').val()
 				},
 				success: function(e){
 					alert("정보를 변경하는데 성공했습니다.");		
