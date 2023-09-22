@@ -12,6 +12,9 @@
 		  	 ORDER BY FREEBOARD_ID DESC) A
 	</select>
 	<select id="freeBoardSelect" resultType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
+		SELECT *
+		  FROM TOUR_FREEBOARD
+		 WHERE FREEBOARD_ID = #{freeBoardId}
 	</select>
 	<insert id="freeBoardInsert" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
 		<selectKey keyProperty="freeBoardId" resultType="int" order="BEFORE">

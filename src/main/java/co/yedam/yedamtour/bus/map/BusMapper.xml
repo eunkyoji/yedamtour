@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.bus.map.BusMapper">
+
+	<select id="busSelectList" resultType="co.yedam.yedamtour.bus.service.BusVO">
+		SELECT * FROM TOUR_BUS WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
+		
+	</select>
+	
+	<select id="busSelect" resultType="co.yedam.yedamtour.bus.service.BusVO">
+		SELECT * FROM TOUR_BUS WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
+	</select>
+	
+	<insert id="busInsert" parameterType="co.yedam.yedamtour.bus.service.BusVO">
+		INSERT INTO TOUR_BUS
+		VALUES(#{busId}, #{busStart}, #{busFinish}, #{busGoday}, #{busComeday},
+		#{busGrade}, #{busPrice}, #{busPerson}, #{busDeptime}, #{busArrtime}, #{busSeats},)
+	</insert>
+	
+	<update id="busUpdate" parameterType="co.yedam.yedamtour.bus.service.BusVO">
+	
+	</update>
+	
+	<delete id="busDelete" parameterType="co.yedam.yedamtour.bus.service.BusVO">
+	
+	</delete>
+</mapper>

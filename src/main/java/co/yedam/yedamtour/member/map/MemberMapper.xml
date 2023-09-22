@@ -3,7 +3,7 @@
 <mapper namespace="co.yedam.yedamtour.member.map.MemberMapper">
 	<select id="memberSelectList"
 		resultType="co.yedam.yedamtour.member.service.MemberVO">
-		SELECT *
+		SELECT ROWNUM, MEMBER_ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_NICKNAME, MEMBER_REGIST
 		FROM TOUR_MEMBER
 	</select>
 	<select id="memberSelect"

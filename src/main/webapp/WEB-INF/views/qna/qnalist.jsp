@@ -14,16 +14,6 @@ button{
 <body>
 	<main id="main" class="main">
 
-		<div class="pagetitle">
-			<h1>Questions And Answers</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item">게시판관리</li>
-					<li class="breadcrumb-item active">Q & A</li>
-				</ol>
-			</nav>
-		</div>
 		<!-- End Page Title -->
 
 		<!-- F.A.Q Group 2 -->
@@ -32,29 +22,26 @@ button{
 				<h5 class="card-title">Q & A </h5>
 				
 				<div class="accordion accordion-flush" id="faq-group-2">
-
+					<c:forEach items="${qnalists}" var="q">
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed"
 								data-bs-target="#faqsTwo-1" type="button"
-								data-bs-toggle="collapse">Cumque voluptatem recusandae
-								blanditiis?</button>
+								data-bs-toggle="collapse"><span>${q.qnaTitle }</span></button>
 						</h2>
 						<div id="faqsTwo-1" class="accordion-collapse collapse"
 							data-bs-parent="#faq-group-2">
-							<div class="accordion-body">Ut quasi odit odio totam
-								accusamus vero eius. Nostrum asperiores voluptatem eos nulla ab
-								dolores est asperiores iure. Quo est quis praesentium aut
-								maiores. Corrupti sed aut expedita fugit vero dolorem. Nemo
-								rerum sapiente. A quaerat dignissimos.</div>
+							<div class="accordion-body">${q.qnaContent }</div>
 						</div>
 					</div>
+					</c:forEach>
 				</div>
 				<div width="500px" align="right">
-				<button type="button" class="btn btn-primary" onclick="location.href = 'qnawrite.do'">글쓰기</button>
+				<button type="button" class="btn btn-primary" onclick="location.href = 'qnawriteform.do'">글쓰기</button>
 				</div>
 			</div>
 		</div>
 		<!-- End F.A.Q Group 2 -->
+	</main>
 </body>
 </html>

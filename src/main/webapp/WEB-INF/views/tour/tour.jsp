@@ -55,19 +55,18 @@
 					class="card service-card shadow-hover rounded-3 text-center align-items-center">
 					<div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon1.jpg" width="75" alt="Service" />
-						<h4 class="mb-3"><a href="staymain.do">숙소</a></h4>
+						<h4 class="mb-3"><a href="hotellist.do">숙소</a></h4>
 						<p class="mb-0 fw-medium">호텔, 리조트, 펜션, 풀빌라<br>모두</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6 mb-6">
-				<div
-					class="card service-card shadow-hover rounded-3 text-center align-items-center">
-					<div class="card-body p-xxl-5 p-4">
+				<div class="card service-card shadow-hover rounded-3 text-center align-items-center">
+					<a href="transportation.do"><div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon2.png" width="75" alt="Service" />
 						<h4 class="mb-3">교통/항공</h4>
 						<p class="mb-0 fw-medium">일반석부터 일등석, 직항과 환승 및 편도까지, 계획과 예산에 맞게</p>
-					</div>
+					</div></a>
 				</div>
 			</div>
 			<div class="col-lg-3 col-sm-6 mb-6">

@@ -16,6 +16,7 @@ import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.freeboard.service.FreeBoardService;
 import co.yedam.yedamtour.freeboard.service.FreeBoardVO;
 import co.yedam.yedamtour.freeboard.serviceImpl.FreeBoardServiceImpl;
+import co.yedam.yedamtour.notice.service.NoticeVO;
 
 @WebServlet("/freeboardlist.do")
 public class FreeBoardList extends HttpServlet {
@@ -27,23 +28,24 @@ public class FreeBoardList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FreeBoardService dao = new FreeBoardServiceImpl();
-		List<FreeBoardVO> list = new ArrayList<FreeBoardVO>();
+		List<FreeBoardVO> lists = new ArrayList<FreeBoardVO>();
 		
-		list = dao.freeBoardSelectList();
+		lists = dao.freeBoardSelectList();
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
-		
-		for( int i = 0; i < list.size(); i++ ) {
-			if( list.get(i).getFreeBoardUpdateDate() != null ) {
-				String updateDate = simpleDateFormat.format(list.get(i).getFreeBoardUpdateDate());
-				list.get(i).setFreeBoardViewDate(updateDate);
-			} else {
-				String writerDate = simpleDateFormat.format(list.get(i).getFreeBoardWriterDate());
-				list.get(i).setFreeBoardViewDate(writerDate);
-			}
-		}
-		
-		request.setAttribute("list", list);
+//		Date nowDate = new Date();
+//		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+//		
+//		for(int i = 0; i < lists.size(); i++ ) {
+//			if( lists.get(i).getFreeBoardUpdateDate() != null ) {
+//				String update = simpleDateFormat.format(lists.get(i).getFreeBoardUpdateDate());
+//				lists.get(i).setFreeBoardViewDate(update);
+//			} else {
+//				String wirteDate = simpleDateFormat.format(lists.get(i).getFreeBoardWriterDate());
+//				lists.get(i).setFreeBoardViewDate(wirteDate);
+//			}
+//		}
+//		
+		request.setAttribute("list", lists);
 		
 		String pagae = "admin/freeboard/freeboardlist";
 		ViewResolve.forward(request, response, pagae);

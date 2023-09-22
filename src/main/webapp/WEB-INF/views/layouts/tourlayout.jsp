@@ -77,7 +77,7 @@
 		href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
 		rel="stylesheet">
 
-<script>
+<!-- <script>
 	$(document).ready(function () {
     $('.bxslider').bxSlider({
         auto: true, // 자동으로 애니메이션 시작
@@ -89,7 +89,7 @@
         captions: true, // 이미지 위에 텍스트를 넣을 수 있음
     });
 });
-</script>
+</script> -->
 </body>
 
 

@@ -20,6 +20,7 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 
 	@Override
 	public FreeBoardVO freeBoardSelect(FreeBoardVO vo) {
+		map.freeBoardHitUpdate(vo.getFreeBoardId());	//조회수를 증가 시킨다.
 		return map.freeBoardSelect(vo);
 	}
 
