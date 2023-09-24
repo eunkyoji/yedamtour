@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -50,13 +51,14 @@
 				<div align="center">
 					<img class="detailImg" src="ticket/img/아쿠아리움.jpg" alt="아쿠아리움">
 
-					<h2 class="detailtitle">대구 아쿠아리움</h2>
+					<h2 class="detailtitle">${vo.themeparkName }</h2>
 				</div>
 
 			</div>
 		</div>
 	</div>
 	<!-- 카테고리끝 -->
+
 	<div class="container-xxl py-5">
 		<div class="container">
 			<div class="text-center mx-auto mb-5 wow fadeInUp"
@@ -71,30 +73,30 @@
 						<img class="img-fluid rounded mb-4" src="ticket/img/에버랜드.jpg"
 							alt="">
 						<h4 class="mb-0"></h4>
-						<span>상세내용</span>
+						<span>${vo.themeparkDetail }</span>
 
 					</div>
 					<div align="center">
 						<button>내용 더보기</button>
 					</div>
+
 					<div class="row g-4">
 						<div class=" wow fadeInUp" data-wow-delay="0.1s">
 							<div
 								class=" cart service-item2 d-block rounded text-center alllist p-4">
 								<h4 class="mb-0">장바구니</h4>
 								<div align="center">
-									<span>상품명: ${name }</span>
+									<span>상품명: ${vo.themeparkName }</span>
 									<div>
-										<span id="price">가격: 10000원$ </span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수량:
+										<span id="price">가격: ${vo.themeparkPrice }원 </span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수량:
 										</span><input id="ticket" type="text" maxlength='2'
 											oninput="count(event)" name="ticketCnt"
 											style="width: 50px; text-align: center">
 									</div>
 									<div id="totalPrice" style="font-size: 14px">총 가격:</div>
-									
-										<a href="#" id="cartBtn" style="display: none">장바구니담기</a>
-									
-									<input type="hidden" name="productId" value="${productId }">
+
+									<a href="#" id="cartBtn" style="display: none">장바구니담기</a> <input
+										type="hidden" name="productId" value="${vo.themeparkId }">
 
 								</div>
 
@@ -102,6 +104,7 @@
 							</div>
 						</div>
 					</div>
+
 					<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 					<script
 						src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

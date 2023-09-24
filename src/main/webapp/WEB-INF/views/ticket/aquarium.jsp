@@ -85,29 +85,24 @@
 				<h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
 				<h1 class="display-6 mb-4">아쿠아리움 리스트</h1>
 			</div>
-			<c:forEach items="${vo}" var="a">
-				<div class="row g-4">
+				
+				<div class="iii row g-4">
+			 <c:forEach items="${vo}" var="a">
 					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 						<a  class="aqualist service-item d-block rounded text-center alllist p-4"
-							href=""> <img class="img-fluid rounded mb-4"
-							src="ticket/img/에버랜드.jpg" alt="">
-							<h4 class="mb-0">${a.themeparkName }</h4> <span>가격</span><br>
-							<span>상세내용</span> <input type="hidden" class="ticketId"
-							name="ticketId" value=${a.themeparkId }>
-							
-
+							href="detailticket.do?id=${a.themeparkId }"> <img class="img-fluid rounded mb-4"
+							src="ticket/img/themepark/에버랜드.jpg" alt="">
+							<h4 class="mb-0">${a.themeparkName }</h4> <span>${a.themeparkPrice }원</span><br>
+							<span>상세내용</span>
+							 <input type="hidden" class="ticketId" name="ticketId" 
+							 value=${a.themeparkId }>
 						</a>
 					</div>
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-						<a class="service-item d-block rounded text-center alllist p-4"
-							href="detailticket.do"> <img class="img-fluid rounded mb-4"
-							src="ticket/img/아쿠아리움.jpg" alt="">
-							<h4 class="mb-0">대구 아쿠아리움</h4> <span>가격</span><br> <span>상세내용</span>
-						</a>
-					</div>
+					<!-- 씨:if 	3번째7번째 11번째는 두줄정렬되게 status.index-->
+			</c:forEach> 
 				</div>
-			</c:forEach>
 		</div>
+		
 		<div align="center">
 			<button>리스트 더보기</button>
 		</div>
@@ -124,10 +119,11 @@
 	<script src="ticket/lib/owlcarousel/owl.carousel.min.js"></script>
 	<script src="ticket/lib/lightbox/js/lightbox.min.js"></script>
 	<script>
-		$('.aqualist').on('click', function() {
+	
+		/* $('.aqualist').on('click', function() {
 			console.log("ddddddddddddddd")
 			$.ajax({
-				url : 'detailticket.do',
+				url : 'detailticket.do?id=' {a.themeparkId},
 				method : 'post',
 				data : {
 					id : $('.ticketId').val()
@@ -135,12 +131,13 @@
 				},
 				success : function(e) {
 					console.log('성공');
+					location
 				},
 				error : function(e) {
 					console.log(e);
 				}
 			})
-		})
+		}) */
 	</script>
 </body>
 </html>

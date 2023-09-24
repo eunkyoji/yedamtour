@@ -18,25 +18,33 @@ import co.yedam.yedamtour.ticket.serviceImpl.ThemeparkServiceImpl;
 @WebServlet("/detailticket.do")
 public class DetailTicket extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public DetailTicket() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ThemeparkService dao = new ThemeparkServiceImpl();
-		ThemeparkVO vo = new ThemeparkVO();
-		System.out.println(request.getParameter("id"));
-		
-//		vo.setThemeparkId(id);
-//		
-//		vo = dao.themeparkSelect(vo);
-//		request.setAttribute("vo", vo);
-//		
-		
+	public DetailTicket() {
+		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ThemeparkService dao = new ThemeparkServiceImpl();
+		ThemeparkVO vo = new ThemeparkVO();
+
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		vo.setThemeparkId(id);
+
+		vo = dao.themeparkSelect(vo);
+		request.setAttribute("vo", vo);
+		
+		String page = "ticket/detailticket";
+		ViewResolve.forward(request, response, page);
+		
+		
+		
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
