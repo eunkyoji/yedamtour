@@ -38,9 +38,9 @@
 						data-bs-toggle="dropdown" aria-expanded="false">Community</a>
 						<ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg"
 							style="border-radius: 0.3rem;" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="noticelist.do">공지사항</a></li>
-							<li><a class="dropdown-item" href="qnalist.do">Q & A</a></li>
-							<li><a class="dropdown-item" href="freeboardlist.do">자유게시판</a></li>
+							<li><a class="dropdown-item" href="tournoticelist.do">공지사항</a></li>
+							<li><a class="dropdown-item" href="tourqnalist.do">Q & A</a></li>
+							<li><a class="dropdown-item" href="torufreeboardlist.do">자유게시판</a></li>
 						</ul></li>
 					<c:if test="${empty id}">
 					<li class="nav-item px-3 px-xl-4"><a

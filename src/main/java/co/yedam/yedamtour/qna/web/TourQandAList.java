@@ -15,11 +15,11 @@ import co.yedam.yedamtour.qna.service.QandAService;
 import co.yedam.yedamtour.qna.service.QandAVO;
 import co.yedam.yedamtour.qna.serviceImpl.QandAServiceImpl;
 
-@WebServlet("/qnalist.do")
-public class QandAList extends HttpServlet {
+@WebServlet("/tourqnalist.do")
+public class TourQandAList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public QandAList() {
+    public TourQandAList() {
         super();
     }
 
@@ -32,7 +32,7 @@ public class QandAList extends HttpServlet {
 		
 		request.setAttribute("qnalists", qnalists);
 		
-		String page = "admin/qna/qnalist";
+		String page = "qna/qnalist";
 		ViewResolve.forward(request, response, page);
 	}
 

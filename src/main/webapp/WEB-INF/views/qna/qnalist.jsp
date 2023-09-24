@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,12 +27,17 @@ button{
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed"
-								data-bs-target="#faqsTwo-1" type="button"
-								data-bs-toggle="collapse"><span>${q.qnaTitle }</span></button>
+								data-bs-target="#${q.qnaId }" type="button"
+								data-bs-toggle="collapse"><p>${q.qnaTitle }</p></button>
 						</h2>
-						<div id="faqsTwo-1" class="accordion-collapse collapse"
+						<div id="${q.qnaId }" class="accordion-collapse collapse"
 							data-bs-parent="#faq-group-2">
 							<div class="accordion-body">${q.qnaContent }</div>
+						</div>
+						<div id="${q.qnaId }" class="accordion-collapse collapse"
+							data-bs-parent="#faq-group-2">
+							<h3>답변</h3>
+							<div class="accordion-body">${q.qnaReplay }</div>
 						</div>
 					</div>
 					</c:forEach>

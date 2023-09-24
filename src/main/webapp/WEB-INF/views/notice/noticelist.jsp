@@ -10,6 +10,8 @@
 <link href="webapp/css/noticelist.css" rel="stylesheet">
 
 <body>
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 		<section class="section">
 			<div class="row">
@@ -58,6 +60,8 @@
 		</section>
 	
 	</main>
+</div>
+</section>
 	<form id="sform" action="noticedetail.do" method="post">
 		<input type="hidden" id="noticeId" name="noticeId">
 	</form>

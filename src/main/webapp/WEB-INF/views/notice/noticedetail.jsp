@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<div class="container">
 	<main id="main" class="main">
 
 		<!-- End Page Title -->
@@ -63,6 +64,7 @@
 			<input type="hidden" id="noticeId" name="noticeId">
 		</form>
 	</main>
+</div>
 	<script type="text/javascript">
 	function noticeModify(id){
 		let form = document.getElementById("mform");
