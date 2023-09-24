@@ -39,8 +39,8 @@ public class HotelServiceImpl implements HotelService {
 	}
 
 	@Override
-	public List<HotelVO> hotelDetailSelectList(HotelVO vo) {
-		return map.hotelDetailSelectList(vo);
+	public List<HotelVO> hotelDetailSelectList(int hotelId) {
+		return map.hotelDetailSelectList(hotelId);
 	}
 
 }

@@ -6,11 +6,11 @@
 	</select>
 	
 	<select id="hotelDetailSelectList" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
-	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId}
+	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID IS NOT NULL
 	</select>
 	
 	<select id="hotelSelect" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
-	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId}
+	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID IS NULL
 	
 	</select>
 	<insert id="hotelInsert" parameterType="co.yedam.yedamtour.hotel.service.HotelVO">

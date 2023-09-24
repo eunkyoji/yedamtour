@@ -6,7 +6,7 @@ import co.yedam.yedamtour.hotel.service.HotelVO;
 
 public interface HotelMapper {
 	List<HotelVO> 	hotelSelectList();
-	List<HotelVO>   hotelDetailSelectList(HotelVO vo);
+	List<HotelVO>   hotelDetailSelectList(int hotelId);
 	HotelVO			hotelSelect(HotelVO vo);
 	int				hotelInsert(HotelVO vo);
 	int				hotelUpdate(HotelVO vo);
