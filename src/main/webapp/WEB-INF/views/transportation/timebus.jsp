@@ -22,16 +22,20 @@
 
 <body>
 		<div class="untree_co-section before-footer-section">
+					<form action="resultbus.do" class="col-md-12" method="post">
 			<div class="container" style="margin-top: 200px;">
 				<div class="intro-excerpt" style="text-align: center">
-					<h1>${date[0] }</h1>
+					<h1>${startDate }</h1>
+					<input type="hidden" name="startDate" value="${startDate }">
 				</div>
+				
 				<div class="row mb-5">
-					<form class="col-md-12" method="post">
+				
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
 									<tr>
+									<th>선택</th>
 										<th class="product-name">등급</th>
 										<th class="product-price">출발시간</th>
 										<th class="product-arrow"></th>
@@ -42,7 +46,7 @@
 								<tbody>
 					<c:forEach items="${buses }" var="b">
 									<tr>
-
+										<td><input type="radio" value="${a.busId }" name="direction"></td>
 										<td class="product-name">
 											<h2 class="h5 text-black">${b.busGrade }</h2>
 										</td>
@@ -56,20 +60,20 @@
 								</tbody>
 							</table>
 						</div>
-					</form>
 				</div>
 				
 			</div>
 			<div class="container" style="margin-top: 200px;">
 				<div class="intro-excerpt" style="text-align: center">
-					<h1>${date[1] }</h1>
+					<h1>${finishDate }</h1>
+					<input type="hidden" name="finishDate" value="${finishDate }">
 				</div>
-				<div class="row mb-5">
-					<form class="col-md-12" method="post">
+				<div class="row mb-5">					
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
 									<tr>
+									<th>선택</th>
 										<th class="product-name">등급</th>
 										<th class="product-price">출발시간</th>
 										<th class="product-arrow"></th>
@@ -80,7 +84,7 @@
 								<tbody>
 					<c:forEach items="${buses }" var="b">
 									<tr>
-
+										<td><input type="radio" value="${b.busId }" name="direction1"></td>
 										<td class="product-name">
 											<h2 class="h5 text-black">${b.busGrade }</h2>
 										</td>
@@ -94,20 +98,20 @@
 								</tbody>
 							</table>
 						</div>
-					</form>
+					
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<button class="btn btn-black btn-lg py-3 btn-block"
-							onclick="window.location='resultbus.do'">예매내역 확인</button>
+						<button class="btn btn-black btn-lg py-3 btn-block">예매내역 확인</button>
 					</div>
 				</div>
 			</div>
+			</form>
 		</div>
 
-	<!-- <script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
-	<script src="js/custom.js"></script> -->
+	<script src="js/custom.js"></script>
 </body>
 
 

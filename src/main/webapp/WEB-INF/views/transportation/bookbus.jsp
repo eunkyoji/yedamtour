@@ -36,7 +36,7 @@
           <div class="col">
            <img src="jadoo/public/assetsbook/images/bus.jpg"  alt="steps" style="width: 650px;"/></div>
           <div class="col probootstrap-animate">
-            <form id="search" action="timebus.do" class="probootstrap-form">
+            <form action="timebus.do" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
