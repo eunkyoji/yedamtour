@@ -29,7 +29,6 @@ public class Email {
 		p.put("mail.smtp.port", "587"); // 네이버 포트
 
 		
-		
 		Authenticator auth = new MyAuthentication();
 		// session 생성 및 MimeMessage생성
 		Session session = Session.getDefaultInstance(p, auth);
@@ -37,9 +36,11 @@ public class Email {
 
 		try {
 			// 편지보낸시간
+			
 			msg.setSentDate(new Date());
 			InternetAddress from = new InternetAddress();
 			from = new InternetAddress("tabcapslock9@naver.com"); // 발신자 아이디
+			
 			// 이메일 발신자
 			msg.setFrom(from);
 			// 이메일 수신자
