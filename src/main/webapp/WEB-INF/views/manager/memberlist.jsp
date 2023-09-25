@@ -45,7 +45,9 @@
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
-
+							<div align="right">
+								<button type="button" class="btn btn-primary" onclick="location.href = 'signupform.do">관리자등록</button>
+							</div>
 						</div>
 					</div>
 

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.notice.service.NoticeService;
@@ -24,13 +25,15 @@ public class NoticeDetails extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		NoticeService dao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
+		
+		String author = (String)session.getAttribute("author");
 		
 		vo.setNoticeId(Integer.valueOf(request.getParameter("noticeId")));
 		vo = dao.noticeSelect(vo);
 		
-		Date nowDate = new Date();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
 		
 		if( vo.getNoticeUpdateDate() != null ) {
@@ -43,8 +46,18 @@ public class NoticeDetails extends HttpServlet {
 		
 		request.setAttribute("n", vo);
 		
-		String page = "admin/notice/noticedetail";
-		ViewResolve.forward(request, response, page);
+		if( "Admin".equals(author) ) {
+			String page = "admin/notice/noticedetail";
+			ViewResolve.forward(request, response, page);
+		} else {
+			String page = "notice/noticedetail";
+			ViewResolve.forward(request, response, page);
+		}
+	}
+
+	private String MemberInfo(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

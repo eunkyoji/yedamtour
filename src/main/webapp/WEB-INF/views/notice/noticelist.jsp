@@ -7,9 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link href="webapp/css/noticelist.css" rel="stylesheet">
+<link href="webapp/css/board.css" rel="stylesheet">
 
 <body>
+<c:set var="author" value='<%=(String)session.getAttribute("author") %>' />
 <section class="pt-5 pt-md-9">
 <div class="contact_section">
 	<main id="main" class="main">
@@ -49,10 +50,17 @@
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
+							<c:choose>
+								<c:when test="${author=='Admin' }">
+									<div align="right">
+										<button type="button" class="btn btn-primary" onclick="location.href = 'noticewriteform.do'">글쓰기</button>
+									</div>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
 
-							<div align="right">
-								<button type="button" class="btn btn-primary" onclick="location.href = 'noticewriteform.do'">글쓰기</button>
-							</div>
+							
 						</div>
 					</div>
 				</div>

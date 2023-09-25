@@ -11,8 +11,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.ViewResolve;
+import co.yedam.yedamtour.member.service.MemberService;
+import co.yedam.yedamtour.member.service.MemberVO;
 import co.yedam.yedamtour.notice.service.NoticeService;
 import co.yedam.yedamtour.notice.service.NoticeVO;
 import co.yedam.yedamtour.notice.serviceImpl.NoticeServiceImpl;
@@ -26,12 +29,15 @@ public class NoticeList extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		
 		NoticeService dao = new NoticeServiceImpl();
 		List<NoticeVO> notices = new ArrayList<NoticeVO>();
 		
+		String author = (String)session.getAttribute("author");
+		
 		notices = dao.noticeSelectList();
 		
-		Date nowDate = new Date();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
 		
 		for( int i = 0; i < notices.size(); i++ ) {
@@ -46,8 +52,18 @@ public class NoticeList extends HttpServlet {
 		
 		request.setAttribute("notices", notices);
 		
-		String page = "admin/notice/noticelist";
-		ViewResolve.forward(request, response, page);
+		if( "Admin".equals(author) ) {
+			String page = "admin/notice/noticelist";
+			ViewResolve.forward(request, response, page);
+		} else {
+			String page = "notice/noticelist";
+			ViewResolve.forward(request, response, page);
+		}
+	}
+
+	private String MemberInfo(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

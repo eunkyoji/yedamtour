@@ -26,14 +26,14 @@
 									<span class="input-group-text" id="basic-addon1">제목</span> <input
 										type="text" class="form-control" aria-label="Username"
 										aria-describedby="basic-addon1" id="freeBoardTitle"
-										name="freeBoardTitle">
+										name="freeBoardTitle" value="${f.freeBoardTitle}">
 										<span class="input-group-text" id="basic-addon1">이미지</span> 
 										<input type="file" class="form-control" aria-label="Username"
-										aria-describedby="basic-addon1" id="imgfile" name="imgfile" placeholder="jpg, png, gif">
+										aria-describedby="basic-addon1" id="imgfile" name="imgfile" placeholder="jpg, png, gif" value="${f.freeBoardImg }">
 								</div>
 							</div>
 							<div class="input-group mb-3">
-								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="freeBoardContent" name="freeBoardContent"></textarea>
+								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="freeBoardContent" name="freeBoardContent">${f.freeBoardContent }</textarea>
 							</div>
 							<!-- End Quill Editor Full -->
 							<div align="right">

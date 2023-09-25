@@ -11,7 +11,8 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <body>
-
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 		<div id="app">
 			<div class="row">
@@ -47,7 +48,8 @@
 			</div>
 		</div>
 	</main>
-
+</div>
+</section>
 	<script type="text/javascript">
 
 	</script>

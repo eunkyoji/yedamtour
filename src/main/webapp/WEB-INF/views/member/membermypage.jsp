@@ -65,8 +65,7 @@
 
 							<div class="d-flex justify-content-center py-4">
 								<a href="index.html"
-									class="logo d-flex align-items-center w-auto"> <img
-									src="niceadmin/assets/img/logo.png" alt=""> <span
+									class="logo d-flex align-items-center w-auto">  <span
 									class="d-none d-lg-block">마이페이지</span>
 
 								</a>
@@ -167,19 +166,18 @@
 											placeholder="비밀번호 다시 입력">
 
 									</div>
-								</form>
+								</form><br>
 
 
 
 
 
 
-								<div class="col-12">
-									<button id="memberDelete" class="btn btn-primary w-100"
+								<div class="col-12" align="center">
+									<button id="memberDelete" class="btn btn-primary w-30"
 										type="button">회원탈퇴</button>
+									<button type="button" class="btn btn-primary" onclick="location.href = 'tour.do'">Home</button>
 								</div>
-								<a href="tour.do">home</a>
-
 
 							</div>
 						</div>

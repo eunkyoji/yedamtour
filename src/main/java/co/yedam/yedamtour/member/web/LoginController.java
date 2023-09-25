@@ -41,9 +41,16 @@ public class LoginController extends HttpServlet {
 			
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("password", vo.getMemberPassword());
-			
-			page = "tour.do";
-			response.sendRedirect(page);
+			session.setAttribute("author", vo.getMemberAuthor());
+			System.out.println("author ::: " + vo.getMemberAuthor());
+			if( "user".equals(vo.getMemberAuthor()) ) {
+				System.out.println("userPage~~~~~~~");
+				page = "tour.do";
+				response.sendRedirect(page);
+			} else {
+				page = "adminhome.do";
+				response.sendRedirect(page);
+			}
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();

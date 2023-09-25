@@ -1,10 +1,6 @@
 package co.yedam.yedamtour.freeboard.web;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,36 +12,26 @@ import co.yedam.yedamtour.freeboard.service.FreeBoardService;
 import co.yedam.yedamtour.freeboard.service.FreeBoardVO;
 import co.yedam.yedamtour.freeboard.serviceImpl.FreeBoardServiceImpl;
 
-@WebServlet("/tourfreeboardlist.do")
-public class TourFreeBoardList extends HttpServlet {
+@WebServlet("/freeboardmodify.do")
+public class FreeBoardModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public TourFreeBoardList() {
+    public FreeBoardModify() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FreeBoardService dao = new FreeBoardServiceImpl();
-		List<FreeBoardVO> lists = new ArrayList<FreeBoardVO>();
+		FreeBoardVO vo = new FreeBoardVO();
 		
-		lists = dao.freeBoardSelectList();
+		vo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+		vo = dao.freeBoardSelect(vo);
 		
-		for(int i = 0; i < lists.size(); i++ ) {
-			if( lists.get(i).getFreeBoardUpdateDate() != null ) {
-				String update = simpleDateFormat.format(lists.get(i).getFreeBoardUpdateDate());
-				lists.get(i).setFreeBoardViewDate(update);
-			} else {
-				String wirteDate = simpleDateFormat.format(lists.get(i).getFreeBoardWriteDate());
-				lists.get(i).setFreeBoardViewDate(wirteDate);
-			}
-		}
+		request.setAttribute("f", vo);
 		
-		request.setAttribute("list", lists);
-		
-		String pagae = "freeboard/freeboardlist";
-		ViewResolve.forward(request, response, pagae);
+		String page = "admin/freeboard/freeboardmodify";
+		ViewResolve.forward(request, response, page);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -16,5 +16,5 @@ public class MemberVO {
 		Date   memberRegist;
 		int	   rownum;
 		String memberViewDate;
-	
+		String memberAuthor;	
 }

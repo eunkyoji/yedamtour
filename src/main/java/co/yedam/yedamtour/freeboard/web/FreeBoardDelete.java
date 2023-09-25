@@ -8,37 +8,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import co.yedam.yedamtour.common.ViewResolve;
+import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.freeboard.service.FreeBoardService;
 import co.yedam.yedamtour.freeboard.service.FreeBoardVO;
 import co.yedam.yedamtour.freeboard.serviceImpl.FreeBoardServiceImpl;
 
-@WebServlet("/freeboarddetail.do")
-public class FreeBoardDetails extends HttpServlet {
+@WebServlet("/freeboarddelete.do")
+public class FreeBoardDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public FreeBoardDetails() {
+    public FreeBoardDelete() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		FreeBoardService dao = new FreeBoardServiceImpl();
 		FreeBoardVO vo = new FreeBoardVO();
-		
-		String author = (String)session.getAttribute("author");
+		HttpSession session = request.getSession();
 		
 		vo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
+		vo.setFreeBoardWriter(session.getId());
 		
-		vo = dao.freeBoardSelect(vo);
-		request.setAttribute("f", vo);
+		int n = dao.freeBoardDelete(vo);
 		
-		if( "Admin".equals(author) ) {
-			String page = "admin/freeboard/freeboarddetail";
-			ViewResolve.forward(request, response, page);
+		if( n != 0 ) {
+			AlertControl.alertAndGo(response, "삭제되었습니다.", "freeboardlist.do");
 		} else {
-			String page = "freeboard/freeboarddetail";
-			ViewResolve.forward(request, response, page);
+			AlertControl.alertAndGo(response, "삭제가 실패 되었습니다.", "freeboardlist.do");
 		}
 	}
 
