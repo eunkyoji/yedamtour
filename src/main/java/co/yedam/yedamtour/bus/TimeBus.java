@@ -31,24 +31,20 @@ public class TimeBus extends HttpServlet {
 		String finish = request.getParameter("finish");
 		String startDate = request.getParameter("startDate");
 		String finishDate = request.getParameter("finishDate");
-		
-		List<String> dateList = new ArrayList<String>();
-		dateList.add(startDate);
-		dateList.add(finishDate);
-		
+		String person = request.getParameter("person");
+
 		BusVO vo = new BusVO();
 		vo.setBusStart(start);
 		vo.setBusFinish(finish);
 		
-		// dao
 		buses = dao.busSelectList(vo);
-		if(buses != null) {
-			request.setAttribute("buses", buses);	
-			request.setAttribute("date", dateList);		
-		}
 		
-		//결과
-		// for문
+		if(buses != null) {
+			request.setAttribute("person", person);
+			request.setAttribute("buses", buses);	
+			request.setAttribute("startDate", startDate);
+			request.setAttribute("finishDate", finishDate);
+		}
 		
 		String page = "transportation/timebus";
 		ViewResolve.forward(request, response, page);

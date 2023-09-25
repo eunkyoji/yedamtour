@@ -25,13 +25,14 @@
 		<div class="untree_co-section before-footer-section">
 			<form action="resultairplane.do" class="col-md-12" method="post">
 			<div class="container" style="margin-top: 200px;">
+			<div class="intro-excerpt" style="text-align: center">
+					<input type="hidden" name="person" value="${person }">
+				</div>
 				<div class="intro-excerpt" style="text-align: center">
 					<h1>${startDate}</h1>
 					<input type="hidden" name="startDate" value="${startDate }">
-				</div>
-				
-				<div class="row mb-5">
-					
+				</div>				
+				<div class="row mb-5">					
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
@@ -67,8 +68,7 @@
 					<h1>${finishDate}</h1>
 					<input type="hidden" name="finishDate" value="${finishDate }">
 				</div>
-				<div class="row mb-5">
-					
+				<div class="row mb-5">					
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
@@ -96,8 +96,7 @@
 									</c:forEach>
 								</tbody>
 							</table>
-						</div>
-					
+						</div>					
 				</div>
 				<div class="row">
 					<div class="col-md-12">
@@ -111,5 +110,4 @@
 	<script src="js/tiny-slider.js"></script>
 	<script src="js/custom.js"></script>
 </body>
-
 </html>

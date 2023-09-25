@@ -28,18 +28,18 @@ public class TimeAirplane extends HttpServlet {
 		List<AirplaneVO> airplanes = new ArrayList<AirplaneVO>();
 		String start = request.getParameter("start");  //출발지
 		String finish = request.getParameter("finish");  //도착지
-		String person = request.getParameter("person");
 		String startDate = request.getParameter("startDate");  //출발일자
 		String finishDate = request.getParameter("finishDate"); //도착일자
+		String person = request.getParameter("person");
 
 		AirplaneVO vo = new AirplaneVO();
 		vo.setAirplaneStart(start);
 		vo.setAirplaneFinish(finish);
-		vo.setAirplanePerson(person);
 		
 		airplanes = dao.airplaneSelectList(vo);
 		
 		if(airplanes != null) {
+			request.setAttribute("person", person);
 			request.setAttribute("airplanes", airplanes);
 			request.setAttribute("startDate", startDate);
 			request.setAttribute("finishDate", finishDate);

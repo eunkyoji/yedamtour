@@ -32,6 +32,9 @@
 	<!--    Stylesheets-->
 	<!-- ===============================================-->
 	<link href="jadoo/public/assets/css/theme.css" rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
+		rel="stylesheet">
 
 </head>
 
@@ -73,23 +76,9 @@
 	<script src="jadoo/public/vendors/fontawesome/all.min.js"></script>
 	<script src="jadoo/public/assets/js/theme.js"></script>
 
-	<link
-		href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
-		rel="stylesheet">
+	
 
-<!-- <script>
-	$(document).ready(function () {
-    $('.bxslider').bxSlider({
-        auto: true, // 자동으로 애니메이션 시작
-        speed: 500,  // 애니메이션 속도
-        pause: 5000,  // 애니메이션 유지 시간 (1000은 1초)
-        mode: 'horizontal', // 슬라이드 모드 ('fade', 'horizontal', 'vertical' 이 있음)
-        autoControls: true, // 시작 및 중지버튼 보여짐
-        pager: true, // 페이지 표시 보여짐
-        captions: true, // 이미지 위에 텍스트를 넣을 수 있음
-    });
-});
-</script> -->
+
 </body>
 
 

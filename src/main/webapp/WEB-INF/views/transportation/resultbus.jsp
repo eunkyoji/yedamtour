@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +24,8 @@ width: 400px;
                     <h5 class="fw-medium">${startDate}</h5>
                     <p class="fs--1 mb-3 fw-medium">${startBus.busStart } -> ${startBus.busFinish }</p>
                     <p class="fs--1 mb-3 fw-medium">등급: ${startBus.busGrade }</p>
-                    <p class="fs--1 mb-3 fw-medium">인원: ${startBus.busPerson }</p>
-                    <p class="fs--1 mb-3 fw-medium">좌석: ${startBus.busSeats }</p>                           
+                    <p class="fs--1 mb-3 fw-medium">인원: ${person }명</p>
+                    <p class="fs--1 mb-3 fw-medium">가격: <fmt:formatNumber value="${startPrice }" pattern="#,###" />원</p>                           
                   </div>
                 </div>
               </div>
@@ -36,10 +37,10 @@ width: 400px;
                   <div>                  
                   <h5 class="fw-medium">오는날</h5>
                      <h5 class="fw-medium">${finishDate }</h5>
-                    <p class="fs--1 mb-3 fw-medium">${finishBus.busFinish }동대구 -> ${finishBus.busStart }부산</p>
+                    <p class="fs--1 mb-3 fw-medium">${finishBus.busFinish } -> ${finishBus.busStart }</p>
                     <p class="fs--1 mb-3 fw-medium">등급: ${finishBus.busGrade }</p>
-                    <p class="fs--1 mb-3 fw-medium">인원: ${finishBus.busPerson }</p>
-                    <p class="fs--1 mb-3 fw-medium">좌석: ${finishBus.busSeats }</p>
+                    <p class="fs--1 mb-3 fw-medium">인원: ${person }명</p>
+                    <p class="fs--1 mb-3 fw-medium">가격: <fmt:formatNumber value="${finishPrice }" pattern="#,###" />원</p>
                     </div>               
                   </div>
                 </div>
