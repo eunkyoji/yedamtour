@@ -13,7 +13,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Email {
-
+//이메일
 	public static void main(String[] args) {
 		sendEmail();
 		System.out.println("이메일전송");
@@ -26,7 +26,7 @@ public class Email {
 		p.put("mail.smtp.starttls.enable", "true"); // gmail은 true 고정
 		p.put("mail.smtp.host", "smtp.naver.com"); // smtp 서버 주소
 		p.put("mail.smtp.auth", "true"); // gmail은 true 고정
-		p.put("mail.smtp.port", "465"); // 네이버 포트
+		p.put("mail.smtp.port", "587"); // 네이버 포트
 
 		
 		
