@@ -87,24 +87,24 @@
 			</div>
 
 
-				<div class="row g-4">
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-						<a class="service-item d-block rounded text-center alllist p-4"
-							href=""> <img class="img-fluid rounded mb-4"
-							src="ticket/img/themepark/에버랜드.jpg" alt="">
-							<h4 class="mb-0">에버랜드</h4> <span>가격 :&nbsp; 35000원</span>
-							<br> <span>간략한 정보입력</span>
+			<div class="row g-4">
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+					<a class="service-item d-block rounded text-center alllist p-4"
+						href=""> <img class="img-fluid rounded mb-4"
+						src="ticket/img/themepark/에버랜드.jpg" alt="">
+						<h4 class="mb-0">에버랜드</h4> <span>가격 :&nbsp; 35000원</span> <br>
+						<span>간략한 정보입력</span>
 
-						</a>
-					</div>
-					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-						<a class="service-item d-block rounded text-center alllist p-4"
-							href=""> <img class="img-fluid rounded mb-4"
-							src="ticket/img/아쿠아리움.jpg" alt="">
-							<h4 class="mb-0">대구 아쿠아리움</h4> <span>가격</span><br> <span>상세내용</span>
-						</a>
-					</div>
+					</a>
 				</div>
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+					<a class="service-item d-block rounded text-center alllist p-4"
+						href=""> <img class="img-fluid rounded mb-4"
+						src="ticket/img/아쿠아리움.jpg" alt="">
+						<h4 class="mb-0">대구 아쿠아리움</h4> <span>가격</span><br> <span>상세내용</span>
+					</a>
+				</div>
+			</div>
 
 
 		</div>

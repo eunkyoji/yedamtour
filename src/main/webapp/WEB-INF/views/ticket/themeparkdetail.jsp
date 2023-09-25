@@ -49,53 +49,54 @@
 				style="max-width: 600px; padding-top: 100px"></div>
 			<div class="row g-4">
 				<div align="center">
-					<img class="detailImg" src="ticket/img/아쿠아리움.jpg" alt="아쿠아리움">
+					<img class="detailImg"
+						src="ticket/img/themepark/${vo.themeparkImg }" alt="${vo.themeparkImg }">
 
-					<h2 class="detailtitle">${a.themeparkName}</h2>
+					<h2 class="detailtitle">${vo.themeparkName}</h2>
 				</div>
 
 			</div>
 		</div>
 	</div>
 	<!-- 카테고리끝 -->
-	<div class="container-xxl py-5">
 		<div class="container">
 			<div class="text-center mx-auto mb-5 wow fadeInUp"
 				data-wow-delay="0.1s" style="max-width: 600px;">
 				<h6 class="section-title bg-white text-center text-primary px-3">상세정보</h6>
-				<h1 class="display-6 mb-4">${a.themeparkName}</h1>
 			</div>
 			<div class="row g-4">
 				<div class=" wow fadeInUp" data-wow-delay="0.1s">
 					<div class="service-item2 d-block rounded text-center alllist p-4"
 						href="">
-						<img class="img-fluid rounded mb-4" src="ticket/img/에버랜드.jpg"
-							alt="">
+
 						<h4 class="mb-0"></h4>
-						<span>상세내용</span>
+						<div>
+							<p class="">${vo.themeparkDetail}</p>
 
-					</div>
-					<div align="center">
-						<button>내용 더보기</button>
-					</div>
-					<div class="row g-4">
-						<div class=" wow fadeInUp" data-wow-delay="0.1s">
-							<div
-								class=" cart service-item2 d-block rounded text-center alllist p-4">
-								<h4 class="mb-0">장바구니</h4>
-								<div align="center">
-									<span>상품명: ${name }</span>
-									<div>
-										<span id="price">가격: 10000원$ </span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수량:
-										</span><input id="ticket" type="text" maxlength='2'
-											oninput="count(event)" name="ticketCnt"
-											style="width: 50px; text-align: center">
+							<input class="more" type="checkbox">
+						</div>
+					
+						
+						<div class="row g-4">
+							<div class=" wow fadeInUp" data-wow-delay="0.1s">
+								
+								
+								<div
+									class=" cart service-item2 d-block rounded text-center alllist p-4">
+									<h4 class="mb-0">장바구니</h4>
+									<div align="center">
+										<span>상품명: ${vo.themeparkName }</span>
+										<div>
+											<span id="price">가격: ${vo.themeparkPrice }원 </span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수량:
+											</span><input id="ticket" type="text" maxlength='2'
+												oninput="count(event)" name="ticketCnt"
+												style="width: 50px; text-align: center">
+										</div>
+										<div id="totalPrice" style="font-size: 14px">총 가격:</div>
+
+										<a href="#" id="cartBtn" style="display: none">장바구니담기</a> <input
+											type="hidden" name="productId" value="${vo.themeparkId }">
 									</div>
-									<div id="totalPrice" style="font-size: 14px">총 가격:</div>
-
-									<a href="#" id="cartBtn" style="display: none">장바구니담기</a> <input
-										type="hidden" name="productId" value="${productId }">
-
 								</div>
 							</div>
 						</div>

@@ -1,9 +1,6 @@
 package co.yedam.yedamtour.ticket.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,27 +12,32 @@ import co.yedam.yedamtour.ticket.service.AquariumService;
 import co.yedam.yedamtour.ticket.service.AquariumVO;
 import co.yedam.yedamtour.ticket.serviceImpl.AquariumServiceImpl;
 
-@WebServlet("/aquarium.do")
-public class Aquarium extends HttpServlet {
+@WebServlet("/aquariumdetail.do")
+public class AquariumDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Aquarium() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AquariumService dao = new AquariumServiceImpl();
-		List<AquariumVO> vo = new ArrayList<>();
-		
-		vo = dao.aquariumSelectList();
-		request.setAttribute("vo", vo);
-		
-		String page = "ticket/aquarium";
-		ViewResolve.forward(request, response, page);
-		
+	public AquariumDetail() {
+		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		AquariumService dao = new AquariumServiceImpl();
+		AquariumVO vo = new AquariumVO();
+
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		vo.setAquariumId(id);
+
+		vo = dao.aquariumSelect(vo);
+		request.setAttribute("vo", vo);
+
+		String page = "ticket/aquariumdetail";
+		ViewResolve.forward(request, response, page);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
