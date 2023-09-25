@@ -2,11 +2,14 @@ package co.yedam.yedamtour.camping.service;
 
 import java.util.List;
 
+import co.yedam.yedamtour.hotel.service.HotelVO;
+
 public interface CampingService {
-	List<CampingVO> campingSelectList();
 	List<CampingVO> campingDetailSelectList(int campingId);
-	CampingVO campingSelect(CampingVO vo);
-	int campingInsert(CampingVO vo);
-	int campingUpdate(CampingVO vo);
-	int campingDelete(CampingVO vo);	
+	List<CampingVO> campingSelectList();
+	CampingVO		campingRoomSelect(CampingVO vo);
+	CampingVO		campingSelect(CampingVO vo);
+	int 			campingInsert(CampingVO vo);
+	int				campingUpdate(CampingVO vo);
+	int 			campingDelete(CampingVO vo);	
 }
