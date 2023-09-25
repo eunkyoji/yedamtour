@@ -6,11 +6,11 @@
 	</select>
 	
 	<select id="pensionDetailSelectList" resultType="co.yedam.yedamtour.pension.service.PensionVO">
-	SELECT * FROM TOUR_HOTEL WHERE PENSION_ID = #{pensionId}
+	SELECT * FROM TOUR_PENSION WHERE PENSION_ID = #{pensionId} AND PENSION_SUB_ID IS NOT NULL
 	</select>
 	
 	<select id="pensionSelect" resultType="co.yedam.yedamtour.pension.service.PensionVO">
-	SELECT * FROM TOUR_PENSION WHERE PENSION_ID = #{pensionId}
+	SELECT * FROM TOUR_PENSION WHERE PENSION_ID = #{pensionId} AND PENSION_SUB_ID IS NULL
 	</select>
 	
 	<insert id="pensionInsert" parameterType="co.yedam.yedamtour.pension.service.PensionVO">

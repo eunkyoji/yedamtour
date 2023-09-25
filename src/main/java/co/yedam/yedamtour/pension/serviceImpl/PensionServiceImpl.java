@@ -39,8 +39,8 @@ public class PensionServiceImpl implements PensionService {
 	}
 
 	@Override
-	public List<PensionVO> pensionDetailSelectList(PensionVO vo) {
-		return map.pensionDetailSelectList(vo);
+	public List<PensionVO> pensionDetailSelectList(int pensionId) {
+		return map.pensionDetailSelectList(pensionId);
 	}
 
 }

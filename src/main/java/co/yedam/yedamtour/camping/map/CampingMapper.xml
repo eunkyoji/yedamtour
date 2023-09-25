@@ -6,11 +6,11 @@ SELECT * FROM TOUR_CAMPING WHERE CAMPING_SUB_ID IS NULL
 </select>
 
 <select id="campingDetailSelectList" resultType="co.yedam.yedamtour.camping.service.CampingVO">
-SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId}
+SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS NOT NULL
 </select>
 
 <select id="campingSelect" resultType="co.yedam.yedamtour.camping.service.CampingVO">
-SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId}
+SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS NULL
 </select>
 
 <insert id="campingInsert" parameterType="co.yedam.yedamtour.camping.service.CampingVO">

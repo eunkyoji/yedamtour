@@ -96,7 +96,6 @@
 	<section class="rooms-section spad">
 		<div class="container">
 			<h4></h4>
-			<br>
 			<div class="row" style="display:none;">
 				<div class="col-lg-4 col-md-6" id="itemdiv">
 					<div class="room-item">
@@ -104,7 +103,7 @@
 						<div class="ri-text">
 							<h4></h4>
 							<h3>만원~</h3>
-							<a href="booking.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" id="reserve" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
@@ -117,27 +116,27 @@
 <script type="text/javascript">
 //	$(document).ready(function () {
 		$.ajax({
-			url:"hotelsublist.do?hotelId=" + ${hotels.hotelId},
-			type:"post",
-			datatype:"html",
-			success:function(data){
-				for(let i=0; i<data.length; i++){
-					let clone = $('.col-lg-4:eq(0)').clone();
-					//let salePrice = result[i].itemPrice * (result[i].itemSaleRate * 0.01);
-					
-					//clone.css('display', 'block');
-					clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
-					clone.find('h4').text(data[i].hotelRoomName);
-					clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
-					$('.row').append(clone);
-				}
-				
-				console.log(clone);
-			}	
-		});
+         url:"hotelsublist.do?hotelId=" + ${hotels.hotelId},
+         type:"post",
+         datatype:"html",
+         success:function(data){
+            for(let i=0; i<data.length; i++){
+               let clone = $('.col-lg-4:eq(0)').clone();
+               //let salePrice = result[i].itemPrice * (result[i].itemSaleRate * 0.01);
+               
+               //clone.css('display', 'block');
+               clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
+               clone.find('h4').text(data[i].hotelRoomName);
+               clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
+               clone.find('a').attr('href', 'booking.do?categoryId=1&hotelId='+${hotels.hotelId}+"&hotelSubId="+data[i].hotelSubId);
+               $('.row').append(clone);
+            }
+            
+            console.log(clone);
+         }   
+      });
 //	});
-	
-	console.log(hotelSubId);
+
 </script>
 
 </body>

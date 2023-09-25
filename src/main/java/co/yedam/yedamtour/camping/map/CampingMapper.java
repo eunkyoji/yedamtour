@@ -6,7 +6,7 @@ import co.yedam.yedamtour.camping.service.CampingVO;
 
 public interface CampingMapper {
 	List<CampingVO> campingSelectList();
-	List<CampingVO> campingDetailSelectList(CampingVO vo);	
+	List<CampingVO> campingDetailSelectList(int campingId);	
 	CampingVO campingSelect(CampingVO vo);
 	int campingInsert(CampingVO vo);
 	int campingUpdate(CampingVO vo);

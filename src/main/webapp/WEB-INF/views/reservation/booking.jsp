@@ -67,46 +67,16 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td>Top Up T-Shirt <strong class="mx-2">x</strong> 1
-												</td>
-												<td>$250.00</td>
-											</tr>
+												<td>${reserves.hotelName } (${reserves.hotelRoomName })</td>
+												<td>${reserves.hotelRoomPrice }만원</td>
+											</tr>											
 											<tr>
-												<td>Polo Shirt <strong class="mx-2">x</strong> 1
-												</td>
-												<td>$100.00</td>
-											</tr>
-											<tr>
-												<td class="text-black font-weight-bold"><strong>합계</strong></td>
-												<td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+												<td class="text-black font-weight-bold"><strong>TOTAL</strong></td>
+												<td class="text-black font-weight-bold"><strong>${reserves.hotelRoomPrice }만원</strong></td>
 											</tr>
 										</tbody>
 									</table>
-
-									<div class="border p-3 mb-3">
-										<h3 class="h6 mb-0">
-											<a class="d-block" data-bs-toggle="collapse"
-												href="#collapsebank" role="button" aria-expanded="false"
-												aria-controls="collapsebank">무통장 입금</a>
-										</h3>
-									</div>
-
-									<div class="border p-3 mb-3">
-										<h3 class="h6 mb-0">
-											<a class="d-block" data-bs-toggle="collapse"
-												href="#collapsecheque" role="button" aria-expanded="false"
-												aria-controls="collapsecheque">카드 결제</a>
-										</h3>
-									</div>
-
-									<div class="border p-3 mb-5">
-										<h3 class="h6 mb-0">
-											<a class="d-block" data-bs-toggle="collapse"
-												href="#collapsepaypal" role="button" aria-expanded="false"
-												aria-controls="collapsepaypal">카카오 페이</a>
-										</h3>
-									</div>
-
+									
 									<div class="row">
 									<div class="col-md-12"><a href="cart.do" style="color:white">
 										<button class="btn-lg">예약하기</a></button>
@@ -126,6 +96,8 @@
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
 	<script src="js/custom.js"></script>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>	
 
 </body>
 </html>

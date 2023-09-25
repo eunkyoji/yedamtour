@@ -9,6 +9,10 @@
 	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID IS NOT NULL
 	</select>
 	
+	<select id="hotelRoomSelect" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
+	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID = #{hotelSubId}
+	</select>
+	
 	<select id="hotelSelect" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
 	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID IS NULL
 	
