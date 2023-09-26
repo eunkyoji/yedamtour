@@ -10,6 +10,7 @@
 <!-- Css Styles -->
 <link rel="stylesheet" href="jadoo/public/assets/css/stay/staymain.css"
 	type="text/css">
+	
 
 </head>
 <body>

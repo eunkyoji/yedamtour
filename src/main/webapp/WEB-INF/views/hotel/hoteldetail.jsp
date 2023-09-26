@@ -11,12 +11,12 @@
 	type="text/css">
 </head>
 <style>
-#room{
+#room {
 	padding: 100px;
 }
 </style>
 <body>
-
+	<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 	<!-- Contact -->
 	<section class="pt-5 pt-md-9" id="booking">
 		<br> <br>
@@ -54,10 +54,14 @@
 								<li
 									class="d-flex flex-row align-items-center justify-content-start">
 									<div id="imgdiv">
-										<img id="bath" src="jadoo/public/assets/img/icons/bathicon.png" alt="">
-										<img id="parking" src="jadoo/public/assets/img/icons/parkicon.png" alt="">
-										<img id="nosmoke" src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
-										<img id="wifi" src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
+										<img id="bath"
+											src="jadoo/public/assets/img/icons/bathicon.png" alt="">
+										<img id="parking"
+											src="jadoo/public/assets/img/icons/parkicon.png" alt="">
+										<img id="nosmoke"
+											src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
+										<img id="wifi"
+											src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
 									</div>
 								</li>
 							</ul>
@@ -68,21 +72,25 @@
 						<img id="hotelimg" src="img/rooms/${hotels.hotelImg }" alt="">
 					</div>
 					<!-- Contact Image Close-->
-					
+
 					<div class="container" id="room">
 						<h4>객실 안내/예약</h4>
 						<br>
-						<div class="row" style="display:none;">
-							<div class="col-lg-4 col-md-6" id="itemdiv">
-								<div class="room-item">
-									<img id="roomimg" src="img/rooms/" alt="">
-									<div class="ri-text">
-										<h4></h4>
-										<h3>만원~</h3>
-										<a href="booking.do" class="primary-btn">예약하러 가기</a>
+						<div class="row" style="display: none;">
+							<form id="frm" action="booking.do" method="post" enctype="form-data">
+								<div class="col-lg-4 col-md-6" id="itemdiv">
+									<div class="room-item">
+										<img id="roomimg" src="img/rooms/" alt="">
+										<div class="ri-text">
+											<h4></h4>
+											<h3>만원~</h3>
+											<a href="booking.do" class="primary-btn">예약하러 가기</a>
+										</div>
 									</div>
 								</div>
-							</div>
+								<input type="hidden" id="hotelId" name="hotelId" value="${hotelId }">
+								<input type="hidden" id="memberId" name="memberId" value="${id }">
+							</form>
 						</div>
 					</div>
 
@@ -96,15 +104,14 @@
 	<section class="rooms-section spad">
 		<div class="container">
 			<h4></h4>
-			<br>
-			<div class="row" style="display:none;">
+			<div class="row" style="display: none;">
 				<div class="col-lg-4 col-md-6" id="itemdiv">
 					<div class="room-item">
 						<img id="roomimg" src="img/rooms/" alt="">
 						<div class="ri-text">
 							<h4></h4>
 							<h3>만원~</h3>
-							<a href="booking.do" class="primary-btn">예약하러 가기</a>
+							<a href="booking.do" id="reserve" class="primary-btn">예약하러 가기</a>
 						</div>
 					</div>
 				</div>
@@ -113,31 +120,36 @@
 	</section>
 	<!-- Rooms Section End -->
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>	
-<script type="text/javascript">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
 //	$(document).ready(function () {
 		$.ajax({
-			url:"hotelsublist.do?hotelId=" + ${hotels.hotelId},
-			type:"post",
-			datatype:"html",
-			success:function(data){
-				for(let i=0; i<data.length; i++){
-					let clone = $('.col-lg-4:eq(0)').clone();
-					//let salePrice = result[i].itemPrice * (result[i].itemSaleRate * 0.01);
-					
-					//clone.css('display', 'block');
-					clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
-					clone.find('h4').text(data[i].hotelRoomName);
-					clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
-					$('.row').append(clone);
-				}
-				
-				console.log(clone);
-			}	
-		});
+         url:"hotelsublist.do?hotelId=" + ${hotels.hotelId},
+         type:"post",
+         datatype:"html",
+         success:function(data){
+            for(let i=0; i<data.length; i++){
+               let clone = $('.col-lg-4:eq(0)').clone();
+               //let salePrice = result[i].itemPrice * (result[i].itemSaleRate * 0.01);
+               
+               //clone.css('display', 'block');
+               clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
+               clone.find('h4').text(data[i].hotelRoomName);
+               clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
+               clone.find('a').attr('onclick', 'booking()');
+               $('.row').append(clone);
+            }
+            
+            console.log(clone);
+         }   
+      });
 //	});
-	
-	console.log(hotelSubId);
+
+		function booking(){
+			let form = document.getElementById("frm");
+			form.submit();
+		}
+
 </script>
 
 </body>

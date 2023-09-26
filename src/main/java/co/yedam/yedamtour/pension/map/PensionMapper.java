@@ -5,10 +5,12 @@ import java.util.List;
 import co.yedam.yedamtour.pension.service.PensionVO;
 
 public interface PensionMapper {
+	List<PensionVO> pensionDetailSelectList(int pensionId);
 	List<PensionVO> pensionSelectList();
-	List<PensionVO> pensionDetailSelectList(PensionVO vo);
-	PensionVO pensionSelect(PensionVO vo);
-	int pensionInsert(PensionVO vo);
-	int pensionUpdate(PensionVO vo);
-	int pensionDelete(PensionVO vo);
+	PensionVO 		pensionSelect(PensionVO vo);
+	PensionVO		pensionRoomSelect(PensionVO vo);
+	List<PensionVO>	pensionSelectMember(PensionVO vo);
+	int 			pensionInsert(PensionVO vo);
+	int				pensionUpdate(PensionVO vo);
+	int 			pensionDelete(PensionVO vo);
 }

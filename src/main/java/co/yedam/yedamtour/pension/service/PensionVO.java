@@ -17,4 +17,9 @@ public class PensionVO {
 	private String pensionRoomImg;
 	private String pensionRoomName;
 	private int pensionRoomPrice;
+	private int pensionSubId;
+	private String memberId;
+	private String memberPhone;
+	private String memberName;
+	private String categoryId;
 }
