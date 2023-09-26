@@ -42,7 +42,7 @@
 												<tr style="cursor:pointer" onclick="qnaSelect(${q.qnaId})">
 													<th scope="row">${q.rownum }</th>
 													<td>${q.qnaTitle}</td>
-													<td>${q.memberNicname }</td>
+													<td>${q.memberNickname }</td>
 													<td>${q.qnaViewDate }</td>
 												</tr>
 											</c:forEach>
