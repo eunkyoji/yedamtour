@@ -53,9 +53,6 @@ public class LoginController extends HttpServlet {
 				response.sendRedirect(page);
 			}
 
-			
-			page = "tour.do";
-			response.sendRedirect(page);
 
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
