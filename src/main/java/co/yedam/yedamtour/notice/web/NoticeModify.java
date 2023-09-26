@@ -30,9 +30,8 @@ public class NoticeModify extends HttpServlet {
 		ThumbNail thumbNail = new ThumbNail();
 		NoticeService dao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
-		HttpSession session = request.getSession();
 		
-		String memberId = session.getId();
+		
 		
 		String saveDir = getServletContext().getRealPath("attech/notice");	// 운영 서버에 올릴때는 저장 경로만 작성
 		int maxSize = 1024 * 1024 * 100; // 100Mbyte
@@ -54,10 +53,10 @@ public class NoticeModify extends HttpServlet {
 			thumb = thumb.substring(thumb.lastIndexOf("\\")+1);	// 넘어온 결과에서 파일경로를 잘라내고 파일명만 얻음
 			vo.setNoticeThumb(thumb);
 		}
-		
-		vo.setNoticeId(Integer.valueOf(request.getParameter("noticeId")));
-		vo.setNoticeTitle(request.getParameter("noticeTitle"));
-		vo.setNoticeContent(request.getParameter("noticeContent"));
+		System.out.println("noticeId ::; " + multi.getParameter("noticeTitle"));
+		vo.setNoticeId(Integer.valueOf(multi.getParameter("noticeId")));
+		vo.setNoticeTitle(multi.getParameter("noticeTitle"));
+		vo.setNoticeContent(multi.getParameter("noticeContent"));
 		
 		int n = dao.noticeUpdate(vo);
 		

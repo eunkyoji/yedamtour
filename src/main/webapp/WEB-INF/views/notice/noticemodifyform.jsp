@@ -19,7 +19,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">공지사항</h5>
-							<form id="frm" action="noticeupdate.do" method="post" enctype="multipart/form-data">
+							<form id="frm" action="noticemodify.do" method="post" enctype="multipart/form-data">
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">
@@ -36,20 +36,17 @@
 								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="noticeContent" name="noticeContent">${n.noticeContent}</textarea>
 							</div>
 							<!-- End Quill Editor Full -->
+							<input type="hidden" id="noticeId" name="noticeId" value="${n.noticeId }">
 							<div align="right">
-								<button type="submit" class="btn btn-primary" onclick="location.href = 'noticewrite.do'">저장</button>
+								<button type="submit" class="btn btn-primary" onclick="location.href = 'noticemodify.do'">저장</button>
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'noticelist.do'">목록</button>
 							</div>
-							<input type="hidden" id="noticeId" name="noticeId" value="${n.noticeId }">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div>
-			<input type="hidden" name="noticeWriter" value="hong@gmail.com">
 		</div>
 	</main>
 

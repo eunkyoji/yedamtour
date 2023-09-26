@@ -11,6 +11,7 @@
 
 <body>
 <c:set var="author" value='<%=(String)session.getAttribute("author") %>' />
+<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
 <section class="pt-5 pt-md-9">
 <div class="contact_section">
 	<main id="main" class="main">
@@ -51,7 +52,7 @@
 							</table>
 							<!-- End Table with stripped rows -->
 							<c:choose>
-								<c:when test="${author=='Admin' }">
+								<c:when test="${author=='Admin' && id == 'admin@ydtour.com'}">
 									<div align="right">
 										<button type="button" class="btn btn-primary" onclick="location.href = 'noticewriteform.do'">글쓰기</button>
 									</div>

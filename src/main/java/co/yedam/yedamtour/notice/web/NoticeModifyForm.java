@@ -26,7 +26,7 @@ public class NoticeModifyForm extends HttpServlet {
 		
 		vo.setNoticeId(Integer.valueOf(request.getParameter("noticeId")));
 		vo = dao.noticeSelect(vo);
-		
+		System.out.println(vo);
 		request.setAttribute("n", vo);
 		
 		String page = "admin/notice/noticemodifyform";

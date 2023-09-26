@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
 <div class="container">
 	<main id="main" class="main">
 
@@ -41,23 +42,31 @@
 										</div>
 									</div>
 								</div>
+								
+								<c:choose>
+									<c:when test="${id == 'admin@ydtour.com' }">
+										<div align="right">
+											<button type="button" class="btn btn-primary"
+												onclick="noticeModifyform(${n.noticeId})">수정</button>
+											<button type="button" class="btn btn-primary"
+												onclick="noticeDelete(${n.noticeId})">삭제</button>
+											<button type="button" class="btn btn-primary"
+												onclick="location.href = 'noticelist.do'">목록</button>
+										</div>
+									</c:when>
+									<c:otherwise>
+									</c:otherwise>
+								</c:choose>
 
-								<div align="right">
-									<button type="button" class="btn btn-primary"
-										onclick="noticeModify(${n.noticeId})">수정</button>
-									<button type="button" class="btn btn-primary"
-										onclick="noticeDelete(${n.noticeId})">삭제</button>
-									<button type="button" class="btn btn-primary"
-										onclick="location.href = 'noticelist.do'">목록</button>
-								</div>
 							</div>
 						</div>
 
 					</div>
 				</div>
 			</section>
+			<input type="hidden" id="noticeId" name="noticeId">
 		</form>
-		<form id="mform" action="noticemodify.do" method="post">
+		<form id="mform" action="noticemodifyform.do" method="post">
 			<input type="hidden" id="noticeId" name="noticeId">
 		</form>
 		<form id="dform" action="noticedelete.do" method="post">
@@ -66,16 +75,20 @@
 	</main>
 </div>
 	<script type="text/javascript">
-	function noticeModify(id){
+	function noticeModifyform(id){
 		let form = document.getElementById("mform");
 		form.noticeId.value = id;
 		form.submit();
 	}
 	
 	function noticeDelete(id){
-		let form = document.getElementById("dform");
-		form.noticeId.value = id;
-		form.submit();
+		if(confirm("삭제하시겠습니까?")){
+			let form = document.getElementById("dform");
+			form.noticeId.value = id;
+			form.submit();
+		} else {
+			return;
+		}
 	}
 	</script>
 </body>
