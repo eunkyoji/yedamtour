@@ -58,7 +58,7 @@ public class FreeBoardModify extends HttpServlet {
 		if( n != 0 ) {
 			AlertControl.alertAndGo(response, "수정 되었습니다.", "freeboardlist.do");;
 		} else {
-			
+			AlertControl.alertAndGo(response, "수정이 실패 되었습니다.", "freeboardlist.do");;
 		}
 		String attech = multi.getOriginalFileName("attechfile");
 		if( attech != null ) {
