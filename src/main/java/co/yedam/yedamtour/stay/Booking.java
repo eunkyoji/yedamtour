@@ -1,6 +1,8 @@
 package co.yedam.yedamtour.stay;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,8 +35,7 @@ public class Booking extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String id = session.getId();
+		
 		String hotelId = request.getParameter("hotelId");
 		String hotelSubId = request.getParameter("hotelSubId");
 		String pensionId = request.getParameter("pensionId");
@@ -43,23 +44,27 @@ public class Booking extends HttpServlet {
 		String campingSubId = request.getParameter("campingSubId");
 		String categoryId = request.getParameter("categoryId");
 		System.out.println(hotelId + "," + categoryId);
-
+		System.out.println("memberId :: " + request.getParameter("memberId"));
 		MemberService mdao = new MemberServiceImpl();
 		MemberVO mvo = new MemberVO();
-		mvo.setMemberId(id);
+		mvo.setMemberId(request.getParameter("memberId"));
 		mvo = mdao.memberSelect(mvo);
-
+System.out.println("mvo :: " + mvo);
 		if (categoryId == "1") {
 			HotelService hdao = new HotelServiceImpl();
 			HotelVO hvo = new HotelVO();
+			HotelVO vvo = new HotelVO();
 			hvo.setHotelId(Integer.parseInt(hotelId));
 
 			hvo.setHotelSubId(Integer.parseInt(hotelSubId));
-			hvo = hdao.hotelRoomSelect(hvo);
-			hvo.setMemberId(id);
-			hvo.setMemberName(hvo.getMemberName());
-			hvo.setMemberPhone(hvo.getMemberPhone());
-			hvo.setCategoryId(Integer.parseInt(categoryId));
+			vvo = hdao.hotelRoomSelect(hvo);
+			System.out.println(vvo);
+			
+			hvo.setMemberId(mvo.getMemberId());
+			hvo.setMemberName(mvo.getMemberName());
+			hvo.setMemberPhone(mvo.getMemberPhone());
+			hvo.setCategoryId(categoryId);
+			
 			request.setAttribute("reserves", hvo);
 
 			System.out.println(hvo);
@@ -67,27 +72,27 @@ public class Booking extends HttpServlet {
 		} else if (categoryId == "2") {
 			PensionService pdao = new PensionServiceImpl();
 			PensionVO pvo = new PensionVO();
-			pvo.setMemberId(id);
+			pvo.setMemberId(mvo.getMemberId());
 
 			pvo.setPensionSubId(Integer.parseInt(pensionSubId));
 			pvo = pdao.pensionRoomSelect(pvo);
-			pvo.setMemberId(id);
-			pvo.setMemberName(pvo.getMemberName());
-			pvo.setMemberPhone(pvo.getMemberPhone());
-			pvo.setCategoryId(Integer.parseInt(categoryId));
+			pvo.setMemberId(mvo.getMemberId());
+			pvo.setMemberName(mvo.getMemberName());
+			pvo.setMemberPhone(mvo.getMemberPhone());
+			pvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", pvo);
 			
 		} else if (categoryId == "3"){
 			CampingService cdao = new CampingServiceImpl();
 			CampingVO cvo = new CampingVO();
-			cvo.setMemberId(id);
+			cvo.setMemberId(mvo.getMemberId());
 
 			cvo.setCampingSubId(Integer.parseInt(campingSubId));
 			cvo = cdao.campingRoomSelect(cvo);
-			cvo.setMemberId(id);
-			cvo.setMemberName(cvo.getMemberName());
-			cvo.setMemberPhone(cvo.getMemberPhone());
-			cvo.setCategoryId(Integer.parseInt(categoryId));
+			cvo.setMemberId(mvo.getMemberId());
+			cvo.setMemberName(mvo.getMemberName());
+			cvo.setMemberPhone(mvo.getMemberPhone());
+			cvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", cvo);
 			
 		}

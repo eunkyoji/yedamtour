@@ -17,9 +17,15 @@ SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS
 SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS NULL
 </select>
 
+<select id="campingSelectMember" resultType="co.yedam.yedamtour.camping.service.CampingVO">
+select * from tour_camping where member_id = #{memberId}
+</select>
+
 <insert id="campingInsert" parameterType="co.yedam.yedamtour.camping.service.CampingVO">
-INSERT INTO TOUR_CAMPING(CAMPING_ID, CAMPING_NAME, CAMPING_DETAIL, CAMPING_PRICE)
-VALUES (#{campingId}, #{campingName}, #{campingDetail}, #{campingPrice})
+<!-- <selectKey keyProperty="categoryId" resultType="int" order="BEFORE">SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 3</selectKey> -->
+<selectKey keyProperty="campingId" resultType="int" order="BEFORE">NVL(MAX(CAMPING_ID), 0) + 3 AS ID FROM TOUR_CAMPING</selectKey>
+INSERT INTO TOUR_CAMPING(CAMPING_ID, CAMPING_NAME, CAMPING_DETAIL, CAMPING_PRICE, CATEGORY_ID)
+VALUES (#{campingId}, #{campingName}, #{campingDetail}, #{campingPrice}, SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 3)
 </insert>
 
 <update id="campingUpdate" parameterType="co.yedam.yedamtour.camping.service.CampingVO">

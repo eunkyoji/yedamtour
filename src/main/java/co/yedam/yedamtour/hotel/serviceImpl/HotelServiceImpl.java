@@ -48,4 +48,9 @@ public class HotelServiceImpl implements HotelService {
 		return map.hotelRoomSelect(vo);
 	}
 
+	@Override
+	public List<HotelVO> hotelSelectMember(HotelVO vo) {
+		return map.hotelSelectMember(vo);
+	}
+
 }

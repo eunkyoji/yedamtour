@@ -22,5 +22,5 @@ public class HotelVO {
 	private String memberId;
 	private String memberPhone;
 	private String memberName;
-	private int categoryId;
+	private String categoryId;
 }

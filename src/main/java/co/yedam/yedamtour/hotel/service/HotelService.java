@@ -7,6 +7,7 @@ public interface HotelService {
 	List<HotelVO>   hotelDetailSelectList(int hotelId);
 	HotelVO			hotelRoomSelect(HotelVO vo);
 	HotelVO			hotelSelect(HotelVO vo);
+	List<HotelVO>	hotelSelectMember(HotelVO vo);
 	int				hotelInsert(HotelVO vo);
 	int				hotelUpdate(HotelVO vo);
 	int				hotelDelete(HotelVO vo);

@@ -48,4 +48,9 @@ public class CampingServiceImpl implements CampingService {
 		return map.campingRoomSelect(vo);
 	}
 
+	@Override
+	public List<CampingVO> campingSelectMember(CampingVO vo) {
+		return map.campingSelectMember(vo);
+	}
+
 }

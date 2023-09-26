@@ -14,12 +14,18 @@
 	</select>
 	
 	<select id="hotelSelect" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
-	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID IS NULL
-	
+	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID IS NULL	
 	</select>
+	
+	<select id="hotelSelectMember" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
+	select * from tour_hotel where member_id = #{memberId}
+	</select>
+	
 	<insert id="hotelInsert" parameterType="co.yedam.yedamtour.hotel.service.HotelVO">
-	INSERT INTO TOUR_HOTEL(HOTEL_ID, HOTEL_NAME, HOTEL_DETAIL, HOTEL_PRICE)
-	VALUES (#{hotelId}, #{hotelName}, #{hotelDetail}, #{hotelPrice})
+	<!-- <selectKey keyProperty="categoryId" resultType="int" order="BEFORE">SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 1</selectKey> -->
+	<selectKey keyProperty="hotelId" resultType="int" order="BEFORE">NVL(MAX(HOTEL_ID), 0) + 1 AS ID FROM TOUR_HOTEL</selectKey>
+	INSERT INTO TOUR_HOTEL(HOTEL_ID, HOTEL_NAME, HOTEL_DETAIL, HOTEL_PRICE, CATEGORY_ID)
+	VALUES (#{hotelId}, #{hotelName}, #{hotelDetail}, #{hotelPrice}, SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 1)
 	</insert>
 	
 	<update id="hotelUpdate" parameterType="co.yedam.yedamtour.hotel.service.HotelVO">
