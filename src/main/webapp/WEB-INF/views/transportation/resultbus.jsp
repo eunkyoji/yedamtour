@@ -18,7 +18,7 @@ width: 400px;
 <div id="container" style="margin: 200px 0 0 570px;">
 	<div id="leftcard" class="col-lg-6 justify-content-center align-items-start" style="float: left;">
               <div class="card position-relative shadow" style="max-width: 370px;">               
-                <div class="card-body p-3"> <img class="mb-4 mt-2 rounded-2 w-100" src="jadoo/public/assets/img/steps/booking-img.jpg" alt="booking" />
+                <div class="card-body p-3"> <img class="mb-4 mt-2 rounded-2 w-100" src="jadoo/public/assets/img/transportation/bus2.jpg" alt="booking" />
                   <div>                 
                   <h5 class="fw-medium">가는날</h5>
                     <h5 class="fw-medium">${startDate}</h5>
@@ -33,7 +33,7 @@ width: 400px;
             <!-- 왕복 -->
             <div class="col-lg-6 justify-content-center align-items-start" style="display: inline-block;">
               <div class="card position-relative shadow" style="max-width: 370px;">               
-                <div class="card-body p-3"> <img class="mb-4 mt-2 rounded-2 w-100" src="jadoo/public/assets/img/steps/booking-img.jpg" alt="booking" />
+                <div class="card-body p-3"> <img class="mb-4 mt-2 rounded-2 w-100" src="jadoo/public/assets/img/transportation/bus2.jpg" alt="booking" />
                   <div>                  
                   <h5 class="fw-medium">오는날</h5>
                      <h5 class="fw-medium">${finishDate }</h5>
