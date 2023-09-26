@@ -8,14 +8,15 @@
 <title>Insert title here</title>
 </head>
 <link href="webapp/css/board.css" rel="stylesheet">
-<body>
-<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
-<section class="pt-5 pt-md-9">
-<div class="contact_section">
-	<main id="main" class="main">
 
-		<!-- End Page Title -->
-		<form id="frm" action="" method="post" enctype="multipart/form-data">
+
+<body>
+<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
+<section class="pt-5 pt-md-9">
+	<div class="contact_section">
+		<main id="main" class="main">
+
+			<!-- End Page Title -->
 			<section class="section">
 				<div class="row">
 					<div class="col-lg-12">
@@ -30,7 +31,8 @@
 											</c:when>
 											<c:otherwise>
 												<div class="col-md-4">
-														<img src="attech/freeboard/${f.freeBoardImg}" class="img-fluid rounded-start" alt="...">
+													<img src="attech/freeboard/${f.freeBoardImg}"
+														class="img-fluid rounded-start" alt="...">
 												</div>
 											</c:otherwise>
 										</c:choose>
@@ -63,15 +65,17 @@
 					</div>
 				</div>
 			</section>
-		</form>
-		<form id="mform" action="freeboardmodify.do" method="post">
-			<input type="hidden" id="freeBoardId" name="freeBoardId">
-		</form>
-		<form id="dform" action="freeboarddelete.do" method="post">
-			<input type="hidden" id="freeBoardId" name="freeBoardId">
-		</form>
-	</main>
-</div>
+			<section class="section">
+				
+			</section>
+			<form id="mform" action="freeboardmodifyform.do" method="post">
+				<input type="hidden" id="freeBoardId" name="freeBoardId">
+			</form>
+			<form id="dform" action="freeboarddelete.do" method="post">
+				<input type="hidden" id="freeBoardId" name="freeBoardId">
+			</form>
+		</main>
+	</div>
 </section>
 	<script type="text/javascript">
 	function freeBoardModify(id){
@@ -86,5 +90,6 @@
 		form.submit();
 	}
 	</script>
+
 </body>
 </html>

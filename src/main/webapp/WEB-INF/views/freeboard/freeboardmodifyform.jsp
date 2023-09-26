@@ -11,7 +11,8 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <body>
-
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 		<div id="app">
 			<div class="row">
@@ -19,7 +20,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">자유게시판</h5>
-							<form id="frm" action="freeboardwrite.do" method="post" enctype="multipart/form-data">
+							<form id="frm" action="freeboardmodify.do" method="post" enctype="multipart/form-data">
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">
@@ -37,21 +38,19 @@
 							</div>
 							<!-- End Quill Editor Full -->
 							<div align="right">
-								<button type="submit" class="btn btn-primary" onclick="location.href = 'freeboardwrite.do'">저장</button>
-								<button type="reset" class="btn btn-primary">취소</button>
+								<button type="submit" class="btn btn-primary" onclick="location.href = 'freeboardmodify.do'">저장</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'freeboardlist.do'">목록</button>
 							</div>
+							<input type="hidden" id="freeBoardId" name="freeBoardId" value="${f.freeBoardId }">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div>
-			<input type="hidden" name="freeboardWriter" value="hong@gmail.com">
-		</div>
 	</main>
-
+</div>
+</section>
 	<script type="text/javascript">
 
 	</script>

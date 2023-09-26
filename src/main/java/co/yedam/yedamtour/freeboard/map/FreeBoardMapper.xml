@@ -34,7 +34,6 @@
 			<if test="freeBoardThumb != null">FREEBOARD_THUMB = #{freeBoardThumb}</if>
 		</set>
 		WHERE FREEBOARD_ID = #{freeBoardId}
-		  AND FREEBOARD_WRITER = #{freeBoardWriter}
 	</update>
 	<delete id="freeBoardDelete" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
 		DELETE TOUR_FREEBOARD WHERE FREEBOARD_ID = #{freeBoardId} AND FREEBOARD_WRITER = #{freeBoardWriter}

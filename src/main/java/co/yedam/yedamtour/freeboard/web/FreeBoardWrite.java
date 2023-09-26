@@ -27,12 +27,9 @@ public class FreeBoardWrite extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		ThumbNail thumbNail = new ThumbNail();
 		FreeBoardService dao = new FreeBoardServiceImpl();
 		FreeBoardVO vo = new FreeBoardVO();
-		
-		String memberId = session.getId();
 		
 		String saveDir = getServletContext().getRealPath("attech/freeboard");	// 운영 서버에 올릴때는 저장 경로만 작성
 		int maxSize = 1024 * 1024 * 100; // 100Mbyte
@@ -56,7 +53,7 @@ public class FreeBoardWrite extends HttpServlet {
 		}
 		vo.setFreeBoardTitle(multi.getParameter("freeBoardTitle"));
 		vo.setFreeBoardContent(multi.getParameter("freeBoardContent"));
-		vo.setFreeBoardWriter(memberId);
+		vo.setFreeBoardWriter(multi.getParameter("freeboardWriter"));
 		
 		int n = dao.freeBoardInsert(vo);
 		

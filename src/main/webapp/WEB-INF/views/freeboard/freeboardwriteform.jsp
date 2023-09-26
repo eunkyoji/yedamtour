@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,9 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <body>
-
+<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 		<div id="app">
 			<div class="row">
@@ -38,7 +41,6 @@
 							<!-- End Quill Editor Full -->
 							<div align="right">
 								<button type="submit" class="btn btn-primary" onclick="location.href = 'freeboardwrite.do'">저장</button>
-								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'freeboardlist.do'">목록</button>
 							</div>
 							</form>
@@ -48,10 +50,11 @@
 			</div>
 		</div>
 		<div>
-			<input type="hidden" name="freeboardWriter" value="hong@gmail.com">
+			<input type="hidden" name="freeboardWriter" value="${id }">
 		</div>
 	</main>
-
+</div>
+</section>
 	<script type="text/javascript">
 
 	</script>
