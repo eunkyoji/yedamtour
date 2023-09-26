@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 	type="text/css">
 </head>
 <body>
-<%-- <c:set var="id" value='<%=(String) session.getAttribute("id")%>' /> --%>
+	<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 	<section class="pt-5 pt-md-9" id="booking">
 		<div class="untree_co-section">
 			<div class="container">
@@ -20,7 +21,6 @@
 						<br> <br>
 						<h2 class="h3 mb-3 text-black">예약 정보</h2>
 						<div class="p-3 p-lg-5 border bg-white">
-
 							<div class="form-group row">
 								<div class="col-md-6">
 									<label for="c_fname" class="text-black rowtitle"> 예약자
@@ -60,9 +60,13 @@
 					</div>
 
 					<div class="col-md-6">
-						<div class="row mb-5">
-							<div class="col-md-12"><br><br>
-								<h2 class="h3 mb-3 text-black">입력 정보 확인</h2>
+						<form id="frm" action="booking.do" method="post"
+							enctype="form-data">
+							<div class="row mb-5">
+								<div class="col-md-12">
+									<br> <br>
+									<h2 class="h3 mb-3 text-black">입력 정보 확인</h2>
+									<div id="info">
 									<div class="p-3 p-lg-5 border">
 										<table class="table site-block-order-table mb-5">
 											<thead>
@@ -71,8 +75,8 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td>()</td>
-													<td>만원</td>
+													<td class="title">()</td>
+													<td class="hab">만원</td>
 												</tr>
 												<tr>
 													<td class="text-black font-weight-bold"><strong>TOTAL</strong></td>
@@ -83,14 +87,20 @@
 										<div class="row">
 											<div class="col-md-12">
 												<a href="cart.do" style="color: white">
-													<button class="btn-lg">예약하기
-												</a>
-												</button>
+													<button class="btn-lg">예약하기</a></button>
 											</div>
 										</div>
+									<%-- <c:choose>
+									<input type="hidden" id="hotelId" name="hotelId" value="${hotels.hotelId }">									
+									<input type="hidden" id="hotelSubId" name="hotelSubId">
+									<input type="hidden" id="memberId" name="memberId" value="${id }">
+									<input type="hidden" id="categoryId" name="categoryId" value="${categoryId }">
+									</c:choose> --%>
 									</div>
+									</div>
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 				<!-- </form> -->
@@ -103,6 +113,38 @@
 	<script src="js/custom.js"></script>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+	$.ajax({
+        url:"booking.do",
+        type:"post",
+        datatype:"html",
+       
+        success:function(data){        	
+		console.log(data[0]);   
+        if(data[0].categoryId=="1"){        	
+            let clone = $('.p-lg-5(1)').clone();               
+            clone.find('.title').text(data[0].hotelName);
+            clone.find('.hab').text(data[0].hotelRoomPrice);
+            $('#info').append(clone);
+        } else if(data[0].categoryId=="2"){     
+            let clone = $('.p-lg-5(1)').clone();          
+            clone.find('.title').text(data[0].pensionName);
+            clone.find('.hab').text(data[0].pensionRoomPrice);
+            $('#info').append(clone);
+        }       
+       }
+	});
+	});
 
+	/* 	function booking(id){
+			console.log(id);
+			let form = document.getElementById("frm");
+			form.hotelSubId.value = id;
+			form.submit();
+		}
+ */
+ 
+</script>
 </body>
 </html>

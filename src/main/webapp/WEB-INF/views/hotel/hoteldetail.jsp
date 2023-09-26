@@ -107,8 +107,7 @@
         datatype:"html",
         success:function(data){
            for(let i=0; i<data.length; i++){
-              let clone = $('.col-lg-4:eq(0)').clone();
-               
+              let clone = $('.col-lg-4:eq(0)').clone();               
               clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
               clone.find('h4').text(data[i].hotelRoomName);
               clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
