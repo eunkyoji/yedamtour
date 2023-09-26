@@ -1,6 +1,8 @@
 package co.yedam.yedamtour.reservation;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,17 +26,21 @@ public class ReservationList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		ReservationService dao = new ReservationServiceImpl();
+		List<ReservationVO> carts = new ArrayList<ReservationVO>(); 
 		ReservationVO startvo = new ReservationVO();
 		ReservationVO finishvo = new ReservationVO();
 		
-		String startDate = request.getParameter("startDate");
 		String finishDate = request.getParameter("finishDate");
-		String start = request.getParameter("start");
 		String finish = request.getParameter("finish");		
+		
 		int person = Integer.valueOf(request.getParameter("person"));
+		request.setAttribute("person", person);
+		
+		String startDate = request.getParameter("startDate");
+		String start = request.getParameter("start");
 		
 		int direction = Integer.valueOf(request.getParameter("direction"));
-		int direction1 = Integer.valueOf(request.getParameter("direction1"));
+		
 		
 		startvo.setReservationId(direction);		
 		startvo = dao.reservationSelect(startvo);
@@ -42,22 +48,37 @@ public class ReservationList extends HttpServlet {
 			request.setAttribute("startCart", startvo);
 			
 		}
-		finishvo.setReservationId(direction1);
-		finishvo = dao.reservationSelect(finishvo);
-		if(finishvo != null) {
-			request.setAttribute("finishCart", finishvo);
-		}
 		
 		int startCartId = startvo.getReservationId();
-		int finishCartId = startvo.getReservationId();
 		
 		request.setAttribute("startDate", startDate);
-		request.setAttribute("finishDate", finishDate);
-		request.setAttribute("person", person);
 		request.setAttribute("start", start);
-		request.setAttribute("finish", finish);
 		request.setAttribute("startCartId", startCartId);
-		request.setAttribute("finishCartId", finishCartId);
+		
+		int n = dao.reservationInsert(startvo);
+		
+		if( finishDate != null && n != 0 ) {
+		
+			int direction1 = Integer.valueOf(request.getParameter("direction1"));
+			
+			
+			finishvo.setReservationId(direction1);
+			finishvo = dao.reservationSelect(finishvo);
+			if(finishvo != null) {
+				request.setAttribute("finishCart", finishvo);
+			}
+			
+			
+			int finishCartId = startvo.getReservationId();
+			
+			request.setAttribute("finishDate", finishDate);
+			request.setAttribute("finish", finish);
+			request.setAttribute("finishCartId", finishCartId);
+			
+		}
+		
+		carts = dao.reservationSelectList(startvo);
+		carts = dao.reservationSelectList(finishvo);
 		
 		String page = "admin/reservation/reservationlist";
 		ViewResolve.forward(request, response, page);
