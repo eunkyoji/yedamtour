@@ -31,6 +31,8 @@ public class QnaDetail extends HttpServlet {
 		
 		vo = dao.qnaSelect(vo);
 		
+		System.out.println(vo.getQnaReplay());
+		
 		request.setAttribute("q", vo);
 		
 		if( "Admin".equals(author) ) {

@@ -35,7 +35,7 @@
 								</div>
 							</div>
 							<div class="input-group mb-3">
-								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent" readonly>${q.qnaContent }</textarea>
+								<textarea class="form-control" aria-describedby="basic-addon1" rows="15" id="qnaContent" name="qnaContent" readonly>${q.qnaContent }</textarea>
 							</div>
 							<c:choose>
 								<c:when test="${author == 'Admin'}">
@@ -43,7 +43,7 @@
 										<c:when test="${not empty q.qnaReplay }">
 											<form id="frm" action="qnareplayinsert.do" method="post" enctype="form-data">
 												<div class="input-group mb-3">
-													<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaReplay" name="qnaReplay"></textarea>
+													<textarea class="form-control" aria-describedby="basic-addon1" rows="10" id="qnaReplay" name="qnaReplay">${q.qnaReplay }</textarea>
 												</div>
 												<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }">
 												<input type="hidden" id="qnaReplayWriter" name="qnaReplayWriter" value="${id }">
@@ -52,7 +52,7 @@
 										<c:otherwise>
 											<form id="frm" action="qnareplayinsert.do" method="post" enctype="form-data">
 												<div class="input-group mb-3">
-													<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent">${q.qnaReplay }</textarea>
+													<textarea class="form-control" aria-describedby="basic-addon1" rows="10" id="qnaReplay" name="qnaReplay">${q.qnaReplay }</textarea>
 												</div>
 												<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }">
 												<input type="hidden" id="qnaReplayWriter" name="qnaReplayWriter" value="${id }">
@@ -62,7 +62,7 @@
 								</c:when>
 								<c:otherwise>
 									<div class="input-group mb-3">
-										<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent" readonly>${q.qnaReplay }</textarea>
+										<textarea class="form-control" aria-describedby="basic-addon1" rows="10" id="qnaReplay" name="qnaReplay" readonly>${q.qnaReplay }</textarea>
 									</div>
 								</c:otherwise>
 							</c:choose>
