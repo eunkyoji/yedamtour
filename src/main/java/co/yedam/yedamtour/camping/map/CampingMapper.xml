@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.camping.map.CampingMapper">
+<select id="campingSelectList" resultType="co.yedam.yedamtour.camping.service.CampingVO">
+SELECT * FROM TOUR_CAMPING WHERE CAMPING_SUB_ID IS NULL
+</select>
+
+<select id="campingDetailSelectList" resultType="co.yedam.yedamtour.camping.service.CampingVO">
+SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS NOT NULL
+</select>
+
+<select id="campingRoomSelect" resultType="co.yedam.yedamtour.camping.service.CampingVO">
+	SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID = #{CampingSubId}
+	</select>
+
+<select id="campingSelect" resultType="co.yedam.yedamtour.camping.service.CampingVO">
+SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS NULL
+</select>
+
+<select id="campingSelectMember" resultType="co.yedam.yedamtour.camping.service.CampingVO">
+select * from tour_camping where member_id = #{memberId}
+</select>
+
+<insert id="campingInsert" parameterType="co.yedam.yedamtour.camping.service.CampingVO">
+<!-- <selectKey keyProperty="categoryId" resultType="int" order="BEFORE">SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 3</selectKey> -->
+<selectKey keyProperty="campingId" resultType="int" order="BEFORE">NVL(MAX(CAMPING_ID), 0) + 3 AS ID FROM TOUR_CAMPING</selectKey>
+INSERT INTO TOUR_CAMPING(CAMPING_ID, CAMPING_NAME, CAMPING_DETAIL, CAMPING_PRICE, CATEGORY_ID)
+VALUES (#{campingId}, #{campingName}, #{campingDetail}, #{campingPrice}, SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 3)
+</insert>
+
+<update id="campingUpdate" parameterType="co.yedam.yedamtour.camping.service.CampingVO">
+UPDATE TOUR_CAMPING
+<set>
+		  	<if test="campingName != null"> CAMPING_NAME = #{campingName},</if>
+		  	<if test="campingDetail != null"> CAMPING_DETAIL = #{campingDetail},</if>
+		  	<if test="campingPrice != null"> CAMPING_PRICE = #{campingPrice},</if>
+		  	<if test="campingSale != null"> CAMPING_SALE = #{campingSale},</if>
+		  	<if test="campingCount != null"> CAMPING_COUNT = #{campingCount},</if>
+		  	<if test="campingImg != null"> CAMPING_IMG = #{campingImg},</if>
+		  	<if test="campingService != null"> CAMPING_SERVICE = #{campingService},</if>
+		  	<if test="campingAddress != null"> CAMPING_ADDRESS = #{campingAddress},</if>
+		  	<if test="campingRoomImg != null"> CAMPING_ROOM_IMG = #{campingRoomImg},</if>
+		  	<if test="campingRoomName != null"> CAMPING_ROOM_NAME = #{campingRoomName},</if>
+		  	<if test="campingRoomPrice != null"> CAMPING_ROOM_PRICE = #{campingRoomPrice},</if>
+		  	<if test="campingSubId != null"> CAMPING_SUB_ID = #{campingSubId}</if>
+		  </set>
+	WHERE CAMPING_ID = #{campingId}
+</update>
+
+<delete id="campingDelete" parameterType="co.yedam.yedamtour.camping.service.CampingVO">
+DELETE TOUR_CAMPING
+WHERE CAMPING_ID = #{campingId}
+</delete>
+</mapper>

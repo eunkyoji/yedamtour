@@ -6,6 +6,10 @@
 	max-width: 33.333333%;
 }
 
+.a:hover {
+	color: #F1A501;
+}
+
 .r-o,
 td {
 	text-align: left;

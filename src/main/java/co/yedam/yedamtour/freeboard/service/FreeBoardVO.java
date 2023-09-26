@@ -11,11 +11,11 @@ public class FreeBoardVO {
 	private String	freeBoardContent;
 	private String 	freeBoardImg;
 	private String	freeBoardWriter;
-	private Date	freeBoardWriterDate;
+	private Date	freeBoardWriteDate;
 	private Date	freeBoardUpdateDate;
 	private int		freeBoardHit;
 	private String	freeBoardThumb;
 	private int		rownum;
 	private String	freeBoardViewDate;
-	private String	freeBoardNicName;
+	private String	freeBoardNicname;
 }

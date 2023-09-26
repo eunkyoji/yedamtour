@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +9,6 @@
 </head>
 <body>
 	<main id="main" class="main">
-<!-- 
-		<div class="pagetitle">
-			<h1>Data Tables</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item">Tables</li>
-					<li class="breadcrumb-item active">Data</li>
-				</ol>
-			</nav>
-		</div> -->
 		<!-- End Page Title -->
 
 		<section class="section">
@@ -30,28 +20,34 @@
 							<h5 class="card-title">회원목록</h5>
 							
 							<!-- Table with stripped rows -->
-							<table class="table datatable">
+							<table class="table">
 								<thead>
 									<tr>
 										<th scope="col">순번</th>
 										<th scope="col">회원아이디</th>
 										<th scope="col">회원명</th>
+										<th scope="col">연락처</th>
+										<th scope="col">닉네임</th>
 										<th scope="col">가입일</th>
-										<th scope="col">권한</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Brandon Jacob</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-									</tr>
+									<c:forEach items="${members}" var="m">
+										<tr>
+											<th scope="row">${m.rownum }</th>
+											<td>${m.memberId }</td>
+											<td>${m.memberName }</td>
+											<td>${m.memberPhone }</td>
+											<td>${m.memberNickname }</td>
+											<td>${m.memberViewDate }</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
-
+							<div align="right">
+								<button type="button" class="btn btn-primary" onclick="location.href = 'signupform.do">관리자등록</button>
+							</div>
 						</div>
 					</div>
 

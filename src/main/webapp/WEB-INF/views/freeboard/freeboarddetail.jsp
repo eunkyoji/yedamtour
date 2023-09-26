@@ -7,8 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
+<link href="webapp/css/board.css" rel="stylesheet">
 <body>
+<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 
 		<!-- End Page Title -->
@@ -22,25 +25,35 @@
 								<h5 class="card-title">자유게시판</h5>
 								<div class="card mb-3">
 									<div class="row g-0">
-										<c:if test="${not empty  f.freeboardThumb } ">
-										<div class="col-md-4">
-											<img src="attech/freeboard/${f.freeboardThumb}" class="img-fluid rounded-start" alt="...">
-										</div>
-										</c:if>
+										<c:choose>
+											<c:when test="${empty f.freeBoardImg }">
+											</c:when>
+											<c:otherwise>
+												<div class="col-md-4">
+														<img src="attech/freeboard/${f.freeBoardImg}" class="img-fluid rounded-start" alt="...">
+												</div>
+											</c:otherwise>
+										</c:choose>
 										<div class="col-md-8">
 											<div class="card-body">
-												<h5 class="card-title">${f.freeboardTitle }</h5>
-												<p class="card-text">${f.freeboardContent}</p>
+												<h5 class="card-title" align="left">${f.freeBoardTitle }</h5>
+												<p class="card-text" align="left">${f.freeBoardContent}</p>
 											</div>
 										</div>
 									</div>
 								</div>
 
 								<div align="right">
-									<button type="button" class="btn btn-primary"
-										onclick="freeBoardModify(${f.freeboardId})">수정</button>
-									<button type="button" class="btn btn-primary"
-										onclick="freeBoardDelete(${f.freeboardId})">삭제</button>
+									<c:choose>
+										<c:when test="${f.freeBoardWriter == id }">
+											<button type="button" class="btn btn-primary"
+												onclick="freeBoardModify(${f.freeBoardId})">수정</button>
+											<button type="button" class="btn btn-primary"
+												onclick="freeBoardDelete(${f.freeBoardId})">삭제</button>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+									</c:choose>
 									<button type="button" class="btn btn-primary"
 										onclick="location.href = 'freeboardlist.do'">목록</button>
 								</div>
@@ -52,22 +65,24 @@
 			</section>
 		</form>
 		<form id="mform" action="freeboardmodify.do" method="post">
-			<input type="hidden" id="freeboardId" name="freeboardId">
+			<input type="hidden" id="freeBoardId" name="freeBoardId">
 		</form>
 		<form id="dform" action="freeboarddelete.do" method="post">
-			<input type="hidden" id="freeboardId" name="freeboardId">
+			<input type="hidden" id="freeBoardId" name="freeBoardId">
 		</form>
 	</main>
+</div>
+</section>
 	<script type="text/javascript">
 	function freeBoardModify(id){
 		let form = document.getElementById("mform");
-		form.noticeId.value = id;
+		form.freeBoardId.value = id;
 		form.submit();
 	}
 	
 	function freeBoardDelete(id){
 		let form = document.getElementById("dform");
-		form.noticeId.value = id;
+		form.freeBoardId.value = id;
 		form.submit();
 	}
 	</script>

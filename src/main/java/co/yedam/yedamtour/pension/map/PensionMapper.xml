@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.pension.map.PensionMapper">
+	<select id="pensionSelectList" resultType="co.yedam.yedamtour.pension.service.PensionVO">
+	SELECT * FROM TOUR_PENSION WHERE PENSION_SUB_ID IS NULL
+	</select>
+	
+	<select id="pensionDetailSelectList" resultType="co.yedam.yedamtour.pension.service.PensionVO">
+	SELECT * FROM TOUR_PENSION WHERE PENSION_ID = #{pensionId} AND PENSION_SUB_ID IS NOT NULL
+	</select>
+	
+	<select id="pensionRoomSelect" resultType="co.yedam.yedamtour.pension.service.PensionVO">
+	SELECT * FROM TOUR_PENSION WHERE PENSION_ID = #{pensionId} AND PENSION_SUB_ID = #{pensionSubId}
+	</select>
+	
+	<select id="pensionSelect" resultType="co.yedam.yedamtour.pension.service.PensionVO">
+	SELECT * FROM TOUR_PENSION WHERE PENSION_ID = #{pensionId} AND PENSION_SUB_ID IS NULL
+	</select>
+	
+	<select id="pensionSelectMember" resultType="co.yedam.yedamtour.pension.service.PensionVO">
+	select * from tour_pension where member_id = #{memberId}
+	</select>
+	
+	<insert id="pensionInsert" parameterType="co.yedam.yedamtour.pension.service.PensionVO">
+	<!-- <selectKey keyProperty="categoryId" resultType="int" order="BEFORE">SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 2</selectKey> -->
+	<selectKey keyProperty="pensionId" resultType="int" order="BEFORE">NVL(MAX(PENSION_ID), 0) + 2 AS ID FROM TOUR_PENSION</selectKey>
+	INSERT INTO TOUR_PENSION(PENSION_ID, PENSION_NAME, PENSION_DETAIL, PENSION_PRICE, CATEGORY_ID)
+	VALUES (#{pensionId}, #{pensionName}, #{pensionDetail}, #{pensionPrice}, (SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 2))
+	</insert>
+	
+	<update id="pensionUpdate" parameterType="co.yedam.yedamtour.pension.service.PensionVO">
+	UPDATE TOUR_PENSION
+	 <set>
+		  	<if test="pensionName != null"> PENSION_NAME = #{pensionName},</if>
+		  	<if test="pensionDetail != null"> PENSION_DETAIL = #{pensionDetail},</if>
+		  	<if test="pensionPrice != null"> PENSION_PRICE = #{pensionPrice},</if>
+		  	<if test="pensionSale != null"> PENSION_SALE = #{pensionSale},</if>
+		  	<if test="pensionCount != null"> PENSION_COUNT = #{pensionCount},</if>
+		  	<if test="pensionImg != null"> PENSION_IMG = #{pensionImg},</if>
+		  	<if test="pensionService != null"> PENSION_SERVICE = #{pensionService},</if>
+		  	<if test="pensionAddress != null"> PENSION_ADDRESS = #{pensionAddress},</if>
+		  	<if test="pensionRoomImg != null"> PENSION_ROOM_IMG = #{pensionRoomImg},</if>
+		  	<if test="pensionRoomName != null"> PENSION_ROOM_NAME = #{pensionRoomName},</if>
+		  	<if test="pensionRoomPrice != null"> PENSION_ROOM_PRICE = #{pensionRoomPrice},</if>
+		  	<if test="pensionSubId != null"> PENSION_SUB_ID = #{pensionSubId}</if>
+		  	
+		  </set>
+	WHERE PENSION_ID = #{pensionId}
+	</update>
+	
+	<delete id="pensionDelete" parameterType="co.yedam.yedamtour.pension.service.PensionVO">
+	DELETE TOUR_PENSION
+	WHERE PENSION_ID = #{pensionId}
+	</delete>
+</mapper>

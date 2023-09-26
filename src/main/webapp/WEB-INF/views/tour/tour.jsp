@@ -35,7 +35,6 @@
 	</div>
 </section>
 
-<!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="pt-5 pt-md-9" id="booking">
 
@@ -55,7 +54,7 @@
 					class="card service-card shadow-hover rounded-3 text-center align-items-center">
 					<div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon1.jpg" width="75" alt="Service" />
-						<h4 class="mb-3"><a href="staymain.do">숙소</a></h4>
+						<h4 class="mb-3"><a href="hotellist.do">숙소</a></h4>
 						<p class="mb-0 fw-medium">호텔, 리조트, 펜션, 풀빌라<br>모두</p>
 					</div>
 				</div>
@@ -64,7 +63,7 @@
 				<div class="card service-card shadow-hover rounded-3 text-center align-items-center">
 					<a href="transportation.do"><div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon2.png" width="75" alt="Service" />
-						<h4 class="mb-3">교통/항공</h4>
+						<h4 class="mb-3"><a href="transportation.do">교통/항공</a></h4>
 						<p class="mb-0 fw-medium">일반석부터 일등석, 직항과 환승 및 편도까지, 계획과 예산에 맞게</p>
 					</div></a>
 				</div>
@@ -74,7 +73,7 @@
 					class="card service-card shadow-hover rounded-3 text-center align-items-center">
 					<div class="card-body p-xxl-5 p-4">
 						<img src="jadoo/public/assets/img/category/icon3.png" width="75" alt="Service" />
-						<h4 class="mb-3">티켓</h4>
+						<h4 class="mb-3"><a href="mainticket.do">티켓</a></h4>
 						<p class="mb-0 fw-medium">인기 입장권 및 공연</p>
 					</div>
 				</div>
@@ -85,12 +84,7 @@
 
 </section>
 <!-- <section> close ============================-->
-<!-- ============================================-->
 
-
-
-
-<!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="pt-5" id="destination">
 
@@ -101,50 +95,50 @@
 		<div class="mb-7 text-center">
 			<h5 class="text-secondary">어디로 가시나요?</h5>
 			<h3
-				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">인기 노선별 특가</h3>
+				class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">인기 숙소별 특가</h3>
 		</div>
 		<div class="row">
 			<div class="col-md-4 mb-4">
 				<div class="card overflow-hidden shadow">
-					<img class="card-img-top" src="jadoo/public/assets/img/제주.jpg" alt="Jejo Island" />
+					<img class="card-img-top" src="img/rooms/mainhotel.jpg" alt="" />
 					<div class="card-body py-4 px-3">
 						<div
 							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
 							<h4 class="text-secondary fw-medium">
 								<a class="link-900 text-decoration-none stretched-link"
-									href="#!">Jejo Island</a>
+									href="hotellist.do">Hotels &<br>　Resorts</a>
 							</h4>
-							<span class="fs-1 fw-medium">00,000원</span>
+							<span class="fs-1 fw-medium">110,000원~</span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 mb-4">
 				<div class="card overflow-hidden shadow">
-					<img class="card-img-top" src="jadoo/public/assets/img/부산.jpg" alt="Busan" />
+					<img class="card-img-top" src="img/rooms/mainpension.jpg" alt="" />
 					<div class="card-body py-4 px-3">
 						<div
 							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
 							<h4 class="text-secondary fw-medium">
 								<a class="link-900 text-decoration-none stretched-link"
-									href="#!">Busan</a>
+									href="pensionlist.do">Pensions &<br>　Pool villas</a>
 							</h4>
-							<span class="fs-1 fw-medium">00,000원</span>
+							<span class="fs-1 fw-medium">120,000원~</span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 mb-4">
 				<div class="card overflow-hidden shadow">
-					<img class="card-img-top" src="jadoo/public/assets/img/경주.jpg" alt="Gyeongju" />
+					<img class="card-img-top" src="img/rooms/maincamping.jpg" alt="" />
 					<div class="card-body py-4 px-3">
 						<div
 							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
 							<h4 class="text-secondary fw-medium">
 								<a class="link-900 text-decoration-none stretched-link"
-									href="#!">Gyeongju</a>
+									href="campinglist.do">Campings</a>
 							</h4>
-							<span class="fs-1 fw-medium">00,000원</span>
+							<span class="fs-1 fw-medium">150,000원~</span>
 						</div>
 					</div>
 				</div>
@@ -154,18 +148,6 @@
 	<!-- end of .container-->
 
 </section>
-<!-- <section> close ============================-->
-<!-- ============================================-->
-
-</section>
-<!-- <section> close ============================-->
-<!-- ============================================-->
-
-
-<!-- ============================================-->
-<!-- <section> begin ============================-->
-<!-- <section> close ============================-->
-<!-- ============================================-->
 <body>
 </body>
 </html>

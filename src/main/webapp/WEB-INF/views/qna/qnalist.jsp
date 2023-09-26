@@ -1,60 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title></title>
 </head>
-<style>
-button{
-	align: right;
-}
-</style>
+<link href="webapp/css/board.css" rel="stylesheet">
 <body>
+<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
+		<section class="section">
+			<div class="row">
+				<div class="col-lg-12">
 
-		<div class="pagetitle">
-			<h1>Questions And Answers</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item">게시판관리</li>
-					<li class="breadcrumb-item active">Q & A</li>
-				</ol>
-			</nav>
-		</div>
-		<!-- End Page Title -->
-
-		<!-- F.A.Q Group 2 -->
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">Q & A </h5>
-				
-				<div class="accordion accordion-flush" id="faq-group-2">
-
-					<div class="accordion-item">
-						<h2 class="accordion-header">
-							<button class="accordion-button collapsed"
-								data-bs-target="#faqsTwo-1" type="button"
-								data-bs-toggle="collapse">Cumque voluptatem recusandae
-								blanditiis?</button>
-						</h2>
-						<div id="faqsTwo-1" class="accordion-collapse collapse"
-							data-bs-parent="#faq-group-2">
-							<div class="accordion-body">Ut quasi odit odio totam
-								accusamus vero eius. Nostrum asperiores voluptatem eos nulla ab
-								dolores est asperiores iure. Quo est quis praesentium aut
-								maiores. Corrupti sed aut expedita fugit vero dolorem. Nemo
-								rerum sapiente. A quaerat dignissimos.</div>
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Q & A</h5>
+							<!-- Table with stripped rows -->
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">번호</th>
+										<th scope="col">제목</th>
+										<th scope="col">작성자</th>
+										<th scope="col">작성일</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:choose>
+										<c:when test="${empty qnalists }">
+											<tr>
+												<td colspan="6" align="center">등록된 게시물이 없습니다.</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${qnalists}" var="q">
+												<tr style="cursor:pointer" onclick="qnaSelect(${q.qnaId})">
+													<th scope="row">${q.rownum }</th>
+													<td>${q.qnaTitle}</td>
+													<td>${q.memberNickname }</td>
+													<td>${q.qnaViewDate }</td>
+												</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</tbody>
+							</table>
+							<!-- End Table with stripped rows -->
+							<c:choose>
+								<c:when test="${not empty id }">
+									<div align="right">
+										<button type="button" class="btn btn-primary" onclick="location.href = 'qnawriteform.do'">글쓰기</button>
+									</div>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
+						
 						</div>
 					</div>
-				</div>
-				<div width="500px" align="right">
-				<button type="button" class="btn btn-primary" onclick="location.href = 'qnawrite.do'">글쓰기</button>
+
 				</div>
 			</div>
-		</div>
-		<!-- End F.A.Q Group 2 -->
+		</section>
+	</main>
+</div>
+</section>
+	<form id="sform" action="qnadetail.do" method="post">
+		<input type="hidden" id="qnaId" name="qnaId">
+	</form>
+	
+	<script>
+		//게시글 상세조회
+		
+		function qnaSelect(id){
+			console.log(id + "==========================");
+			let form = document.getElementById("sform");
+			form.qnaId.value = id;
+			form.submit();
+		}
+	</script>
 </body>
 </html>

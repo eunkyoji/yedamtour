@@ -8,7 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import co.yedam.yedamtour.common.AlertControl;
+import co.yedam.yedamtour.common.SHA256;
 import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.member.Impl.MemberServiceImpl;
 import co.yedam.yedamtour.member.service.MemberService;
@@ -25,9 +28,12 @@ public class SignupController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		MemberVO vo2 = new MemberVO();
+		
+		String id = session.getId();
 		String pw1 = request.getParameter("memberPassword");
 		String pw2 = request.getParameter("memberPasswordCheck");
 		vo2.setMemberId(request.getParameter("memberId"));
@@ -36,11 +42,13 @@ public class SignupController extends HttpServlet {
 
 			if (pw1.equals(pw2)) {
 				vo.setMemberId(request.getParameter("memberId"));
-				vo.setMemberPassword(request.getParameter("memberPassword"));
+				vo.setMemberPassword(SHA256.encrypt(request.getParameter("memberPassword")));
 				vo.setMemberName(request.getParameter("memberName"));
-				vo.setMemberEmail(request.getParameter("memberEmail"));
 				vo.setMemberPhone(request.getParameter("memberPhone"));
 				vo.setMemberNickname(request.getParameter("memberNickname"));
+				if( id != null ) {
+					vo.setMemberAuthor("Admin");
+				}
 			} else {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
@@ -65,8 +73,9 @@ public class SignupController extends HttpServlet {
 		String page = null;
 
 		if (result == 1) {
-			page = "member/login.jsp";
-			ViewResolve.forward(request, response, page);
+//			page = "member/login.jsp";
+//			ViewResolve.forward(request, response, page);
+			AlertControl.alertAndGo(response, "가입이 완료되었습니다.", "loginform.do");
 		}
 
 	}

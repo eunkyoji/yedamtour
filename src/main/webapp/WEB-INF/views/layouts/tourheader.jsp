@@ -27,11 +27,11 @@
 				<ul
 					class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="staymain.do">Stays</a></li>
+						class="nav-link fw-medium" aria-current="page" href="hotellist.do">Stays</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="transportation.do">Transportation</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#">Tickets</a></li>
+						class="nav-link fw-medium" aria-current="page" href="mainticket.do">Tickets</a></li>
 					<li class="nav-item dropdown px-3 px-lg-0"><a
 						class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium"
 						href="#" id="navbarDropdown" role="button"
@@ -46,13 +46,13 @@
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="loginform.do">Login</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
-						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="signup.do">Sign Up</a></li>
+						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="signupform.do">Sign Up</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#">My Page</a></li>
+						class="nav-link fw-medium" aria-current="page" href="membermypage.do">My Page</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="#">Logout</a></li>
+						class="nav-link fw-medium" aria-current="page" href="memberlogout.do">Logout</a></li>
 					</c:if>
 				</ul>
 			</div>

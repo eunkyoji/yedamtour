@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -29,6 +30,7 @@ public class NoticeWriter extends HttpServlet {
 		ThumbNail thumbNail = new ThumbNail();
 		NoticeService dao = new NoticeServiceImpl();
 		NoticeVO vo = new NoticeVO();
+		HttpSession session = request.getSession();
 		
 		String saveDir = getServletContext().getRealPath("attech/notice");	// 운영 서버에 올릴때는 저장 경로만 작성
 		int maxSize = 1024 * 1024 * 100; // 100Mbyte
@@ -52,7 +54,7 @@ public class NoticeWriter extends HttpServlet {
 		}
 		vo.setNoticeTitle(multi.getParameter("noticeTitle"));
 		vo.setNoticeContent(multi.getParameter("noticeContent"));
-		vo.setNoticeWriter("hong@gmail.com");
+		vo.setNoticeWriter((String)session.getAttribute("memberId"));
 		
 		int n = dao.noticeInsert(vo);
 		

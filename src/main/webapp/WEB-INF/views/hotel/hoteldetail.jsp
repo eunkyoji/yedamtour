@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,175 +10,127 @@
 <link rel="stylesheet" href="jadoo/public/assets/css/stay/staymain.css"
 	type="text/css">
 </head>
+<style>
+#room {
+	padding: 100px;
+}
+</style>
 <body>
-
+	<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 	<!-- Contact -->
 	<section class="pt-5 pt-md-9" id="booking">
 		<br> <br>
 		<div class="contact_section">
 			<div class="container">
 				<div class="row">
-
 					<!-- Contact Content -->
 					<div class="col-lg-5">
-									<h2>웨스턴 그레이스 호텔</h2>
-									</a>
-							<div class="contact_section_text">
-								<br>
-								<p>레스토랑, 카페, 연회장 등의 부대시설을 이용 할 수 있습니다 전 객실 오션뷰로 아름다운 영종도바다를
-									감상하실 수 있으며 영종씨사이드파크 레일바이크, 영종진공원, 영종역사관, 영종관광어시장, 구읍뱃터가 도보
-									5분거리내 위치하고 있습니다.</p>
-							</div>
-							<div class="contact_section_info">
-								<ul>
-									<li
-										class="d-flex flex-row align-items-center justify-content-start">
-										<div>
-											<div
-												class="d-flex flex-column align-items-center justify-content-center">
-												<img src="images/icon_1.png" alt="">
-											</div>
-										</div> <br>
-									<br>
-									<div>　　　* 인천 중구 중산동 1955-1　　　* +82 123 456 789</div>
-									</li>
-									<li
-										class="d-flex flex-row align-items-center justify-content-start">
-										<div>
-											<div
-												class="d-flex flex-column align-items-center justify-content-center">
-												<img src="images/icon_2.png" alt="">
-											</div>
+						<h2>${hotels.hotelName } ${id }</h2>
+						<span>${hotels.hotelAddress }</span>
+						<div class="contact_section_text">
+							<br> <br>
+							<p>${hotels.hotelDetail }</p>
+						</div>
+						<div class="contact_section_info">
+							<ul>
+								<li
+									class="d-flex flex-row align-items-center justify-content-start">
+									<div>
+										<div
+											class="d-flex flex-column align-items-center justify-content-center">
+											<img src="images/icon_1.png" alt="">
 										</div>
-									</li>
-									<li
-										class="d-flex flex-row align-items-center justify-content-start">
-										<div>
-											<br> <img
-												src="jadoo/public/assets/img/icons/bathicon.png" alt="">
-											<img src="jadoo/public/assets/img/icons/parkicon.png" alt="">
-											<img src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
-											<img src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
+									</div> <br>
+								</li>
+								<li
+									class="d-flex flex-row align-items-center justify-content-start">
+									<div>
+										<div
+											class="d-flex flex-column align-items-center justify-content-center">
+											<img src="images/icon_2.png" alt="">
 										</div>
-									</li>
-								</ul>
-							</div>
+									</div>
+								</li>
+								<li
+									class="d-flex flex-row align-items-center justify-content-start">
+									<div id="imgdiv">
+										<img id="bath"
+											src="jadoo/public/assets/img/icons/bathicon.png" alt="">
+										<img id="parking"
+											src="jadoo/public/assets/img/icons/parkicon.png" alt="">
+										<img id="nosmoke"
+											src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
+										<img id="wifi"
+											src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
-
 					<!-- Contact Image -->
 					<div class="col-lg-7 contact_section_col">
-							<img src="jadoo/public/assets/img/rooms/hotel1.jpg" alt="">
+						<img id="hotelimg" src="img/rooms/${hotels.hotelImg }" alt="">
 					</div>
 					<!-- Contact Image Close-->
+
+					<div class="container" id="room">
+						<h4>객실 안내/예약</h4>
+						<br>
+						<div class="row" style="display: none;">
+							<div class="col-lg-4 col-md-6" id="itemdiv">
+								<form id="frm" action="booking.do" method="post" enctype="form-data">
+									<div class="room-item">
+										<img id="roomimg" src="img/rooms/" alt="">
+										<div class="ri-text">
+											<h4></h4>
+											<h3>만원~</h3>
+											<a class="primary-btn">예약하러 가기</a>
+										</div>
+									</div>
+									<p id="subId"></p>
+									<input type="hidden" id="hotelId" name="hotelId" value="${hotels.hotelId }">
+									<input type="hidden" id="hotelSubId" name="hotelSubId">
+									<input type="hidden" id="memberId" name="memberId" value="${id }">
+									<input type="hidden" id="categoryId" name="categoryId" value="1">
+								</form>
+							</div>
+						</div>
+					</div>
 
 				</div>
 			</div>
 		</div>
-	</section><<br><br><br><br><br>	  
-
-	<!-- Rooms Section Begin -->
-	<section class="rooms-section spad">
-		<div class="container">
-			<h4>객실 안내/예약</h4>
-			<br>
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel1.jpg" alt="">
-						<div class="ri-text">
-							<h4>Premium King Room</h4>
-							<h3>
-								159$<span>/Pernight</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">Size:</td>
-										<td>30 ft</td>
-									</tr>
-									<tr>
-										<td class="r-o">Capacity:</td>
-										<td>Max persion 3</td>
-									</tr>
-									<tr>
-										<td class="r-o">Bed:</td>
-										<td>King Beds</td>
-									</tr>
-									<tr>
-										<td class="r-o">Services:</td>
-										<td>Wifi, Television, Bathroom,...</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="bookingpage.do" class="primary-btn">예약하러 가기</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel2.jpg" alt="">
-						<div class="ri-text">
-							<h4>Deluxe Room</h4>
-							<h3>
-								159$<span>/Pernight</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">Size:</td>
-										<td>30 ft</td>
-									</tr>
-									<tr>
-										<td class="r-o">Capacity:</td>
-										<td>Max persion 5</td>
-									</tr>
-									<tr>
-										<td class="r-o">Bed:</td>
-										<td>King Beds</td>
-									</tr>
-									<tr>
-										<td class="r-o">Services:</td>
-										<td>Wifi, Television, Bathroom,...</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="#" class="primary-btn">예약하러 가기</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="room-item">
-						<img src="jadoo/public/assets/img/rooms/hotel3.jpg" alt="">
-						<div class="ri-text">
-							<h4>Double Room</h4>
-							<h3>
-								159$<span>/Pernight</span>
-							</h3>
-							<table>
-								<tbody>
-									<tr>
-										<td class="r-o">Size:</td>
-										<td>30 ft</td>
-									</tr>
-									<tr>
-										<td class="r-o">Capacity:</td>
-										<td>Max persion 2</td>
-									</tr>
-									<tr>
-										<td class="r-o">Bed:</td>
-										<td>King Beds</td>
-									</tr>
-									<tr>
-										<td class="r-o">Services:</td>
-										<td>Wifi, Television, Bathroom,...</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="#" class="primary-btn">예약하러 가기</a>
-						</div>
-					</div>
-				</div>
 	</section>
-	<!-- Rooms Section End -->
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+//	$(document).ready(function () {
+		$.ajax({
+         url:"hotelsublist.do?hotelId=" + ${hotels.hotelId},
+         type:"post",
+         datatype:"html",
+         success:function(data){
+            for(let i=0; i<data.length; i++){
+               let clone = $('.col-lg-4:eq(0)').clone();
+               
+               clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
+               clone.find('h4').text(data[i].hotelRoomName);
+               clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
+               clone.find('a').attr('onclick', 'booking('+data[i].hotelSubId+')');
+               $('.row').append(clone);
+            }
+         }   
+      });
+//	});
+
+		function booking(id){
+			console.log(id);
+			let form = document.getElementById("frm");
+			form.hotelSubId.value = id;
+			form.submit();
+		}
+
+</script>
+
 </body>
 </html>

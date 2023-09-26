@@ -3,7 +3,7 @@
 <mapper namespace="co.yedam.yedamtour.member.map.MemberMapper">
 	<select id="memberSelectList"
 		resultType="co.yedam.yedamtour.member.service.MemberVO">
-		SELECT *
+		SELECT ROWNUM, MEMBER_ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_NICKNAME, MEMBER_REGIST
 		FROM TOUR_MEMBER
 	</select>
 	<select id="memberSelect"
@@ -24,7 +24,7 @@
 	<insert id="memberInsert"
 		parameterType="co.yedam.yedamtour.member.service.MemberVO">
 		INSERT INTO TOUR_MEMBER
-		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberPhone},#{memberNickname})
+		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberPhone},#{memberNickname}, SYSDATE)
 	</insert>
 	<update id="memberUpdate"
 		parameterType="co.yedam.yedamtour.member.service.MemberVO">
@@ -39,9 +39,7 @@
 			<if test="memberName != null">
 				MEMBER_NAME = #{memberName},
 			</if>
-			<if test="memberEmail != null">
-				MEMBER_EMAIL = #{memberEmail},
-			</if>
+			
 			<if test="memberPhone != null">
 				MEMBER_PHONE = #{memberPhone},
 			</if>
