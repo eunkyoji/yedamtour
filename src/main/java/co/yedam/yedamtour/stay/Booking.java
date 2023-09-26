@@ -29,9 +29,6 @@ import co.yedam.yedamtour.pension.serviceImpl.PensionServiceImpl;
 public class Booking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("categoryId");
-
 	public Booking() {
 		super();
 	}
@@ -46,22 +43,20 @@ public class Booking extends HttpServlet {
 		String campingId = request.getParameter("campingId");
 		String campingSubId = request.getParameter("campingSubId");
 		String categoryId = request.getParameter("categoryId");
-		System.out.println(hotelId + "," + categoryId);
-		System.out.println("memberId :: " + request.getParameter("memberId"));
+		
 		MemberService mdao = new MemberServiceImpl();
 		MemberVO mvo = new MemberVO();
+		
 		mvo.setMemberId(request.getParameter("memberId"));
-		mvo = mdao.memberSelect(mvo);
-System.out.println("mvo :: " + mvo);
-		if (categoryId == "1") {
+		mvo = mdao.signupIdSelect(mvo);
+		
+		if (categoryId.equals("1")) {
 			HotelService hdao = new HotelServiceImpl();
 			HotelVO hvo = new HotelVO();
-			HotelVO vvo = new HotelVO();
+			
 			hvo.setHotelId(Integer.parseInt(hotelId));
-
 			hvo.setHotelSubId(Integer.parseInt(hotelSubId));
-			vvo = hdao.hotelRoomSelect(hvo);
-			System.out.println(vvo);
+			hvo = hdao.hotelRoomSelect(hvo);
 			
 			hvo.setMemberId(mvo.getMemberId());
 			hvo.setMemberName(mvo.getMemberName());

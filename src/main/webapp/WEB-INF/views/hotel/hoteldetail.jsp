@@ -25,7 +25,7 @@
 				<div class="row">
 					<!-- Contact Content -->
 					<div class="col-lg-5">
-						<h2>${hotels.hotelName }</h2>
+						<h2>${hotels.hotelName } ${id }</h2>
 						<span>${hotels.hotelAddress }</span>
 						<div class="contact_section_text">
 							<br> <br>
@@ -77,20 +77,23 @@
 						<h4>객실 안내/예약</h4>
 						<br>
 						<div class="row" style="display: none;">
-							<form id="frm" action="booking.do" method="post" enctype="form-data">
-								<div class="col-lg-4 col-md-6" id="itemdiv">
+							<div class="col-lg-4 col-md-6" id="itemdiv">
+								<form id="frm" action="booking.do" method="post" enctype="form-data">
 									<div class="room-item">
 										<img id="roomimg" src="img/rooms/" alt="">
 										<div class="ri-text">
 											<h4></h4>
 											<h3>만원~</h3>
-											<a href="booking.do" class="primary-btn">예약하러 가기</a>
+											<a class="primary-btn">예약하러 가기</a>
 										</div>
 									</div>
-								</div>
-								<input type="hidden" id="hotelId" name="hotelId" value="${hotelId }">
-								<input type="hidden" id="memberId" name="memberId" value="${id }">
-							</form>
+									<p id="subId"></p>
+									<input type="hidden" id="hotelId" name="hotelId" value="${hotels.hotelId }">
+									<input type="hidden" id="hotelSubId" name="hotelSubId">
+									<input type="hidden" id="memberId" name="memberId" value="${id }">
+									<input type="hidden" id="categoryId" name="categoryId" value="1">
+								</form>
+							</div>
 						</div>
 					</div>
 
@@ -98,27 +101,6 @@
 			</div>
 		</div>
 	</section>
-
-
-	<!-- Rooms Section Begin -->
-	<section class="rooms-section spad">
-		<div class="container">
-			<h4></h4>
-			<div class="row" style="display: none;">
-				<div class="col-lg-4 col-md-6" id="itemdiv">
-					<div class="room-item">
-						<img id="roomimg" src="img/rooms/" alt="">
-						<div class="ri-text">
-							<h4></h4>
-							<h3>만원~</h3>
-							<a href="booking.do" id="reserve" class="primary-btn">예약하러 가기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Rooms Section End -->
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
@@ -130,23 +112,21 @@
          success:function(data){
             for(let i=0; i<data.length; i++){
                let clone = $('.col-lg-4:eq(0)').clone();
-               //let salePrice = result[i].itemPrice * (result[i].itemSaleRate * 0.01);
                
-               //clone.css('display', 'block');
                clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
                clone.find('h4').text(data[i].hotelRoomName);
                clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
-               clone.find('a').attr('onclick', 'booking()');
+               clone.find('a').attr('onclick', 'booking('+data[i].hotelSubId+')');
                $('.row').append(clone);
             }
-            
-            console.log(clone);
          }   
       });
 //	});
 
-		function booking(){
+		function booking(id){
+			console.log(id);
 			let form = document.getElementById("frm");
+			form.hotelSubId.value = id;
 			form.submit();
 		}
 
