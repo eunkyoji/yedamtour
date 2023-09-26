@@ -11,6 +11,7 @@
 	type="text/css">
 </head>
 <body>
+<%-- <c:set var="id" value='<%=(String) session.getAttribute("id")%>' /> --%>
 	<section class="pt-5 pt-md-9" id="booking">
 		<div class="untree_co-section">
 			<div class="container">
@@ -70,12 +71,12 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td>${reserves.hotelName }(${reserves.hotelRoomName })</td>
-													<td>${reserves.hotelRoomPrice }만원</td>
+													<td>()</td>
+													<td>만원</td>
 												</tr>
 												<tr>
 													<td class="text-black font-weight-bold"><strong>TOTAL</strong></td>
-													<td class="text-black font-weight-bold"><strong>${reserves.hotelRoomPrice }만원</strong></td>
+													<td class="text-black font-weight-bold"><strong>만원</strong></td>
 												</tr>
 											</tbody>
 										</table>
