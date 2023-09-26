@@ -30,7 +30,7 @@ public class ReservationList2 extends HttpServlet {
 		String finishDate = request.getParameter("finishDate");
 		String start = request.getParameter("start");
 		String finish = request.getParameter("finish");		
-		String person = request.getParameter("person");
+		int person = Integer.valueOf(request.getParameter("person"));
 		
 		int direction = Integer.valueOf(request.getParameter("direction"));
 		int direction1 = Integer.valueOf(request.getParameter("direction1"));
@@ -53,6 +53,8 @@ public class ReservationList2 extends HttpServlet {
 		request.setAttribute("startDate", startDate);
 		request.setAttribute("finishDate", finishDate);
 		request.setAttribute("person", person);
+		request.setAttribute("start", start);
+		request.setAttribute("finish", finish);
 		request.setAttribute("startCartId", startCartId);
 		request.setAttribute("finishCartId", finishCartId);
 		

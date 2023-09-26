@@ -16,7 +16,7 @@ width: 400px;
 </head>
 <body>
 <!-- 편도 -->
-<form action="reservationlist.do" class="col-md-12" method="post">
+<form action="reservationlist2.do" class="col-md-12" method="post">
 
 	<div id="container" style="margin: 200px 0 0 570px;">
 		<div id="leftcard" class="col-lg-6 justify-content-center align-items-start" style="float: left;">
@@ -58,10 +58,10 @@ width: 400px;
 
 <script type="text/javascript">
 			   
-$('#cart').on('click', function(){
+/* $('#cart').on('click', function(){
 	let start = `${startDate},${startAir.airplaneStart },${startAir.airplaneFinish },${startAir.airplaneGrade },${person },${startPrice },${finishDate },${finishAir.airplaneFinish },${finishAir.airplaneStart },${finishAir.airplaneGrade },${person },${finishPrice }`;
 	$.ajax({
-		url: "reservationlist.do",
+		url: "reservationlist2.do",
 		method: 'post',
 		data:{
 			start: start
@@ -73,7 +73,7 @@ $('#cart').on('click', function(){
 			console.log(e);
 		}	
 	})
-})
+}) */
 	
 	
 	

@@ -31,7 +31,7 @@ public class IdCheck extends HttpServlet {
 		
 		String str = "Yes"; //사용 가능한 아이디
 		
-		//null이면 아이디 생성가능
+		//null이면 아이디 생성가능aa
 		if (vo != null) {
 			str = "No";  //이미 존재하는 아이디 입니다.
 		} 

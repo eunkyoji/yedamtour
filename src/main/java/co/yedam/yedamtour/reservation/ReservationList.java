@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.yedamtour.common.ViewResolve;
+import co.yedam.yedamtour.reservation.service.ReservationService;
+import co.yedam.yedamtour.reservation.service.ReservationVO;
+import co.yedam.yedamtour.reservation.serviceImpl.ReservationServiceImpl;
 
 @WebServlet("/reservationlist.do")
 public class ReservationList extends HttpServlet {
@@ -20,10 +23,41 @@ public class ReservationList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String[] cart = new String[12];
-		cart = request.getParameter("start").split(",");
+		ReservationService dao = new ReservationServiceImpl();
+		ReservationVO startvo = new ReservationVO();
+		ReservationVO finishvo = new ReservationVO();
 		
-		request.setAttribute("cart", cart);
+		String startDate = request.getParameter("startDate");
+		String finishDate = request.getParameter("finishDate");
+		String start = request.getParameter("start");
+		String finish = request.getParameter("finish");		
+		int person = Integer.valueOf(request.getParameter("person"));
+		
+		int direction = Integer.valueOf(request.getParameter("direction"));
+		int direction1 = Integer.valueOf(request.getParameter("direction1"));
+		
+		startvo.setReservationId(direction);		
+		startvo = dao.reservationSelect(startvo);
+		if(startvo != null) {
+			request.setAttribute("startCart", startvo);
+			
+		}
+		finishvo.setReservationId(direction1);
+		finishvo = dao.reservationSelect(finishvo);
+		if(finishvo != null) {
+			request.setAttribute("finishCart", finishvo);
+		}
+		
+		int startCartId = startvo.getReservationId();
+		int finishCartId = startvo.getReservationId();
+		
+		request.setAttribute("startDate", startDate);
+		request.setAttribute("finishDate", finishDate);
+		request.setAttribute("person", person);
+		request.setAttribute("start", start);
+		request.setAttribute("finish", finish);
+		request.setAttribute("startCartId", startCartId);
+		request.setAttribute("finishCartId", finishCartId);
 		
 		String page = "admin/reservation/reservationlist";
 		ViewResolve.forward(request, response, page);
