@@ -7,5 +7,6 @@ public interface QandAService {
 	QandAVO				qnaSelect(QandAVO vo);
 	int					qnaInsert(QandAVO vo);
 	int					qnaUpdate(QandAVO vo);
+	int					qnaReplayWrite(QandAVO vo);
 	int					qnaDelete(QandAVO vo);
 }

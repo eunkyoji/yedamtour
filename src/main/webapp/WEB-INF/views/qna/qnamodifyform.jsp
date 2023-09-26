@@ -20,24 +20,24 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">Q & A</h5>
-							<form id="frm" action="qnawrite.do" method="post" enctype="form-data">
+							<form id="frm" action="qnamodify.do" method="post" enctype="form-data">
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">
 									<span class="input-group-text" id="basic-addon1">제목</span>
 									<input type="text" class="form-control" aria-label="Username"
-										aria-describedby="basic-addon1" id="qnaTitle" name="qnaTitle"">
+										aria-describedby="basic-addon1" id="qnaTitle" name="qnaTitle" value="${q.qnaTitle }">
 								</div>
 							</div>
 							<div class="input-group mb-3">
-								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent"></textarea>
+								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent">${q.qnaContent }</textarea>
 							</div>
 							<!-- End Quill Editor Full -->
 							<div align="right">
 								<button type="submit" class="btn btn-primary" onclick="location.href = 'qnamodify.do'">저장</button>
-								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 							</div>
+							<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }">
 							</form>
 						</div>
 					</div>
@@ -47,9 +47,6 @@
 	</main>
 </div>
 </section>
-	<script type="text/javascript">
-
-	</script>
 
 </body>
 

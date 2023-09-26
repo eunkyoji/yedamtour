@@ -34,12 +34,21 @@
 	<update id="qnaUpdate" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
 		UPDATE TOUR_QNA
 			<set>
-				<if test="qnaTitle != null">QNA_TITLE = #{qnaTitle}</if>
-				<if test="qnaContent != null">QNA_CONTENT = #{qnaContent}</if>
+				<if test="qnaTitle != null">QNA_TITLE = #{qnaTitle},</if>
+				<if test="qnaContent != null">QNA_CONTENT = #{qnaContent},</if>
+				QNA_UPDATE_DATE = SYSDATE
 			</set>
 		WHERE	QNA_ID = #{qnaId}
 	</update>
+	<update id="qnaReplayWrite" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
+		UPDATE TOUR_QNA
+			SET
+			QNA_REPLAY = #{qnaReplay},
+			QNA_REPLAY_WRITER = #{qnaReplayWriter}
+		WHERE	QNA_ID = #{qnaId}
+			
+	</update>
 	<delete id="qnaDelete" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
-		DELETE FROM TOUR_QNA WHERE QNA_ID = #{qnaId}
+		DELETE FROM TOUR_QNA WHERE QNA_ID = #{qnaId} AND QNA_WRITER = #{qnaWriter}
 	</delete>
 </mapper>

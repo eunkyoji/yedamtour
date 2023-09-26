@@ -23,7 +23,6 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">Q & A</h5>
-							<form id="frm" action="qnawrite.do" method="post" enctype="form-data">
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">
@@ -39,28 +38,46 @@
 								<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent" readonly>${q.qnaContent }</textarea>
 							</div>
 							<c:choose>
-								<c:when test="${author == 'Admin' }">
-									<div class="input-group mb-3">
-										<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent"></textarea>
-									</div>
+								<c:when test="${author == 'Admin'}">
+									<c:choose>
+										<c:when test="${not empty q.qnaReplay }">
+											<form id="frm" action="qnareplayinsert.do" method="post" enctype="form-data">
+												<div class="input-group mb-3">
+													<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaReplay" name="qnaReplay"></textarea>
+												</div>
+												<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }">
+												<input type="hidden" id="qnaReplayWriter" name="qnaReplayWriter" value="${id }">
+											</form>
+										</c:when>
+										<c:otherwise>
+											<form id="frm" action="qnareplayinsert.do" method="post" enctype="form-data">
+												<div class="input-group mb-3">
+													<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent">${q.qnaReplay }</textarea>
+												</div>
+												<input type="hidden" id="qnaId" name="qnaId" value="${q.qnaId }">
+												<input type="hidden" id="qnaReplayWriter" name="qnaReplayWriter" value="${id }">
+											</form>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
-									
+									<div class="input-group mb-3">
+										<textarea class="form-control" aria-describedby="basic-addon1" rows="20" id="qnaContent" name="qnaContent" readonly>${q.qnaReplay }</textarea>
+									</div>
 								</c:otherwise>
 							</c:choose>
 							<!-- End Quill Editor Full -->
 							<div align="right">
 								<c:choose>
 									<c:when test="${author == 'Admin' }">
-										<button type="submit" class="btn btn-primary" onclick="location.href = 'qnareply.do'">저장</button>
+										<button type="submit" class="btn btn-primary" onclick="qnaReplayInsert()">저장</button>
 										<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 									</c:when>
 									<c:otherwise>
 										<c:choose>
 											<c:when test="${q.qnaWriter == id }">
-												<button type="submit" class="btn btn-primary" onclick="location.href = 'qnamodifyform.do'">수정</button>
-												<button type="submit" class="btn btn-primary" onclick="location.href = 'qnadelete.do'">삭제</button>
-												<button type="reset" class="btn btn-primary">취소</button>
+												<button type="submit" class="btn btn-primary" onclick="qnaModifyform(${q.qnaId})">수정</button>
+												<button type="submit" class="btn btn-primary" onclick="qnaDelete(${q.qnaId})">삭제</button>
 												<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 											</c:when>
 											<c:otherwise>
@@ -71,17 +88,39 @@
 								</c:choose>
 								<input type="hidden" id="qnaWriter" name="qnaWriter" value="${id }">
 							</div>
-							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
+	<form id="mform" action="qnamodifyform.do" method="post">
+		<input type="hidden" id="qnaId" name="qnaId">
+	</form>
+	<form id="dform" action="qnadelete.do" method="post">
+		<input type="hidden" id="qnaId" name="qnaId">
+		<input type="hidden" id="qnaWriter" name="qnaWriter" value="${id }">
+	</form>
 </div>
 </section>
 	<script type="text/javascript">
-
+	function qnaModifyform(id){
+		console.log("id === " + id);
+		let form = document.getElementById("mform");
+		form.qnaId.value = id;
+		form.submit();
+	}
+	
+	function qnaDelete(id){
+		let form = document.getElementById("dform");
+		form.qnaId.value = id;
+		form.submit();
+	}
+	
+	function qnaReplayInsert(){
+		let form = document.getElementById("frm");
+		form.submit();
+	}
 	</script>
 
 </body>

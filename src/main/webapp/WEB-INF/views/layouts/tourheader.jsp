@@ -52,10 +52,7 @@
 					<li class="nav-item px-3 px-xl-4"><a
 						class="nav-link fw-medium" aria-current="page" href="membermypage.do">My Page</a></li>
 					<li class="nav-item px-3 px-xl-4"><a
-					<li	class="nav-link fw-medium" aria-current="page" href="memberlogout.do">Logout</a></li>
-
-					<li	class="nav-link fw-medium" aria-current="page" href="logout.do">Logout</a></li>
-
+						class="nav-link fw-medium" aria-current="page" href="memberlogout.do">Logout</a></li>
 					</c:if>
 				</ul>
 			</div>
