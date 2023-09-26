@@ -71,7 +71,7 @@
 
 						<h4 class="mb-0"></h4>
 						<div>
-							<p class="">${vo.themeparkDetail}</p>
+							<p class="hidden">${vo.themeparkDetail}</p>
 
 							<input class="more" type="checkbox">
 						</div>
@@ -93,9 +93,11 @@
 												style="width: 50px; text-align: center">
 										</div>
 										<div id="totalPrice" style="font-size: 14px">총 가격:</div>
-
-										<a href="#" id="cartBtn" onclick="cartSubmit(e)" style="display: none">장바구니담기</a><input
-											type="hidden" name="productId" value="${vo.themeparkId }">
+									<form action="reservationlisttest.do" method="get">
+										<a href="reservationlisttest.do" id="cartBtn" style="display: none">장바구니담기<input
+											type="hidden"  name="start" 
+											value="${vo.themeparkPrice }"></a>
+									</form>
 									</div>
 								</div>
 							</div>

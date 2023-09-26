@@ -43,11 +43,11 @@ public class SignupController extends HttpServlet {
 		String pw2 = request.getParameter("memberPasswordCheck");
 		String name = request.getParameter("memberName");
 		String phone = request.getParameter("memberPhone");
-		String id = request.getParameter("memberId");
+		String id1 = request.getParameter("memberId");
 		vo2.setMemberName(name);
 		vo2.setMemberPhone(phone);
 		vo2 = dao.signupIdSelect(vo2);	//이름과 번호 체크
-		vo3.setMemberId(id);
+		vo3.setMemberId(id1);
 		vo3 = dao.idCheckSelect(vo3);	//아이디체크
 		if(vo2 != null) {
 			response.setContentType("text/html; charset=UTF-8");
@@ -68,7 +68,7 @@ public class SignupController extends HttpServlet {
 				vo.setMemberName(request.getParameter("memberName"));
 				vo.setMemberPhone(request.getParameter("memberPhone"));
 				vo.setMemberNickname(request.getParameter("memberNickname"));
-				if( id != null ) {
+				if( id1 != null ) {
 					vo.setMemberAuthor("Admin");
 				}
 			} else {

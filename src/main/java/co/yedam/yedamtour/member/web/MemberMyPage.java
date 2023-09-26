@@ -26,6 +26,7 @@ public class MemberMyPage extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
+		
 		String pw = (String) session.getAttribute("password");
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
