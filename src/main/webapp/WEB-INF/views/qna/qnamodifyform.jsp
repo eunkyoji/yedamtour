@@ -34,7 +34,7 @@
 							</div>
 							<!-- End Quill Editor Full -->
 							<div align="right">
-								<button type="submit" class="btn btn-primary" onclick="location.href = 'qnawrite.do'">저장</button>
+								<button type="submit" class="btn btn-primary" onclick="location.href = 'qnamodify.do'">저장</button>
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 							</div>

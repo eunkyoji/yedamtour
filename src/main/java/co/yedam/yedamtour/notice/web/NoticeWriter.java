@@ -54,7 +54,7 @@ public class NoticeWriter extends HttpServlet {
 		}
 		vo.setNoticeTitle(multi.getParameter("noticeTitle"));
 		vo.setNoticeContent(multi.getParameter("noticeContent"));
-		vo.setNoticeWriter(session.getId());
+		vo.setNoticeWriter((String)session.getAttribute("memberId"));
 		
 		int n = dao.noticeInsert(vo);
 		

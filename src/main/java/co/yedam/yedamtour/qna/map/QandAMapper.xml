@@ -13,6 +13,15 @@
 		         ORDER BY QNA_ID DESC) A
 	</select>
 	<select id="qnaSelect" resultType="co.yedam.yedamtour.qna.service.QandAVO">
+		SELECT ROWNUM, A.QNA_ID, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_WRITER, A.QNA_WRITE_DATE, A.QNA_UPDATE_DATE,
+		       (SELECT MEMBER_NICKNAME
+		          FROM TOUR_MEMBER
+		          WHERE MEMBER_ID = A.QNA_WRITER) MEMBER_NICKNAME
+		  FROM (
+		    SELECT Q.QNA_ID, Q.QNA_TITLE, Q.QNA_CONTENT, Q.QNA_WRITER, Q.QNA_WRITE_DATE, Q.QNA_UPDATE_DATE
+		            
+		      FROM TOUR_QNA Q
+		     WHERE QNA_ID = #{qnaId}) A
 	</select>
 	<insert id="qnaInsert" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
 		<selectKey keyProperty="qnaId" resultType="int" order="BEFORE">
@@ -23,7 +32,14 @@
 		VALUES(#{qnaId}, #{qnaTitle}, #{qnaContent}, #{qnaWriter}, SYSDATE)
 	</insert>
 	<update id="qnaUpdate" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
+		UPDATE TOUR_QNA
+			<set>
+				<if test="qnaTitle != null">QNA_TITLE = #{qnaTitle}</if>
+				<if test="qnaContent != null">QNA_CONTENT = #{qnaContent}</if>
+			</set>
+		WHERE	QNA_ID = #{qnaId}
 	</update>
 	<delete id="qnaDelete" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
+		DELETE FROM TOUR_QNA WHERE QNA_ID = #{qnaId}
 	</delete>
 </mapper>

@@ -16,6 +16,6 @@ public class QandAVO {
 	Date		qnaUpdateDate;
 	String		qnaReplay;
 	String		qnaViewDate;
-	String		memberNicname;
+	String		memberNickname;
 	int			rownum;
 }

@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import co.yedam.yedamtour.common.AlertControl;
+import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.qna.service.QandAService;
 import co.yedam.yedamtour.qna.service.QandAVO;
 import co.yedam.yedamtour.qna.serviceImpl.QandAServiceImpl;
 
-@WebServlet("/qnawrite.do")
-public class QandAWrite extends HttpServlet {
+@WebServlet("/qnadetail.do")
+public class QnaDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public QandAWrite() {
+    public QnaDetail() {
         super();
     }
 
@@ -25,14 +25,20 @@ public class QandAWrite extends HttpServlet {
 		QandAService dao = new QandAServiceImpl();
 		QandAVO vo = new QandAVO();
 		HttpSession session = request.getSession();
+		String author = (String) session.getAttribute("author");
 		
-		vo.setQnaTitle(request.getParameter("qnaTitle"));
-		vo.setQnaContent(request.getParameter("qnaContent"));
-		vo.setQnaWriter(request.getParameter("qnaWriter"));
+		vo.setQnaId(Integer.valueOf(request.getParameter("qnaId")));
 		
-		int n = dao.qnaInsert(vo);
-		if( n != 0 ) {
-			AlertControl.alertAndGo(response, "Q&A가 등록되었습니다.", "qnalist.do");
+		vo = dao.qnaSelect(vo);
+		
+		request.setAttribute("q", vo);
+		
+		if( "Admin".equals(author) ) {
+			String page = "admin/qna/qnadetail";
+			ViewResolve.forward(request, response, page);
+		} else {
+			String page = "qna/qnadetail";
+			ViewResolve.forward(request, response, page);
 		}
 	}
 
@@ -41,4 +47,3 @@ public class QandAWrite extends HttpServlet {
 	}
 
 }
-
