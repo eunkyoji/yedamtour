@@ -2,7 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.yedamtour.qna.map.QandAMapper">
 	<select id="qnaSelectList" resultType="co.yedam.yedamtour.qna.service.QandAVO">
-		SELECT * FROM TOUR_QNA
+		    SELECT ROWNUM, A.QNA_ID, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_WRITER, A.QNA_WRITE_DATE, A.QNA_UPDATE_DATE,
+		    	   (SELECT MEMBER_NICKNAME
+	                  FROM TOUR_MEMBER
+	                  WHERE MEMBER_ID = A.QNA_WRITER) MEMBER_NICKNAME
+		      FROM (
+		        SELECT Q.QNA_ID, Q.QNA_TITLE, Q.QNA_CONTENT, Q.QNA_WRITER, Q.QNA_WRITE_DATE, Q.QNA_UPDATE_DATE
+		                
+		          FROM TOUR_QNA Q
+		         ORDER BY QNA_ID DESC) A
 	</select>
 	<select id="qnaSelect" resultType="co.yedam.yedamtour.qna.service.QandAVO">
 	</select>

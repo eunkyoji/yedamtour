@@ -17,5 +17,5 @@ public class FreeBoardVO {
 	private String	freeBoardThumb;
 	private int		rownum;
 	private String	freeBoardViewDate;
-	private String	freeBoardNicName;
+	private String	freeBoardNicname;
 }

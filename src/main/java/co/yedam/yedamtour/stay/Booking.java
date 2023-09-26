@@ -97,6 +97,9 @@ System.out.println("mvo :: " + mvo);
 			
 		}
 		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("categoryId");
+		System.out.println("id ::: " + id + "==================");
 		
 		String page = "reservation/booking";
 		ViewResolve.forward(request, response, page);
