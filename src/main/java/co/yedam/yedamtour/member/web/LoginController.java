@@ -28,6 +28,7 @@ public class LoginController extends HttpServlet {
 		// 로그인
 		
 		HttpSession session = request.getSession();
+		System.out.println(session.getId()); 
 
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
@@ -43,6 +44,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("password", vo.getMemberPassword());
 			session.setAttribute("author", vo.getMemberAuthor());
 			
+
 			if( "user".equals(vo.getMemberAuthor()) ) {
 				page = "tour.do";
 				response.sendRedirect(page);
@@ -50,6 +52,11 @@ public class LoginController extends HttpServlet {
 				page = "adminhome.do";
 				response.sendRedirect(page);
 			}
+
+			
+			page = "tour.do";
+			response.sendRedirect(page);
+
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();

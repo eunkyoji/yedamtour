@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -63,8 +64,9 @@
 
 							<div class="d-flex justify-content-center py-4">
 								<a href="index.html"
-									class="logo d-flex align-items-center w-auto"><span
-									class="d-none d-lg-block">YDTour</span>
+									class="logo d-flex align-items-center w-auto"> <img
+									src="niceadmin/assets/img/logo.png" alt=""> <span
+									class="d-none d-lg-block">NiceAdmin</span>
 								</a>
 							</div>
 							<!-- End Logo -->
@@ -74,7 +76,8 @@
 								<div class="card-body">
 
 									<div class="pt-4 pb-2">
-										<h5 class="card-title text-center pb-0 fs-4">로 그 인</h5>
+										<h5 class="card-title text-center pb-0 fs-4">Login to
+											Your Account</h5>
 										<p class="text-center small">Enter your username &
 											password to login</p>
 									</div>
@@ -116,7 +119,6 @@
 											<p class="small mb-0">
 												<a style="float: right;" href="signupform.do">회원가입</a>
 											</p>
-											<a href="membermypage.do">마이페이지테스트</a>
 										</div>
 									</form>
 
@@ -162,4 +164,5 @@
 
 
 </body>
+
 </html>

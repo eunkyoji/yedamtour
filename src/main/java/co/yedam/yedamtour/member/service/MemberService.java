@@ -11,6 +11,8 @@ public interface MemberService {
 	
 	MemberVO signupIdSelect(MemberVO vo);
 	
+	MemberVO memberSearch(MemberVO vo);
+	
 
 
 }

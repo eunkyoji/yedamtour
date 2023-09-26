@@ -34,6 +34,8 @@
 	rel="stylesheet">
 <link href="ticket/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
+<!-- Customized Bootstrap Stylesheet -->
+<link href="ticket/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Template Stylesheet -->
 <link href="ticket/css/styleticket.css" rel="stylesheet">
@@ -43,74 +45,65 @@
 	<!-- 카테고리 시작 -->
 	<div class="container-xxl py-5">
 		<div class="container">
-			<div class="text-center mx-auto mb-5 wow fadeInUp"
-				data-wow-delay="0.1s" style="max-width: 600px; padding-top: 100px">
-				<h6 class="section-title bg-white text-center text-primary px-3">카테고리</h6>
-			</div>
+			<div data-wow-delay="0.1s"
+				style="max-width: 600px; padding-top: 100px"></div>
 			<div class="row g-4">
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-					<a class="service-item d-block rounded text-center h-100 p-4"
-						href="themepark.do"> <img class="categoryImg"
-						src="ticket/img/놀이공원.png" alt="놀이공원">
-						<h4 class="mb-0">테마파크</h4>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-					<a class="service-item d-block rounded text-center h-100 p-4"
-						href="aquarium.do"> <img class="categoryImg"
-						src="ticket/img/아쿠아리움.png" alt="아쿠아리움">
-						<h4 class="mb-0">아쿠아리움</h4>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-					<a class="service-item d-block rounded text-center h-100 p-4"
-						href="waterpark.do"> <img class="categoryImg"
-						src="ticket/img/워터파크.png" alt="워터파크">
-						<h4 class="mb-0">워터파크</h4>
-					</a>
+				<div align="center">
+					<img class="detailImg"
+						src="ticket/img/themepark/${vo.themeparkImg }" alt="${vo.themeparkImg }">
+
+					<h2 class="detailtitle">${vo.themeparkName}</h2>
 				</div>
 
 			</div>
 		</div>
 	</div>
 	<!-- 카테고리끝 -->
-
-	<div class="container-xxl py-5">
-
 		<div class="container">
 			<div class="text-center mx-auto mb-5 wow fadeInUp"
 				data-wow-delay="0.1s" style="max-width: 600px;">
-				<h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-				<h1 class="display-6 mb-4">추천 리스트</h1>
+				<h6 class="section-title bg-white text-center text-primary px-3">상세정보</h6>
 			</div>
-
-
 			<div class="row g-4">
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-					<a class="service-item d-block rounded text-center alllist p-4"
-						href=""> <img class="img-fluid rounded mb-4"
-						src="ticket/img/themepark/에버랜드.jpg" alt="">
-						<h4 class="mb-0">에버랜드</h4> <span>가격 :&nbsp; 35000원</span> <br>
-						<span>간략한 정보입력</span>
+				<div class=" wow fadeInUp" data-wow-delay="0.1s">
+					<div class="service-item2 d-block rounded text-center alllist p-4"
+						href="">
 
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-					<a class="service-item d-block rounded text-center alllist p-4"
-						href=""> <img class="img-fluid rounded mb-4"
-						src="ticket/img/아쿠아리움.jpg" alt="">
-						<h4 class="mb-0">대구 아쿠아리움</h4> <span>가격</span><br> <span>상세내용</span>
-					</a>
+						<h4 class="mb-0"></h4>
+						<div>
+							<p class="">${vo.themeparkDetail}</p>
+
+							<input class="more" type="checkbox">
+						</div>
+					
+						
+						<div class="row g-4">
+							<div class=" wow fadeInUp" data-wow-delay="0.1s">
+								
+								
+								<div
+									class=" cart service-item2 d-block rounded text-center alllist p-4">
+									<h4 class="mb-0">장바구니</h4>
+									<div align="center">
+										<span>상품명: ${vo.themeparkName }</span>
+										<div>
+											<span id="price">가격: ${vo.themeparkPrice }원 </span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수량:
+											</span><input id="ticket" type="text" maxlength='2'
+												oninput="count(event)" name="ticketCnt"
+												style="width: 50px; text-align: center">
+										</div>
+										<div id="totalPrice" style="font-size: 14px">총 가격:</div>
+
+										<a href="#" id="cartBtn" style="display: none">장바구니담기</a> <input
+											type="hidden" name="productId" value="${vo.themeparkId }">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-
-
 		</div>
-
-	</div>
-	</div>
-	<div align="center">
-		<button>리스트 더보기</button>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -120,5 +113,27 @@
 		<script src="ticket/lib/counterup/counterup.min.js"></script>
 		<script src="ticket/lib/owlcarousel/owl.carousel.min.js"></script>
 		<script src="ticket/lib/lightbox/js/lightbox.min.js"></script>
+		<script>
+			function count(e) {
+
+				e.target.value = e.target.value.replace(/[^0-9.]/g, '');
+
+				let totalPrice = e.target.value
+						* document.getElementById("price").innerHTML.replace(
+								/[^0-9.]/g, '');
+				document.getElementById("totalPrice").innerHTML = "총가격 : "
+						+ totalPrice;
+
+				if (e.target.value != '') {
+					document
+							.querySelector("#cartBtn")
+							.setAttribute("style",
+									"display: block;background-color: white; width: 100px;");
+				} else {
+					document.querySelector("#cartBtn").setAttribute("style",
+							"display: none;");
+				}
+			}
+		</script>
 </body>
 </html>

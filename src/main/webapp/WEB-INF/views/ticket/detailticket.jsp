@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -50,7 +51,7 @@
 				<div align="center">
 					<img class="detailImg" src="ticket/img/아쿠아리움.jpg" alt="아쿠아리움">
 
-					<h2 class="detailtitle">대구 아쿠아리움</h2>
+					<h2 class="detailtitle">${a.themeparkName}</h2>
 				</div>
 
 			</div>
@@ -62,7 +63,7 @@
 			<div class="text-center mx-auto mb-5 wow fadeInUp"
 				data-wow-delay="0.1s" style="max-width: 600px;">
 				<h6 class="section-title bg-white text-center text-primary px-3">상세정보</h6>
-				<h1 class="display-6 mb-4"></h1>
+				<h1 class="display-6 mb-4">${a.themeparkName}</h1>
 			</div>
 			<div class="row g-4">
 				<div class=" wow fadeInUp" data-wow-delay="0.1s">
@@ -91,49 +92,47 @@
 											style="width: 50px; text-align: center">
 									</div>
 									<div id="totalPrice" style="font-size: 14px">총 가격:</div>
-									
-										<a href="#" id="cartBtn" style="display: none">장바구니담기</a>
-									
-									<input type="hidden" name="productId" value="${productId }">
+
+									<a href="#" id="cartBtn" style="display: none">장바구니담기</a> <input
+										type="hidden" name="productId" value="${productId }">
 
 								</div>
-
-
 							</div>
 						</div>
 					</div>
-					<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-					<script
-						src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-					<script src="ticket/lib/wow/wow.min.js"></script>
-					<script src="ticket/lib/easing/easing.min.js"></script>
-					<script src="ticket/lib/waypoints/waypoints.min.js"></script>
-					<script src="ticket/lib/counterup/counterup.min.js"></script>
-					<script src="ticket/lib/owlcarousel/owl.carousel.min.js"></script>
-					<script src="ticket/lib/lightbox/js/lightbox.min.js"></script>
-					<script>
-						function count(e) {
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="ticket/lib/wow/wow.min.js"></script>
+		<script src="ticket/lib/easing/easing.min.js"></script>
+		<script src="ticket/lib/waypoints/waypoints.min.js"></script>
+		<script src="ticket/lib/counterup/counterup.min.js"></script>
+		<script src="ticket/lib/owlcarousel/owl.carousel.min.js"></script>
+		<script src="ticket/lib/lightbox/js/lightbox.min.js"></script>
+		<script>
+			function count(e) {
 
-							e.target.value = e.target.value.replace(/[^0-9.]/g,
-									'');
+				e.target.value = e.target.value.replace(/[^0-9.]/g, '');
 
-							let totalPrice = e.target.value
-									* document.getElementById("price").innerHTML
-											.replace(/[^0-9.]/g, '');
-							document.getElementById("totalPrice").innerHTML = "총가격 : "
-									+ totalPrice;
+				let totalPrice = e.target.value
+						* document.getElementById("price").innerHTML.replace(
+								/[^0-9.]/g, '');
+				document.getElementById("totalPrice").innerHTML = "총가격 : "
+						+ totalPrice;
 
-							if (e.target.value != '') {
-								document
-										.querySelector("#cartBtn")
-										.setAttribute("style",
-												"display: block;background-color: white; width: 100px;");
-							} else {
-								document
-										.querySelector("#cartBtn")
-										.setAttribute("style", "display: none;");
-							}
-						}
-					</script>
+				if (e.target.value != '') {
+					document
+							.querySelector("#cartBtn")
+							.setAttribute("style",
+									"display: block;background-color: white; width: 100px;");
+				} else {
+					document.querySelector("#cartBtn").setAttribute("style",
+							"display: none;");
+				}
+			}
+		</script>
 </body>
 </html>
