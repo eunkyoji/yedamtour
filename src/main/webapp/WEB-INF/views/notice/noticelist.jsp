@@ -7,9 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link href="webapp/css/noticelist.css" rel="stylesheet">
+<link href="webapp/css/board.css" rel="stylesheet">
 
 <body>
+<c:set var="author" value='<%=(String)session.getAttribute("author") %>' />
+<c:set var="id" value='<%=(String)session.getAttribute("memberid") %>' />
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 		<section class="section">
 			<div class="row">
@@ -47,10 +51,17 @@
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
+							<c:choose>
+								<c:when test="${author=='Admin' && id == 'admin@ydtour.com'}">
+									<div align="right">
+										<button type="button" class="btn btn-primary" onclick="location.href = 'noticewriteform.do'">글쓰기</button>
+									</div>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
 
-							<div align="right">
-								<button type="button" class="btn btn-primary" onclick="location.href = 'noticewriteform.do'">글쓰기</button>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -58,6 +69,8 @@
 		</section>
 	
 	</main>
+</div>
+</section>
 	<form id="sform" action="noticedetail.do" method="post">
 		<input type="hidden" id="noticeId" name="noticeId">
 	</form>

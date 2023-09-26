@@ -7,7 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link href="webapp/css/board.css" rel="stylesheet">
 <body>
+<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 		<section class="section">
 			<div class="row">
@@ -48,7 +52,7 @@
 													</c:otherwise>
 													</c:choose>
 													<td>${f.freeBoardTitle}</td>
-													<td>${f.freeBoardNicName }</td>
+													<td>${f.freeBoardNicname }</td>
 													<td>${f.freeBoardViewDate }</td>
 													<td>${f.freeBoardHit }</td>
 												</tr>
@@ -58,10 +62,16 @@
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
+							<c:choose>
+								<c:when test="${not empty id }">
+									<div align="right">
+										<button type="button" class="btn btn-primary" onclick="location.href = 'freeboardwriteform.do'">글쓰기</button>
+									</div>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
 
-						<div align="right">
-							<button type="button" class="btn btn-primary" onclick="location.href = 'freeboardwriteform.do'">글쓰기</button>
-						</div>
 						</div>
 					</div>
 
@@ -69,6 +79,8 @@
 			</div>
 		</section>
 	</main>
+</div>
+</section>
 	<form id="sform" action="freeboarddetail.do" method="post">
 		<input type="hidden" id="freeBoardId" name="freeBoardId">
 	</form>

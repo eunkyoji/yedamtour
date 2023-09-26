@@ -43,7 +43,7 @@
                     <div class="form-group">
                       <label for="id_label_single">출발지</label>
                       <label for="id_label_single" style="width: 100%;">
-                        <select name="start" class="js-example-basic-single js-states form-control" id="start" style="width: 100%;">                      
+                        <select name="start" class="js-states form-control" id="start" style="width: 100%;">                      
                           <option value="서울">서울</option>
                           <option value="동대구">동대구</option>
                           <option value="부산">부산</option>
@@ -57,7 +57,7 @@
                       <label for="id_label_single2">도착지</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
-                        <select name="finish" class="js-example-basic-single js-states form-control" id="finish" style="width: 100%;">
+                        <select name="finish" class="js-states form-control" id="finish" style="width: 100%;">
                          <option value="서울">서울</option>
                           <option value="동대구">동대구</option>
                           <option value="부산">부산</option>
@@ -91,8 +91,9 @@
                   <div class="col-md">
                     <div class="form-group">
                       <label for="id_label_single">인원</label>
+                      <div class="probootstrap_select-wrap">
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                        
+                        <select class="js-states form-control" id="person" name="person" style="width: 100%;">                        
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -107,6 +108,7 @@
                       </label>
                     </div>
                   </div>               
+                </div>
                 </div>
                 <!-- END row -->
                 <div class="row">

@@ -25,7 +25,6 @@ public class CampingDetail extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CampingService dao = new CampingServiceImpl();
-		List<CampingVO> campings = new ArrayList<CampingVO>();
 		CampingVO vo = new CampingVO();
 		
 		int id = Integer.valueOf(request.getParameter("campingId"));

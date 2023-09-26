@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -26,9 +27,12 @@ public class FreeBoardWrite extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		ThumbNail thumbNail = new ThumbNail();
 		FreeBoardService dao = new FreeBoardServiceImpl();
 		FreeBoardVO vo = new FreeBoardVO();
+		
+		String memberId = session.getId();
 		
 		String saveDir = getServletContext().getRealPath("attech/freeboard");	// 운영 서버에 올릴때는 저장 경로만 작성
 		int maxSize = 1024 * 1024 * 100; // 100Mbyte
@@ -42,7 +46,7 @@ public class FreeBoardWrite extends HttpServlet {
 		if( multi.getOriginalFileName("imgfile") != null) {
 			String imgFileName = multi.getOriginalFileName("imgfile");	// 원본파일명
 			String realImg = multi.getFilesystemName("imgfile");	// 저장되는 파일명
-			vo.setFreeBoardImg(saveDir);	// img file명을 저장한다.
+			vo.setFreeBoardImg(realImg);	// img file명을 저장한다.
 			
 			//썸네일 만들기
 			String fileExt = imgFileName.substring(imgFileName.lastIndexOf(".")+1); //확장자 명
@@ -51,8 +55,8 @@ public class FreeBoardWrite extends HttpServlet {
 			vo.setFreeBoardThumb(thumb);
 		}
 		vo.setFreeBoardTitle(multi.getParameter("freeBoardTitle"));
-		vo.setFreeBoardContent(multi.getParameter("reeBoardContent"));
-		vo.setFreeBoardWriter("user1");
+		vo.setFreeBoardContent(multi.getParameter("freeBoardContent"));
+		vo.setFreeBoardWriter(memberId);
 		
 		int n = dao.freeBoardInsert(vo);
 		

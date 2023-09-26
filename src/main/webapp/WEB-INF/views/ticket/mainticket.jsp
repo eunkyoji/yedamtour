@@ -34,8 +34,6 @@
 	rel="stylesheet">
 <link href="ticket/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-<!-- Customized Bootstrap Stylesheet -->
-<link href="ticket/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Template Stylesheet -->
 <link href="ticket/css/styleticket.css" rel="stylesheet">

@@ -34,16 +34,18 @@
 <div class="container">
  <div class="row mt-5">
           <div class="col">
-           <img src="jadoo/public/assetsbook/images/plane.jpg"  alt="steps" style="width: 650px;"/></div>
+           <img src="jadoo/public/assetsbook/images/plane.jpg"  alt="steps" style="width: 650px;"/>
+           </div>
           <div class="col probootstrap-animate">
             <form action="timeairplane.do" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
                     <div class="form-group">
-                      <label for="id_label_single">출발지</label>
-                      <label for="id_label_single" style="width: 100%;">
-                        <select name="start" class="js-example-basic-single js-states form-control" id="start" style="width: 100%;">                       
+                      <label>출발지</label>
+                      <div class="probootstrap_select-wrap">
+                      <label style="width: 100%;">
+                        <select name="start" class="js-states form-control" id="start" style="width: 100%;">                       
                           <option value="인천">인천</option>                          
                           <option value="제주">제주</option>
                           <option value="김해">김해</option>
@@ -52,12 +54,13 @@
                       </label>
                     </div>
                   </div>
+                  </div>
                   <div class="col-md">
                     <div class="form-group">
                       <label for="id_label_single2">도착지</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
-                        <select name="finish" class="js-example-basic-single js-states form-control" id="finish" style="width: 100%;">
+                        <select name="finish" class="js-states form-control" id="finish" style="width: 100%;">
                           <option value="인천">인천</option>
                           <option value="제주">제주</option>
                           <option value="김해">김해</option>
@@ -68,7 +71,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- END row -->
+                </div>
                 <div class="row mb-5">
                   <div class="col-md">
                     <div class="form-group">
@@ -91,8 +94,9 @@
                   <div class="col-md">
                     <div class="form-group">
                       <label for="id_label_single">인원</label>
+                      <div class="probootstrap_select-wrap">
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                        
+                        <select class="js-states form-control" id="person" name="person" style="width: 100%;">                        
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -125,8 +129,7 @@
       </div>
     <script src="jadoo/public/assetsbook/js/jquery.min.js"></script>
     
-    <script src="jadoo/public/assetsbook/js/popper.min.js"></script>
-    <script src="jadoo/public/assetsbook/js/bootstrap.min.js"></script>
+   
     <script src="jadoo/public/assetsbook/js/owl.carousel.min.js"></script>
 
     <script src="jadoo/public/assetsbook/js/bootstrap-datepicker.js"></script>

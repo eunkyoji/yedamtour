@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.common.SHA256;
@@ -27,11 +28,17 @@ public class SignupController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		MemberVO vo2 = new MemberVO();
+
 		MemberVO vo3 = new MemberVO();
 		
+
+		
+		String id = session.getId();
+
 		String pw1 = request.getParameter("memberPassword");
 		String pw2 = request.getParameter("memberPasswordCheck");
 		String name = request.getParameter("memberName");
@@ -61,6 +68,9 @@ public class SignupController extends HttpServlet {
 				vo.setMemberName(request.getParameter("memberName"));
 				vo.setMemberPhone(request.getParameter("memberPhone"));
 				vo.setMemberNickname(request.getParameter("memberNickname"));
+				if( id != null ) {
+					vo.setMemberAuthor("Admin");
+				}
 			} else {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();

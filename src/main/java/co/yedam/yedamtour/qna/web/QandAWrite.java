@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.qna.service.QandAService;
@@ -23,6 +24,7 @@ public class QandAWrite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QandAService dao = new QandAServiceImpl();
 		QandAVO vo = new QandAVO();
+		HttpSession session = request.getSession();
 		
 		vo.setQnaTitle(request.getParameter("qnaTitle"));
 		vo.setQnaContent(request.getParameter("qnaContent"));

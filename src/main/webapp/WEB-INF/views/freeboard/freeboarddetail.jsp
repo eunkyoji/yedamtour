@@ -7,8 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
+<link href="webapp/css/board.css" rel="stylesheet">
 <body>
+<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 
 		<!-- End Page Title -->
@@ -33,18 +36,24 @@
 										</c:choose>
 										<div class="col-md-8">
 											<div class="card-body">
-												<h5 class="card-title">${f.freeBoardTitle }</h5>
-												<p class="card-text">${f.freeBoardContent}</p>
+												<h5 class="card-title" align="left">${f.freeBoardTitle }</h5>
+												<p class="card-text" align="left">${f.freeBoardContent}</p>
 											</div>
 										</div>
 									</div>
 								</div>
 
 								<div align="right">
-									<button type="button" class="btn btn-primary"
-										onclick="freeBoardModify(${f.freeBoardId})">수정</button>
-									<button type="button" class="btn btn-primary"
-										onclick="freeBoardDelete(${f.freeBoardId})">삭제</button>
+									<c:choose>
+										<c:when test="${f.freeBoardWriter == id }">
+											<button type="button" class="btn btn-primary"
+												onclick="freeBoardModify(${f.freeBoardId})">수정</button>
+											<button type="button" class="btn btn-primary"
+												onclick="freeBoardDelete(${f.freeBoardId})">삭제</button>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+									</c:choose>
 									<button type="button" class="btn btn-primary"
 										onclick="location.href = 'freeboardlist.do'">목록</button>
 								</div>
@@ -62,6 +71,8 @@
 			<input type="hidden" id="freeBoardId" name="freeBoardId">
 		</form>
 	</main>
+</div>
+</section>
 	<script type="text/javascript">
 	function freeBoardModify(id){
 		let form = document.getElementById("mform");

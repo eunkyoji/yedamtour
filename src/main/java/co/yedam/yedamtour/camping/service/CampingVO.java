@@ -18,4 +18,8 @@ public class CampingVO {
 	private String campingRoomName;
 	private int campingRoomPrice;
 	private int campingSubId;
+	private String memberId;
+	private String memberPhone;
+	private String memberName;
+	private String categoryId;
 }

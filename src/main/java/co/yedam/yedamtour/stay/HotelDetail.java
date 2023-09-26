@@ -25,13 +25,14 @@ public class HotelDetail extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HotelService dao = new HotelServiceImpl();
-		List<HotelVO> hotels = new ArrayList<HotelVO>();
 		HotelVO vo = new HotelVO();
 		
 		int id = Integer.valueOf(request.getParameter("hotelId"));
+		
 		vo.setHotelId(id);
 		vo = dao.hotelSelect(vo);
-		request.setAttribute("hotels", hotels);
+		
+		request.setAttribute("hotels", vo);
 		
 		String page = "hotel/hoteldetail";
 		ViewResolve.forward(request, response, page);

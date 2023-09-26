@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.freeboard.service.FreeBoardService;
@@ -21,16 +22,24 @@ public class FreeBoardDetails extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		FreeBoardService dao = new FreeBoardServiceImpl();
 		FreeBoardVO vo = new FreeBoardVO();
+		
+		String author = (String)session.getAttribute("author");
 		
 		vo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
 		
 		vo = dao.freeBoardSelect(vo);
 		request.setAttribute("f", vo);
 		
-		String page = "admin/freeboard/freeboarddetail";
-		ViewResolve.forward(request, response, page);
+		if( "Admin".equals(author) ) {
+			String page = "admin/freeboard/freeboarddetail";
+			ViewResolve.forward(request, response, page);
+		} else {
+			String page = "freeboard/freeboarddetail";
+			ViewResolve.forward(request, response, page);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

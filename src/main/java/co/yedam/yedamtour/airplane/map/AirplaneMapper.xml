@@ -5,13 +5,7 @@
 	<select id="airplaneSelectList" resultType="co.yedam.yedamtour.airplane.service.AirplaneVO">
 		SELECT * FROM TOUR_AIRPLANE 
 		WHERE AIRPLANE_START = #{airplaneStart} AND AIRPLANE_FINISH = #{airplaneFinish}
-		order by airplane_deptime
-	</select>
-	
-	<select id="airplaneSelectList1" resultType="co.yedam.yedamtour.airplane.service.AirplaneVO">
-		SELECT * FROM TOUR_AIRPLANE 
-		WHERE AIRPLANE_ID = #{airplaneId} or AIRPLANE_Id = #{airplaneId}
-		order by airplane_deptime
+		ORDER BY AIRPLANE_DEPTIME
 	</select>
 	
 	<select id="airplaneSelect" resultType="co.yedam.yedamtour.airplane.service.AirplaneVO">
@@ -20,10 +14,9 @@
 	</select>
 	
 	<insert id="airplaneInsert" parameterType="co.yedam.yedamtour.airplane.service.AirplaneVO">
-		insert into tour_airplane
-		values(#{airplaneId}, #{airplaneStart}, #{airplaneFinish}, #{airplaneGoday}, ${airplaneComeday},
-		#{airplaneGrade}, #{airplanePrice}, #{airplanePerson}, #{airplaneDeptime}, #{airplaneArrtime}, #{airplaneSeats})
-		
+		INSERT INTO TOUR_AIRPLANE(AIRPLANE_ID, airplane_start, airplane_finish, airplane_grade, airplane_price, airplane_person)
+		VALUES(#{airplaneId}, #{airplaneStart}, #{airplaneFinish}, #{airplaneGoday}, ${airplaneComeday}, #{airplaneGrade}, 
+			   #{airplanePrice}, #{airplanePerson}, #{airplaneDeptime}, #{airplaneArrtime}, #{airplaneSeats})
 	</insert>
 	
 	<update id="airplaneUpdate" parameterType="co.yedam.yedamtour.airplane.service.AirplaneVO">
