@@ -4,7 +4,6 @@ import java.util.List;
 
 public interface AirplaneService {
 	List<AirplaneVO> airplaneSelectList(AirplaneVO vo);
-	List<AirplaneVO> airplaneSelectList1(AirplaneVO vo);
 	AirplaneVO airplaneSelect(AirplaneVO vo);
 	int airplaneInsert(AirplaneVO vo);
 	int airplaneUpdate(AirplaneVO vo);

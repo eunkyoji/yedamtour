@@ -12,9 +12,9 @@ public class TrainVO {
 	private Date trainGoday;
 	private Date trainComeday;
 	private String trainGrade;
-	private String trainPrice;
 	private String trainPerson;
 	private String trainDeptime;
 	private String trainArrtime;
 	private String trainSeats;
+	private int trainPrice;
 }

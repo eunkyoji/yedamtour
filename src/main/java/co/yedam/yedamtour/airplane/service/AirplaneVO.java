@@ -11,9 +11,9 @@ public class AirplaneVO {
 	private Date airplaneGoday;
 	private Date airplaneComeday;
 	private String airplaneGrade;
-	private String airplanePrice;
 	private String airplanePerson;
 	private String airplaneDeptime;
 	private String airplaneArrtime;
 	private String airplaneSeats;
+	private int airplanePrice;
 }

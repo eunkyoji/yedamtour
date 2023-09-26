@@ -24,7 +24,7 @@
 	<insert id="memberInsert"
 		parameterType="co.yedam.yedamtour.member.service.MemberVO">
 		INSERT INTO TOUR_MEMBER
-		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberPhone},#{memberNickname}, SYSDATE)
+		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberPhone},#{memberNickname}, SYSDATE, 'user')
 	</insert>
 	<update id="memberUpdate"
 		parameterType="co.yedam.yedamtour.member.service.MemberVO">
@@ -55,4 +55,12 @@
 	DELETE FROM TOUR_MEMBER
 	WHERE member_id = #{memberId}
 	</delete>
+	<select id="memberSearch"
+		resultType="co.yedam.yedamtour.member.service.MemberVO">
+		SELECT *
+		FROM TOUR_MEMBER
+		WHERE MEMBER_NAME = #{memberName} And 
+		MEMBER_PHONE = #{memberPhone}
+	</select>
+	
 </mapper>

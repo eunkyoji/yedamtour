@@ -38,9 +38,4 @@ public class AirplaneServiceImpl implements AirplaneService {
 		return map.airplaneDelete(vo);
 	}
 
-	@Override
-	public List<AirplaneVO> airplaneSelectList1(AirplaneVO vo) {
-		return map.airplaneSelectList1(vo);
-	}
-
 }

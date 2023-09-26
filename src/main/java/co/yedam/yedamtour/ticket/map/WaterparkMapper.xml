@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.ticket.map.WaterparkMapper">
+<select id="waterparkSelectList"
+		resultType="co.yedam.yedamtour.ticket.service.WaterparkVO">
+		select *
+		from tour_waterpark
+	</select>
+	<select id="waterparkSelect"
+		resultType="co.yedam.yedamtour.ticket.service.WaterparkVO">
+		SELECT *
+		FROM TOUR_waterpark
+		Where waterpark_id =
+		#{waterparkId}
+	</select>
+
+
+
+</mapper>

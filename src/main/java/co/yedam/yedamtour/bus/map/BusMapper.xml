@@ -3,12 +3,14 @@
 <mapper namespace="co.yedam.yedamtour.bus.map.BusMapper">
 
 	<select id="busSelectList" resultType="co.yedam.yedamtour.bus.service.BusVO">
-		SELECT * FROM TOUR_BUS WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
+		SELECT * FROM TOUR_BUS 
+		WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
 		order by bus_deptime
 	</select>
 	
 	<select id="busSelect" resultType="co.yedam.yedamtour.bus.service.BusVO">
-		SELECT * FROM TOUR_BUS WHERE BUS_START = #{busStart} AND BUS_FINISH = #{busFinish}
+		SELECT * FROM TOUR_BUS
+		WHERE BUS_ID = #{busId}
 	</select>
 	
 	<insert id="busInsert" parameterType="co.yedam.yedamtour.bus.service.BusVO">

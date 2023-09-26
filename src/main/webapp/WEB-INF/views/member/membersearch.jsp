@@ -69,56 +69,46 @@
 								</a>
 							</div>
 							<!-- End Logo -->
+								<div class="card mb-3">
 
-							<div class="card mb-3">
+									<div class="card-body">
 
-								<div class="card-body">
+										<div class="pt-4 pb-2">
+											<h5 class="card-title text-center pb-0 fs-4">개인정보 입력</h5>
+											<p class="text-center small">아래 빈칸에 정보를 기입해주세요.</p>
+										</div>
 
-									<div class="pt-4 pb-2">
-										<h5 class="card-title text-center pb-0 fs-4">개인정보 입력</h5>
-										<p class="text-center small">아래 빈칸에 정보를 기입해주세요.</p>
+										<form class="row g-3 needs-validation" action="sendemail.do" method="post">
+
+											<div class="col-12">
+												<label for="memberName" class="form-label">이름</label>
+												<div class="input-group has-validation">
+													<input type="text" name="memberName" class="form-control"
+														id="memberName" required placeholder="이름 입력">
+													<div class="invalid-feedback">성함을 입력해 주세요.</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<label for="memberPhone" class="form-label">전화번호</label>
+												<div class="input-group has-validation">
+													<input type="tel" name="memberPhone" class="form-control"
+														id="memberPhone" required placeholder="숫자만 입력">
+													<div class="invalid-feedback">전화번호를 입력해 주세요.</div>
+												</div>
+											</div>
+											
+
+
+											<div class="col-12">
+												<button class="btn btn-primary w-100" type="submit"
+													value="sendemail.do">찾기</button>
+											</div>
+											<a href="tour.do">홈가기</a>
+											
+										</form>
+
 									</div>
-
-									<form class="row g-3 needs-validation" novalidate>
-
-										<div class="col-12">
-											<label for="yourUsername" class="form-label">이름</label>
-											<div class="input-group has-validation">
-												<input type="email" name="username" class="form-control"
-													id="yourUsername" required placeholder="이름 입력">
-												<div class="invalid-feedback">성함을 입력해 주세요.</div>
-											</div>
-										</div>
-										<div class="col-12">
-											<label for="yourTel" class="form-label">전화번호</label>
-											<div class="input-group has-validation">
-												<input type="tel" name="usertel" class="form-control"
-													id="yourTel" required placeholder="숫자만 입력">
-												<div class="invalid-feedback">전화번호를 입력해 주세요.</div>
-											</div>
-										</div>
-
-
-										<div class="col-12">
-											<label for="yourEmail" class="form-label">이메일</label>
-											<div class="input-group has-validation">
-												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="email" name="useremail" class="form-control"
-													id="yourEmail" required placeholder="이메일 수신혜택을 받을 이메일 입력">
-												<div class="invalid-feedback">이메일을 입력해 주세요.</div>
-											</div>
-										</div>
-
-
-
-										<div class="col-12">
-											<button class="btn btn-primary w-100" type="submit">찾기</button>
-										</div>
-										<a href="tour.do">dd</a>
-									</form>
-
 								</div>
-							</div>
 
 							<div class="credits">
 								<!-- All the links in the footer should remain intact. -->
@@ -127,7 +117,6 @@
 								<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
 								Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
 							</div>
-
 						</div>
 						<!-- 컨테이너 끝나는 부분-->
 					</div>

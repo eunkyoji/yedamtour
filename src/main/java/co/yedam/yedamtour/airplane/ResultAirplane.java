@@ -22,13 +22,13 @@ public class ResultAirplane extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		
 		AirplaneService dao = new AirplaneServiceImpl();
 		AirplaneVO startvo = new AirplaneVO();
-		AirplaneVO finishvo = new AirplaneVO();
+		AirplaneVO finishvo = new AirplaneVO();	
 
 		String startDate = request.getParameter("startDate");
 		String finishDate = request.getParameter("finishDate");
+		int person = Integer.valueOf(request.getParameter("person"));
 		
 		int direction = Integer.valueOf(request.getParameter("direction"));
 		int direction1 = Integer.valueOf(request.getParameter("direction1"));
@@ -45,8 +45,18 @@ public class ResultAirplane extends HttpServlet {
 			request.setAttribute("finishAir", finishvo);
 		}
 		
+		int startAirId = startvo.getAirplaneId();
+		int finishAirId = finishvo.getAirplaneId();
+		int startPrice = startvo.getAirplanePrice()*person;
+		int finishPrice = finishvo.getAirplanePrice()*person;
+		
 		request.setAttribute("startDate", startDate);
 		request.setAttribute("finishDate", finishDate);
+		request.setAttribute("person", person);
+		request.setAttribute("startPrice", startPrice);
+		request.setAttribute("finishPrice", finishPrice);
+		request.setAttribute("startAirId", startAirId);
+		request.setAttribute("finishAirId", finishAirId);
 		
 		String page = "transportation/resultairplane";
 		ViewResolve.forward(request, response, page);

@@ -9,11 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.ViewResolve;
-import co.yedam.yedamtour.ticket.service.ThemeparkService;
-import co.yedam.yedamtour.ticket.service.ThemeparkVO;
-import co.yedam.yedamtour.ticket.serviceImpl.ThemeparkServiceImpl;
+import co.yedam.yedamtour.ticket.service.AquariumService;
+import co.yedam.yedamtour.ticket.service.AquariumVO;
+import co.yedam.yedamtour.ticket.serviceImpl.AquariumServiceImpl;
 
 @WebServlet("/aquarium.do")
 public class Aquarium extends HttpServlet {
@@ -24,14 +25,18 @@ public class Aquarium extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ThemeparkService dao = new ThemeparkServiceImpl();
-		List<ThemeparkVO> vo = new ArrayList<>();
+		HttpSession session = request.getSession();
+		System.out.println(session.getId()); 
 		
-		vo = dao.themeparkSelectList();
+		AquariumService dao = new AquariumServiceImpl();
+		List<AquariumVO> vo = new ArrayList<>();
+		
+		vo = dao.aquariumSelectList();
 		request.setAttribute("vo", vo);
 		
 		String page = "ticket/aquarium";
 		ViewResolve.forward(request, response, page);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
