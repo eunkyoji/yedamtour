@@ -14,10 +14,9 @@
 	</select>
 	
 	<insert id="airplaneInsert" parameterType="co.yedam.yedamtour.airplane.service.AirplaneVO">
-		INSERT INTO TOUR_AIRPLANE
-		VALUES(#{airplaneId}, #{airplaneStart}, #{airplaneFinish}, #{airplaneGoday}, ${airplaneComeday},
-		#{airplaneGrade}, #{airplanePrice}, #{airplanePerson}, #{airplaneDeptime}, #{airplaneArrtime}, #{airplaneSeats})
-		
+		INSERT INTO TOUR_AIRPLANE(AIRPLANE_ID, airplane_start, airplane_finish, airplane_grade, airplane_price, airplane_person)
+		VALUES(#{airplaneId}, #{airplaneStart}, #{airplaneFinish}, #{airplaneGoday}, ${airplaneComeday}, #{airplaneGrade}, 
+			   #{airplanePrice}, #{airplanePerson}, #{airplaneDeptime}, #{airplaneArrtime}, #{airplaneSeats})
 	</insert>
 	
 	<update id="airplaneUpdate" parameterType="co.yedam.yedamtour.airplane.service.AirplaneVO">

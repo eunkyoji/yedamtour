@@ -19,11 +19,11 @@ public class ReservationList extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * String[] list = null; list = request.getParameter("start").split(",");
-		 */
-		String start = request.getParameter("start");
-		System.out.println(start);
+
+		String[] cart = new String[12];
+		cart = request.getParameter("start").split(",");
+		
+		request.setAttribute("cart", cart);
 		
 		String page = "admin/reservation/reservationlist";
 		ViewResolve.forward(request, response, page);

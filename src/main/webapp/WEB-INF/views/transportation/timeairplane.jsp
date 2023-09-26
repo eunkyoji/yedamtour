@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
 		<div class="untree_co-section before-footer-section">
 			<form action="resultairplane.do" class="col-md-12" method="post">
 			<div class="container" style="margin-top: 200px;">
@@ -36,9 +35,9 @@
 						<div class="site-blocks-table">
 							<table class="table">
 								<thead>
-									<tr>
-									<th>선택</th>
-										<th class="product-name">등급</th>
+									<tr>										
+										<th>선택</th>								
+										<th class="product-name">등급</th>									
 										<th class="product-price">출발시간</th>
 										<th class="product-arrow"></th>
 										<th class="product-quantity">도착시간</th>
@@ -47,7 +46,7 @@
 								</thead>
 								<tbody>
 									<c:forEach items="${airplanes }" var="a">
-										<tr>
+										<tr>										
 										<td><input type="radio" value="${a.airplaneId }" name="direction"></td>
 											<td class="product-name">
 												<h2 class="h5 text-black">${a.airplaneGrade }</h2>

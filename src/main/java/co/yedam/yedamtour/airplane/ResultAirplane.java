@@ -45,7 +45,8 @@ public class ResultAirplane extends HttpServlet {
 			request.setAttribute("finishAir", finishvo);
 		}
 		
-		
+		int startAirId = startvo.getAirplaneId();
+		int finishAirId = finishvo.getAirplaneId();
 		int startPrice = startvo.getAirplanePrice()*person;
 		int finishPrice = finishvo.getAirplanePrice()*person;
 		
@@ -54,6 +55,8 @@ public class ResultAirplane extends HttpServlet {
 		request.setAttribute("person", person);
 		request.setAttribute("startPrice", startPrice);
 		request.setAttribute("finishPrice", finishPrice);
+		request.setAttribute("startAirId", startAirId);
+		request.setAttribute("finishAirId", finishAirId);
 		
 		String page = "transportation/resultairplane";
 		ViewResolve.forward(request, response, page);
