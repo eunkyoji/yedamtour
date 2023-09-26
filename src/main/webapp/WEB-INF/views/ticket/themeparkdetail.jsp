@@ -94,7 +94,7 @@
 										</div>
 										<div id="totalPrice" style="font-size: 14px">총 가격:</div>
 
-										<a href="#" id="cartBtn" style="display: none">장바구니담기</a> <input
+										<a href="#" id="cartBtn" onclick="cartSubmit(e)" style="display: none">장바구니담기</a><input
 											type="hidden" name="productId" value="${vo.themeparkId }">
 									</div>
 								</div>
@@ -133,6 +133,10 @@
 					document.querySelector("#cartBtn").setAttribute("style",
 							"display: none;");
 				}
+			}
+			function cartSubmit(e){
+				
+				console.log(e.target.value);
 			}
 		</script>
 </body>

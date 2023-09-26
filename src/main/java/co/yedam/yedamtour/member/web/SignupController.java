@@ -30,10 +30,30 @@ public class SignupController extends HttpServlet {
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		MemberVO vo2 = new MemberVO();
+		MemberVO vo3 = new MemberVO();
+		
 		String pw1 = request.getParameter("memberPassword");
 		String pw2 = request.getParameter("memberPasswordCheck");
-		vo2.setMemberId(request.getParameter("memberId"));
-		if (dao.signupIdSelect(vo2) == null) {
+		String name = request.getParameter("memberName");
+		String phone = request.getParameter("memberPhone");
+		String id = request.getParameter("memberId");
+		vo2.setMemberName(name);
+		vo2.setMemberPhone(phone);
+		vo2 = dao.signupIdSelect(vo2);	//이름과 번호 체크
+		vo3.setMemberId(id);
+		vo3 = dao.idCheckSelect(vo3);	//아이디체크
+		if(vo2 != null) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+
+			out.write("<script>alert('이미 등록된 회원입니다.');" + "history.go(-1);</script>");
+
+			out.flush();
+			out.close();
+		}
+		if ( vo2 == null && vo3 == null) {
+			
+			
 
 			if (pw1.equals(pw2)) {
 				vo.setMemberId(request.getParameter("memberId"));
@@ -50,14 +70,6 @@ public class SignupController extends HttpServlet {
 				out.flush();
 				out.close();
 			}
-		}else {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-
-			out.write("<script>alert('이미 존재하는 아이디입니다.');" + "history.go(-1);</script>");
-
-			out.flush();
-			out.close();
 		}
 
 		int result = dao.memberInsert(vo);

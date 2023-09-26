@@ -107,7 +107,7 @@ public class SendEmail extends HttpServlet {
 				msg.setSubject("[YedamTour] 안녕하세요. 요청하신 아이디와 비밀번호입니다.");
 				// 메일 내용
 
-				msg.setText("아이디: "+memberId+" 임시비밀번호 :" + temp +"로그인후 반드시 비밀번호를 변경해주세요.");
+				msg.setText("아이디: "+memberId+" 임시비밀번호 :" + temp +" 로그인후 반드시 비밀번호를 변경해주세요.");
 
 				Transport.send(msg);
 				System.out.println("이메일 전송");

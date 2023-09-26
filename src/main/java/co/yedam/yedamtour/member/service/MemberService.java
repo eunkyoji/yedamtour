@@ -13,6 +13,7 @@ public interface MemberService {
 	
 	MemberVO memberSearch(MemberVO vo);
 	
+	MemberVO idCheckSelect(MemberVO vo);
 
 
 }

@@ -49,4 +49,9 @@ public class MemberServiceImpl implements MemberService{
 		return map.memberSearch(vo);
 	}
 
+	@Override
+	public MemberVO idCheckSelect(MemberVO vo) {
+		return map.idCheckSelect(vo);
+	}
+
 }
