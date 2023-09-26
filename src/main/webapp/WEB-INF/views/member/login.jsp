@@ -118,7 +118,6 @@
 											<p class="small mb-0">
 												<a style="float: right;" href="signupform.do">회원가입</a>
 											</p>
-											<a href="sendemail.do">마이페이지테스트</a>
 										</div>
 									</form>
 

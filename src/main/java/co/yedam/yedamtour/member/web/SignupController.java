@@ -33,7 +33,6 @@ public class SignupController extends HttpServlet {
 		String pw1 = request.getParameter("memberPassword");
 		String pw2 = request.getParameter("memberPasswordCheck");
 		vo2.setMemberId(request.getParameter("memberId"));
-
 		if (dao.signupIdSelect(vo2) == null) {
 
 			if (pw1.equals(pw2)) {
