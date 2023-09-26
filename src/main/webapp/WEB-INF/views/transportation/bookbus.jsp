@@ -36,14 +36,14 @@
           <div class="col">
            <img src="jadoo/public/assetsbook/images/bus.jpg"  alt="steps" style="width: 650px;"/></div>
           <div class="col probootstrap-animate">
-            <form id="search" action="timebus.do" class="probootstrap-form">
+            <form action="timebus.do" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
                     <div class="form-group">
                       <label for="id_label_single">출발지</label>
                       <label for="id_label_single" style="width: 100%;">
-                        <select name="start" class="js-example-basic-single js-states form-control" id="start" style="width: 100%;">                        
+                        <select name="start" class="js-states form-control" id="start" style="width: 100%;">                        
                           <option value="동서울">동서울</option>
                           <option value="광주">광주</option>
                           <option value="대전복합">대전복합</option>
@@ -57,7 +57,7 @@
                       <label for="id_label_single2">도착지</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
-                        <select name="finish" class="js-example-basic-single js-states form-control" id="finish" style="width: 100%;">                    
+                        <select name="finish" class="js-states form-control" id="finish" style="width: 100%;">                    
                           <option value="동서울">동서울</option>
                          <option value="광주">광주</option>
                           <option value="대전복합">대전복합</option>
@@ -68,9 +68,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- END row -->
                 </div>
-                <!-- END row -->
                 <div class="row mb-5">
                   <div class="col-md">
                     <div class="form-group">
@@ -93,8 +91,9 @@
                   <div class="col-md">
                     <div class="form-group">
                       <label for="id_label_single">인원</label>
+                      <div class="probootstrap_select-wrap">
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">                       
+                        <select class="js-states form-control" id="person" name="person" style="width: 100%;">                       
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -108,15 +107,15 @@
                         </select>
                       </label>
                     </div>
-                  </div>                 
+                  </div>   
+                  </div>              
                 <div class="row">
                   <div class="col-md">
                     <label for="round" class="mr-5"><input type="radio" id="round" name="direction">  왕복</label>
                     <label for="oneway"><input type="radio" id="oneway" name="direction">  편도</label>
                   </div>
                   <div class="col-md">
-                    <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
-                    <a href="#"></a>
+                    <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>                    
                   </div>
                 </div>
               </div>

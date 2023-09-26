@@ -30,19 +30,19 @@ public class TimeTrain extends HttpServlet {
 		String finish = request.getParameter("finish");
 		String startDate = request.getParameter("startDate");
 		String finishDate = request.getParameter("finishDate");
-		
-		List<String> dateList = new ArrayList<String>();
-		dateList.add(startDate);
-		dateList.add(finishDate);
+		String person = request.getParameter("person");
 		
 		TrainVO vo = new TrainVO();
 		vo.setTrainStart(start);
 		vo.setTrainFinish(finish);
 		
 		trains = dao.trainSelectList(vo);
+		
 		if(trains != null) {
+			request.setAttribute("person", person);
 			request.setAttribute("trains", trains);
-			request.setAttribute("date", dateList);
+			request.setAttribute("startDate", startDate);
+			request.setAttribute("finishDate", finishDate);
 		}
 		
 		String page = "transportation/timetrain";

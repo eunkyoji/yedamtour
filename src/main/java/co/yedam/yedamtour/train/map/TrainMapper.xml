@@ -8,7 +8,8 @@
 	</select>
 	
 	<select id="trainSelect" resultType="co.yedam.yedamtour.train.service.TrainVO">
-		SELECT * FROM TOUR_TRAIN WHERE TRAIN_START = #{trainStart} AND TRAIN_FINISH = #{trainFinish}
+		SELECT * FROM TOUR_TRAIN 
+		WHERE TRAIN_ID = #{trainId}
 	</select>
 	
 	<insert id="trainInsert" parameterType="co.yedam.yedamtour.train.service.TrainVO">

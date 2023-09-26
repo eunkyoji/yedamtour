@@ -12,9 +12,9 @@ public class BusVO {
 	private Date busGoday;
 	private Date busComeday;
 	private String busGrade;
-	private String busPrice;
 	private String busPerson;
 	private String busDeptime;
 	private String busArrtime;
 	private String busSeats;
+	private int busPrice;
 }
