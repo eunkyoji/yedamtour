@@ -8,4 +8,6 @@ public interface AquariumMapper {
 	List<AquariumVO> aquariumSelectList();
 
 	AquariumVO aquariumSelect(AquariumVO vo);
+	
+	AquariumVO aquariumCartSelect(AquariumVO vo);
 }

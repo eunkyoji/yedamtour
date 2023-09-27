@@ -23,4 +23,9 @@ public class AquariumServiceImpl implements AquariumService {
 		return map.aquariumSelect(vo);
 	}
 
+	@Override
+	public AquariumVO aquariumCartSelect(AquariumVO vo) {
+		return map.aquariumCartSelect(vo);
+	}
+
 }
