@@ -3,8 +3,11 @@
 <mapper namespace="co.yedam.yedamtour.member.map.MemberMapper">
 	<select id="memberSelectList"
 		resultType="co.yedam.yedamtour.member.service.MemberVO">
-		SELECT ROWNUM, MEMBER_ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_NICKNAME, MEMBER_REGIST
+		SELECT ROWNUM, MEMBER_ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_NICKNAME, MEMBER_REGIST, MEMBER_AUTHOR
 		FROM TOUR_MEMBER
+		<if test="author != null">
+		WHERE MEMBER_AUTHOR = #{author}
+		</if>
 	</select>
 	<select id="memberSelect"
 		resultType="co.yedam.yedamtour.member.service.MemberVO">

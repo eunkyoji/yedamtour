@@ -28,7 +28,11 @@ public class MemberList extends HttpServlet {
 		MemberService dao = new MemberServiceImpl();
 		List<MemberVO> members = new ArrayList<MemberVO>();
 		
-		members = dao.memberSelectList();
+		String author = request.getParameter("author");
+		if( "".equals(author)) {
+			author = null;
+		}
+		members = dao.memberSelectList(author);
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
 		

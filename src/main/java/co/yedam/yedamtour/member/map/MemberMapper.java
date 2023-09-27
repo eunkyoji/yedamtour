@@ -6,7 +6,7 @@ import co.yedam.yedamtour.member.service.MemberVO;
 
 public interface MemberMapper {
 	//멤버 
-	List<MemberVO> memberSelectList();
+	List<MemberVO> memberSelectList(String author);
 
 	MemberVO memberSelect(MemberVO vo);
 

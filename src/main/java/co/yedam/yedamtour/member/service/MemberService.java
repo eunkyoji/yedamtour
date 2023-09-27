@@ -3,7 +3,7 @@ package co.yedam.yedamtour.member.service;
 import java.util.List;
 
 public interface MemberService {
-	List<MemberVO> memberSelectList();
+	List<MemberVO> memberSelectList(String author);
 	MemberVO memberSelect(MemberVO vo);
 	int memberUpdate(MemberVO vo);
 	int memberInsert(MemberVO vo);

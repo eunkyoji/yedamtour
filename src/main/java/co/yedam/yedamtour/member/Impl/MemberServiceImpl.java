@@ -15,8 +15,8 @@ public class MemberServiceImpl implements MemberService{
 	private MemberMapper map = sqlSession.getMapper(MemberMapper.class);
 
 	@Override
-	public List<MemberVO> memberSelectList() {
-		return map.memberSelectList();
+	public List<MemberVO> memberSelectList(String author) {
+		return map.memberSelectList(author);
 	}
 
 	@Override
