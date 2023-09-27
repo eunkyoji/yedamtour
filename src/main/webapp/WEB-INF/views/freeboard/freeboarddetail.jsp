@@ -132,7 +132,7 @@ input{
 							<br>
 						</div>
 		                <div id="replayrow">
-		                	<div id="replay">
+		                	<div id="replay" style="display:none;">
 		                		<h6 align="left"></h6>
 		                		<input type="text" size="100px" style="text-align:left; border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;" id="replayContent"
 		                			name="replayContent" disabled>
@@ -179,12 +179,14 @@ input{
 	         datatype:"html",
 	         success:function(data){
 				for( let i = 0; i < data.length; i++ ){
+		   		 	let replayId = data[i].replayId;
 		   		 	let clone = $('#replay').clone();
-		          
-		            
-		            let replayWriter = data[i].replayWriter;
+		   		 	
+		   		 	$('#replay').detach();
+		   		 	
+		          	let replayWriter = data[i].replayWriter;
 		            let id = "${id}";
-		           
+		            clone.css('display', 'block');
 		            if( id == replayWriter ){
 		            	clone.find('h6').text(data[i].memberNickname)
 		            	.append(`&nbsp;&nbsp;<span id='delete' style="cursor:pointer;">삭제</span>`)
@@ -196,6 +198,7 @@ input{
 		            clone.find('#replayContent').val(data[i].replayContent);
 		            clone.find('#replayId').val(data[i].replayId);
 		            $('#replayrow').append(clone);
+		            $('#replay:eq('+i+')').attr('id', 'replay'+replayId);
 		       }
 	         }   
 	      })
@@ -239,9 +242,10 @@ input{
 				$.ajax({
 			         url:"freeboardreplaydelete.do?freeBoardId="+${f.freeBoardId}+"&replayId="+replayId,
 			         type:"post",
+			         datatype:"html",
 			         success:function(e){
 			        	//$('#replay').detach();
-			        	 $('#replay').remove();
+			        	$('#replay'+replayId).detach();
 			         },
 			         error: function(e){
 			        	 alert("댓글 삭제가 실패되었습니다.")
