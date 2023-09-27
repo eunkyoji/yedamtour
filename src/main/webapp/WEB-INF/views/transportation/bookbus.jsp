@@ -109,11 +109,7 @@
                     </div>
                   </div>   
                   </div>              
-                <div class="row">
-                  <div class="col-md">
-                    <label for="round" class="mr-5"><input type="radio" id="round" name="direction">  왕복</label>
-                    <label for="oneway"><input type="radio" id="oneway" name="direction">  편도</label>
-                  </div>
+                <div class="row">                  
                   <div class="col-md">
                     <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>                    
                   </div>
