@@ -17,10 +17,6 @@
 	SELECT * FROM TOUR_HOTEL WHERE HOTEL_ID = #{hotelId} AND HOTEL_SUB_ID IS NULL	
 	</select>
 	
-	<select id="hotelSelectMember" resultType="co.yedam.yedamtour.hotel.service.HotelVO">
-	select * from tour_hotel where member_id = #{memberId}
-	</select>
-	
 	<insert id="hotelInsert" parameterType="co.yedam.yedamtour.hotel.service.HotelVO">
 	<!-- <selectKey keyProperty="categoryId" resultType="int" order="BEFORE">SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 1</selectKey> -->
 	<selectKey keyProperty="hotelId" resultType="int" order="BEFORE">NVL(MAX(HOTEL_ID), 0) + 1 AS ID FROM TOUR_HOTEL</selectKey>

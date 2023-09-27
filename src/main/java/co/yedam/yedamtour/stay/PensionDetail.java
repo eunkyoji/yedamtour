@@ -25,12 +25,13 @@ public class PensionDetail extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PensionService dao = new PensionServiceImpl();
-		List<PensionVO> pensions = new ArrayList<PensionVO>();
 		PensionVO vo = new PensionVO();
 		
 		int id = Integer.valueOf(request.getParameter("pensionId"));
+		
 		vo.setPensionId(id);
 		vo = dao.pensionSelect(vo);
+		
 		request.setAttribute("pensions", vo);
 		
 		String page = "pension/pensiondetail";

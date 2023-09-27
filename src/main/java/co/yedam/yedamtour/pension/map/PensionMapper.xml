@@ -17,10 +17,6 @@
 	SELECT * FROM TOUR_PENSION WHERE PENSION_ID = #{pensionId} AND PENSION_SUB_ID IS NULL
 	</select>
 	
-	<select id="pensionSelectMember" resultType="co.yedam.yedamtour.pension.service.PensionVO">
-	select * from tour_pension where member_id = #{memberId}
-	</select>
-	
 	<insert id="pensionInsert" parameterType="co.yedam.yedamtour.pension.service.PensionVO">
 	<!-- <selectKey keyProperty="categoryId" resultType="int" order="BEFORE">SELECT CATEGORY_ID FROM TOUR_CATEGORY WHERE CATEGORY_ID = 2</selectKey> -->
 	<selectKey keyProperty="pensionId" resultType="int" order="BEFORE">NVL(MAX(PENSION_ID), 0) + 2 AS ID FROM TOUR_PENSION</selectKey>
