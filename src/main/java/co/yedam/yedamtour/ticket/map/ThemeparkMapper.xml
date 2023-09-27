@@ -12,6 +12,9 @@
 		FROM TOUR_THEMEPARK
 		Where themepark_id =
 		#{themeparkId}
+		<if test="themeparkName != null">
+		And themepark_Name = #{themeparkName}
+		</if>
 	</select>
 
 

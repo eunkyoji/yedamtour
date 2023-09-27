@@ -88,13 +88,13 @@
 										<span>상품명: ${vo.aquariumName }</span>
 										<div>
 											<span id="price">가격: ${vo.aquariumPrice }원 </span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수량:
-											</span><input id="ticket" type="text" maxlength='2'
+											</span><input id="ticketCnt" type="text" maxlength='2'
 												oninput="count(event)" name="ticketCnt"
 												style="width: 50px; text-align: center">
 										</div>
 										<div id="totalPrice" style="font-size: 14px">총 가격:</div>
 
-										<a href="#" id="cartBtn" style="display: none">장바구니담기</a> <input
+										<a id="cartSubmit" style="display: none">장바구니담기</a> <input
 											type="hidden" name="productId" value="${vo.aquariumId }">
 									</div>
 								</div>
@@ -127,14 +127,35 @@
 
 			if (e.target.value != '') {
 				document
-						.querySelector("#cartBtn")
+						.querySelector("#cartSubmit")
 						.setAttribute("style",
-								"display: block;background-color: white; width: 100px;");
+								"display: block;background-color: white; width: 100px;cursor:pointer;color:black;");
 			} else {
-				document.querySelector("#cartBtn").setAttribute("style",
+				document.querySelector("#cartSubmit").setAttribute("style",
 						"display: none;");
 			}
 		}
+		
+		 $('#cartSubmit').on('click', function() {
+				$.ajax({
+					url : 'reservationlisttest.do',
+					method : 'post',
+					data : {
+						aname : '${vo.aquariumName}',
+						tid : ${vo.aquariumId},
+						cnt: $('#ticketCnt').val()
+					},
+					success : function(e) {
+						alert("상품을 장바구니에 담았습니다.");
+						location.href = 'aquariumdetail.do?id='+${vo.aquariumId}
+					},
+					error : function(e) {
+						alert("상품을 장바구니에 담는데 실패하였습니다.");
+						location.href = 'aquariumdetail.do?id='+${vo.aquariumId}
+					}
+				})
+			})
+		
 	</script>
 </body>
 </html>
