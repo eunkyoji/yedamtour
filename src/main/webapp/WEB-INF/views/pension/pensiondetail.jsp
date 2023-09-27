@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,7 +81,7 @@
 									<img id="roomimg" src="img/rooms/" alt="">
 									<div class="ri-text">
 										<h4></h4>
-										<h3>만원~</h3>
+										<h3></h3>
 										<a class="primary-btn">예약하러 가기</a>
 									</div>
 								</div>
@@ -108,10 +109,10 @@
      success:function(data){
         for(let i=0; i<data.length; i++){
            let clone = $('.col-lg-4:eq(0)').clone();
-           
+           let roomprice = data[i].pensionRoomPrice;
            clone.find('#roomimg').attr('src','img/rooms/' + data[i].pensionRoomImg);
            clone.find('h4').text(data[i].pensionRoomName);
-           clone.find('h3').text(data[i].pensionRoomPrice + '만원~ ').append(`<span>/1박</span>`);
+           clone.find('h3').text(roomprice.toLocaleString() + '원~').append(`<span>/1박</span>`);
            clone.find('a').attr('onclick', 'booking('+data[i].pensionSubId+')');
            $('.row').append(clone);
         }

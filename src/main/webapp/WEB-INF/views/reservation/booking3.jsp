@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,17 +77,18 @@
 											<table class="table site-block-order-table mb-5">
 												<thead>
 													<th>예약 숙소</th>
-													<th>합계</th>
+													<th>금액</th>
 												</thead>
 												<tbody>										
 													<tr>
 													
-														<td class="title">()</td>															
-														<td class="hab">만원</td>
+														<td class="title">${reserves.campingName } (${reserves.campingRoomName })</td>															
+														<td class="hab"><fmt:formatNumber value="${reserves.campingRoomPrice }" pattern="#,###" />원</td>
 													</tr>
 													<tr>
 														<td class="text-black font-weight-bold"><strong>TOTAL</strong></td>
-														<td class="text-black font-weight-bold"><strong>만원</strong></td>
+														<td class="text-black font-weight-bold"><strong>
+														<fmt:formatNumber value="${reserves.campingRoomPrice }" pattern="#,###" />원</strong></td>
 													</tr>
 												</tbody>
 											</table>

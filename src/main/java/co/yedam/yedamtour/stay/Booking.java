@@ -1,14 +1,16 @@
 package co.yedam.yedamtour.stay;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import co.yedam.yedamtour.camping.service.CampingService;
 import co.yedam.yedamtour.camping.service.CampingVO;
@@ -32,8 +34,8 @@ public class Booking extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 		
 		String hotelId = request.getParameter("hotelId");
 		String hotelSubId = request.getParameter("hotelSubId");
@@ -48,6 +50,8 @@ public class Booking extends HttpServlet {
 		mvo.setMemberId(request.getParameter("memberId"));
 		mvo = mdao.signupIdSelect(mvo);
 		
+		String json = null;
+		
 		if (categoryId.equals("1")) {
 			HotelService hdao = new HotelServiceImpl();
 			HotelVO hvo = new HotelVO();
@@ -61,6 +65,8 @@ public class Booking extends HttpServlet {
 			hvo.setMemberPhone(mvo.getMemberPhone());
 			hvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", hvo);
+			request.setAttribute("cid", 1);
+			json = objectMapper.writeValueAsString(hvo);
 			
 		} else if (categoryId.equals("2")) {
 			PensionService pdao = new PensionServiceImpl();
@@ -75,6 +81,8 @@ public class Booking extends HttpServlet {
 			pvo.setMemberPhone(mvo.getMemberPhone());
 			pvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", pvo);
+			request.setAttribute("cid", 2);
+			json = objectMapper.writeValueAsString(pvo);
 			
 		} else if (categoryId.equals("3")){
 			CampingService cdao = new CampingServiceImpl();
@@ -89,9 +97,16 @@ public class Booking extends HttpServlet {
 			cvo.setMemberPhone(mvo.getMemberPhone());
 			cvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", cvo);
+			request.setAttribute("cid", 3);
+			json = objectMapper.writeValueAsString(cvo);
+			
 		}
-				
-		String page = "reservation/booking";
+		
+		response.setContentType("text/json; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);		
+
+		String page = "reservation/booking"+categoryId;
 		ViewResolve.forward(request, response, page);
 	}
 
@@ -99,5 +114,4 @@ public class Booking extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

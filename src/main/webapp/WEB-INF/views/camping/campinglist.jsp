@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,8 +66,7 @@
 						<img src="img/rooms/${c.campingImg }" alt="">
 						<div class="ri-text">
 							<h4>${c.campingName }</h4>
-							<h3>
-								${c.campingPrice }만원~<span>/1박</span>
+							<h3><fmt:formatNumber value="${c.campingPrice }" pattern="#,###" />원~<span>/1박</span>
 							</h3>
 							<table>
 								<tbody>
