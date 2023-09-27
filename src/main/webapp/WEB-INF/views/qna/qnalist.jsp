@@ -9,6 +9,28 @@
 </head>
 <link href="webapp/css/board.css" rel="stylesheet">
 <body>
+  <!-- Favicons -->
+  <link href="niceadmin/assets/img/favicon.png" rel="icon">
+  <link href="niceadmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="niceadmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="niceadmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="niceadmin/assets/css/style.css" rel="stylesheet">
+<style>
+body{
+	background-color: white;
+}
+#navbarSupportedContent{
+	border-top: none !important;
+}
+</style>
 <c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
 <section class="pt-5 pt-md-9">
 <div class="contact_section">
@@ -19,7 +41,7 @@
 
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">Q & A</h5>
+							<h5 class="card-title" align="left">Q & A</h5>
 							<!-- Table with stripped rows -->
 							<table class="table">
 								<thead>
@@ -41,7 +63,7 @@
 											<c:forEach items="${qnalists}" var="q">
 												<tr style="cursor:pointer" onclick="qnaSelect(${q.qnaId})">
 													<th scope="row">${q.rownum }</th>
-													<td>${q.qnaTitle}</td>
+													<td align="left">${q.qnaTitle}</td>
 													<td>${q.memberNickname }</td>
 													<td>${q.qnaViewDate }</td>
 												</tr>

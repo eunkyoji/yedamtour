@@ -28,8 +28,10 @@ public class CampingDetail extends HttpServlet {
 		CampingVO vo = new CampingVO();
 		
 		int id = Integer.valueOf(request.getParameter("campingId"));
+		
 		vo.setCampingId(id);
 		vo = dao.campingSelect(vo);
+		
 		request.setAttribute("campings", vo);
 		
 		String page = "camping/campingdetail";

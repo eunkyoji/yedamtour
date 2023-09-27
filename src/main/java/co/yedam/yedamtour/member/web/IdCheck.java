@@ -24,9 +24,8 @@ public class IdCheck extends HttpServlet {
 			throws ServletException, IOException {
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-//		vo.setMemberId(request.getParameter("memberId"));
 		vo.setMemberId(request.getParameter("memberId"));
-		vo = dao.signupIdSelect(vo);
+		vo = dao.idCheckSelect(vo);
 		System.out.println(vo);
 		
 		String str = "Yes"; //사용 가능한 아이디

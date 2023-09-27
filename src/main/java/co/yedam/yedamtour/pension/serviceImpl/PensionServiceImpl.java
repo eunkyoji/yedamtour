@@ -48,8 +48,4 @@ public class PensionServiceImpl implements PensionService {
 		return map.pensionRoomSelect(vo);
 	}
 
-	@Override
-	public List<PensionVO> pensionSelectMember(PensionVO vo) {
-		return map.pensionSelectMember(vo);
-	}
 }

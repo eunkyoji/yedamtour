@@ -38,4 +38,9 @@ public class QandAServiceImpl implements QandAService{
 		return map.qnaDelete(vo);
 	}
 
+	@Override
+	public int qnaReplayWrite(QandAVO vo) {
+		return map.qnaReplayWrite(vo);
+	}
+
 }

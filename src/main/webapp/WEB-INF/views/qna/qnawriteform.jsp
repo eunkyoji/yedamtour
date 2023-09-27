@@ -10,6 +10,23 @@
 <link href="webapp/css/noticewrite.css" rel="stylesheet">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="niceadmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="niceadmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="niceadmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+<link href="niceadmin/assets/css/style.css" rel="stylesheet">
+<style>
+body{
+	background-color: white;
+}
+#navbarSupportedContent{
+	border-top: none !important;
+}
+</style>
 <body>
 <section class="pt-5 pt-md-9">
 <div class="contact_section">
@@ -19,7 +36,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">Q & A</h5>
+							<h5 class="card-title" align="left">Q & A</h5>
 							<form id="frm" action="qnawrite.do" method="post" enctype="form-data">
 							<!-- Quill Editor Full -->
 							<div>
