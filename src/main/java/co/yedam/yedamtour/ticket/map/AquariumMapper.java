@@ -1,3 +1,4 @@
+
 package co.yedam.yedamtour.ticket.map;
 
 import java.util.List;
@@ -8,4 +9,7 @@ public interface AquariumMapper {
 	List<AquariumVO> aquariumSelectList();
 
 	AquariumVO aquariumSelect(AquariumVO vo);
+	
+	AquariumVO aquariumCartSelect(AquariumVO vo);
 }
+

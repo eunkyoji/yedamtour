@@ -14,4 +14,6 @@ public interface ThemeparkMapper {
 	int themeparkUpdate(ThemeparkVO vo);
 
 	int themeparkDelete(ThemeparkVO vo);
+	
+	ThemeparkVO themeparkCartSelect(ThemeparkVO vo);
 }

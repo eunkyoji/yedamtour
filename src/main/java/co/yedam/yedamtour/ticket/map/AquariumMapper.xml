@@ -13,10 +13,14 @@
 		FROM TOUR_AQUARIUM
 		WHERE AQUARIUM_ID =
 		#{aquariumId}
-		<if test="aquariumName != null">
-		And aquarium_Name = #{aquariumName}
-		</if>
 	</select>
-
+	<select id="aquariumCartSelect"
+		resultType="co.yedam.yedamtour.ticket.service.AquariumVO">
+		SELECT *
+		FROM TOUR_AQUARIUM
+		WHERE AQUARIUM_ID =
+		#{aquariumId}
+		And aquarium_name = #{aquariumName}
+	</select>
 
 </mapper>

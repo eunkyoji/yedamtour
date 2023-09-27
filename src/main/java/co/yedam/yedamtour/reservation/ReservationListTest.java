@@ -58,17 +58,19 @@ public class ReservationListTest extends HttpServlet {
 
 		int tid = Integer.parseInt(request.getParameter("tid"));
 		int cnt = Integer.parseInt(request.getParameter("cnt"));
+		//테마파크 조회
 		themeparkVo.setThemeparkId(tid);
 		themeparkVo.setThemeparkName(request.getParameter("tname"));
-		themeparkVo = themeparkDao.themeparkSelect(themeparkVo);
-		
+		themeparkVo = themeparkDao.themeparkCartSelect(themeparkVo);
+		//아쿠아리움 조회
 		aquariumVo.setAquariumId(tid);
 		aquariumVo.setAquariumName(request.getParameter("aname"));
-		aquariumVo = aquariumDao.aquariumSelect(aquariumVo);
+		aquariumVo = aquariumDao.aquariumCartSelect(aquariumVo);
 		
-		waterparkVo.setWaterparkId(tid);
-		waterparkVo = waterparkDao.waterparkSelect(waterparkVo);
-		
+		/*
+		 * //워터파크조회 waterparkVo.setWaterparkId(tid); waterparkVo =
+		 * waterparkDao.waterparkSelect(waterparkVo);
+		 */
 		
 		
 		if (themeparkVo != null) {

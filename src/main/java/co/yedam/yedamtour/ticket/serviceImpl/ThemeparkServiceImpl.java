@@ -38,4 +38,10 @@ public class ThemeparkServiceImpl implements ThemeparkService {
 		return 0;
 	}
 
+	@Override
+	public ThemeparkVO themeparkCartSelect(ThemeparkVO vo) {
+		
+		return map.themeparkCartSelect(vo);
+	}
+
 }

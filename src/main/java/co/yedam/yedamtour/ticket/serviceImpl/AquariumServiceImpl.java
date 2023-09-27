@@ -1,3 +1,4 @@
+
 package co.yedam.yedamtour.ticket.serviceImpl;
 
 import java.util.List;
@@ -21,6 +22,11 @@ public class AquariumServiceImpl implements AquariumService {
 	@Override
 	public AquariumVO aquariumSelect(AquariumVO vo) {
 		return map.aquariumSelect(vo);
+	}
+
+	@Override
+	public AquariumVO aquariumCartSelect(AquariumVO vo) {
+		return map.aquariumCartSelect(vo);
 	}
 
 }
