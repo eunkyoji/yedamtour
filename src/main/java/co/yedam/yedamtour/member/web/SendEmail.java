@@ -43,7 +43,7 @@ public class SendEmail extends HttpServlet {
 		 * !m.getEmail().equals(email)) { req.setAttribute("msg",
 		 * "아이디나 이메일 정보가 맞지 않습니다"); req.setAttribute("loc", "/member/searchPw");
 		 * req.getRequestDispatcher("/views/common/msg.jsp").forward(req, resp); return;
-		 * }
+		 *  }
 		 */
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
