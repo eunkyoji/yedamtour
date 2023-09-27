@@ -6,7 +6,12 @@
 </select>
 
 <insert id="reservationInsert" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-
+<selectKey keyProperty="reservationId" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(reservation_Id), 0) + 1 AS ID
+			  FROM tour_reservation
+		</selectKey>
+insert into tour_reservation(reservation_Id, ticket_id, RESERVATION_PERSONNEL, RESERVATION_WRITER_ID, RESERVATION_PRICE,CATEGORY_ID)
+values(#{reservationId}, #{ticketId},#{reservationPersonnel},#{reservationWriteId},#{reservationPrice},#{categoryId})
 </insert>
 
 <update id="reservationUpdate" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
