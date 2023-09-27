@@ -45,7 +45,7 @@
                       <label>출발지</label>
                       <div class="probootstrap_select-wrap">
                       <label style="width: 100%;">
-                        <select name="start" class="js-states form-control" id="start" style="width: 100%;">                       
+                        <select name="start" class="js-states form-control" id="start" style="width: 100%;">                                    
                           <option value="인천">인천</option>                          
                           <option value="제주">제주</option>
                           <option value="김해">김해</option>
@@ -112,8 +112,13 @@
                     </div>
                   </div>                  
                 </div>
+                
                 <!-- END row -->
-                <div class="row">            
+                <div class="row">  
+                	<div class="col-md">
+	                    <label for="round" class="mr-5"><input type="radio" id="round" name="direction" checked="checked">  왕복</label>
+	                    <label for="oneway"><input type="radio" id="oneway" name="direction">  편도</label>
+                 	</div>          
                   <div class="col-md">
                     <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
                   </div>

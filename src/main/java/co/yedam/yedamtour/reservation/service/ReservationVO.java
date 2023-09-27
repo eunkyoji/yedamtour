@@ -14,4 +14,11 @@ public class ReservationVO {
 	private String reservationPaymentyn;
 	private int reservationState;
 	private String categoryId;
+	private String reservationStartDate;
+	private String reservationFinishDate;
+	private String reservationStart;
+	private String reservationFinish;
+	private String reservationGrade;
+	private String reservationDeptime;
+	private String reservationArrtime;
 }

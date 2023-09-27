@@ -26,7 +26,10 @@ public class ReservationList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		ReservationService dao = new ReservationServiceImpl();
-		List<ReservationVO> carts = new ArrayList<ReservationVO>(); 
+		
+		List<ReservationVO> startCarts = new ArrayList<ReservationVO>();
+		List<ReservationVO> finishCarts = new ArrayList<ReservationVO>();
+		 
 		ReservationVO startvo = new ReservationVO();
 		ReservationVO finishvo = new ReservationVO();
 		
@@ -64,12 +67,12 @@ public class ReservationList extends HttpServlet {
 			
 			finishvo.setReservationId(direction1);
 			finishvo = dao.reservationSelect(finishvo);
+			
 			if(finishvo != null) {
 				request.setAttribute("finishCart", finishvo);
 			}
 			
-			
-			int finishCartId = startvo.getReservationId();
+			int finishCartId = finishvo.getReservationId();
 			
 			request.setAttribute("finishDate", finishDate);
 			request.setAttribute("finish", finish);
@@ -77,8 +80,8 @@ public class ReservationList extends HttpServlet {
 			
 		}
 		
-		carts = dao.reservationSelectList(startvo);
-		carts = dao.reservationSelectList(finishvo);
+		startCarts = dao.reservationSelectList(startvo);
+		finishCarts = dao.reservationSelectList(finishvo);
 		
 		String page = "admin/reservation/reservationlist";
 		ViewResolve.forward(request, response, page);
