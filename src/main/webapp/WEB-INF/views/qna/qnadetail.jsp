@@ -6,11 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="shortcut icon" href="niceadmin/assets_mazer/images/favicon.svg" type="image/x-icon">
-<link href="webapp/css/noticewrite.css" rel="stylesheet">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="niceadmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="niceadmin/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="niceadmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="niceadmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+<link href="niceadmin/assets/css/style.css" rel="stylesheet">
+<style>
+body{
+	background-color: white;
+}
+#navbarSupportedContent{
+	border-top: none !important;
+}
+input#qnaTitle.form-control{
+	background: #F5F5F5 !important;
+	margin: 0px 0px 0px -1px !important;
+	padding: 6px 12px !important;
+}
+textarea{
+	color: #212529 !important;
+	font: 16px 'Open Sans', sans-serif !important;
+	background: #F5F5F5 !important;
+	padding: 6px 12px !important;
+}
+</style>
 <body>
 <c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
 <c:set var="author" value='<%=(String)session.getAttribute("author") %>' />
@@ -22,7 +48,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">Q & A</h5>
+							<h5 class="card-title" align="left">Q & A</h5>
 							<!-- Quill Editor Full -->
 							<div>
 								<div class="input-group mb-3">
@@ -122,7 +148,6 @@
 		form.submit();
 	}
 	</script>
-
 </body>
 
 </html>
