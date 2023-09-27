@@ -14,28 +14,28 @@ public class ReservationServiceImpl implements ReservationService {
 	private ReservationMapper map = sqlSession.getMapper(ReservationMapper.class);
 	
 	@Override
-	public List<ReservationVO> reservationSelectList(ReservationVO vo) {
-		return map.reservationSelectList(vo);
+	public List<ReservationVO> reservationTransSelectList(ReservationVO vo) {
+		return map.reservationTransSelectList(vo);
 	}
 
 	@Override
-	public ReservationVO reservationSelect(ReservationVO vo) {
-		return map.reservationSelect(vo);
+	public ReservationVO reservationTransSelect(ReservationVO vo) {
+		return map.reservationTransSelect(vo);
 	}
 
 	@Override
-	public int reservationInsert(ReservationVO vo) {
-		return map.reservationInsert(vo);
+	public int reservationTransInsert(ReservationVO vo) {
+		return map.reservationTransInsert(vo);
 	}
 
 	@Override
-	public int reservationUpdate(ReservationVO vo) {
-		return map.reservationUpdate(vo);
+	public int reservationTransUpdate(ReservationVO vo) {
+		return map.reservationTransUpdate(vo);
 	}
 
 	@Override
-	public int reservationDelete(ReservationVO vo) {
-		return map.reservationDelete(vo);
+	public int reservationTransDelete(ReservationVO vo) {
+		return map.reservationTransDelete(vo);
 	}
 
 }

@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <!-- Css Styles -->
 <link rel="stylesheet" href="jadoo/public/assets/css/stay/staymain.css"
 	type="text/css">
-	
-
 </head>
 <body>
 	<form id="search" action="">
@@ -68,7 +66,7 @@
 								<img src="img/rooms/${h.hotelImg }" alt="">
 								<div class="ri-text">
 									<h4>${h.hotelName }</h4>
-									<h3>${h.hotelPrice }만원~<span>/1박</span>
+									<h3><fmt:formatNumber value="${h.hotelPrice }" pattern="#,###" />원~<span>/1박</span>
 									</h3>
 									<table>
 										<tbody>

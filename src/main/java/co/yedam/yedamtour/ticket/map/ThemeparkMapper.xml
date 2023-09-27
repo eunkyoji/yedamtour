@@ -12,8 +12,18 @@
 		FROM TOUR_THEMEPARK
 		Where themepark_id =
 		#{themeparkId}
+		<if test="themeparkName != null">
+			And themepark_Name = #{themeparkName}
+		</if>
 	</select>
+	<select id="themeparkCartSelect"
+		resultType="co.yedam.yedamtour.ticket.service.ThemeparkVO">
+		SELECT *
+		FROM TOUR_THEMEPARK
+		Where themepark_id =
+		#{themeparkId} And themepark_Name = #{themeparkName}
 
+	</select>
 
 
 

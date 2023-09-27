@@ -58,7 +58,7 @@ public class FreeBoardWrite extends HttpServlet {
 		int n = dao.freeBoardInsert(vo);
 		
 		if( n != 0 ) {
-			AlertControl.alertAndGo(response, "저장 되었습니다.", "freeboardlist.do");;
+			AlertControl.alertAndGo(response, "저장 되었습니다.", "freeboardlist.do");
 		} else {
 			
 		}

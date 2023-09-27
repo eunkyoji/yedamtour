@@ -26,10 +26,13 @@ public class TimeAirplane extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AirplaneService dao = new AirplaneServiceImpl();
 		List<AirplaneVO> airplanes = new ArrayList<AirplaneVO>();
-		String start = request.getParameter("start");  //출발지
+		
 		String finish = request.getParameter("finish");  //도착지
-		String startDate = request.getParameter("startDate");  //출발일자
 		String finishDate = request.getParameter("finishDate"); //도착일자
+		
+		String start = request.getParameter("start");  //출발지
+		String startDate = request.getParameter("startDate");  //출발일자
+		
 		String person = request.getParameter("person");
 
 		AirplaneVO vo = new AirplaneVO();
@@ -42,8 +45,9 @@ public class TimeAirplane extends HttpServlet {
 			request.setAttribute("person", person);
 			request.setAttribute("airplanes", airplanes);
 			request.setAttribute("startDate", startDate);
-			request.setAttribute("finishDate", finishDate);
 		}
+		
+		request.setAttribute("finishDate", finishDate);
 		
 		String page = "transportation/timeairplane";
 		ViewResolve.forward(request, response, page);

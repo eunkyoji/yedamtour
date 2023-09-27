@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="co.yedam.yedamtour.freeboardreplay.map.FreeBoardReplayMapper">
+	<select id="freeBoardReplaySelectLsit" resultType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
+		SELECT A.REPLAY_ID, A.REPLAY_CONTENT, A.REPLAY_WRITER, A.REPLAY_WRITE_DATE, A.REPLAY_UPDATE_DATE, A.FREEBOARD_ID,
+			   (SELECT MEMBER_NICKNAME
+	  			  FROM TOUR_MEMBER
+	  			  WHERE MEMBER_ID = A.REPLAY_WRITER) MEMBER_NICKNAME
+		  FROM (
+			  	SELECT R.REPLAY_ID, R.REPLAY_CONTENT, R.REPLAY_WRITER, R.REPLAY_WRITE_DATE, R.REPLAY_UPDATE_DATE, R.FREEBOARD_ID
+			  	  FROM TOUR_FREEBOARD_REPLAY R
+			  	 WHERE R.FREEBOARD_ID = #{freeBoardId}
+			  	 ORDER BY R.REPLAY_ID DESC) A
+		 
+	</select>
+	<select id="freeBoardReplaySelect" resultType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
+	</select>
+	<insert id="freeBoardReplayInsert" parameterType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
+		<selectKey keyProperty="replayId" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(REPLAY_ID), 0) + 1 AS ID
+			  FROM TOUR_FREEBOARD_REPLAY
+			 WHERE FREEBOARD_ID = #{freeBoardId}
+		</selectKey>
+		INSERT INTO TOUR_FREEBOARD_REPLAY(REPLAY_ID, REPLAY_CONTENT, REPLAY_WRITER, REPLAY_WRITE_DATE, FREEBOARD_ID)
+		VALUES (#{replayId}, #{replayContent}, #{replayWriter}, SYSDATE, #{freeBoardId})
+	</insert>
+	<update id="freeBoardReplayUpdate" parameterType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
+	</update>
+	<delete id="freeBoardReplayDelete" parameterType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
+		DELETE FROM TOUR_FREEBOARD_REPLAY
+		WHERE FREEBOARD_ID = #{freeBoardId}
+		  AND REPLAY_ID	   = #{replayId}
+	</delete>
+</mapper>

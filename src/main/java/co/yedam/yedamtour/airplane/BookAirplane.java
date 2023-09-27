@@ -18,6 +18,11 @@ public class BookAirplane extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 파라미터로 받아오고
+		//String categoryId = "13";//request.getParameter("categoryId");
+		
+		// 어트리뷰트로 넘겨주고
+		
 		String page = "transportation/bookairplane";
 		ViewResolve.forward(request, response, page);
 	}

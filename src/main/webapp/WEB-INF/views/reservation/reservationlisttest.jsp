@@ -19,6 +19,7 @@
 						<div class="card-body">
 							<h5 class="card-title">예약정보 리스트</h5>
 							<!-- Table with stripped rows -->
+							<!-- 예약테이블 조회후 출력하는 곳 -->
 							<table class="table">
 								<thead>
 									<tr>

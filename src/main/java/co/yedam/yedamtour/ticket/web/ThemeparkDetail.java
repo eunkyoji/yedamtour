@@ -25,10 +25,7 @@ public class ThemeparkDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ThemeparkService dao = new ThemeparkServiceImpl();
 		ThemeparkVO vo = new ThemeparkVO();
-		HttpSession session = request.getSession();
-		String idtest = (String) session.getAttribute("id");
 		
-		System.out.println(idtest);
 
 		int id = Integer.parseInt(request.getParameter("id"));
 

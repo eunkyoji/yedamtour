@@ -26,7 +26,7 @@ public class Email {
 		p.put("mail.smtp.starttls.enable", "true"); // gmail은 true 고정
 		p.put("mail.smtp.host", "smtp.naver.com"); // smtp 서버 주소
 		p.put("mail.smtp.auth", "true"); // gmail은 true 고정
-		p.put("mail.smtp.port", "587"); // 네이버 포트
+		p.put("mail.smtp.port", "587"); // 네이버 포 트
 
 		
 		Authenticator auth = new MyAuthentication();
@@ -83,3 +83,4 @@ class MyAuthentication extends Authenticator {
 		return pa;
 	}
 }
+

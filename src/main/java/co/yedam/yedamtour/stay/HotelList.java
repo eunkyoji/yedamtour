@@ -26,7 +26,7 @@ public class HotelList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HotelService dao = new HotelServiceImpl();
 		List<HotelVO> hotels = new ArrayList<HotelVO>();		
-		
+			
 		hotels = dao.hotelSelectList();
 		request.setAttribute("hotels", hotels);
 		

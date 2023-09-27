@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
 </head>
+<body>
 <section style="padding-top: 7rem;">
 	<div class="bg-holder"
 		style="background-image: url(jadoo/public/assets/img/메인배너.jpg);"></div>
@@ -106,9 +109,9 @@
 							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
 							<h4 class="text-secondary fw-medium">
 								<a class="link-900 text-decoration-none stretched-link"
-									href="hotellist.do">Hotels &<br>　Resorts</a>
+									href="hoteldetail.do?hotelId=6"><b>${hotels.hotelName }</b></a>
 							</h4>
-							<span class="fs-1 fw-medium">110,000원~</span>
+							<span class="fs-1 fw-medium"><fmt:formatNumber value="${hotels.hotelPrice }" pattern="#,###" />원~</span>
 						</div>
 					</div>
 				</div>
@@ -121,9 +124,9 @@
 							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
 							<h4 class="text-secondary fw-medium">
 								<a class="link-900 text-decoration-none stretched-link"
-									href="pensionlist.do">Pensions &<br>　Pool villas</a>
+									href="pensiondetail.do?pensionId=3"><b>${pensions.pensionName }</b></a>
 							</h4>
-							<span class="fs-1 fw-medium">120,000원~</span>
+							<span class="fs-1 fw-medium"><fmt:formatNumber value="${pensions.pensionPrice }" pattern="#,###" />원~</span>
 						</div>
 					</div>
 				</div>
@@ -136,9 +139,9 @@
 							class="d-flex flex-column flex-lg-row justify-content-between mb-3">
 							<h4 class="text-secondary fw-medium">
 								<a class="link-900 text-decoration-none stretched-link"
-									href="campinglist.do">Campings</a>
+									href="campingdetail.do?campingId=2"><b>${campings.campingName }</b></a>
 							</h4>
-							<span class="fs-1 fw-medium">150,000원~</span>
+							<span class="fs-1 fw-medium"><fmt:formatNumber value="${campings.campingPrice }" pattern="#,###" />원~</span>
 						</div>
 					</div>
 				</div>
@@ -146,8 +149,6 @@
 		</div>
 	</div>
 	<!-- end of .container-->
-
 </section>
-<body>
 </body>
 </html>
