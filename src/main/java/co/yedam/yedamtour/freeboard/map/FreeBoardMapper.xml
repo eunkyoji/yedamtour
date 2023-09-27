@@ -13,9 +13,15 @@
 		  	 ORDER BY FREEBOARD_ID DESC) A
 	</select>
 	<select id="freeBoardSelect" resultType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
-		SELECT *
-		  FROM TOUR_FREEBOARD
-		 WHERE FREEBOARD_ID = #{freeBoardId}
+		 SELECT A.FREEBOARD_ID, A.FREEBOARD_TITLE, A.FREEBOARD_CONTENT, A.FREEBOARD_WRITER, A.FREEBOARD_IMG, A.FREEBOARD_WRITE_DATE, A.FREEBOARD_UPDATE_DATE, A.FREEBOARD_HIT, A.FREEBOARD_THUMB,
+			   (SELECT MEMBER_NICKNAME
+		  			  FROM TOUR_MEMBER
+		  			  WHERE MEMBER_ID = A.FREEBOARD_WRITER) FREEBOARD_NICNAME
+		  FROM (
+		  	SELECT F.FREEBOARD_ID, F.FREEBOARD_TITLE, F.FREEBOARD_CONTENT, F.FREEBOARD_WRITER, F.FREEBOARD_IMG, F.FREEBOARD_WRITE_DATE, F.FREEBOARD_UPDATE_DATE, F.FREEBOARD_HIT, F.FREEBOARD_THUMB
+		  			
+		  	  FROM TOUR_FREEBOARD F
+		  	 WHERE FREEBOARD_ID = #{freeBoardId}) A
 	</select>
 	<insert id="freeBoardInsert" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
 		<selectKey keyProperty="freeBoardId" resultType="int" order="BEFORE">

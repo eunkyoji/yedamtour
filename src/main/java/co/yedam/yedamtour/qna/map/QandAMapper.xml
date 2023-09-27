@@ -13,12 +13,12 @@
 		         ORDER BY QNA_ID DESC) A
 	</select>
 	<select id="qnaSelect" resultType="co.yedam.yedamtour.qna.service.QandAVO">
-		SELECT ROWNUM, A.QNA_ID, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_WRITER, A.QNA_WRITE_DATE, A.QNA_UPDATE_DATE,
+		SELECT ROWNUM, A.QNA_ID, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_WRITER, A.QNA_WRITE_DATE, A.QNA_UPDATE_DATE, A.QNA_REPLAY,
 		       (SELECT MEMBER_NICKNAME
 		          FROM TOUR_MEMBER
 		          WHERE MEMBER_ID = A.QNA_WRITER) MEMBER_NICKNAME
 		  FROM (
-		    SELECT Q.QNA_ID, Q.QNA_TITLE, Q.QNA_CONTENT, Q.QNA_WRITER, Q.QNA_WRITE_DATE, Q.QNA_UPDATE_DATE
+		    SELECT Q.QNA_ID, Q.QNA_TITLE, Q.QNA_CONTENT, Q.QNA_WRITER, Q.QNA_WRITE_DATE, Q.QNA_UPDATE_DATE, Q.QNA_REPLAY
 		            
 		      FROM TOUR_QNA Q
 		     WHERE QNA_ID = #{qnaId}) A
@@ -34,12 +34,22 @@
 	<update id="qnaUpdate" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
 		UPDATE TOUR_QNA
 			<set>
-				<if test="qnaTitle != null">QNA_TITLE = #{qnaTitle}</if>
-				<if test="qnaContent != null">QNA_CONTENT = #{qnaContent}</if>
+				<if test="qnaTitle != null">QNA_TITLE = #{qnaTitle},</if>
+				<if test="qnaContent != null">QNA_CONTENT = #{qnaContent},</if>
+				QNA_UPDATE_DATE = SYSDATE
 			</set>
 		WHERE	QNA_ID = #{qnaId}
 	</update>
+	<update id="qnaReplayWrite" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
+		UPDATE TOUR_QNA
+			<set>
+			<if test="qnaReplay != null">QNA_REPLAY = #{qnaReplay},</if>
+			<if test="qnaReplayWriter != null">QNA_REPLAY_WRITER = #{qnaReplayWriter},</if>
+			</set>
+		WHERE	QNA_ID = #{qnaId}
+			
+	</update>
 	<delete id="qnaDelete" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
-		DELETE FROM TOUR_QNA WHERE QNA_ID = #{qnaId}
+		DELETE FROM TOUR_QNA WHERE QNA_ID = #{qnaId} AND QNA_WRITER = #{qnaWriter}
 	</delete>
 </mapper>

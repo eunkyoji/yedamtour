@@ -6,6 +6,20 @@
 	max-width: 33.333333%;
 }
 
+.col-lg-5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 41.66667%;
+}
+
+.col-lg-7 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 58.33333%;
+}
+
 .a:hover {
 	color: #F1A501;
 }

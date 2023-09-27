@@ -7,7 +7,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link href="webapp/css/board.css" rel="stylesheet">
+  <link href="niceadmin/assets/img/favicon.png" rel="icon">
+  <link href="niceadmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<link href="niceadmin/assets/css/style.css" rel="stylesheet">
+<style>
+body{
+	background-color: white;
+}
+</style>
 <body>
 <c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
 <section class="pt-5 pt-md-9">
@@ -19,7 +31,7 @@
 
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">자유게시판</h5>
+							<h5 class="card-title" align="left">자유게시판</h5>
 							<!-- Table with stripped rows -->
 							<table class="table">
 								<thead>
@@ -51,7 +63,7 @@
 													<td><img src="attech/freeboard/${f.freeBoardThumb}"></td>
 													</c:otherwise>
 													</c:choose>
-													<td>${f.freeBoardTitle}</td>
+													<td align="left">${f.freeBoardTitle}</td>
 													<td>${f.freeBoardNicname }</td>
 													<td>${f.freeBoardViewDate }</td>
 													<td>${f.freeBoardHit }</td>

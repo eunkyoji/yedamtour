@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.ticket.service.ThemeparkService;
@@ -24,6 +25,7 @@ public class ThemeparkDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ThemeparkService dao = new ThemeparkServiceImpl();
 		ThemeparkVO vo = new ThemeparkVO();
+		
 
 		int id = Integer.parseInt(request.getParameter("id"));
 

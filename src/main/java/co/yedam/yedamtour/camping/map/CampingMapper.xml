@@ -10,15 +10,11 @@ SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS
 </select>
 
 <select id="campingRoomSelect" resultType="co.yedam.yedamtour.camping.service.CampingVO">
-	SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID = #{CampingSubId}
+	SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID = #{campingSubId}
 	</select>
 
 <select id="campingSelect" resultType="co.yedam.yedamtour.camping.service.CampingVO">
 SELECT * FROM TOUR_CAMPING WHERE CAMPING_ID = #{campingId} AND CAMPING_SUB_ID IS NULL
-</select>
-
-<select id="campingSelectMember" resultType="co.yedam.yedamtour.camping.service.CampingVO">
-select * from tour_camping where member_id = #{memberId}
 </select>
 
 <insert id="campingInsert" parameterType="co.yedam.yedamtour.camping.service.CampingVO">

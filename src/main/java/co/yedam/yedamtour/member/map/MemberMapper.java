@@ -19,4 +19,7 @@ public interface MemberMapper {
 	MemberVO signupIdSelect(MemberVO vo);
 	
 	MemberVO memberSearch(MemberVO vo);
+	
+	MemberVO idCheckSelect(MemberVO vo);
+	
 }

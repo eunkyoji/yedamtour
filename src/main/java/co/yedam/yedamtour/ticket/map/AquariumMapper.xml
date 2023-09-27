@@ -13,6 +13,9 @@
 		FROM TOUR_AQUARIUM
 		WHERE AQUARIUM_ID =
 		#{aquariumId}
+		<if test="aquariumName != null">
+		And aquarium_Name = #{aquariumName}
+		</if>
 	</select>
 
 

@@ -18,7 +18,16 @@
 		resultType="co.yedam.yedamtour.member.service.MemberVO">
 		SELECT *
 		FROM TOUR_MEMBER
-		WHERE MEMBER_ID = #{memberId}
+		WHERE 
+		MEMBER_Name = #{memberName} AND
+		MEMBER_Phone = #{memberPhone}
+	</select>
+	
+	<select id="idCheckSelect"
+		resultType="co.yedam.yedamtour.member.service.MemberVO">
+		SELECT *
+		FROM TOUR_MEMBER
+		WHERE MEMBER_ID = #{memberId} 
 	</select>
 
 	<insert id="memberInsert"

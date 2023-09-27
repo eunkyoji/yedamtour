@@ -7,10 +7,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+  <link href="niceadmin/assets/img/favicon.png" rel="icon">
+  <link href="niceadmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<link href="niceadmin/assets/css/style.css" rel="stylesheet">
+<style>
+body{
+	background-color: white;
+}
+</style>
 <body>
 <c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
-<div class="container">
+<section class="pt-5 pt-md-9">
+<div class="contact_section">
 	<main id="main" class="main">
 
 		<!-- End Page Title -->
@@ -21,7 +34,7 @@
 
 						<div class="card">
 							<div class="card-body">
-								<h5 class="card-title">공지사항</h5>
+								<h5 class="card-title" align="left">공지사항</h5>
 								<div class="card mb-3">
 									<div class="row g-0">
 										<c:choose>
@@ -36,8 +49,8 @@
 										
 										<div class="col-md-8">
 											<div class="card-body">
-												<h5 class="card-title">${n.noticeTitle }</h5>
-												<p class="card-text">${n.noticeContent}</p>
+												<h5 class="card-title" align="left">${n.noticeTitle }</h5>
+												<p class="card-text" align="left">${n.noticeContent}</p>
 											</div>
 										</div>
 									</div>
@@ -74,6 +87,7 @@
 		</form>
 	</main>
 </div>
+</section>
 	<script type="text/javascript">
 	function noticeModifyform(id){
 		let form = document.getElementById("mform");
@@ -91,5 +105,6 @@
 		}
 	}
 	</script>
+
 </body>
 </html>

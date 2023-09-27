@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +26,10 @@
 				<div class="row">
 					<!-- Contact Content -->
 					<div class="col-lg-5">
-						<h2>${hotels.hotelName } ${id }</h2>
+						<h2>${hotels.hotelName }</h2>
 						<span>${hotels.hotelAddress }</span>
 						<div class="contact_section_text">
-							<br> <br>
+							<br><br>
 							<p>${hotels.hotelDetail }</p>
 						</div>
 						<div class="contact_section_info">
@@ -54,19 +55,16 @@
 								<li
 									class="d-flex flex-row align-items-center justify-content-start">
 									<div id="imgdiv">
-										<img id="bath"
-											src="jadoo/public/assets/img/icons/bathicon.png" alt="">
-										<img id="parking"
-											src="jadoo/public/assets/img/icons/parkicon.png" alt="">
-										<img id="nosmoke"
-											src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
-										<img id="wifi"
-											src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
+										<img id="bath" src="jadoo/public/assets/img/icons/bathicon.png" alt="">
+										<img id="parking" src="jadoo/public/assets/img/icons/parkicon.png" alt="">
+										<img id="nosmoke" src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
+										<img id="wifi" src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
 									</div>
 								</li>
 							</ul>
 						</div>
 					</div>
+					
 					<!-- Contact Image -->
 					<div class="col-lg-7 contact_section_col">
 						<img id="hotelimg" src="img/rooms/${hotels.hotelImg }" alt="">
@@ -83,7 +81,7 @@
 										<img id="roomimg" src="img/rooms/" alt="">
 										<div class="ri-text">
 											<h4></h4>
-											<h3>만원~</h3>
+											<h3></h3>
 											<a class="primary-btn">예약하러 가기</a>
 										</div>
 									</div>
@@ -96,7 +94,6 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -105,31 +102,29 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
 //	$(document).ready(function () {
-		$.ajax({
-         url:"hotelsublist.do?hotelId=" + ${hotels.hotelId},
-         type:"post",
-         datatype:"html",
-         success:function(data){
-            for(let i=0; i<data.length; i++){
-               let clone = $('.col-lg-4:eq(0)').clone();
-               
-               clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
-               clone.find('h4').text(data[i].hotelRoomName);
-               clone.find('h3').text(data[i].hotelRoomPrice + '만원~ ').append(`<span>/1박</span>`);
-               clone.find('a').attr('onclick', 'booking('+data[i].hotelSubId+')');
-               $('.row').append(clone);
+	$.ajax({
+        url:"hotelsublist.do?hotelId=" + ${hotels.hotelId},
+        type:"post",
+        datatype:"html",
+        success:function(data){
+           for(let i=0; i<data.length; i++){
+              let clone = $('.col-lg-4:eq(0)').clone();
+              let roomprice = data[i].hotelRoomPrice;
+              clone.find('#roomimg').attr('src','img/rooms/' + data[i].hotelRoomImg);
+              clone.find('h4').text(data[i].hotelRoomName);
+              clone.find('h3').text(roomprice.toLocaleString() + '원~ ').append(`<span>/1박</span>`);
+              clone.find('a').attr('onclick', 'booking('+data[i].hotelSubId+')');
+              $('.row').append(clone);
             }
          }   
       });
 //	});
-
 		function booking(id){
 			console.log(id);
 			let form = document.getElementById("frm");
 			form.hotelSubId.value = id;
 			form.submit();
 		}
-
 </script>
 
 </body>
