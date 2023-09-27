@@ -64,7 +64,7 @@ public class ResultAirplane extends HttpServlet {
 		request.setAttribute("finishAirId", finishAirId);
 		
 		cartvo.setReservationId(direction);
-		int n = dao2.reservationInsert(cartvo);
+		int n = dao2.reservationTransInsert(cartvo);
 		
 		String page = "transportation/resultairplane";
 		ViewResolve.forward(request, response, page);

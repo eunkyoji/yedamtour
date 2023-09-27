@@ -5,9 +5,9 @@ import java.util.List;
 import co.yedam.yedamtour.reservation.service.ReservationVO;
 
 public interface ReservationMapper {
-	List<ReservationVO> reservationSelectList(ReservationVO vo);
-	ReservationVO reservationSelect(ReservationVO vo);
-	int reservationInsert(ReservationVO vo);
-	int reservationUpdate(ReservationVO vo);
-	int reservationDelete(ReservationVO vo);
+	List<ReservationVO> reservationTransSelectList(ReservationVO vo);
+	ReservationVO reservationTransSelect(ReservationVO vo);
+	int reservationTransInsert(ReservationVO vo);
+	int reservationTransUpdate(ReservationVO vo);
+	int reservationTransDelete(ReservationVO vo);
 }

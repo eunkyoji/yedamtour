@@ -46,7 +46,7 @@ public class ReservationList extends HttpServlet {
 		
 		
 		startvo.setReservationId(direction);		
-		startvo = dao.reservationSelect(startvo);
+		startvo = dao.reservationTransSelect(startvo);
 		if(startvo != null) {
 			request.setAttribute("startCart", startvo);
 			
@@ -58,7 +58,7 @@ public class ReservationList extends HttpServlet {
 		request.setAttribute("start", start);
 		request.setAttribute("startCartId", startCartId);
 		
-		int n = dao.reservationInsert(startvo);
+		int n = dao.reservationTransInsert(startvo);
 		
 		if( finishDate != null && n != 0 ) {
 		
@@ -66,7 +66,7 @@ public class ReservationList extends HttpServlet {
 			
 			
 			finishvo.setReservationId(direction1);
-			finishvo = dao.reservationSelect(finishvo);
+			finishvo = dao.reservationTransSelect(finishvo);
 			
 			if(finishvo != null) {
 				request.setAttribute("finishCart", finishvo);
@@ -80,8 +80,8 @@ public class ReservationList extends HttpServlet {
 			
 		}
 		
-		startCarts = dao.reservationSelectList(startvo);
-		finishCarts = dao.reservationSelectList(finishvo);
+		startCarts = dao.reservationTransSelectList(startvo);
+		finishCarts = dao.reservationTransSelectList(finishvo);
 		
 		String page = "admin/reservation/reservationlist";
 		ViewResolve.forward(request, response, page);
