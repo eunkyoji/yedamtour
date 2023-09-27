@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.camping.service.CampingService;
 import co.yedam.yedamtour.camping.service.CampingVO;
@@ -46,7 +45,6 @@ public class Booking extends HttpServlet {
 		
 		MemberService mdao = new MemberServiceImpl();
 		MemberVO mvo = new MemberVO();
-		
 		mvo.setMemberId(request.getParameter("memberId"));
 		mvo = mdao.signupIdSelect(mvo);
 		
@@ -62,44 +60,37 @@ public class Booking extends HttpServlet {
 			hvo.setMemberName(mvo.getMemberName());
 			hvo.setMemberPhone(mvo.getMemberPhone());
 			hvo.setCategoryId(categoryId);
-			
 			request.setAttribute("reserves", hvo);
-
-			System.out.println(hvo);
 			
-		} else if (categoryId == "2") {
+		} else if (categoryId.equals("2")) {
 			PensionService pdao = new PensionServiceImpl();
 			PensionVO pvo = new PensionVO();
-			pvo.setMemberId(mvo.getMemberId());
-
+			
+			pvo.setPensionId(Integer.parseInt(pensionId));
 			pvo.setPensionSubId(Integer.parseInt(pensionSubId));
 			pvo = pdao.pensionRoomSelect(pvo);
+			
 			pvo.setMemberId(mvo.getMemberId());
 			pvo.setMemberName(mvo.getMemberName());
 			pvo.setMemberPhone(mvo.getMemberPhone());
 			pvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", pvo);
 			
-		} else if (categoryId == "3"){
+		} else if (categoryId.equals("3")){
 			CampingService cdao = new CampingServiceImpl();
 			CampingVO cvo = new CampingVO();
-			cvo.setMemberId(mvo.getMemberId());
 
+			cvo.setCampingId(Integer.parseInt(campingId));
 			cvo.setCampingSubId(Integer.parseInt(campingSubId));
 			cvo = cdao.campingRoomSelect(cvo);
+			
 			cvo.setMemberId(mvo.getMemberId());
 			cvo.setMemberName(mvo.getMemberName());
 			cvo.setMemberPhone(mvo.getMemberPhone());
 			cvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", cvo);
-			
 		}
-
-		
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("categoryId");
-		System.out.println("id ::: " + id + "==================");
-		
+				
 		String page = "reservation/booking";
 		ViewResolve.forward(request, response, page);
 	}

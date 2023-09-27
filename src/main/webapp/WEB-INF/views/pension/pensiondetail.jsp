@@ -16,22 +16,19 @@
 }
 </style>
 <body>
-
+	<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 	<!-- Contact -->
 	<section class="pt-5 pt-md-9" id="booking">
-		<br>
-		<br>
+		<br><br>
 		<div class="contact_section">
 			<div class="container">
 				<div class="row">
-
 					<!-- Contact Content -->
 					<div class="col-lg-5">
 						<h2>${pensions.pensionName }</h2>
 						<span>${pensions.pensionAddress }</span>
 						<div class="contact_section_text">
-							<br>
-							<br>
+							<br><br>
 							<p>${pensions.pensionDetail }</p>
 						</div>
 						<div class="contact_section_info">
@@ -57,11 +54,10 @@
 								<li
 									class="d-flex flex-row align-items-center justify-content-start">
 									<div>
-										<br> <img
-											src="jadoo/public/assets/img/icons/bathicon.png" alt="">
-										<img src="jadoo/public/assets/img/icons/parkicon.png" alt="">
-										<img src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
-										<img src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
+										<img id="bath" src="jadoo/public/assets/img/icons/bathicon.png" alt="">
+										<img id="parking" src="jadoo/public/assets/img/icons/parkicon.png" alt="">
+										<img id="nosmoke" src="jadoo/public/assets/img/icons/nosmoke.png" alt="">
+										<img id="wifi" src="jadoo/public/assets/img/icons/wifiicon.png" alt="">
 									</div>
 								</li>
 							</ul>
@@ -70,7 +66,7 @@
 
 					<!-- Contact Image -->
 					<div class="col-lg-7 contact_section_col">
-						<img src="img/rooms/${pensions.pensionImg }" alt="">
+						<img id="pensionimg" src="img/rooms/${pensions.pensionImg }" alt="">
 					</div>
 					<!-- Contact Image Close-->
 
@@ -79,14 +75,21 @@
 						<br>
 						<div class="row" style="display: none;">
 							<div class="col-lg-4 col-md-6" id="itemdiv">
+							<form id="frm" action="booking.do" method="post" enctype="form-data">
 								<div class="room-item">
 									<img id="roomimg" src="img/rooms/" alt="">
 									<div class="ri-text">
 										<h4></h4>
 										<h3>만원~</h3>
-										<a href="booking.do" class="primary-btn">예약하러 가기</a>
+										<a class="primary-btn">예약하러 가기</a>
 									</div>
 								</div>
+								<p id="subId"></p>
+									<input type="hidden" id="pensionId" name="pensionId" value="${pensions.pensionId }">
+									<input type="hidden" id="pensionSubId" name="pensionSubId">
+									<input type="hidden" id="memberId" name="memberId" value="${id }">
+									<input type="hidden" id="categoryId" name="categoryId" value="2">
+								</form>
 							</div>
 						</div>
 					</div>
@@ -95,53 +98,33 @@
 		</div>
 	</section>
 
-
-	<!-- Rooms Section Begin -->
-	<section class="rooms-section spad">
-		<div class="container">
-			<h4></h4>
-			<div class="row" style="display: none;">
-				<div class="col-lg-4 col-md-6" id="itemdiv">
-					<div class="room-item">
-						<img id="roomimg" src="img/rooms/" alt="">
-						<div class="ri-text">
-							<h4></h4>
-							<h3>만원~</h3>
-							<a href="booking.do" class="primary-btn">예약하러 가기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Rooms Section End -->
-
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
 //	$(document).ready(function () {
-		$.ajax({
-			url:"pensionsublist.do?pensionId=" + ${pensions.pensionId},
-			type:"post",
-			datatype:"html",
-			success:function(data){
-				for(let i=0; i<data.length; i++){
-					let clone = $('.col-lg-4:eq(0)').clone();
-					//let salePrice = result[i].itemPrice * (result[i].itemSaleRate * 0.01);
-					
-					//clone.css('display', 'block');
-					clone.find('#roomimg').attr('src','img/rooms/' + data[i].pensionRoomImg);
-					clone.find('h4').text(data[i].pensionRoomName);
-					clone.find('h3').text(data[i].pensionRoomPrice + '만원~ ').append(`<span>/1박</span>`);
-					$('.row').append(clone);
-				}
-				
-				console.log(clone);
-			}	
-		});
-//	});
-	
-	console.log(pensionSubId);
-</script>
+	$.ajax({
+     url:"pensionsublist.do?pensionId=" + ${pensions.pensionId},
+     type:"post",
+     datatype:"html",
+     success:function(data){
+        for(let i=0; i<data.length; i++){
+           let clone = $('.col-lg-4:eq(0)').clone();
+           
+           clone.find('#roomimg').attr('src','img/rooms/' + data[i].pensionRoomImg);
+           clone.find('h4').text(data[i].pensionRoomName);
+           clone.find('h3').text(data[i].pensionRoomPrice + '만원~ ').append(`<span>/1박</span>`);
+           clone.find('a').attr('onclick', 'booking('+data[i].pensionSubId+')');
+           $('.row').append(clone);
+        }
+     }   
+  });
+//});
 
+	function booking(id){
+		console.log(id);
+		let form = document.getElementById("frm");
+		form.pensionSubId.value = id;
+		form.submit();
+	}
+</script>
 </body>
 </html>

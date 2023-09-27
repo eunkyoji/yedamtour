@@ -9,7 +9,6 @@ public interface PensionMapper {
 	List<PensionVO> pensionSelectList();
 	PensionVO 		pensionSelect(PensionVO vo);
 	PensionVO		pensionRoomSelect(PensionVO vo);
-	List<PensionVO>	pensionSelectMember(PensionVO vo);
 	int 			pensionInsert(PensionVO vo);
 	int				pensionUpdate(PensionVO vo);
 	int 			pensionDelete(PensionVO vo);
