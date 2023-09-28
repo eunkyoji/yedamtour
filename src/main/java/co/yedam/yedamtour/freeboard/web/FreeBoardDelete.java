@@ -26,9 +26,13 @@ public class FreeBoardDelete extends HttpServlet {
 		FreeBoardVO vo = new FreeBoardVO();
 		HttpSession session = request.getSession();
 		
-		vo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
-		vo.setFreeBoardWriter(session.getId());
+		String author = (String)session.getAttribute("author");
 		
+		vo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
+		
+		if( author == "user" ) {
+			vo.setFreeBoardWriter(session.getId());
+		}
 		int n = dao.freeBoardDelete(vo);
 		
 		if( n != 0 ) {

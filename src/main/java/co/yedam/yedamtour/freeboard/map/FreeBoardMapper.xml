@@ -42,7 +42,11 @@
 		WHERE FREEBOARD_ID = #{freeBoardId}
 	</update>
 	<delete id="freeBoardDelete" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
-		DELETE TOUR_FREEBOARD WHERE FREEBOARD_ID = #{freeBoardId} AND FREEBOARD_WRITER = #{freeBoardWriter}
+		DELETE TOUR_FREEBOARD 
+		WHERE FREEBOARD_ID = #{freeBoardId} 
+		<if test="freeBoardWriter != null ">
+			AND FREEBOARD_WRITER = #{freeBoardWriter}
+		</if>
 	</delete>
 	<update id="freeBoardHitUpdate">
 		UPDATE TOUR_FREEBOARD

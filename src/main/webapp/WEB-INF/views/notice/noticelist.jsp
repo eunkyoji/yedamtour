@@ -23,7 +23,7 @@ body{
 </style>
 <body>
 <c:set var="author" value='<%=(String)session.getAttribute("author") %>' />
-<c:set var="id" value='<%=(String)session.getAttribute("memberid") %>' />
+<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
 <section class="pt-5 pt-md-9">
 <div class="contact_section">
 	<main id="main" class="main">

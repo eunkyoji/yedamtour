@@ -70,6 +70,7 @@ input{
 </style>
 <body>
 <c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
+<c:set var="author" value='<%=(String)session.getAttribute("author") %>' />
 <section class="pt-5 pt-md-9">
 <div class="contact_section">
 	<main id="main" class="main">
@@ -106,11 +107,19 @@ input{
 
 								<div align="right">
 									<c:choose>
-										<c:when test="${f.freeBoardWriter == id }">
-											<button type="button" class="btn btn-primary"
-												onclick="freeBoardModify(${f.freeBoardId})">수정</button>
-											<button type="button" class="btn btn-primary"
-												onclick="freeBoardDelete(${f.freeBoardId})">삭제</button>
+										<c:when test="${f.freeBoardWriter == id || author == 'Admin'}">
+											<c:choose>
+												<c:when test="${author == 'Admin'}">
+													<button type="button" class="btn btn-primary"
+														onclick="freeBoardDelete(${f.freeBoardId})">삭제</button>
+												</c:when>
+												<c:otherwise>
+													<button type="button" class="btn btn-primary"
+														onclick="freeBoardModify(${f.freeBoardId})">수정</button>
+													<button type="button" class="btn btn-primary"
+														onclick="freeBoardDelete(${f.freeBoardId})">삭제</button>
+												</c:otherwise>
+											</c:choose>
 										</c:when>
 										<c:otherwise>
 										</c:otherwise>
@@ -164,9 +173,13 @@ input{
 	}
 	
 	function freeBoardDelete(id){
-		let form = document.getElementById("dform");
-		form.freeBoardId.value = id;
-		form.submit();
+		if(confirm("삭제하시겠습니까?") == true){
+			let form = document.getElementById("dform");
+			form.freeBoardId.value = id;
+			form.submit();
+		} else {
+			return;
+		}
 	}
 	
 	replayListCall();
