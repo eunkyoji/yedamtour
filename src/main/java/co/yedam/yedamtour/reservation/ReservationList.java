@@ -80,8 +80,8 @@ public class ReservationList extends HttpServlet {
 			
 		}
 		
-		startCarts = dao.reservationTransSelectList(startvo);
-		finishCarts = dao.reservationTransSelectList(finishvo);
+		//startCarts = dao.reservationTransSelectList(startvo);
+		//finishCarts = dao.reservationTransSelectList(finishvo);
 		
 		String page = "admin/reservation/reservationlist";
 		ViewResolve.forward(request, response, page);

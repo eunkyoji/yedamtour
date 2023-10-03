@@ -9,7 +9,7 @@ public class ReservationVO {
 	private int ticketId;
 	private int trafficId;
 	private int reservationPersonnel;
-	private String reservationWriteId;
+	private String reservationWriterId;
 	private String reservationPrice;
 	private String reservationPaymentyn;
 	private int reservationState;

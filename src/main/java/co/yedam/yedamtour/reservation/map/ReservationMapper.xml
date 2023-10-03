@@ -1,35 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.yedam.yedamtour.reservation.map.ReservationMapper">
-<select id="reservationTransSelectList" resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
-	SELECT * FROM TOUR_RESERVATION
-</select>
+<mapper
+	namespace="co.yedam.yedamtour.reservation.map.ReservationMapper">
+	<select id="reservationTransSelectList"
+		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		SELECT * FROM TOUR_RESERVATION
+	</select>
 
-<select id="reservationTransSelect" resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
-	SELECT * FROM TOUR_RESERVATION
-	WHERE RESERVATION_ID = #{reservationId}
-</select>
+	<select id="reservationListSelectList"
+		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		SELECT * FROM TOUR_RESERVATION
+	</select>
 
-<insert id="reservationTransInsert" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-	<selectKey keyProperty="reservationId" resultType="int" order="BEFORE">
-		SELECT NVL(MAX(RESERVATION_ID), 0) + 1 AS ID
-		FROM TOUR_RESERVATION
-	</selectKey>
-	INSERT INTO TOUR_RESERVATION(RESERVATION_ID, TRAFFIC_ID, RESERVATION_PERSONNEL, RESERVATION_WRITER_ID, 
-								 RESERVATION_PRICE, RESERVATION_PAYMENTYN, RESERVATION_STATE, CATEGORY_ID, 
-								 RESERVATION_STARTDATE, RESERVATION_ENDDATE, RESERVATION_START, RESERVATION_FINISH, 
-								 RESERVATION_GRADE, RESERVATION_DEPTIME, RESERVATION_ARRTIME)
-    VALUES(#{reservationId}, #{airplaneId}, #{person}, #{reservationWriterId}, #{airplanePrice},
-    	   #{reservationPaymentyn}, #{reservationState}, #{categoryId}, #{startDate},
-    	   #{finishDate}, #{airplaneStart}, #{airplaneFinish}, #{airplaneGrade},
-    	   #{airplaneDeptime}, #{airplaneArrtime})                            
-</insert>
+	<select id="reservationCartSelectList"
+		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		SELECT * FROM TOUR_RESERVATION
+		WHERE RESERVATION_WRITER_ID = #{reservationWriterId}
+		and reservation_state = 0
+	</select>
+	
+	<select id="reservationCartFinishSelectList"
+		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		SELECT * FROM TOUR_RESERVATION
+		WHERE RESERVATION_WRITER_ID = #{reservationWriterId}
+		and reservation_state = 1
+	</select>
 
-<update id="reservationTransUpdate" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
 
-</update>
+	<select id="reservationTransSelect"
+		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		SELECT * FROM TOUR_RESERVATION
+		WHERE RESERVATION_ID =
+		#{reservationId}
+	</select>
 
-<delete id="reservationTransDelete" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+	<insert id="reservationTransInsert"
+		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		<selectKey keyProperty="reservationId" resultType="int"
+			order="BEFORE">
+			SELECT NVL(MAX(RESERVATION_ID), 0) + 1 AS ID
+			FROM
+			TOUR_RESERVATION
+		</selectKey>
+		INSERT INTO TOUR_RESERVATION(RESERVATION_ID, TRAFFIC_ID,
+		RESERVATION_PERSONNEL, RESERVATION_WRITER_ID,
+		RESERVATION_PRICE,
+		RESERVATION_PAYMENTYN, RESERVATION_STATE, CATEGORY_ID,
+		RESERVATION_STARTDATE, RESERVATION_ENDDATE, RESERVATION_START,
+		RESERVATION_FINISH,
+		RESERVATION_GRADE, RESERVATION_DEPTIME,
+		RESERVATION_ARRTIME)
+		VALUES(#{reservationId}, #{airplaneId}, #{person},
+		#{reservationWriterId}, #{airplanePrice},
+		#{reservationPaymentyn},
+		#{reservationState}, #{categoryId},
+		#{startDate},
+		#{finishDate},
+		#{airplaneStart}, #{airplaneFinish}, #{airplaneGrade},
+		#{airplaneDeptime}, #{airplaneArrtime})
+	</insert>
 
-</delete>
+
+
+
+
+	<update id="reservationTransUpdate"
+		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+
+	</update>
+
+	<delete id="reservationTransDelete"
+		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+
+	</delete>
+
+
+
+	<insert id="reservationTicketInsert"
+		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		<selectKey keyProperty="reservationId" resultType="int"
+			order="BEFORE">
+			SELECT NVL(MAX(RESERVATION_ID), 0) + 1 AS ID
+			FROM
+			TOUR_RESERVATION
+		</selectKey>
+		INSERT INTO TOUR_RESERVATION(RESERVATION_ID, Ticket_Id,
+		RESERVATION_PERSONNEL,
+		RESERVATION_WRITER_ID, RESERVATION_PRICE,
+		CATEGORY_ID)
+		values(#{reservationId},#{ticketId},#{reservationPersonnel},#{reservationWriterId},#{reservationPrice},#{categoryId})
+	</insert>
+	
+	<update id="reservationCartUpdate"
+		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		UPDATE tour_reservation SET reservation_state = 1 
+		WHERE reservation_id = #{reservationId}
+	</update>
 </mapper>

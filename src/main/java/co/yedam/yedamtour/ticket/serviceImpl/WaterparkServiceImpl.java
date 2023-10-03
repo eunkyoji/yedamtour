@@ -23,4 +23,9 @@ public class WaterparkServiceImpl implements WaterparkService {
 		return map.waterparkSelect(vo);
 	}
 
+	@Override
+	public WaterparkVO waterparkCartSelect(WaterparkVO vo) {
+		return map.waterparkCartSelect(vo);
+	}
+
 }
