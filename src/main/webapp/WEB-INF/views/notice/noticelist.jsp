@@ -67,8 +67,8 @@ body {
 											</c:choose>
 										</tbody>
 									</table>
-									<div>
-									<nav  style="text-align">
+									<div align="center">
+									
 										<ul class="pagination" style="text-align: center;">
 											<li class="page-item"><a class="page-link"
 												href="noticelist.do?pageNum=${(endPage - 5)}"
@@ -77,7 +77,7 @@ body {
 
 											<c:forEach var="i" begin="${startPage }" end="${endPage }">
 												<li class="page-item"><a class="page-link"
-													href="noticelist.do?pageNum=${i}">${i}</a></li>
+													href="noticelist.do?pageNum=${i}" id="btn${i }" onClick="clickEvent(${i})">${i}</a></li>
 											</c:forEach>
 
 											<li class="page-item">
@@ -86,7 +86,7 @@ body {
 										        </a>
 										    </li>
 										</ul>
-									</nav>
+									
 									</div>
 									<!-- End Table with stripped rows -->
 									<c:choose>
@@ -130,6 +130,20 @@ body {
 		let form = document.getElementById("sform");
 		form.noticeId.value = id;
 		form.submit();
+	}
+	
+	function clickEvent(id){
+		for( let b = ${startPage}; b < ${endPage}; b++ ){
+			if(b == id){
+				console.log("b ::: " + b);
+				console.log("btn :: " + ('#btn'+b));
+				$('#btn'+b).css('style','background:blue');
+				$('#btn'+b).css('style','color:white');
+			} else {
+				$('#btn'+b).css('style','background:white');
+				$('#btn'+b).css('style','color:blue');
+			}
+		}
 	}
 	</script>
 </body>
