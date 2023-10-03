@@ -29,10 +29,55 @@ public class FreeBoardList extends HttpServlet {
 		HttpSession session = request.getSession();
 		FreeBoardService dao = new FreeBoardServiceImpl();
 		List<FreeBoardVO> lists = new ArrayList<FreeBoardVO>();
+		FreeBoardVO vo = new FreeBoardVO();
 		
 		String author = (String)session.getAttribute("author");
 		
-		lists = dao.freeBoardSelectList();
+		vo = dao.freeBoardTotalCount(vo);
+		
+		String currNum = request.getParameter("pageNum");
+		int pageNum = 0;
+		if( currNum != null ) {
+			pageNum = Integer.parseInt(currNum);
+		}
+		
+		int pageN = 0;
+		int countList = 10; // 한 페이지에 보여줄 글 갯수
+		int countPage = 10; // 페이지 갯수 ex ) [1] [2] [3] 다음
+		
+		int totalCount = vo.getTotalCount();
+		
+		int block = totalCount / countList ;
+		if(totalCount % countList != 0){
+			block++;
+		}
+		
+		System.out.println("pageNum::: " + pageNum);
+		if (pageNum == 0) {
+			pageN = 1;
+		}else {
+			pageN = pageNum;
+			if(pageN <= 0 ) {
+				pageN = 1;
+			}
+			if(pageN > block) {
+				pageN -= 10;
+			}
+		}
+		
+		int startPage = (pageN-1) / countPage * countPage + 1; // 시작 페이지
+		int endPage = startPage + countPage - 1; // 끝 페이지
+		if (endPage > block) {
+			endPage = block;
+		}
+		
+		int start = pageN*10 - 9;
+		int end = pageN*10;
+		
+		vo.setStartPage(start);
+		vo.setEndPage(end);
+		
+		lists = dao.freeBoardSelectList(vo);
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
 		
@@ -47,6 +92,8 @@ public class FreeBoardList extends HttpServlet {
 		}
 		
 		request.setAttribute("list", lists);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
 		
 		if( "Admin".equals(author) ) {
 			String pagae = "admin/freeboard/freeboardlist";

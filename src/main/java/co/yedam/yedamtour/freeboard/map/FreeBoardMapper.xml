@@ -2,15 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.yedamtour.freeboard.map.FreeBoardMapper">
 	<select id="freeBoardSelectList" resultType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
-		SELECT ROWNUM, A.FREEBOARD_ID, A.FREEBOARD_TITLE, A.FREEBOARD_CONTENT, A.FREEBOARD_WRITER, A.FREEBOARD_IMG, A.FREEBOARD_WRITE_DATE, A.FREEBOARD_UPDATE_DATE, A.FREEBOARD_HIT, A.FREEBOARD_THUMB,
+	SELECT * FROM (
+		SELECT ROWNUM AS NUM, A.FREEBOARD_ID, A.FREEBOARD_TITLE, A.FREEBOARD_CONTENT, A.FREEBOARD_WRITER, A.FREEBOARD_IMG, A.FREEBOARD_WRITE_DATE, A.FREEBOARD_UPDATE_DATE, A.FREEBOARD_HIT, A.FREEBOARD_THUMB,
 			   (SELECT MEMBER_NICKNAME
 		  			  FROM TOUR_MEMBER
 		  			  WHERE MEMBER_ID = A.FREEBOARD_WRITER) FREEBOARD_NICNAME
 		  FROM (
 		  	SELECT F.FREEBOARD_ID, F.FREEBOARD_TITLE, F.FREEBOARD_CONTENT, F.FREEBOARD_WRITER, F.FREEBOARD_IMG, F.FREEBOARD_WRITE_DATE, F.FREEBOARD_UPDATE_DATE, F.FREEBOARD_HIT, F.FREEBOARD_THUMB
-		  			
 		  	  FROM TOUR_FREEBOARD F
-		  	 ORDER BY FREEBOARD_ID DESC) A
+		  	<if test="freeBoardSearch != null">
+		  	 WHERE FREEBOARD_TITLE LIKE '%'||#{freeBoardSearch}||'%'
+		  	</if>
+		  	 ORDER BY FREEBOARD_ID DESC) A ) T
+	 WHERE T.NUM BETWEEN #{startPage} AND #{endPage}
 	</select>
 	<select id="freeBoardSelect" resultType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
 		 SELECT A.FREEBOARD_ID, A.FREEBOARD_TITLE, A.FREEBOARD_CONTENT, A.FREEBOARD_WRITER, A.FREEBOARD_IMG, A.FREEBOARD_WRITE_DATE, A.FREEBOARD_UPDATE_DATE, A.FREEBOARD_HIT, A.FREEBOARD_THUMB,
@@ -22,6 +26,13 @@
 		  			
 		  	  FROM TOUR_FREEBOARD F
 		  	 WHERE FREEBOARD_ID = #{freeBoardId}) A
+	</select>
+	<select id="freeBoardTotalCount" resultType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
+		SELECT COUNT(*) AS TOTALCOUNT
+		  FROM TOUR_FREEBOARD
+		<if test="freeBoardSearch != null">
+	  	 WHERE FREEBOARD_TITLE LIKE '%'||#{freeBoardSearch}||'%'
+	  	</if>
 	</select>
 	<insert id="freeBoardInsert" parameterType="co.yedam.yedamtour.freeboard.service.FreeBoardVO">
 		<selectKey keyProperty="freeBoardId" resultType="int" order="BEFORE">

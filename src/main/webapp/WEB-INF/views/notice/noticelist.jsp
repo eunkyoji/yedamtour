@@ -137,11 +137,9 @@ body {
 			if(b == id){
 				console.log("b ::: " + b);
 				console.log("btn :: " + ('#btn'+b));
-				$('#btn'+b).css('style','background:blue');
-				$('#btn'+b).css('style','color:white');
+				$('#btn'+b).css({'background':'blue','color':'white'});
 			} else {
-				$('#btn'+b).css('style','background:white');
-				$('#btn'+b).css('style','color:blue');
+				$('#btn'+b).css({'background':'white','color':'blue'});
 			}
 		}
 	}

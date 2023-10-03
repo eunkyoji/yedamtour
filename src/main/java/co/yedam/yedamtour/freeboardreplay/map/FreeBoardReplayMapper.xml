@@ -2,18 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper	namespace="co.yedam.yedamtour.freeboardreplay.map.FreeBoardReplayMapper">
 	<select id="freeBoardReplaySelectLsit" resultType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
-		SELECT A.REPLAY_ID, A.REPLAY_CONTENT, A.REPLAY_WRITER, A.REPLAY_WRITE_DATE, A.REPLAY_UPDATE_DATE, A.FREEBOARD_ID,
-			   (SELECT MEMBER_NICKNAME
-	  			  FROM TOUR_MEMBER
-	  			  WHERE MEMBER_ID = A.REPLAY_WRITER) MEMBER_NICKNAME
-		  FROM (
-			  	SELECT R.REPLAY_ID, R.REPLAY_CONTENT, R.REPLAY_WRITER, R.REPLAY_WRITE_DATE, R.REPLAY_UPDATE_DATE, R.FREEBOARD_ID
-			  	  FROM TOUR_FREEBOARD_REPLAY R
-			  	 WHERE R.FREEBOARD_ID = #{freeBoardId}
-			  	 ORDER BY R.REPLAY_ID DESC) A
+		SELECT * FROM(
+			SELECT ROWNUM AS NUM, A.REPLAY_ID, A.REPLAY_CONTENT, A.REPLAY_WRITER, A.REPLAY_WRITE_DATE, A.REPLAY_UPDATE_DATE, A.FREEBOARD_ID,
+				   (SELECT MEMBER_NICKNAME
+		  			  FROM TOUR_MEMBER
+		  			  WHERE MEMBER_ID = A.REPLAY_WRITER) MEMBER_NICKNAME
+			  FROM (
+				  	SELECT R.REPLAY_ID, R.REPLAY_CONTENT, R.REPLAY_WRITER, R.REPLAY_WRITE_DATE, R.REPLAY_UPDATE_DATE, R.FREEBOARD_ID
+				  	  FROM TOUR_FREEBOARD_REPLAY R
+				  	 WHERE R.FREEBOARD_ID = #{freeBoardId}
+				  	 ORDER BY R.REPLAY_ID DESC) A ) T
+		WHERE T.NUM BETWEEN #{startPage} AND #{endPage}
 		 
 	</select>
 	<select id="freeBoardReplaySelect" resultType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
+	</select>
+	<select id="freeBoardReplayCount" resultType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
+		SELECT COUNT(*) AS TOTALCOUNT
+		  FROM TOUR_FREEBOARD_REPLAY
+		 WHERE FREEBOARD_ID = #{freeBoardId}
 	</select>
 	<insert id="freeBoardReplayInsert" parameterType="co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO">
 		<selectKey keyProperty="replayId" resultType="int" order="BEFORE">

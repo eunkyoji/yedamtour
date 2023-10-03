@@ -1,102 +1,129 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-  <link href="niceadmin/assets/img/favicon.png" rel="icon">
-  <link href="niceadmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="niceadmin/assets/img/favicon.png" rel="icon">
+<link href="niceadmin/assets/img/apple-touch-icon.png"
+	rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+	rel="stylesheet">
 
 <link href="niceadmin/assets/css/style.css" rel="stylesheet">
 <style>
-body{
+body {
 	background-color: white;
 }
 </style>
 <body>
-<c:set var="id" value='<%=(String)session.getAttribute("id") %>' />
-<section class="pt-5 pt-md-9">
-<div class="contact_section">
-	<main id="main" class="main">
-		<section class="section">
-			<div class="row">
-				<div class="col-lg-12">
+	<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
+	<section class="pt-5 pt-md-9">
+		<div class="contact_section">
+			<main id="main" class="main">
+				<section class="section">
+					<div class="row">
+						<div class="col-lg-12">
 
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title" align="left">자유게시판</h5>
-							<!-- Table with stripped rows -->
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="col">번호</th>
-										<th scope="col">이미지</th>
-										<th scope="col">제목</th>
-										<th scope="col">작성자</th>
-										<th scope="col">작성일</th>
-										<th scope="col">조회수</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:choose>
-										<c:when test="${empty list }">
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title" align="left">자유게시판</h5>
+									<!-- Table with stripped rows -->
+									<table class="table">
+										<thead>
 											<tr>
-												<td colspan="6" align="center">등록된 게시물이 없습니다.</td>
+												<th scope="col">번호</th>
+												<th scope="col">이미지</th>
+												<th scope="col">제목</th>
+												<th scope="col">작성자</th>
+												<th scope="col">작성일</th>
+												<th scope="col">조회수</th>
 											</tr>
+										</thead>
+										<tbody>
+											<c:choose>
+												<c:when test="${empty list }">
+													<tr>
+														<td colspan="6" align="center">등록된 게시물이 없습니다.</td>
+													</tr>
+												</c:when>
+												<c:otherwise>
+													<c:forEach items="${list}" var="f">
+														<tr style="cursor: pointer"
+															onclick="freeBoardSelect(${f.freeBoardId})">
+															<th scope="row">${f.num }</th>
+															<c:choose>
+																<c:when test="${empty f.freeBoardThumb }">
+																	<td></td>
+																</c:when>
+																<c:otherwise>
+																	<td><img
+																		src="attech/freeboard/${f.freeBoardThumb}"></td>
+																</c:otherwise>
+															</c:choose>
+															<td align="left">${f.freeBoardTitle}</td>
+															<td>${f.freeBoardNicname }</td>
+															<td>${f.freeBoardViewDate }</td>
+															<td>${f.freeBoardHit }</td>
+														</tr>
+													</c:forEach>
+												</c:otherwise>
+											</c:choose>
+										</tbody>
+									</table>
+									<div align="center">
+
+										<ul class="pagination" style="text-align: center;">
+											<li class="page-item"><a class="page-link"
+												href="freeboardlist.do?pageNum=${(endPage - 5)}"
+												aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+											</a></li>
+
+											<c:forEach var="i" begin="${startPage }" end="${endPage }">
+												<li class="page-item"><a class="page-link"
+													href="freeboardlist.do?pageNum=${i}" id="btn${i }"
+													onClick="clickEvent(${i})">${i}</a></li>
+											</c:forEach>
+
+											<li class="page-item"><a class="page-link"
+												href="freeboardlist.do?pageNum=${startPage + 5}"
+												aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+											</a></li>
+										</ul>
+
+									</div>
+									<!-- End Table with stripped rows -->
+									<c:choose>
+										<c:when test="${not empty id }">
+											<div align="right">
+												<button type="button" class="btn btn-primary"
+													onclick="location.href = 'freeboardwriteform.do'">글쓰기</button>
+											</div>
 										</c:when>
 										<c:otherwise>
-											<c:forEach items="${list}" var="f">
-												<tr style="cursor:pointer" onclick="freeBoardSelect(${f.freeBoardId})">
-													<th scope="row">${f.rownum }</th>
-													<c:choose>
-													<c:when test="${empty f.freeBoardThumb }">
-													<td></td>
-													</c:when>
-													<c:otherwise>
-													<td><img src="attech/freeboard/${f.freeBoardThumb}"></td>
-													</c:otherwise>
-													</c:choose>
-													<td align="left">${f.freeBoardTitle}</td>
-													<td>${f.freeBoardNicname }</td>
-													<td>${f.freeBoardViewDate }</td>
-													<td>${f.freeBoardHit }</td>
-												</tr>
-											</c:forEach>
 										</c:otherwise>
 									</c:choose>
-								</tbody>
-							</table>
-							<!-- End Table with stripped rows -->
-							<c:choose>
-								<c:when test="${not empty id }">
-									<div align="right">
-										<button type="button" class="btn btn-primary" onclick="location.href = 'freeboardwriteform.do'">글쓰기</button>
-									</div>
-								</c:when>
-								<c:otherwise>
-								</c:otherwise>
-							</c:choose>
+
+								</div>
+							</div>
 
 						</div>
 					</div>
-
-				</div>
-			</div>
-		</section>
-	</main>
-</div>
-</section>
+				</section>
+			</main>
+		</div>
+	</section>
 	<form id="sform" action="freeboarddetail.do" method="post">
 		<input type="hidden" id="freeBoardId" name="freeBoardId">
 	</form>
-	
+
 	<script>
 		//게시글 상세조회
 		
