@@ -8,15 +8,20 @@ import lombok.Setter;
 @Getter
 @Setter
 public class QandAVO {
-	int 		qnaId;
-	String		qnaTitle;
-	String		qnaContent;
-	String		qnaWriter;
-	Date		qnaWriteDate;
-	Date		qnaUpdateDate;
-	String		qnaReplay;
-	String		qnaViewDate;
-	String		memberNickname;
-	int			rownum;
-	String		qnaReplayWriter;
+	private int 		qnaId;
+	private String		qnaTitle;
+	private String		qnaContent;
+	private String		qnaWriter;
+	private Date		qnaWriteDate;
+	private Date		qnaUpdateDate;
+	private String		qnaReplay;
+	private String		qnaViewDate;
+	private String		memberNickname;
+	private int			num;
+	private String		qnaReplayWriter;
+	private int			totalCount;
+	private String		qnaSearch;
+	private int			startPage;
+	private int			endPage;
+	private int			currNum;
 }

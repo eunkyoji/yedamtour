@@ -29,10 +29,54 @@ public class QandAList extends HttpServlet {
 		QandAService dao = new QandAServiceImpl();
 		List<QandAVO> qnalists = new ArrayList<QandAVO>();
 		HttpSession session = request.getSession();
+		QandAVO vo = new QandAVO();
 		
 		String author = (String)session.getAttribute("author");
+		System.out.println("111111111111111111111111");
+		vo = dao.qnaTotalCount(vo);
+		System.out.println(vo);
+		String currNum = request.getParameter("pageNum");
+		int pageNum = 0;
+		if( currNum != null ) {
+			pageNum = Integer.parseInt(currNum);
+		}
 		
-		qnalists = dao.qnaSelectList();
+		int pageN = 0;
+		int countList = 10; // 한 페이지에 보여줄 글 갯수
+		int countPage = 10; // 페이지 갯수 ex ) [1] [2] [3] 다음
+		
+		int totalCount = vo.getTotalCount();
+		System.out.println("totalCount :: " + totalCount);
+		int block = totalCount / countList ;
+		if(totalCount % countList != 0){
+			block++;
+		}
+		
+		if (pageNum == 0) {
+			pageN = 1;
+		}else {
+			pageN = pageNum;
+			if(pageN <= 0 ) {
+				pageN = 1;
+			}
+			if(pageN > block) {
+				pageN -= 10;
+			}
+		}
+		
+		int startPage = (pageN-1) / countPage * countPage + 1; // 시작 페이지
+		int endPage = startPage + countPage - 1; // 끝 페이지
+		if (endPage > block) {
+			endPage = block;
+		}
+		
+		int start = pageN*10 - 9;
+		int end = pageN*10;
+		
+		vo.setStartPage(start);
+		vo.setEndPage(end);
+		
+		qnalists = dao.qnaSelectList(vo);
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
 		
@@ -47,6 +91,8 @@ public class QandAList extends HttpServlet {
 		}
 		
 		request.setAttribute("qnalists", qnalists);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
 		
 		if( "Admin".equals(author) ) {
 			String page = "admin/qna/qnalist";

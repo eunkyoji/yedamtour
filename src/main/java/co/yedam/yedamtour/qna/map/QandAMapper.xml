@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.yedamtour.qna.map.QandAMapper">
 	<select id="qnaSelectList" resultType="co.yedam.yedamtour.qna.service.QandAVO">
-		    SELECT ROWNUM, A.QNA_ID, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_WRITER, A.QNA_WRITE_DATE, A.QNA_UPDATE_DATE,
+		SELECT * FROM(
+		    SELECT ROWNUM AS NUM, A.QNA_ID, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_WRITER, A.QNA_WRITE_DATE, A.QNA_UPDATE_DATE,
 		    	   (SELECT MEMBER_NICKNAME
 	                  FROM TOUR_MEMBER
 	                  WHERE MEMBER_ID = A.QNA_WRITER) MEMBER_NICKNAME
@@ -10,7 +11,11 @@
 		        SELECT Q.QNA_ID, Q.QNA_TITLE, Q.QNA_CONTENT, Q.QNA_WRITER, Q.QNA_WRITE_DATE, Q.QNA_UPDATE_DATE
 		                
 		          FROM TOUR_QNA Q
-		         ORDER BY QNA_ID DESC) A
+		          <if test="qnaSearch != null">
+		          WHERE QNT_TITLE LIKE '%'||#{qnaSearch}||'%'
+		          </if>
+		         ORDER BY QNA_ID DESC) A ) T
+		  WHERE T.NUM BETWEEN #{startPage} AND #{endPage}
 	</select>
 	<select id="qnaSelect" resultType="co.yedam.yedamtour.qna.service.QandAVO">
 		SELECT ROWNUM, A.QNA_ID, A.QNA_TITLE, A.QNA_CONTENT, A.QNA_WRITER, A.QNA_WRITE_DATE, A.QNA_UPDATE_DATE, A.QNA_REPLAY,
@@ -19,9 +24,15 @@
 		          WHERE MEMBER_ID = A.QNA_WRITER) MEMBER_NICKNAME
 		  FROM (
 		    SELECT Q.QNA_ID, Q.QNA_TITLE, Q.QNA_CONTENT, Q.QNA_WRITER, Q.QNA_WRITE_DATE, Q.QNA_UPDATE_DATE, Q.QNA_REPLAY
-		            
 		      FROM TOUR_QNA Q
 		     WHERE QNA_ID = #{qnaId}) A
+	</select>
+	<select id="qnaTotalCount" resultType="co.yedam.yedamtour.qna.service.QandAVO">
+		SELECT COUNT(*) AS totalCount
+		  FROM TOUR_QNA
+	  	<if test="qnaSearch != null">
+         WHERE QNT_TITLE LIKE '%'||#{qnaSearch}||'%'
+        </if>
 	</select>
 	<insert id="qnaInsert" parameterType="co.yedam.yedamtour.qna.service.QandAVO">
 		<selectKey keyProperty="qnaId" resultType="int" order="BEFORE">
