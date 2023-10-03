@@ -14,8 +14,8 @@ public class NoticeServiceImpl implements NoticeService {
 	private NoticeMapper map = sqlSession.getMapper(NoticeMapper.class);
 	
 	@Override
-	public List<NoticeVO> noticeSelectList() {
-		return map.noticeSelectList();
+	public List<NoticeVO> noticeSelectList(NoticeVO vo) {
+		return map.noticeSelectList(vo);
 	}
 
 	@Override
@@ -37,6 +37,11 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int noticeDelete(NoticeVO vo) {
 		return map.noticeDelete(vo);
+	}
+
+	@Override
+	public NoticeVO noticeTotalCount(NoticeVO vo) {
+		return map.noticeTotalCount(vo);
 	}
 
 }

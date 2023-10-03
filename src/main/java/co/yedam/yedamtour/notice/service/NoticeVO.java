@@ -15,6 +15,11 @@ public class NoticeVO {
 	private Date 		noticeWriteDate;
 	private Date 		noticeUpdateDate;
 	private String		noticeThumb;
-	private int			rownum;
+	private int			num;
 	private String		noticeViewDate;
+	private int			totalCount;
+	private String		noticeSearch;
+	private int			startPage;
+	private int			endPage;
+	private int			currNum;
 }
