@@ -15,6 +15,7 @@
 </head>
 <body>
 	<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
+	<form id="frm" action="booking.do" method="post" enctype="form-data">
 	<section class="pt-5 pt-md-9" id="booking">
 		<div class="untree_co-section">
 			<div class="container">
@@ -66,8 +67,6 @@
 					</div>
 
 					<div class="col-md-6">
-						<form id="frm" action="booking.do" method="post"
-							enctype="form-data">
 							<div class="row mb-5">
 								<div class="col-md-12">
 									<br> <br>
@@ -94,9 +93,10 @@
 											<div class="row">
 												<div class="col-md-12">
 													<a href="cart.do" style="color: white">
-														<button class="btn-lg">예약하기
-													</a>
+														<button class="btn-lg" onclick="reservationcall(${memberId})">예약하기
 													</button>
+													<input type="hidden" id="memberId" name="memberId">
+													</a>
 												</div>
 											</div>
 											<%-- <c:choose>
@@ -109,13 +109,13 @@
 									</div>
 								</div>
 							</div>
-						</form>
 					</div>
 				</div>
 				<!-- </form> -->
 			</div>
 		</div>
 	</section>
+	</form>
 
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
@@ -165,6 +165,10 @@
 								+ end.format('YYYY-MM-DD'));
 					});
 		});
+		
+		function reservationcall(memberId){
+			
+		}
 	</script>
 </body>
 </html>

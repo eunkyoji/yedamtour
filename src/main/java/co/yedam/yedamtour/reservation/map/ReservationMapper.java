@@ -10,4 +10,5 @@ public interface ReservationMapper {
 	int reservationTransInsert(ReservationVO vo);
 	int reservationTransUpdate(ReservationVO vo);
 	int reservationTransDelete(ReservationVO vo);
+	int reservationStayInsert(ReservationVO vo);
 }

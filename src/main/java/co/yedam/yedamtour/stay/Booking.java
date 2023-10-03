@@ -48,7 +48,11 @@ public class Booking extends HttpServlet {
 		MemberService mdao = new MemberServiceImpl();
 		MemberVO mvo = new MemberVO();
 		mvo.setMemberId(request.getParameter("memberId"));
-		mvo = mdao.signupIdSelect(mvo);
+		request.setAttribute("id",request.getParameter("memberId"));
+//		mvo = mdao.signupIdSelect(mvo);
+		mvo = mdao.idCheckSelect(mvo);
+		System.out.println("sdfsss");
+		System.out.println(mvo);
 		
 		String json = null;
 		
@@ -58,13 +62,14 @@ public class Booking extends HttpServlet {
 			
 			hvo.setHotelId(Integer.parseInt(hotelId));
 			hvo.setHotelSubId(Integer.parseInt(hotelSubId));
-			hvo = hdao.hotelRoomSelect(hvo);
+			hvo = hdao.hotelRoomSelect(hvo);			
 			
 			hvo.setMemberId(mvo.getMemberId());
 			hvo.setMemberName(mvo.getMemberName());
 			hvo.setMemberPhone(mvo.getMemberPhone());
 			hvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", hvo);
+			request.setAttribute("member", mvo);
 			request.setAttribute("cid", 1);
 			json = objectMapper.writeValueAsString(hvo);
 			
@@ -81,6 +86,7 @@ public class Booking extends HttpServlet {
 			pvo.setMemberPhone(mvo.getMemberPhone());
 			pvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", pvo);
+			request.setAttribute("member", mvo);
 			request.setAttribute("cid", 2);
 			json = objectMapper.writeValueAsString(pvo);
 			
@@ -97,6 +103,7 @@ public class Booking extends HttpServlet {
 			cvo.setMemberPhone(mvo.getMemberPhone());
 			cvo.setCategoryId(categoryId);
 			request.setAttribute("reserves", cvo);
+			request.setAttribute("member", mvo);
 			request.setAttribute("cid", 3);
 			json = objectMapper.writeValueAsString(cvo);
 			
