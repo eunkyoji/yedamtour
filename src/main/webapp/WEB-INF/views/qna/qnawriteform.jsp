@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +29,7 @@ body{
 }
 </style>
 <body>
+<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 <section class="pt-5 pt-md-9">
 <div class="contact_section">
 	<main id="main" class="main">
@@ -55,6 +57,7 @@ body{
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 							</div>
+							<input type="hidden" name="qnaeWriter" value="${id }">
 							</form>
 						</div>
 					</div>
