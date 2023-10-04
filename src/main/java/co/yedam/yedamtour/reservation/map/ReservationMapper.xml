@@ -12,36 +12,6 @@
 		SELECT * FROM TOUR_RESERVATION
 	</select>
 
-
-<insert id="reservationStayInsert" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-	<selectKey keyProperty="reservationId" resultType="int" order="BEFORE">
-		SELECT NVL(MAX(RESERVATION_ID), 0) + 1 AS ID
-		FROM TOUR_RESERVATION
-	</selectKey>
-	INSERT INTO TOUR_RESERVATION(RESERVATION_ID, STAY_ID, RESERVATION_PERSONNEL, RESERVATION_WRITER_ID,
-	RESERVATION_PRICE, CATEGORY_ID, RESERVATION_STARTDATE, RESERVATION_ENDDATE, RESERVATION_NAME,
-	RESERVATION_PHONE, STAY_SUB_ID)
-	VALUES(#{reservationId}, #{stayId}, #{reservationPersonnel}, #{reservationWriteId}, #{reservationPrice},
-		   #{categoryId}, #{reservationStartDate}, #{reservationFinishDate}, #{reservationName}, #{reservationPhone}, #{staySubId})
-</insert>
-
-<insert id="reservationTransInsert" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-	<selectKey keyProperty="reservationId" resultType="int" order="BEFORE">
-		SELECT NVL(MAX(RESERVATION_ID), 0) + 1 AS ID
-		FROM TOUR_RESERVATION
-	</selectKey>
-	INSERT INTO TOUR_RESERVATION(RESERVATION_ID, TRAFFIC_ID, RESERVATION_PERSONNEL, RESERVATION_WRITER_ID, 
-								 RESERVATION_PRICE, RESERVATION_PAYMENTYN, RESERVATION_STATE, CATEGORY_ID, 
-								 RESERVATION_STARTDATE, RESERVATION_ENDDATE, RESERVATION_START, RESERVATION_FINISH, 
-								 RESERVATION_GRADE, RESERVATION_DEPTIME, RESERVATION_ARRTIME, RESERVATION_NAME, RESERVATION_PHONE,
-								 STAY_SUB_ID)
-    VALUES(#{reservationId}, #{airplaneId}, #{person}, #{reservationWriterId}, #{airplanePrice},
-    	   #{reservationPaymentyn}, #{reservationState}, #{categoryId}, #{startDate},
-    	   #{finishDate}, #{airplaneStart}, #{airplaneFinish}, #{airplaneGrade},
-    	   #{airplaneDeptime}, #{airplaneArrtime}, #{reservationName}, #{reservationPhone}, #{staySubId})                            
-</insert>
-
-
 	<select id="reservationCartSelectList"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
 		SELECT * FROM TOUR_RESERVATION
@@ -55,8 +25,7 @@
 		WHERE RESERVATION_WRITER_ID = #{reservationWriterId}
 		and reservation_state = 1
 	</select>
-<update id="reservationTransUpdate" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-</update>
+
 
 	<select id="reservationTransSelect"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
