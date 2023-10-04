@@ -73,7 +73,7 @@
 							<div class="row mb-5">
 								<div class="col-md-12">
 									<br> <br>
-									<h2 class="h3 mb-3 text-black">입력 정보 확인</h2>
+									<h2 class="h3 mb-3 text-black">입력 정보 확인</h2> 
 									<div id="info">
 										<div class="p-3 p-lg-5 border">
 											<table class="table site-block-order-table mb-5">
