@@ -46,19 +46,19 @@
 													<c:forEach items="${list}" var="t">
 														<tr style="cursor: pointer"
 															onclick="ticketSelect(${t.ticketId}, ${t.categoryId })">
-															<th scope="row">${s.rowN }</th>
+															<th scope="row">${t.rowN }</th>
 															<c:choose>
 																<c:when test="${not empty img }">
 																	<c:choose>
-																		<c:when test="${categoryId == 21 }">
+																		<c:when test="${categoryId eq '21' }">
 																			<td><img
 																				src="ticket/img/aquarium/${t.img}"></td>
 																		</c:when>
-																		<c:when test="${categoryId == 22 }">
+																		<c:when test="${categoryId eq '22' }">
 																			<td><img
 																				src="ticket/img/themepark/${t.img}"></td>
 																		</c:when>
-																		<c:when test="${categoryId == 22 }">
+																		<c:when test="${categoryId eq '22' }">
 																			<td><img
 																				src="ticket/img/waterpark/${t.img}"></td>
 																		</c:when>
@@ -71,7 +71,7 @@
 																	<td></td>
 																</c:otherwise>
 															</c:choose>
-															<td align="left">${s.categoryName}</td>
+															<td align="left">${t.categoryName}</td>
 															<td>${t.ticketName }</td>
 														</tr>
 													</c:forEach>
@@ -83,18 +83,18 @@
 
 										<ul class="pagination" style="text-align: center;">
 											<li class="page-item"><a class="page-link"
-												href="staylist.do?pageNum=${(endPage - 5)}"
+												href="ticketlist.do?pageNum=${(endPage - 5)}"
 												aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 											</a></li>
 
 											<c:forEach var="i" begin="${startPage }" end="${endPage }">
 												<li class="page-item"><a class="page-link"
-													href="staylist.do?pageNum=${i}" id="btn${i }"
+													href="ticketlist.do?pageNum=${i}" id="btn${i }"
 													onClick="clickEvent(${i})">${i}</a></li>
 											</c:forEach>
 
 											<li class="page-item"><a class="page-link"
-												href="staylist.do?pageNum=${startPage + 5}"
+												href="ticketlist.do?pageNum=${startPage + 5}"
 												aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 											</a></li>
 										</ul>

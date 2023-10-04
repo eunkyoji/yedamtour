@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 	<nav
 		class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block"
 		data-navbar-on-scroll="data-navbar-on-scroll">
