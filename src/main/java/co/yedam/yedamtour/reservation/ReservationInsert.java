@@ -27,7 +27,7 @@ public class ReservationInsert extends HttpServlet {
 		
 		rvo.setCategoryId(request.getParameter("categoryId"));
 		rvo.setReservationName(request.getParameter("reservationName"));
-		rvo.setReservationWriteId(request.getParameter("reservationWriterId"));
+		rvo.setReservationWriterId(request.getParameter("reservationWriterId"));
 		rvo.setReservationPhone(request.getParameter("reservationPhone"));
 		rvo.setReservationPersonnel(Integer.valueOf(request.getParameter("reservationPersonnel")));
 		rvo.setReservationPrice(request.getParameter("reservationPrice"));

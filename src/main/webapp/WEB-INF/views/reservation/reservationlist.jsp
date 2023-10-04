@@ -97,6 +97,7 @@
 			</div>
 		</section>
 		<section class="section">
+		<input type="hidden" id="categoryId" name="categoryId" value="13">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="card">
@@ -110,14 +111,9 @@
 										<th scope="col">예약번호</th>
 										<th scope="col">예약자</th>
 										<th scope="col">분류</th>
-										<th scope="col">등급</th>
 										<th scope="col">출발지</th>
 										<th scope="col">도착지</th>
-										<th scope="col">가는날</th>
-										<th scope="col">출발시간</th>
-										<th scope="col">도착시간</th>
 										<th scope="col">인원</th>
-										<th scope="col">가격</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -125,14 +121,9 @@
 										<th scope="row">${reservationId }</th>
 										<td>${reservationWriteId}</td>
 										<td>${categoryId }</td>
-										<td>${reservationGrade }</td>
 										<td>${reservationStart }</td>
 										<td>${reservationFinish }</td>
-										<td>${Startdate }</td>
-										<td>${reservationDeptime }</td>
-										<td>${reservationArrtime }</td>
-										<td>${Person }</td>
-										<td>${finishPrice }</td>
+										<td>${person }</td>
 									</tr>
 								</tbody>
 							</table>
@@ -143,14 +134,9 @@
 										<th scope="col">예약번호</th>
 										<th scope="col">예약자</th>
 										<th scope="col">분류</th>
-										<th scope="col">등급</th>
 										<th scope="col">출발지</th>
 										<th scope="col">도착지</th>
-										<th scope="col">오는날</th>
-										<th scope="col">출발시간</th>
-										<th scope="col">도착시간</th>
 										<th scope="col">인원</th>
-										<th scope="col">가격</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -161,11 +147,7 @@
 										<td>Designer</td>
 										<td>Designer</td>
 										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
+										
 									</tr>
 									<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="noticedetail.do">
 										<th scope="row">1</th>
@@ -173,12 +155,7 @@
 										<td>Designer</td>
 										<td>Designer</td>
 										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
-										<td>Designer</td>
+										<td>Designer</td>										
 									</tr>
 								</tbody>
 							</table>

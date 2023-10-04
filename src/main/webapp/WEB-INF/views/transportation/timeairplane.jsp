@@ -23,6 +23,10 @@
 <body>
 		<div class="untree_co-section before-footer-section">
 			<form action="resultairplane.do" class="col-md-12" method="post">
+			
+			<input type="hidden" name="${categoryId }" value="13">
+			<input type="hidden" name="${airplaneId }" value="${airplaneId }">
+			
 			<div class="container" style="margin-top: 200px;">
 			<div class="intro-excerpt" style="text-align: center">
 					<input type="hidden" name="person" value="${person }">
