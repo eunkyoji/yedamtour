@@ -21,9 +21,13 @@ public class StayVO {
 	private int		rPrice;
 	private int		subId;
 	private int		categoryId;
+	private String	categoryName;
 	private String	bedType;
-	private int			totalCount;
-	private int			startPage;
-	private int			endPage;
-	private int			currNum;
+	private int		totalCount;
+	private int		startPage;
+	private int		endPage;
+	private int		currNum;
+	private int		rowN;
+	private int		start;
+	private int		end;
 }

@@ -27,13 +27,17 @@ public class StayList extends HttpServlet {
 		List<StayVO>	list = new ArrayList<StayVO>();
 		StayService		 dao = new StayServiceImpl();
 		StayVO			  vo = new StayVO();
+		System.out.println("1111111111111111111");
 		
-		String cid = request.getParameter("categoryId");
+		String id = request.getParameter("categoryId");
+		
+		System.out.println("id:::: " + id);
+		
 		int categoryId = 0;
-		if( cid != null ) {
-			categoryId = Integer.valueOf(cid);
+		if( !"".equals(id) && id != null ) {
+			categoryId = Integer.valueOf(id);
 		}
-		
+		System.out.println("categoryId :: " + categoryId);
 		vo = dao.stayTotalCount(categoryId);
 		String currNum = request.getParameter("pageNum");
 		int pageNum = 0;
@@ -52,7 +56,6 @@ public class StayList extends HttpServlet {
 			block++;
 		}
 		
-		System.out.println("pageNum::: " + pageNum);
 		if (pageNum == 0) {
 			pageN = 1;
 		}else {
@@ -74,12 +77,15 @@ public class StayList extends HttpServlet {
 		int start = pageN*10 - 9;
 		int end = pageN*10;
 		
+		vo.setCategoryId(categoryId);
 		vo.setStartPage(start);
 		vo.setEndPage(end);
 		
-		list = dao.staySelectList(categoryId);
+		list = dao.staySelectList(vo);
 		
 		request.setAttribute("list", list);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
 		
 		String page = "admin/manager/staylist";
 		ViewResolve.forward(request, response, page);

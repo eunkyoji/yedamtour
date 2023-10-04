@@ -45,8 +45,8 @@
 												<c:otherwise>
 													<c:forEach items="${list}" var="s">
 														<tr style="cursor: pointer"
-															onclick="staySelect(${s.stayId})">
-															<th scope="row">${f.num }</th>
+															onclick="staySelect(${s.stayId}, ${s.categoryId })">
+															<th scope="row">${s.rowN }</th>
 															<c:choose>
 																<c:when test="${empty s.stayImg }">
 																	<td></td>
@@ -68,18 +68,18 @@
 
 										<ul class="pagination" style="text-align: center;">
 											<li class="page-item"><a class="page-link"
-												href="freeboardlist.do?pageNum=${(endPage - 5)}"
+												href="staylist.do?pageNum=${(endPage - 5)}"
 												aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 											</a></li>
 
 											<c:forEach var="i" begin="${startPage }" end="${endPage }">
 												<li class="page-item"><a class="page-link"
-													href="freeboardlist.do?pageNum=${i}" id="btn${i }"
+													href="staylist.do?pageNum=${i}" id="btn${i }"
 													onClick="clickEvent(${i})">${i}</a></li>
 											</c:forEach>
 
 											<li class="page-item"><a class="page-link"
-												href="freeboardlist.do?pageNum=${startPage + 5}"
+												href="staylist.do?pageNum=${startPage + 5}"
 												aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 											</a></li>
 										</ul>

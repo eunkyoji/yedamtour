@@ -5,7 +5,7 @@ import java.util.List;
 import co.yedam.yedamtour.stay.service.StayVO;
 
 public interface StayMapper {
-	List<StayVO>	staySelectList(int categoryId);
+	List<StayVO>	staySelectList(StayVO vo);
 	StayVO			staySelect(StayVO vo);
 	StayVO			stayTotalCount(int categoryId);
 	int				stayInsert(StayVO vo);

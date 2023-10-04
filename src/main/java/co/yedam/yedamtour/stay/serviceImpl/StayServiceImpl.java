@@ -14,8 +14,8 @@ public class StayServiceImpl implements StayService{
 	private StayMapper		  map = sqlSession.getMapper(StayMapper.class);
 
 	@Override
-	public List<StayVO> staySelectList(int categoryId) {
-		return map.staySelectList(categoryId);
+	public List<StayVO> staySelectList(StayVO vo) {
+		return map.staySelectList(vo);
 	}
 
 	@Override
