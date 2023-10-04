@@ -48,12 +48,27 @@
 															onclick="ticketSelect(${t.ticketId}, ${t.categoryId })">
 															<th scope="row">${s.rowN }</th>
 															<c:choose>
-																<c:when test="${empty t.img }">
-																	<td></td>
+																<c:when test="${not empty img }">
+																	<c:choose>
+																		<c:when test="${categoryId == 21 }">
+																			<td><img
+																				src="ticket/img/aquarium/${t.img}"></td>
+																		</c:when>
+																		<c:when test="${categoryId == 22 }">
+																			<td><img
+																				src="ticket/img/themepark/${t.img}"></td>
+																		</c:when>
+																		<c:when test="${categoryId == 22 }">
+																			<td><img
+																				src="ticket/img/waterpark/${t.img}"></td>
+																		</c:when>
+																		<c:otherwise>
+																			<td></td>
+																		</c:otherwise>
+																	</c:choose>
 																</c:when>
 																<c:otherwise>
-																	<td><img
-																		src="ticket/img/${t.img}"></td>
+																	<td></td>
 																</c:otherwise>
 															</c:choose>
 															<td align="left">${s.categoryName}</td>
@@ -115,8 +130,6 @@
 	</form>
 
 	<script>
-		//게시글 상세조회
-		
 		function ticketSelect(id, categoryId){
 			let form = document.getElementById("sform");
 			form.stayId.value = id;
