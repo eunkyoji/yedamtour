@@ -47,35 +47,13 @@
 												<c:otherwise>
 													<c:forEach items="${list}" var="t">
 														<tr style="cursor: pointer"
-															onclick="ticketSelect(${t.ticketId}, ${t.categoryId })">
+															onclick="ticketSelect(${t.tId}, ${t.categoryId })">
 															<th scope="row">${t.rowN }</th>
-															<c:choose>
-																<c:when test="${not empty img }">
-																	<c:choose>
-																		<c:when test="${categoryId == '21' }">
-																			<td><img
-																				src="ticket/img/aquarium/${t.img}"></td>
-																		</c:when>
-																		<c:when test="${categoryId == '22' }">
-																			<td><img
-																				src="ticket/img/themepark/${t.img}"></td>
-																		</c:when>
-																		<c:when test="${categoryId == '23' }">
-																			<td><img
-																				src="ticket/img/waterpark/${t.img}"></td>
-																		</c:when>
-																		<c:otherwise>
-																			<td></td>
-																		</c:otherwise>
-																	</c:choose>
-																</c:when>
-																<c:otherwise>
-																	<td></td>
-																</c:otherwise>
-															</c:choose>
-															<td align="left">${t.categoryId}</td>
 															<td align="left">${t.categoryName}</td>
-															<td>${t.ticketName }</td>
+															<td align="left">${t.tStart}</td>
+															<td align="left">${t.tFinish}</td>
+															<td align="left">${t.tdepTime}</td>
+															<td align="left">${t.arrTime}</td>
 														</tr>
 													</c:forEach>
 												</c:otherwise>
@@ -124,18 +102,18 @@
 			</main>
 		</div>
 	</section>
-	<form id="frm" action="staylist.do" method="post">
+	<form id="frm" action="transportlist.do" method="post">
 		<input type="hidden" id="categoryId" name="categoryId">
 	</form>
 	<form id="sform" action="staydetail.do" method="post">
-		<input type="hidden" id="stayId" name="stayId">
+		<input type="hidden" id="tId" name="tId">
 		<input type="hidden" id="categoryId" name="categoryId">
 	</form>
 
 	<script>
 		function ticketSelect(id, categoryId){
 			let form = document.getElementById("sform");
-			form.stayId.value = id;
+			form.tId.value = id;
 			form.categoryId.value = categoryId;
 			form.submit();
 		}

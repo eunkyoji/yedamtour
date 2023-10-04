@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.transport.map.TransportMapper">
+	<select id="transportSelectList" resultType="co.yedam.yedamtour.transport.service.TransportVO">
+		SELECT T.* FROM(
+		    SELECT ROWNUM AS ROWN, A.*, C.CATEGORY_NAME FROM(
+		        SELECT BUS_ID AS TID, BUS_START AS TSTART, BUS_FINISH AS TFINISH, BUS_DEPTIME AS DEPTIME, 11 AS CATEGORYID
+		          FROM TOUR_BUS
+		        UNION ALL
+		        SELECT TRAIN_ID AS TID, TRAIN_START AS TSTART, TRAIN_FINISH AS TFINISH, TRAIN_DEPTIME AS DEPTIME, 12 AS CATEGORYID
+		          FROM TOUR_TRAIN
+		        UNION ALL
+		        SELECT AIRPLANE_ID AS TID, AIRPLANE_START AS TSTART, AIRPLANE_FINISH AS TFINISH, AIRPLANE_DEPTIME AS DEPTIME, 13 CATEGORYID
+		          FROM TOUR_AIRPLANE
+		    ) A, TOUR_CATEGORY C
+		    WHERE A.CATEGORYID = C.CATEGORY_ID
+		    <if test="categoryId != null and categoryId > 0">
+		      AND A.CATEGORYID = #{categoryId}
+		    </if>
+		)T
+		WHERE T.ROWN BETWEEN #{startPage} AND #{endPage}
+	</select>
+	<select id="transportSelect" resultType="co.yedam.yedamtour.transport.service.TransportVO">
+		SELECT *
+		<if test="categoryId == 11">
+		  FROM TOUR_BUS
+		 WHERE BUS_ID = #{tId}
+		</if>
+		<if test="categoryId == 12">
+		  FROM TOUR_TRAIN
+		 WHERE TRAIN_ID = #{tId}
+		</if>
+		<if test="categoryId == 13">
+		  FROM TOUR_AIRPLANE
+		 WHERE AIRPLANE_ID = #{tId}
+		</if>
+	</select>
+	<select id="transportTotalCount" resultType="co.yedam.yedamtour.transport.service.TransportVO">
+		SELECT COUNT(*) AS TOTALCOUNT FROM(
+		    SELECT ROWNUM AS ROWN, A.*, C.CATEGORY_NAME FROM(
+		        SELECT BUS_ID AS TID, BUS_START AS TSTART, BUS_FINISH AS TFINISH, BUS_DEPTIME AS DEPTIME, 11 AS CATEGORYID
+		          FROM TOUR_BUS
+		        UNION ALL
+		        SELECT TRAIN_ID AS TID, TRAIN_START AS TSTART, TRAIN_FINISH AS TFINISH, TRAIN_DEPTIME AS DEPTIME, 12 AS CATEGORYID
+		          FROM TOUR_TRAIN
+		        UNION ALL
+		        SELECT AIRPLANE_ID AS TID, AIRPLANE_START AS TSTART, AIRPLANE_FINISH AS TFINISH, AIRPLANE_DEPTIME AS DEPTIME, 13 CATEGORYID
+		          FROM TOUR_AIRPLANE
+		    ) A, TOUR_CATEGORY C
+		    WHERE A.CATEGORYID = C.CATEGORY_ID
+		    <if test="categoryId != null and categoryId > 0">
+		      AND A.CATEGORYID = #{categoryId}
+		    </if>
+		)T
+	</select>
+	<insert id="transportInsert" parameterType="co.yedam.yedamtour.transport.service.TransportVO">
+	</insert>
+	<update id="transportUpdate" parameterType="co.yedam.yedamtour.transport.service.TransportVO">
+	</update>
+	<delete id="transportDelete" parameterType="co.yedam.yedamtour.transport.service.TransportVO">
+	</delete>
+</mapper>
