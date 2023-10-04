@@ -39,7 +39,7 @@
 </insert>
 
 <update id="reservationTransUpdate" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-
+ 
 </update>
 
 <delete id="reservationTransDelete" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
