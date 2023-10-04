@@ -113,7 +113,7 @@
                 <!-- END row -->
                 <div class="row">                  
                   <div class="col-md">
-                    <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
+                    <a href="#"><input type="submit" value="운행 시간표" class="btn btn-primary btn-block"></a>
                   </div>
                 </div>
               </div>
