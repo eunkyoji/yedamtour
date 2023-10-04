@@ -17,4 +17,5 @@ public interface ReservationService {
 	int reservationTransDelete(ReservationVO vo);
 	int reservationStayInsert(ReservationVO vo);
 	int reservationTicketInsert(ReservationVO vo);
+	int reservationSendCheckUpdate(ReservationVO vo);
 }

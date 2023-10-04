@@ -67,4 +67,9 @@ public class ReservationServiceImpl implements ReservationService {
 		return map.reservationCartFinishSelectList(vo);
 	}
 
+	@Override
+	public int reservationSendCheckUpdate(ReservationVO vo) {
+		return map.reservationSendCheckUpdate(vo);
+	}
+
 }

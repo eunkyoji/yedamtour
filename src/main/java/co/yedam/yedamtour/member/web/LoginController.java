@@ -49,7 +49,7 @@ public class LoginController extends HttpServlet {
 				page = "tour.do";
 				response.sendRedirect(page);
 			} else {
-				page = "adminhome.do";
+				page = "reserv.do";
 				response.sendRedirect(page);
 			}
 

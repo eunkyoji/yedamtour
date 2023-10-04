@@ -92,6 +92,9 @@ public class ReservationListTest extends HttpServlet {
 			String cId = categoryVo.getCategoryId();
 			
 			String pName = themeparkVo.getThemeparkName();
+			
+			String companyEmail = themeparkVo.getCompanyEmail();
+			System.out.println(companyEmail);
 
 			// db에 값입력
 			reservationVo.setTicketId(tid);
@@ -100,6 +103,7 @@ public class ReservationListTest extends HttpServlet {
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
 			reservationVo.setProductName(pName);
+			reservationVo.setCompanyEmail(companyEmail);
 
 			
 			int result = reservationDao.reservationTicketInsert(reservationVo);
@@ -121,6 +125,7 @@ public class ReservationListTest extends HttpServlet {
 			String cId = categoryVo.getCategoryId();
 
 			String pName = aquariumVo.getAquariumName();
+			String companyEmail = aquariumVo.getCompanyEmail();
 			
 			// db에 값입력
 			reservationVo.setTicketId(tid);
@@ -128,8 +133,8 @@ public class ReservationListTest extends HttpServlet {
 			reservationVo.setReservationWriterId(userId);
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
-
 			reservationVo.setProductName(pName);
+			reservationVo.setCompanyEmail(companyEmail);
 			
 			
 			int result = reservationDao.reservationTicketInsert(reservationVo);
@@ -148,17 +153,16 @@ public class ReservationListTest extends HttpServlet {
 			categoryVo = categoryDao.categorySelect(categoryVo);
 
 			String cId = categoryVo.getCategoryId();
-
-			
 			String pName = waterparkVo.getWaterparkName();
+			String companyEmail = waterparkVo.getCompanyEmail();
 			// db에 값입력
 			reservationVo.setTicketId(tid);
 			reservationVo.setReservationPersonnel(cnt);
 			reservationVo.setReservationWriterId(userId);
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
-			
 			reservationVo.setProductName(pName);
+			reservationVo.setCompanyEmail(companyEmail);
 			
 
 			int result = reservationDao.reservationTicketInsert(reservationVo);

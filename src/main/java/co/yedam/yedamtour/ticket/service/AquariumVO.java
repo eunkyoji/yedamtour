@@ -12,4 +12,5 @@ public class AquariumVO {
 	int aquariumPrice;
 	String aquariumBrif;
 	String aquariumImg;
+	String companyEmail;
 }

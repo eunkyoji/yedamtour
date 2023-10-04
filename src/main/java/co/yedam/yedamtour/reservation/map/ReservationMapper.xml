@@ -116,14 +116,21 @@
 		INSERT INTO TOUR_RESERVATION(RESERVATION_ID, Ticket_Id,
 		RESERVATION_PERSONNEL,
 		RESERVATION_WRITER_ID, RESERVATION_PRICE,
-		CATEGORY_ID,Product_Name)
+		CATEGORY_ID,Product_Name,company_email)
 		values(#{reservationId},#{ticketId},#{reservationPersonnel},#{reservationWriterId},#{reservationPrice},
-		#{categoryId},#{productName})
+		#{categoryId},#{productName},#{companyEmail})
 	</insert>
 
 	<update id="reservationCartUpdate"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
 		UPDATE tour_reservation SET reservation_state = 1
+		WHERE
+		reservation_id = #{reservationId}
+	</update>
+	
+	<update id="reservationSendCheckUpdate"
+		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		UPDATE tour_reservation SET send_check = 'yes'
 		WHERE
 		reservation_id = #{reservationId}
 	</update>
