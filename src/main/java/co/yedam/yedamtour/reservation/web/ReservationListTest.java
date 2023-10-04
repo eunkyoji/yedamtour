@@ -25,7 +25,7 @@ import co.yedam.yedamtour.ticket.serviceImpl.AquariumServiceImpl;
 import co.yedam.yedamtour.ticket.serviceImpl.ThemeparkServiceImpl;
 import co.yedam.yedamtour.ticket.serviceImpl.WaterparkServiceImpl;
 
-@WebServlet("/reservationlisttest.do")
+@WebServlet("/reservationlistmain.do")
 public class ReservationListTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

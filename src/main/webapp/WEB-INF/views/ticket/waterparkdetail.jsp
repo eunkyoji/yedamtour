@@ -137,7 +137,7 @@
 			
 			 $('#cartSubmit').on('click', function() {
 					$.ajax({
-						url : 'reservationlisttest.do',
+						url : 'reservationlistmain.do',
 						method : 'post',
 						data : {
 							wname : '${vo.waterparkName}',

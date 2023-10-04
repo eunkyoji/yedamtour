@@ -106,9 +106,7 @@
 		</div>
 	
 		<!-- 씨:if 	3번째7번째 11번째는 두줄정렬되게 status.index-->
-		<div align="center">
-			<button>리스트 더보기</button>
-		</div>
+	
 
 	</div>
 
