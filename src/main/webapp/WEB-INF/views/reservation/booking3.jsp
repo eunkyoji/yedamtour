@@ -28,40 +28,40 @@
 									<div class="col-md-6">
 										<label for="c_fname" class="text-black rowtitle"> 예약자
 											이름<span class="text-danger"> *</span>
-										</label> <input type="text" class="form-control" id="c_fname"
-											name="c_fname">
+										</label> <input type="text" class="form-control" id="reservationName"
+											name="reservationName" value="${member.memberName }">
 									</div>
 
 									<div class="form-group row mb-5">
 										<div class="col-md-6">
 											<label for="c_email_address" class="text-black rowtitle">이메일
 												주소<span class="text-danger"> *</span>
-											</label> <input type="text" class="form-control" id="c_email_address"
-												name="c_email_address">
+											</label> <input type="text" class="form-control" id="reservationWriterId"
+												name="reservationWriterId" value="${member.memberId }">
 										</div>
 										<div class="col-md-6">
 											<label for="c_phone" class="text-black rowtitle">휴대폰
 												번호<span class="text-danger"> *</span>
-											</label> <input type="text" class="form-control" id="c_phone"
-												name="c_phone">
+											</label> <input type="text" class="form-control" id="reservationPhone"
+												name="reservationPhone" value="${member.memberPhone }">
 										</div>
 										<div class="form-group">
 											<label for="c_country" class="text-black rowtitle">인원
 												수 <span class="text-danger"> *</span>
-											</label> <select id="c_country" class="form-control">
-												<option value="1">인원수를 선택하세요.</option>
-												<option value="2">1명</option>
-												<option value="3">2명</option>
-												<option value="4">3명</option>
-												<option value="5">4명</option>
-												<option value="6">5명</option>
+											</label> <select id="reservationPersonnel" name="reservationPersonnel" class="form-control">
+												<option value="1">1명</option>
+												<option value="2">2명</option>
+												<option value="3">3명</option>
+												<option value="4">4명</option>
+												<option value="5">5명</option>
+												<option value="6">6명</option>
 											</select>
 										</div>
 										<div class="col-md-6 datepk">
 											<label class="text-black rowtitle">예약 날짜<span
 												class="text-danger"> *</span>
 											</label><input type="text" name="daterange" class="form-control"
-												value="01/01/2018 - 01/15/2018">
+												value="" placeholder="예약 날짜를 선택하세요.">
 										</div>
 									</div>
 								</div>
@@ -86,7 +86,9 @@
 														<td class="title">${reserves.campingName }
 															(${reserves.campingRoomName })</td>
 														<td class="hab"><fmt:formatNumber
-																value="${reserves.campingRoomPrice }" pattern="#,###" />원</td>
+																value="${reserves.campingRoomPrice }" pattern="#,###" />원
+																<input type="hidden" id="reservationPrice" name="reservationPrice" value="${reserves.campingRoomPrice }">
+																</td>
 													</tr>
 													<tr>
 														<td class="text-black font-weight-bold"><strong>TOTAL</strong></td>
@@ -99,17 +101,18 @@
 											</table>
 											<div class="row">
 												<div class="col-md-12">
-													<a href="cart.do" style="color: white">
-														<button class="btn-lg">예약하기</button>
+													<a href="cart.do">
+														<input type="submit" class="btn-lg" value="예약하기">
 													</a>
 												</div>
 											</div>
-											<%-- <c:choose>
-									<input type="hidden" id="hotelId" name="hotelId" value="${hotels.hotelId }">									
-									<input type="hidden" id="hotelSubId" name="hotelSubId">
-									<input type="hidden" id="memberId" name="memberId" value="${id }">
-									<input type="hidden" id="categoryId" name="categoryId" value="${categoryId }">
-									</c:choose> --%>
+											<input type="hidden" id="campingId" name="campingId"
+												value="${reserves.campingId }"> <input type="hidden"
+												id="campingSubId" name="campingSubId"
+												value="${reserves.campingSubId }"> <input
+												type="hidden" id="memberId" name="memberId" value="${id }">
+											<input type="hidden" id="categoryId" name="categoryId"
+												value="${reserves.categoryId }">
 										</div>
 									</div>
 								</div>
