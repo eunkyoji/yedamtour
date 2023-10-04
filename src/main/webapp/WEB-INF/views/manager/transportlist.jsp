@@ -18,22 +18,23 @@
 
 							<div class="card">
 								<div class="card-body">
-									<h5 class="card-title" align="left">Ticket List</h5>
+									<h5 class="card-title" align="left">Transport List</h5>
 									<select class="datatable-selector" name="categoryId" id="categoryId" onchange="categorySelect(this.value)">
 										<option value="null">전체</option>
-									    <option value="21">아쿠아리움</option>
-									    <option value="22">테마파크</option>
-									    <option value="23">워터파크</option>
+									    <option value="11">버스</option>
+									    <option value="12">기차</option>
+									    <option value="13">비행기</option>
 									</select>
 									<!-- Table with stripped rows -->
 									<table class="table">
 										<thead>
 											<tr>
 												<th scope="col">번호</th>
-												<th scope="col">이미지</th>
-												<th scope="col">이미지</th>
 												<th scope="col">분류</th>
-												<th scope="col">장소명</th>
+												<th scope="col">출발지</th>
+												<th scope="col">도착지</th>
+												<th scope="col">출발시간</th>
+												<th scope="col">도착시간</th>
 											</tr>
 										</thead>
 										<tbody>
