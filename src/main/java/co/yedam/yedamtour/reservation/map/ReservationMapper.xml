@@ -66,7 +66,7 @@
 		WHERE RESERVATION_ID =
 		#{reservationId}
 	</select>
-
+	
 	<insert id="reservationTransInsert"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
 		<selectKey keyProperty="reservationId" resultType="int"
