@@ -12,7 +12,6 @@
 		FROM TOUR_RESERVATION R JOIN TOUR_CATEGORY C
 		ON
 		R.CATEGORY_ID = C.CATEGORY_ID
-
 	</select>
 	<insert id="reservationStayInsert"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
@@ -36,6 +35,7 @@
 		#{reservationName},
 		#{reservationPhone}, #{staySubId})
 	</insert>
+
 
 	<insert id="reservationTransInsert"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
@@ -89,16 +89,19 @@
 			and reservation_state = 1 -->
 	</select>
 
+
 	<select id="reservationTransSelect"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
 		SELECT * FROM TOUR_RESERVATION
 		WHERE RESERVATION_ID =
 		#{reservationId}
 	</select>
+
 	<update id="reservationTransUpdate"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
 
 	</update>
+
 
 	<delete id="reservationTransDelete"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
