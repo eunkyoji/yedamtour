@@ -13,7 +13,7 @@
 
 			<!-- 예약정보 리스트 Start -->
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="reservationlist.do">
+				<a class="nav-link collapsed" href="reser.do">
 					<i></i> <span>예약정보 리스트</span>
 				</a>
 			</li>

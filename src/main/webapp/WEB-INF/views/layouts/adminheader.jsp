@@ -10,7 +10,7 @@
 	<header id="header" class="header fixed-top d-flex align-items-center">
 
 		<div class="d-flex align-items-center justify-content-between">
-			<a class="navbar-brand" href="tour.do"><p>
+			<a class="navbar-brand" href="reserv.do"><p>
 					<b>YDTour</b>
 				<p></a>
 			<i class="bi bi-list toggle-sidebar-btn"></i>

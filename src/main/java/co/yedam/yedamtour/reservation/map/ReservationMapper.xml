@@ -89,43 +89,12 @@
 			and reservation_state = 1 -->
 	</select>
 
-
-<update id="reservationTransUpdate" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-</update>
-
 	<select id="reservationTransSelect"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
 		SELECT * FROM TOUR_RESERVATION
 		WHERE RESERVATION_ID =
 		#{reservationId}
 	</select>
-	
-	<insert id="reservationTransInsert"
-		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
-		<selectKey keyProperty="reservationId" resultType="int"
-			order="BEFORE">
-			SELECT NVL(MAX(RESERVATION_ID), 0) + 1 AS ID
-			FROM
-			TOUR_RESERVATION
-		</selectKey>
-		INSERT INTO TOUR_RESERVATION(RESERVATION_ID, TRAFFIC_ID,
-		RESERVATION_PERSONNEL, RESERVATION_WRITER_ID,
-		RESERVATION_PRICE,
-		RESERVATION_PAYMENTYN, RESERVATION_STATE, CATEGORY_ID,
-		RESERVATION_STARTDATE, RESERVATION_ENDDATE, RESERVATION_START,
-		RESERVATION_FINISH,
-		RESERVATION_GRADE, RESERVATION_DEPTIME,
-		RESERVATION_ARRTIME)
-		VALUES(#{reservationId}, #{airplaneId}, #{person},
-		#{reservationWriterId}, #{airplanePrice},
-		#{reservationPaymentyn},
-		#{reservationState}, #{categoryId},
-		#{startDate},
-		#{finishDate},
-		#{airplaneStart}, #{airplaneFinish}, #{airplaneGrade},
-		#{airplaneDeptime}, #{airplaneArrtime})
-	</insert>
-
 	<update id="reservationTransUpdate"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
 
