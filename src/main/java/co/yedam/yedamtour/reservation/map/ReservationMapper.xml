@@ -41,6 +41,7 @@
     	   #{airplaneDeptime}, #{airplaneArrtime}, #{reservationName}, #{reservationPhone}, #{staySubId})                            
 </insert>
 
+
 	<select id="reservationCartSelectList"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
 		SELECT * FROM TOUR_RESERVATION
@@ -54,8 +55,8 @@
 		WHERE RESERVATION_WRITER_ID = #{reservationWriterId}
 		and reservation_state = 1
 	</select>
-
-
+<update id="reservationTransUpdate" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+</update>
 
 	<select id="reservationTransSelect"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
