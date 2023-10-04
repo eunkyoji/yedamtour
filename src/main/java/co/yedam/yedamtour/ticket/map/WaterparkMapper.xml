@@ -13,6 +13,14 @@
 		Where waterpark_id =
 		#{waterparkId}
 	</select>
+<select id="waterparkCartSelect"
+		resultType="co.yedam.yedamtour.ticket.service.WaterparkVO">
+		SELECT *
+		FROM TOUR_WATERPARK
+		Where waterpark_id =
+		#{waterparkId} And waterpark_Name = #{waterparkName}
+
+	</select>
 
 
 

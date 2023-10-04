@@ -14,8 +14,8 @@ public class FreeBoardReplayServiceImpl implements FreeBoardReplayService {
 	private FreeBoardReplayMapper map = sqlSession.getMapper(FreeBoardReplayMapper.class);
 	
 	@Override
-	public List<FreeBoardReplayVO> freeBoardReplaySelectLsit(int freeBoardId) {
-		return map.freeBoardReplaySelectLsit(freeBoardId);
+	public List<FreeBoardReplayVO> freeBoardReplaySelectLsit(int freeBoardId, int sartPage, int endPage) {
+		return map.freeBoardReplaySelectLsit(freeBoardId, sartPage, endPage);
 	}
 	
 	@Override
@@ -36,5 +36,10 @@ public class FreeBoardReplayServiceImpl implements FreeBoardReplayService {
 	@Override
 	public int freeBoardReplayDelete(FreeBoardReplayVO vo) {
 		return map.freeBoardReplayDelete(vo);
+	}
+
+	@Override
+	public FreeBoardReplayVO freeBoardReplayCount(int freeBoardId) {
+		return map.freeBoardReplayCount(freeBoardId);
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <body>
-
+<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 	<main id="main" class="main">
 		<div id="app">
 			<div class="row">
@@ -41,6 +42,7 @@
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'noticelist.do'">목록</button>
 							</div>
+							<input type="hidden" name="noticeWriter" value="${id }">
 							</form>
 						</div>
 					</div>
@@ -48,14 +50,8 @@
 			</div>
 		</div>
 		<div>
-			<input type="hidden" name="noticeWriter" value="hong@gmail.com">
 		</div>
 	</main>
-
-	<script type="text/javascript">
-
-	</script>
-
 </body>
 
 </html>

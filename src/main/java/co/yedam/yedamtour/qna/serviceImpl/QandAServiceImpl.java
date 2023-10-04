@@ -14,8 +14,8 @@ public class QandAServiceImpl implements QandAService{
 	private QandAMapper map = sqlSession.getMapper(QandAMapper.class);
 	
 	@Override
-	public List<QandAVO> qnaSelectList() {
-		return map.qnaSelectList();
+	public List<QandAVO> qnaSelectList(QandAVO vo) {
+		return map.qnaSelectList(vo);
 	}
 
 	@Override
@@ -41,6 +41,11 @@ public class QandAServiceImpl implements QandAService{
 	@Override
 	public int qnaReplayWrite(QandAVO vo) {
 		return map.qnaReplayWrite(vo);
+	}
+
+	@Override
+	public QandAVO qnaTotalCount(QandAVO vo) {
+		return map.qnaTotalCount(vo);
 	}
 
 }

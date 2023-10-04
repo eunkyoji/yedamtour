@@ -16,4 +16,8 @@ public class FreeBoardReplayVO {
 	private Date	replayUpdateDate;
 	private String	memberNickname;
 	private String	replayViewDate;
+	private int		totalCount;
+	private int		startPage;
+	private int		endPage;
+	private int		currNum;
 }

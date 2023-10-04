@@ -140,7 +140,7 @@
 						url : 'reservationlisttest.do',
 						method : 'post',
 						data : {
-							catename : '${vo.waterparkId}',
+							wname : '${vo.waterparkName}',
 							tid : ${vo.waterparkId},
 							cnt: $('#ticketCnt').val()
 						},

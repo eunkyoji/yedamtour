@@ -15,7 +15,12 @@ public class FreeBoardVO {
 	private Date	freeBoardUpdateDate;
 	private int		freeBoardHit;
 	private String	freeBoardThumb;
-	private int		rownum;
+	private int		num;
 	private String	freeBoardViewDate;
 	private String	freeBoardNicname;
+	private int		totalCount;
+	private String	freeBoardSearch;
+	private int		startPage;
+	private int		endPage;
+	private int		currNum;
 }
