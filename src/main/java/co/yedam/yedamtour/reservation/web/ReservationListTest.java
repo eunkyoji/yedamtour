@@ -76,7 +76,7 @@ public class ReservationListTest extends HttpServlet {
 		System.out.println("아쿠아리움 = " + aquariumVo);
 		System.out.println("아쿠아리움 = " + waterparkVo);
 		//세션 아이디가 없으면 장바구니 안담기게 하기
-		
+		if(session.getId()!=null) {
 		
 		if (themeparkVo != null) {
 
@@ -90,6 +90,8 @@ public class ReservationListTest extends HttpServlet {
 			categoryVo = categoryDao.categorySelect(categoryVo);
 
 			String cId = categoryVo.getCategoryId();
+			
+			String pName = themeparkVo.getThemeparkName();
 
 			// db에 값입력
 			reservationVo.setTicketId(tid);
@@ -97,6 +99,7 @@ public class ReservationListTest extends HttpServlet {
 			reservationVo.setReservationWriterId(userId);
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
+			reservationVo.setProductName(pName);
 
 			
 			int result = reservationDao.reservationTicketInsert(reservationVo);
@@ -117,6 +120,8 @@ public class ReservationListTest extends HttpServlet {
 
 			String cId = categoryVo.getCategoryId();
 
+			String pName = aquariumVo.getAquariumName();
+			
 			// db에 값입력
 			reservationVo.setTicketId(tid);
 			reservationVo.setReservationPersonnel(cnt);
@@ -124,6 +129,9 @@ public class ReservationListTest extends HttpServlet {
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
 
+			reservationVo.setProductName(pName);
+			
+			
 			int result = reservationDao.reservationTicketInsert(reservationVo);
 			System.out.println("아쿠아리움"+result);
 		}
@@ -141,15 +149,21 @@ public class ReservationListTest extends HttpServlet {
 
 			String cId = categoryVo.getCategoryId();
 
+			
+			String pName = waterparkVo.getWaterparkName();
 			// db에 값입력
 			reservationVo.setTicketId(tid);
 			reservationVo.setReservationPersonnel(cnt);
 			reservationVo.setReservationWriterId(userId);
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
+			
+			reservationVo.setProductName(pName);
+			
 
 			int result = reservationDao.reservationTicketInsert(reservationVo);
 			System.out.println("워터파크"+result);
+		}
 		}
 	}
 

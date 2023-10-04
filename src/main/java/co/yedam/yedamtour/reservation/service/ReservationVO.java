@@ -24,4 +24,6 @@ public class ReservationVO {
 	private String reservationName;
 	private String reservationPhone;
 	private int staySubId;
+	private String productName;
+	private String categoryName;
 }
