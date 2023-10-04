@@ -80,7 +80,7 @@ public class TicketList extends HttpServlet {
 		vo.setEndPage(end);
 		
 		list =  dao.ticketSelectList(vo);
-		System.out.println("list.get[0] :: " + list.get(0).getTicketName());
+		System.out.println("list.get[0] :: " + list.size());
 		request.setAttribute("list", list);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
