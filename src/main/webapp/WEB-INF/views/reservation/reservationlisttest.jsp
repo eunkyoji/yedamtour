@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,6 @@
 		<section class="section">
 			<div class="row">
 				<div class="col-lg-12">
-
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">예약정보 리스트</h5>
@@ -33,18 +33,20 @@
 										<th scope="col">메일전송</th>
 									</tr>
 								</thead>
+		<c:forEach items="${vo}" var="r">
 								<tbody>
 									<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="noticedetail.do">
 										<th scope="row">1</th>
-										<td>티켓</td>
+										<td>${r.reservationId }</td>
 										<td>x</td>
 										<td>x</td>
-										<td>아이디 or 이름</td>
+										<td>${r.reservationWriterId }</td>
 										<td>x</td>
-										<td>티켓 수량?</td>
+										<td>${r.reservationPersonnel }</td>
 										<td>x</td>
 									</tr>
 								</tbody>
+	</c:forEach>
 							</table>
 							<!-- End Table with stripped rows -->
 
@@ -53,7 +55,6 @@
 						</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</section>

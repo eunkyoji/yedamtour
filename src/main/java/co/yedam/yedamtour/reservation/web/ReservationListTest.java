@@ -1,4 +1,4 @@
-package co.yedam.yedamtour.reservation;
+package co.yedam.yedamtour.reservation.web;
 
 import java.io.IOException;
 
@@ -46,10 +46,10 @@ public class ReservationListTest extends HttpServlet {
 		// 테마파크
 		ThemeparkService themeparkDao = new ThemeparkServiceImpl();
 		ThemeparkVO themeparkVo = new ThemeparkVO();
-		//아쿠아리움
+		// 아쿠아리움
 		AquariumService aquariumDao = new AquariumServiceImpl();
 		AquariumVO aquariumVo = new AquariumVO();
-		//워터파크
+		// 워터파크
 		WaterparkService waterparkDao = new WaterparkServiceImpl();
 		WaterparkVO waterparkVo = new WaterparkVO();
 		// 세션아이디
@@ -58,19 +58,24 @@ public class ReservationListTest extends HttpServlet {
 
 		int tid = Integer.parseInt(request.getParameter("tid"));
 		int cnt = Integer.parseInt(request.getParameter("cnt"));
-		//테마파크 조회
+		// 테마파크 조회 22
 		themeparkVo.setThemeparkId(tid);
 		themeparkVo.setThemeparkName(request.getParameter("tname"));
-		themeparkVo = themeparkDao.themeparkCartSelect(themeparkVo);
-		//아쿠아리움 조회
+		themeparkVo = themeparkDao.themeparkCartSelect(themeparkVo); // 맞는 name과 id가 있으면 조회값가지고 옴
+		// 아쿠아리움 조회 21
 		aquariumVo.setAquariumId(tid);
 		aquariumVo.setAquariumName(request.getParameter("aname"));
 		aquariumVo = aquariumDao.aquariumCartSelect(aquariumVo);
-		
-		/*
-		 * //워터파크조회 waterparkVo.setWaterparkId(tid); waterparkVo =
-		 * waterparkDao.waterparkSelect(waterparkVo);
-		 */
+
+		// 워터파크조회23
+		waterparkVo.setWaterparkId(tid);
+		waterparkVo.setWaterparkName(request.getParameter("wname"));
+		waterparkVo = waterparkDao.waterparkCartSelect(waterparkVo);
+
+		System.out.println("테마파크 = " + themeparkVo);
+		System.out.println("아쿠아리움 = " + aquariumVo);
+		System.out.println("아쿠아리움 = " + waterparkVo);
+		//세션 아이디가 없으면 장바구니 안담기게 하기
 		
 		
 		if (themeparkVo != null) {
@@ -89,14 +94,16 @@ public class ReservationListTest extends HttpServlet {
 			// db에 값입력
 			reservationVo.setTicketId(tid);
 			reservationVo.setReservationPersonnel(cnt);
-			reservationVo.setReservationWriteId(userId);
+			reservationVo.setReservationWriterId(userId);
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
 
-			int result = reservationDao.reservationInsert(reservationVo);
-			System.out.println(result);
+			
+			int result = reservationDao.reservationTicketInsert(reservationVo);
+			System.out.println("테마파크"+result);
+			System.out.println(reservationVo.getReservationWriterId());
 		}
-		
+
 		if (aquariumVo != null) {
 
 			System.out.println("cnt값 =" + cnt);
@@ -113,14 +120,14 @@ public class ReservationListTest extends HttpServlet {
 			// db에 값입력
 			reservationVo.setTicketId(tid);
 			reservationVo.setReservationPersonnel(cnt);
-			reservationVo.setReservationWriteId(userId);
+			reservationVo.setReservationWriterId(userId);
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
 
-			int result = reservationDao.reservationInsert(reservationVo);
-			System.out.println(result);
+			int result = reservationDao.reservationTicketInsert(reservationVo);
+			System.out.println("아쿠아리움"+result);
 		}
-		
+
 		if (waterparkVo != null) {
 
 			System.out.println("cnt값 =" + cnt);
@@ -137,12 +144,12 @@ public class ReservationListTest extends HttpServlet {
 			// db에 값입력
 			reservationVo.setTicketId(tid);
 			reservationVo.setReservationPersonnel(cnt);
-			reservationVo.setReservationWriteId(userId);
+			reservationVo.setReservationWriterId(userId);
 			reservationVo.setReservationPrice(price);
 			reservationVo.setCategoryId(cId);
 
-			int result = reservationDao.reservationInsert(reservationVo);
-			System.out.println(result);
+			int result = reservationDao.reservationTicketInsert(reservationVo);
+			System.out.println("워터파크"+result);
 		}
 	}
 
