@@ -54,7 +54,7 @@
 						<c:choose>
 							<c:when test="${author == 'Admin' }">
 								<li class="nav-item px-3 px-xl-4"><a
-									class="nav-link fw-medium" aria-current="page" href="reser.do">관리자</a></li>
+									class="nav-link fw-medium" aria-current="page" href="reserv.do">관리자</a></li>
 								<li class="nav-item px-3 px-xl-4"><a
 									class="nav-link fw-medium" aria-current="page" href="membermypage.do">My Page</a></li>
 			
