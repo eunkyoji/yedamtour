@@ -31,6 +31,7 @@
 											<tr>
 												<th scope="col">번호</th>
 												<th scope="col">이미지</th>
+												<th scope="col">이미지</th>
 												<th scope="col">분류</th>
 												<th scope="col">장소명</th>
 											</tr>
@@ -50,15 +51,15 @@
 															<c:choose>
 																<c:when test="${not empty img }">
 																	<c:choose>
-																		<c:when test="${categoryId eq '21' }">
+																		<c:when test="${categoryId == '21' }">
 																			<td><img
 																				src="ticket/img/aquarium/${t.img}"></td>
 																		</c:when>
-																		<c:when test="${categoryId eq '22' }">
+																		<c:when test="${categoryId == '22' }">
 																			<td><img
 																				src="ticket/img/themepark/${t.img}"></td>
 																		</c:when>
-																		<c:when test="${categoryId eq '22' }">
+																		<c:when test="${categoryId == '23' }">
 																			<td><img
 																				src="ticket/img/waterpark/${t.img}"></td>
 																		</c:when>
@@ -71,6 +72,7 @@
 																	<td></td>
 																</c:otherwise>
 															</c:choose>
+															<td align="left">${t.categoryId}</td>
 															<td align="left">${t.categoryName}</td>
 															<td>${t.ticketName }</td>
 														</tr>
@@ -151,7 +153,7 @@
 			
 			
 			let form = document.getElementById("frm");
-			form.author.value = value;
+			form.categoryId.value = value;
 			form.submit();
 		}
 	</script>

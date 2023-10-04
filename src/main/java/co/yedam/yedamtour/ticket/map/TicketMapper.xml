@@ -48,7 +48,7 @@
 		          FROM TOUR_WATERPARK
 		    ) A, TOUR_CATEGORY C
 		     WHERE A.CATEGORYID = C.CATEGORY_ID
-		     <if test="categoryId != null">
+		     <if test="categoryId != null and categoryId > 0">
 		     	AND A.CATEGORYID = #{categoryId}
 		     </if>
 		)

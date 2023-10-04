@@ -30,13 +30,13 @@ public class TicketList extends HttpServlet {
 		
 		String id = request.getParameter("categoryId");
 		int categoryId = 0;
-		if( !"".equals(categoryId) && id != null ) {
-			categoryId = Integer.valueOf(id);
+		if( !"".equals(id) && id != null) {
+			System.out.println("?????????");
+			categoryId = Integer.parseInt(id);
 		}
+		System.out.println("categoryId ::: " + categoryId);
 		
-		vo.setCategoryId(Integer.valueOf(categoryId));
-		
-		vo = dao.ticketTotalCount(Integer.valueOf(categoryId));
+		vo = dao.ticketTotalCount(categoryId);
 		String currNum = request.getParameter("pageNum");
 		int pageNum = 0;
 		if( currNum != null ) {
@@ -75,7 +75,7 @@ public class TicketList extends HttpServlet {
 		int start = pageN*10 - 9;
 		int end = pageN*10;
 		
-		vo.setCategoryId(Integer.valueOf(categoryId));
+		vo.setCategoryId(categoryId);
 		vo.setStartPage(start);
 		vo.setEndPage(end);
 		
