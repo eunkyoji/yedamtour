@@ -37,7 +37,7 @@ public class StayList extends HttpServlet {
 		if( !"".equals(id) && id != null ) {
 			categoryId = Integer.valueOf(id);
 		}
-		System.out.println("categoryId :: " + categoryId);
+		
 		vo = dao.stayTotalCount(categoryId);
 		String currNum = request.getParameter("pageNum");
 		int pageNum = 0;

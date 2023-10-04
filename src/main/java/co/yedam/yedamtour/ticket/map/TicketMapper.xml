@@ -2,10 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.yedamtour.ticket.map.TicketMapper">
 	<select id="ticketSelectList" resultType="co.yedam.yedamtour.ticket.service.TicketVO">
+		SELECT * FROM (
+		    SELECT ROWNUM AS ROWN, A.*, C.CATEGORY_NAME AS CATEGORYNAME FROM(
+		        SELECT AQUARIUM_ID AS TICKETID, AQUARIUM_NAME AS TICKETNAME, AQUARIUMIMG AS IMG, 21 AS CATEGORYID
+		          FROM TOUR_AQUARIUM
+		        UNION ALL
+		        SELECT THEMEPARK_ID AS TICKETID, THEMEPARK_NAME AS TICKETNAME, THEMEPARK_IMG AS IMG, 22 AS CATEGORYID
+		          FROM TOUR_THEMEPARK
+		        UNION ALL
+		        SELECT WATERPARK_ID AS TICKETID, WATERPARK_NAME AS TICKETNAME, WATERPARK_IMG AS IMG, 23 AS CATEGORYID
+		          FROM TOUR_WATERPARK
+		    ) A, TOUR_CATEGORY C
+		     WHERE A.CATEGORYID = C.CATEGORY_ID
+		     <if test="categoryId != null and categoryId > 0">
+		     	AND A.CATEGORYID = #{categoryId}
+		     </if>
+		)
+		WHERE ROWN BETWEEN #{startPage} AND #{endPage}
 	</select>
 	<select id="ticketSelect" resultType="co.yedam.yedamtour.ticket.service.TicketVO">
+		SELECT *
+		<if test="categoryId == 21">
+			FROM TOUR_AQUARIUM
+		   WHERE AQUARIUM_ID = #{ticketId}
+		</if>
+		<if test="categoryId == 22">
+			FROM TOUR_THEMEPARK
+		   WHERE THEMEPARK_ID = #{ticketId}
+		</if>
+		<if test="categoryId == 23">
+			FROM TOUR_WATERPARK
+		   WHERE WATERPARK_ID = #{ticketId}
+		</if>
 	</select>
 	<select id="ticketTotalCount" resultType="co.yedam.yedamtour.ticket.service.TicketVO">
+		SELECT COUNT(*) AS TOTALCOUNT FROM (
+		    SELECT ROWNUM AS ROWN, A.*, C.CATEGORY_NAME AS CATEGORYNAME FROM(
+		        SELECT AQUARIUM_ID AS TICKETID, AQUARIUM_NAME AS TICKETNAME, AQUARIUMIMG AS IMG, 21 AS CATEGORYID
+		          FROM TOUR_AQUARIUM
+		        UNION ALL
+		        SELECT THEMEPARK_ID AS TICKETID, THEMEPARK_NAME AS TICKETNAME, THEMEPARK_IMG AS IMG, 22 AS CATEGORYID
+		          FROM TOUR_THEMEPARK
+		        UNION ALL
+		        SELECT WATERPARK_ID AS TICKETID, WATERPARK_NAME AS TICKETNAME, WATERPARK_IMG AS IMG, 23 AS CATEGORYID
+		          FROM TOUR_WATERPARK
+		    ) A, TOUR_CATEGORY C
+		     WHERE A.CATEGORYID = C.CATEGORY_ID
+		     <if test="categoryId != null">
+		     	AND A.CATEGORYID = #{categoryId}
+		     </if>
+		)
 	</select>
 	<insert id="ticketInsert" parameterType="co.yedam.yedamtour.ticket.service.TicketVO">
 	</insert>

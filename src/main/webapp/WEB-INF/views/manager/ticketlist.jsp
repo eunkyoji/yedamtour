@@ -21,9 +21,9 @@
 									<h5 class="card-title" align="left">Stay List</h5>
 									<select class="datatable-selector" name="categoryId" id="categoryId" onchange="categorySelect(this.value)">
 										<option value="null">전체</option>
-									    <option value="1">호텔/리조트</option>
-									    <option value="2">펜션/풀빌라</option>
-									    <option value="3">캠핑</option>
+									    <option value="21">아쿠아리움</option>
+									    <option value="22">테마파크</option>
+									    <option value="23">워터파크</option>
 									</select>
 									<!-- Table with stripped rows -->
 									<table class="table">
@@ -32,7 +32,7 @@
 												<th scope="col">번호</th>
 												<th scope="col">이미지</th>
 												<th scope="col">분류</th>
-												<th scope="col">숙소명</th>
+												<th scope="col">장소명</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -43,21 +43,21 @@
 													</tr>
 												</c:when>
 												<c:otherwise>
-													<c:forEach items="${list}" var="s">
+													<c:forEach items="${list}" var="t">
 														<tr style="cursor: pointer"
-															onclick="staySelect(${s.stayId}, ${s.categoryId })">
+															onclick="ticketSelect(${t.ticketId}, ${t.categoryId })">
 															<th scope="row">${s.rowN }</th>
 															<c:choose>
-																<c:when test="${empty s.stayImg }">
+																<c:when test="${empty t.img }">
 																	<td></td>
 																</c:when>
 																<c:otherwise>
 																	<td><img
-																		src="img/rooms/${s.stayImg}"></td>
+																		src="ticket/img/${t.img}"></td>
 																</c:otherwise>
 															</c:choose>
 															<td align="left">${s.categoryName}</td>
-															<td>${s.stayName }</td>
+															<td>${t.ticketName }</td>
 														</tr>
 													</c:forEach>
 												</c:otherwise>
@@ -111,14 +111,16 @@
 	</form>
 	<form id="sform" action="staydetail.do" method="post">
 		<input type="hidden" id="stayId" name="stayId">
+		<input type="hidden" id="categoryId" name="categoryId">
 	</form>
 
 	<script>
 		//게시글 상세조회
 		
-		function staySelect(id){
+		function ticketSelect(id, categoryId){
 			let form = document.getElementById("sform");
 			form.stayId.value = id;
+			form.categoryId.value = categoryId;
 			form.submit();
 		}
 		
