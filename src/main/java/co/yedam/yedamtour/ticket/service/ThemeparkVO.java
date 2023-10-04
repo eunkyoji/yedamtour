@@ -12,5 +12,6 @@ public class ThemeparkVO {
 	int themeparkPrice;
 	String themeparkBrif;
 	String themeparkImg;
+	String companyEmail;
 	
 }

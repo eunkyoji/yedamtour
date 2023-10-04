@@ -26,4 +26,6 @@ public class ReservationVO {
 	private int staySubId;
 	private String productName;
 	private String categoryName;
+	private String companyEmail;
+	private String sendCheck;
 }

@@ -12,4 +12,5 @@ public class WaterparkVO {
 	int waterparkPrice;
 	String waterparkBrif;
 	String waterparkImg;
+	String companyEmail;
 }
