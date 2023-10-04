@@ -21,4 +21,7 @@ public class ReservationVO {
 	private String reservationGrade;
 	private String reservationDeptime;
 	private String reservationArrtime;
+	private String reservationName;
+	private String reservationPhone;
+	private int staySubId;
 }

@@ -38,4 +38,9 @@ public class ReservationServiceImpl implements ReservationService {
 		return map.reservationTransDelete(vo);
 	}
 
+	@Override
+	public int reservationStayInsert(ReservationVO vo) {
+		return map.reservationStayInsert(vo);
+	}
+
 }
