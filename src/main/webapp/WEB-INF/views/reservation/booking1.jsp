@@ -48,7 +48,8 @@
 										<div class="form-group">
 											<label for="c_country" class="text-black rowtitle">인원
 												수 <span class="text-danger"> *</span>
-											</label> <select id="reservationPersonnel" name="reservationPersonnel" class="form-control">
+											</label><select id="reservationPersonnel" onchange="selectBoxChange(this.value);"
+											name="reservationPersonnel" class="form-control">
 												<option value="1">1명</option>
 												<option value="2">2명</option>
 												<option value="3">3명</option>
@@ -92,15 +93,15 @@
 													</tr>
 													<tr>
 														<td class="text-black font-weight-bold"><strong>TOTAL</strong></td>
-														<td class="text-black font-weight-bold"><strong><fmt:formatNumber
+														<td class="text-black font-weight-bold"><strong id="totalPrice"><fmt:formatNumber
 																	value="${reserves.hotelRoomPrice }" pattern="#,###" />원</strong></td>
 													</tr>
 												</tbody>
 											</table>
 											<div class="row">
 												<div class="col-md-12">
-													<a href="cart.do">
-													<input type="submit" class="btn-lg" value="예약하기">
+													<a href="membermypage.do">
+													<input type="button" class="btn-lg" value="예약하기">
 													</a>
 												</div>
 											</div>
@@ -156,12 +157,9 @@
 			});
 		});
 	</script> -->
-	<script type="text/javascript"
-		src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<script>
 		$(function() {
 			$('input[name="daterange"]').daterangepicker(
@@ -174,6 +172,19 @@
 								+ end.format('YYYY-MM-DD'));
 					});
 		});
+	</script>
+	<script>
+	function selectBoxChange(value){
+		console.log("값변경테스트: ",$("#totalPrice"));
+		console.log($("#reservationPrice").val());
+		let gab = 0;
+		if(value>=3){
+			gab = parseInt($("#reservationPrice").val())+(value-2)*30000
+		}else{
+			gab = $("#reservationPrice").val()
+		}		
+		$("#totalPrice").text(gab.toLocaleString()+"원");
+	}
 	</script>
 </body>
 </html>

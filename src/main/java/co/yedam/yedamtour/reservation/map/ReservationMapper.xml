@@ -28,7 +28,7 @@
 		RESERVATION_NAME,
 		RESERVATION_PHONE, STAY_SUB_ID)
 		VALUES(#{reservationId}, #{stayId}, #{reservationPersonnel},
-		#{reservationWriteId},
+		#{reservationWriterId},
 		#{reservationPrice},
 		#{categoryId},
 		#{reservationStartDate}, #{reservationFinishDate},
