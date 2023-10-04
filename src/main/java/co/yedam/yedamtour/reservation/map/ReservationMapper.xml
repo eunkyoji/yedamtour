@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="co.yedam.yedamtour.reservation.map.ReservationMapper">
+<mapper namespace="co.yedam.yedamtour.reservation.map.ReservationMapper">
 	<select id="reservationTransSelectList"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
 		SELECT * FROM TOUR_RESERVATION
@@ -58,6 +57,8 @@
 		and reservation_state = 1
 	</select>
 
+<update id="reservationTransUpdate" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+</update>
 
 	<select id="reservationTransSelect"
 		resultType="co.yedam.yedamtour.reservation.service.ReservationVO">
@@ -92,10 +93,6 @@
 		#{airplaneDeptime}, #{airplaneArrtime})
 	</insert>
 
-
-
-
-
 	<update id="reservationTransUpdate"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
 
@@ -105,8 +102,6 @@
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
 
 	</delete>
-
-
 
 	<insert id="reservationTicketInsert"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
