@@ -17,6 +17,7 @@ width: 400px;
 <body>
 <!-- 편도 -->
 <form action="reservationlist.do" class="col-md-12" method="post">
+<input type="hidden" id="categoryId" name="categoryId" value="13">
 	<div id="container" style="margin: 200px 0 0 570px;">
 		<div id="leftcard" class="col-lg-6 justify-content-center align-items-start" style="float: left;">
         	<div class="card position-relative shadow" style="max-width: 370px;">               
@@ -51,22 +52,13 @@ width: 400px;
               </div>
         <div class="row">
 			<div class="col-md-12">
-				<button type="submit" id="cart" class="btn btn-black btn-lg py-3 btn-block" >장바구니 담기</button>
+				<button class="btn btn-black btn-lg py-3 btn-block"
+							onclick="window.location='transportation.do'">예매 완료</button>
 			</div>
 		</div>
 	</div>
 </form>
 </body>
-<!-- <script>
-	$('#cart').on('click', function (e) {
-		$.ajax({
-			url: '/../resultairplane.do',
-			method: 'post',
-			data: {
-				
-			}
-			
-		})
-	})
-</script> -->
+
+
 </html>
