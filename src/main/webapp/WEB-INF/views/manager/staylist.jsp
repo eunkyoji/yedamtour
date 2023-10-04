@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+img{
+	width: 100px;
+	height:80px;
+}
+</style>
 </head>
 <body>
 	<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
@@ -121,23 +127,29 @@
 			form.stayId.value = id;
 			form.submit();
 		}
+
 		
 		function categorySelect(value){
+			
+			categorySelected(value);
+			
+			let form = document.getElementById("frm");
+			form.categoryId.value = value;
+		}
+		
+		function categorySelected(cId){
 			const el = document.getElementById('categoryId');  //select box
 			const len = el.options.length; //select box의 option 갯수
 		  	
 		  	for (let i=0; i<len; i++){  
+		  		
 		  		if(el.options[i].value == value){
 		    		el.options[i].selected = true;
 		    	} else {
 		    		el.options[i].selected = false;
 		    	}
+
 		  	}
-			
-			
-			let form = document.getElementById("frm");
-			form.author.value = value;
-			form.submit();
 		}
 	</script>
 </body>

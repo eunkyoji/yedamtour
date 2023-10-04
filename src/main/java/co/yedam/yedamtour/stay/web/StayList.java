@@ -50,7 +50,7 @@ public class StayList extends HttpServlet {
 		int countPage = 10; // 페이지 갯수 ex ) [1] [2] [3] 다음
 		
 		int totalCount = vo.getTotalCount();
-		
+		System.out.println("totalCount ::: " + totalCount);
 		int block = totalCount / countList ;
 		if(totalCount % countList != 0){
 			block++;
@@ -82,10 +82,11 @@ public class StayList extends HttpServlet {
 		vo.setEndPage(end);
 		
 		list = dao.staySelectList(vo);
-		
+		System.out.println(list.get(0).getStayImg());
 		request.setAttribute("list", list);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
+		request.setAttribute("categoryId", id);
 		
 		String page = "admin/manager/staylist";
 		ViewResolve.forward(request, response, page);
