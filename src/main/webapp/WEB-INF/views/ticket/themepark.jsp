@@ -80,9 +80,7 @@
 						
 				</c:forEach>
 			</div>
-			<div align="center">
-				<button>리스트 더보기</button>
-			</div>
+			
 
 		</div>
 

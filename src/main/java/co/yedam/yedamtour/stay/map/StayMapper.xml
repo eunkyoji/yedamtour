@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.yedamtour.stay.map.StayMapper">
+	<select id="staySelectList" resultType="co.yedam.yedamtour.stay.service.StayVO">
+		SELECT T.* FROM (
+			SELECT ROWNUM AS ROWN, A.*, C.CATEGORY_NAME AS CATEGORYNAME FROM (
+				SELECT HOTEL_ID AS STAYID, HOTEL_NAME AS SNAME, HOTEL_IMG AS IMG, CATEGORY_ID CATEGORYID
+				  FROM TOUR_HOTEL
+				
+				UNION ALL
+				
+				SELECT PENSION_ID AS STAYID, PENSION_NAME AS SNAME, PENSION_IMG AS IMG, CATEGORY_ID AS CATEGORYID
+				  FROM TOUR_PENSION
+				
+				UNION ALL
+				
+				SELECT CAMPING_ID AS STAYID, CAMPING_NAME AS SNAME, CAMPING_IMG AS IMG, CATEGORY_ID AS CATEGORYID
+				  FROM TOUR_CAMPING) A, TOUR_CATEGORY C
+				
+			WHERE A.CATEGORYID = C.CATEGORY_ID
+			<if test="categoryId > 0 and categoryId != null">
+				AND A.CATEGORYID = #{categoryId}
+			  	
+			</if>
+			) T
+		WHERE T.ROWN BETWEEN #{startPage} AND #{endPage}
+	</select>
+	<select id="staySelect" resultType="co.yedam.yedamtour.stay.service.StayVO">
+		SELECT *
+		<if test="categoryId == 1">
+		  FROM TOUR_HOTEL
+		 WHERE HOTEL_ID = #{stayId}
+		</if>
+		<if test="categoryId == 2">
+		  FROM TOUR_PENSION
+		 WHERE PENSION_ID = #{stayId}
+		</if>
+		<if test="categoryId == 1">
+		  FROM TOUR_CAMPING
+		 WHERE CAMPING_ID = #{stayId}
+		</if>
+	</select>
+	<select id="stayTotalCount" resultType="co.yedam.yedamtour.stay.service.StayVO">
+		SELECT COUNT(*) AS TOTALCOUNT FROM (
+			SELECT CAMPING_ID AS STAYID, CAMPING_NAME AS SNAME, CAMPING_IMG AS IMG, CATEGORY_ID AS CATEGORYID
+			  FROM TOUR_CAMPING
+			
+			UNION ALL
+			
+			SELECT PENSION_ID AS STAYID, PENSION_NAME AS SNAME, PENSION_IMG AS IMG, CATEGORY_ID AS CATEGORYID
+			  FROM TOUR_PENSION
+			
+			UNION ALL
+			
+			SELECT HOTEL_ID AS STAYID, HOTEL_NAME AS SNAME, HOTEL_IMG AS IMG, CATEGORY_ID CATEGORYID
+			  FROM TOUR_HOTEL) A, TOUR_CATEGORY C
+		WHERE A.CATEGORYID = C.CATEGORY_ID
+		<if test="categoryId != null || categoryId > 0">
+		  AND A.CATEGORYID = #{categoryId}
+		</if>
+	</select>
+</mapper>

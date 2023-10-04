@@ -8,8 +8,19 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+<!-- 포트원 결제 -->
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<!-- jQuery -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<!-- 포트원 결제 -->
 <meta content="" name="description">
 <meta content="" name="keywords">
+
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <!-- Favicons -->
@@ -65,7 +76,7 @@
 
 							<div class="d-flex justify-content-center py-4">
 								<a href="index.html"
-									class="logo d-flex align-items-center w-auto">  <span
+									class="logo d-flex align-items-center w-auto"> <span
 									class="d-none d-lg-block">마이페이지</span>
 
 								</a>
@@ -166,22 +177,72 @@
 											placeholder="비밀번호 다시 입력">
 
 									</div>
-								</form><br>
 
+								</form>
+								<br>
 
-
-
-
-
-								<div class="col-12" align="center">
-									<button id="memberDelete" class="btn btn-primary w-30"
-										type="button">회원탈퇴</button>
-									<button type="button" class="btn btn-primary" onclick="location.href = 'tour.do'">Home</button>
+								<div align="center">
+									<span>결제 대기</span>
+									<table border="1">
+										<tr>
+											<th style="padding: 10px;">결제</th>
+											<th style="padding: 10px;">상품명</th>
+											<th style="padding: 10px;">개수</th>
+											<th style="padding: 10px;">가격</th>
+										</tr>
+										<c:forEach items="${rvo}" var="r">
+											<tr>
+												<td style="text-align: center;"><input type="button"
+													class="checkBtn" value="결제" /></td>
+												<td style="text-align: center;">${r.productName }</td>
+												<!--db컬럼추가  -->
+												<td style="text-align: center;">${r.reservationPersonnel }</td>
+												<td style="text-align: center;">${r.reservationPrice }</td>
+												<td><input type="hidden" class="testId"
+													value="${r.reservationId }" /></td>
+											</tr>
+										</c:forEach>
+									</table>
 								</div>
+								<div align="center">
+									<span>예약 정보</span>
+									<table border="1">
+										<tr>
+											<th style="padding: 13px;">상품명</th>
+											<th style="padding: 13px;">개수</th>
+											<th style="padding: 13px;">사용여부</th>
+										</tr>
+										<c:forEach items="${rvo2}" var="r2">
+											<tr>
+												<td style="text-align: center;">${r2.productName }</td>
+												<!--db컬럼추가  -->
+												<td style="text-align: center;">${r2.reservationPersonnel }</td>
+												<c:if test="${r2.reservationState == 1}">
+												<td style="text-align: center;">미사용</td>
+												</c:if>
+												<c:if test="${r2.reservationState != 1}">
+												<td style="text-align: center;">사용</td>
+												</c:if>
+												<td><input type="hidden" class="testId"
+													value="${r2.reservationId }" /></td>
+											</tr>
+										</c:forEach>
+									</table>
+								</div>
+
+
+
+
+
 
 							</div>
 						</div>
-
+						<div class="col-12" align="center">
+							<button id="memberDelete" class="btn btn-primary w-30"
+								type="button">회원탈퇴</button>
+							<button type="button" class="btn btn-primary"
+								onclick="location.href = 'tour.do'">Home</button>
+						</div>
 						<div class="credits">
 							<!-- All the links in the footer should remain intact. -->
 							<!-- You can delete the links only if you purchased the pro version. -->
@@ -239,7 +300,7 @@
 			})
 		
 			$('#memberDelete').on('click', function(){
-			console.log("aaaaa");
+				 if (confirm("정말 삭제하시겠습니까??") == true){
 			$.ajax({
 				url:'memberdelete.do',
 				method:'post',
@@ -255,6 +316,7 @@
 					console.log(e);
 				}
 			})
+				 }
 			})
 			
 			
@@ -289,17 +351,72 @@
 			}
 		}
 		
+	//결제버튼
+		$(".checkBtn").click(function() {
+			  //class가 btn_payment인 태그를 선택했을 때 작동한다.
+			var checkBtn = $(this);
+			var tr = checkBtn.parent().parent();
+	 		var td = tr.children();
+	 		
+		  	var ticketCount = td[2].textContent;
+		   	var ticketPrice = td[3].textContent;
+		   	let memberId = $('#memberId').val();
+		   	console.log(memberId);
+			  IMP.init('imp81834657');
+			  	//결제시 전달되는 정보
+				IMP.request_pay({
+						    pg : 'kakaopay.TC0ONETIME', 
+						    pay_method : 'card',
+						    merchant_uid : 'merchant_' + new Date().getTime(),
+						    name : '주문명:결제테스트'/*상품명*/,
+						    amount : ticketPrice/*상품 가격*/, 
+						    buyer_email : memberId/*구매자 이메일*/,
+						    buyer_name : '구매자이름',
+						    buyer_tel : '010-1234-5678'/*구매자 연락처*/,
+						    buyer_addr : '서울특별시 강남구 삼성동'/*구매자 주소*/,
+						    buyer_postcode : '123-456'/*구매자 우편번호*/
+						}, function(rsp) {
+							var result = '';
+						    if ( rsp.success ) {
+						        var msg = '결제가 완료되었습니다.';
+						        msg += '고유ID : ' + rsp.imp_uid;
+						        msg += '상점 거래ID : ' + rsp.merchant_uid;
+						        msg += '결제 금액 : ' + rsp.paid_amount;
+						        msg += '카드 승인번호 : ' + rsp.apply_num;
+						        result ='0';
+									$.ajax({
+										url:'kakaopay.do',
+										method:'post',
+										data:{id : $('#memberId').val(),
+											productId: $('.testId').val()
+										},
+										success: function(e){
+											alert("결제가 완료되었습니다.");
+											let url ="tour.do"
+											location.replace(url);
+											
+										},
+										error: function(e){
+											console.log(e);
+										}
+									})
+									
+						        
+						        
+						    } else {
+						        var msg = '결제에 실패하였습니다.';
+						        msg += '에러내용 : ' + rsp.error_msg;
+						        result ='1';
+						    }
+						    if(result=='0') {
+						    	location.href= $.getContextPath()+"/Cart/Success";
+						    }
+						    alert(msg);
+						});
+					});
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		

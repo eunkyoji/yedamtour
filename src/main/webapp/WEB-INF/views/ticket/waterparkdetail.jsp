@@ -137,10 +137,10 @@
 			
 			 $('#cartSubmit').on('click', function() {
 					$.ajax({
-						url : 'reservationlisttest.do',
+						url : 'reservationlistmain.do',
 						method : 'post',
 						data : {
-							catename : '${vo.waterparkId}',
+							wname : '${vo.waterparkName}',
 							tid : ${vo.waterparkId},
 							cnt: $('#ticketCnt').val()
 						},

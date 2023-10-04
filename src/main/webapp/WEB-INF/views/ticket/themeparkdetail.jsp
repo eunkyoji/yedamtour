@@ -138,7 +138,7 @@
 		
 			 $('#cartSubmit').on('click', function() {
 				$.ajax({
-					url : 'reservationlisttest.do',
+					url : 'reservationlistmain.do',
 					method : 'post',
 					data : {
 						tname : '${vo.themeparkName}',
@@ -146,7 +146,7 @@
 						cnt: $('#ticketCnt').val()
 					},
 					success : function(e) {
-						alert("상품을 장바구니에 담았습니다.");
+						alert("상품을 장바구니에 담았습니다. 마이페이지를 확인해주세요");
 						location.href = 'themeparkdetail.do?id='+${vo.themeparkId}
 					},
 					error : function(e) {

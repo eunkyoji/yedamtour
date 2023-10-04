@@ -22,8 +22,8 @@
 		SELECT *
 		FROM TOUR_MEMBER
 		WHERE 
-		MEMBER_Name = #{memberName} AND
-		MEMBER_Phone = #{memberPhone}
+		MEMBER_NAME = #{memberName} AND
+		MEMBER_PHONE = #{memberPhone}
 	</select>
 	
 	<select id="idCheckSelect"

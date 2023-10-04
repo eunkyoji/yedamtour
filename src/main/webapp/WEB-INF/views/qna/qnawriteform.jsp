@@ -57,7 +57,9 @@ body{
 								<button type="reset" class="btn btn-primary">취소</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 							</div>
-							<input type="hidden" name="qnaeWriter" value="${id }">
+
+							<input type="hidden" id="qnaWriter" name="qnaWriter" value="${id }">
+
 							</form>
 						</div>
 					</div>

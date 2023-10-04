@@ -48,7 +48,7 @@ width: 400px;
             	<div class="row">
 					<div class="col-md-12">
 						<button class="btn btn-black btn-lg py-3 btn-block"
-							onclick="window.location='resultbus.do'">장바구니 담기</button>
+							onclick="window.location='transportation.do'">예매 완료</button>
 					</div>
 				</div>
 </div>

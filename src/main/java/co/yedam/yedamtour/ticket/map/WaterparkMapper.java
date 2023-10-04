@@ -8,4 +8,6 @@ public interface WaterparkMapper {
 	List<WaterparkVO> waterparkSelectList();
 
 	WaterparkVO waterparkSelect(WaterparkVO vo);
+	
+	WaterparkVO waterparkCartSelect(WaterparkVO vo);
 }

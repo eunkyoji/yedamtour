@@ -9,7 +9,7 @@ public class ReservationVO {
 	private int ticketId;
 	private int trafficId;
 	private int reservationPersonnel;
-	private String reservationWriteId;
+	private String reservationWriterId;
 	private String reservationPrice;
 	private String reservationPaymentyn;
 	private int reservationState;
@@ -21,4 +21,11 @@ public class ReservationVO {
 	private String reservationGrade;
 	private String reservationDeptime;
 	private String reservationArrtime;
+	private String reservationName;
+	private String reservationPhone;
+	private int staySubId;
+	private String productName;
+	private String categoryName;
+	private String companyEmail;
+	private String sendCheck;
 }

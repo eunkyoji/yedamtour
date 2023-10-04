@@ -84,6 +84,7 @@
 				data-wow-delay="0.1s" style="max-width: 600px;">
 				<h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
 				<h1 class="display-6 mb-4">아쿠아리움 리스트</h1>
+				
 			</div>
 
 			<div class="iii row g-4">
@@ -104,9 +105,7 @@
 		</div>
 
 		<!-- 씨:if 	3번째7번째 11번째는 두줄정렬되게 status.index-->
-		<div align="center">
-			<button>리스트 더보기</button>
-		</div>
+		
 
 	</div>
 

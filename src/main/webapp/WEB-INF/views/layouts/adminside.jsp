@@ -13,7 +13,7 @@
 
 			<!-- 예약정보 리스트 Start -->
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="reservationlist.do">
+				<a class="nav-link collapsed" href="reser.do">
 					<i></i> <span>예약정보 리스트</span>
 				</a>
 			</li>
@@ -38,6 +38,19 @@
 				</ul>
 			</li>
 			<!-- 게시판 관리 E n d -->
+			<!-- 상품 관리 Start -->
+			<li class="nav-item"><a class="nav-link collapsed" data-bs-target="#product-nav" data-bs-toggle="collapse" href="#">
+					<i class="bi bi-layout-text"></i>
+					<span>상품 관리</span>
+					<i class="bi bi-chevron-down ms-auto"></i>
+			</a>
+				<ul id="product-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+					<li><a href="staylist.do"> <i class="bi bi-circle"></i><span>숙박</span></a></li>
+					<li><a href="transportlist.do"><i class="bi bi-circle"></i><span>교통</span></a></li>
+					<li><a href="ticketlist.do"><i class="bi bi-circle"></i><span>티켓</span></a></li>
+				</ul>
+			</li>
+			<!-- 상품 관리 E n d -->
 		</ul>
 	</aside>
 </body>

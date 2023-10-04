@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
+<c:set var="author" value='<%=(String) session.getAttribute("author")%>' />
 	<nav
 		class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block"
 		data-navbar-on-scroll="data-navbar-on-scroll">
@@ -49,12 +51,24 @@
 						class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="signupform.do">Sign Up</a></li>
 					</c:if>
 					<c:if test="${not empty id}">
-					<li class="nav-item px-3 px-xl-4"><a
-						class="nav-link fw-medium" aria-current="page" href="membermypage.do">My Page</a></li>
-
-					<li class="nav-item px-3 px-xl-4">
-					<a	class="nav-link fw-medium" aria-current="page" href="logout.do">Logout</a></li>
-
+						<c:choose>
+							<c:when test="${author == 'Admin' }">
+								<li class="nav-item px-3 px-xl-4"><a
+									class="nav-link fw-medium" aria-current="page" href="reser.do">관리자</a></li>
+								<li class="nav-item px-3 px-xl-4"><a
+									class="nav-link fw-medium" aria-current="page" href="membermypage.do">My Page</a></li>
+			
+								<li class="nav-item px-3 px-xl-4">
+								<a	class="nav-link fw-medium" aria-current="page" href="logout.do">Logout</a></li>
+							</c:when>
+							<c:otherwise>
+								<li class="nav-item px-3 px-xl-4"><a
+									class="nav-link fw-medium" aria-current="page" href="membermypage.do">My Page</a></li>
+			
+								<li class="nav-item px-3 px-xl-4">
+								<a	class="nav-link fw-medium" aria-current="page" href="logout.do">Logout</a></li>
+							</c:otherwise>
+						</c:choose>
 					</c:if>
 				</ul>
 			</div>

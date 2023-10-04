@@ -25,9 +25,18 @@
 	width: 50%;
 }
 
+.submit {
+	font-weight: 600;
+	padding: 12px 30px;
+	border-radius: 30px;
+	background: #000000;
+	color: #fff;
+}
+
 .btn-lg {
 	font-weight: 600;
 	padding: 12px 30px;
 	border-radius: 30px;
 	background: #000000;
+	color: #fff;
 }
