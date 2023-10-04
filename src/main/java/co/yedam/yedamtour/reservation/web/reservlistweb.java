@@ -31,7 +31,7 @@ public class reservlistweb extends HttpServlet {
 		
 		request.setAttribute("vo", vo);
 		
-		String page = "admin/reservation/reservationlisttest";
+		String page = "admin/reservation/reservationlistmain";
 		ViewResolve.forward(request, response, page);
 	}
 
