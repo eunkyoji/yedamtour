@@ -58,14 +58,12 @@ body{
 								<button type="submit" class="btn btn-primary" onclick="location.href = 'freeboardwrite.do'">저장</button>
 								<button type="reset" class="btn btn-primary" onclick="location.href = 'freeboardlist.do'">목록</button>
 							</div>
+							<input type="hidden" name="freeboardWriter" value="${id }">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div>
-			<input type="hidden" name="freeboardWriter" value="${id }">
 		</div>
 	</main>
 </div>

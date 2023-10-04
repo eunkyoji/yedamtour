@@ -194,7 +194,7 @@
 											<tr>
 												<td style="text-align: center;"><input type="button"
 													class="checkBtn" value="결제" /></td>
-												<td style="text-align: center;">롯데월드</td>
+												<td style="text-align: center;">${r.productName }</td>
 												<!--db컬럼추가  -->
 												<td style="text-align: center;">${r.reservationPersonnel }</td>
 												<td style="text-align: center;">${r.reservationPrice }</td>
@@ -214,10 +214,15 @@
 										</tr>
 										<c:forEach items="${rvo2}" var="r2">
 											<tr>
-												<td style="text-align: center;">롯데월드</td>
+												<td style="text-align: center;">${r2.productName }</td>
 												<!--db컬럼추가  -->
 												<td style="text-align: center;">${r2.reservationPersonnel }</td>
+												<c:if test="${r2.reservationState == 1}">
 												<td style="text-align: center;">미사용</td>
+												</c:if>
+												<c:if test="${r2.reservationState != 1}">
+												<td style="text-align: center;">사용</td>
+												</c:if>
 												<td><input type="hidden" class="testId"
 													value="${r2.reservationId }" /></td>
 											</tr>

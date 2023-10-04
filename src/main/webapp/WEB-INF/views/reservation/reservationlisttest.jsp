@@ -36,8 +36,8 @@
 		<c:forEach items="${vo}" var="r">
 								<tbody>
 									<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="noticedetail.do">
-										<th scope="row">1</th>
-										<td>${r.reservationId }</td>
+										<th scope="row">${r.reservationId }</th>
+										<td>${r.categoryName }</td>
 										<td>x</td>
 										<td>x</td>
 										<td>${r.reservationWriterId }</td>
