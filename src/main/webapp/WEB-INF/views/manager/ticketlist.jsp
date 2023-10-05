@@ -63,9 +63,7 @@
 																			<td><img
 																				src="ticket/img/waterpark/${t.img}"></td>
 																		</c:when>
-																		<c:otherwise>
-																			<td></td>
-																		</c:otherwise>
+																		
 																	</c:choose>
 																</c:when>
 																<c:otherwise>
