@@ -19,11 +19,12 @@
 							<div class="card">
 								<div class="card-body">
 									<h5 class="card-title" align="left">Transport List</h5>
-									<select class="datatable-selector" name="categoryId" id="categoryId" onchange="categorySelect(this.value)">
+									<select class="datatable-selector" name="categoryId"
+										id="categoryId" onchange="categorySelect(this.value)">
 										<option value="null">전체</option>
-									    <option value="11">버스</option>
-									    <option value="12">기차</option>
-									    <option value="13">비행기</option>
+										<option value="11">버스</option>
+										<option value="12">기차</option>
+										<option value="13">비행기</option>
 									</select>
 									<!-- Table with stripped rows -->
 									<table class="table">
@@ -60,54 +61,80 @@
 											</c:choose>
 										</tbody>
 									</table>
-									<div align="center">
 
-									 <ul class="pagination pagination-sm">
-	               			
-			               				<!-- 2. 이전버튼 활성화 여부 -->
-			               				<c:if test="${pageVO.prev }">
-		                        			<li><a href="transportlist.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount}">이전</a></li>
-										</c:if>
-										                        		
-		                        		<!-- 1. 페이지번호 처리 -->
-		                        		<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-			                        		<li  class="${pageVO.pageNum eq num ? 'active' : '' }">
-			                        		<a href="transportlist.do?pageNum=${num }&amount=${pageVO.amount}">${num }</a></li>
-		                        		</c:forEach>
-		                        		
-		                        		<!-- 3. 다음버튼 활성화 여부 -->
-		                        		<c:if test="${pageVO.next }">
-		                        			<li><a href="transportlist.do?pageNum=${pageVO.endPage + 1 }&amount=${pageVO.amount}">다음</a></li>
-		                        		</c:if>
-		                    		</ul>
+								<div align="center">
+									
+										<ul class="pagination" style="text-align: center;">
+											<c:choose>
+												<c:when test="${pageCount.currentPage <=1}">
+													<li/>
+												</c:when>
+												<c:otherwise>
+													<li class="page-item"><a class="page-link"
+														href="transportlist.do?pageNum=${pageCount.currentPage-1}"
+														aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+													</a></li>
+												</c:otherwise>
+											</c:choose>
+											
+											<c:forEach var="idx" begin="${pageCount.min }" end="${pageCount.max }">
+												<c:choose>
+													<%--전체페이지 수 보다 현재페이지번호가 크거나 같으면 페이지 넘어가지 않게--%>
+													<c:when test="${idx==pageCount.currentPage}">
+														<li class="page-item"><a class="page-link"
+														href="transportlist.do?pageNum=${idx}" style="font-weight: bold;">${idx}</a></li>
+													</c:when>
+													<c:otherwise>
+														<li class="page-item"><a class="page-link"
+														href="transportlist.do?pageNum=${idx}">${idx}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+											<c:choose>
+												<%--전체페이지 수 보다 현재페이지번호가 크거나 같으면 페이지 넘어가지 않게--%>
+												<c:when test="${pageCount.currentPage>=pageCount.pageCnt}">
+													<li></li>
+												</c:when>
+												<c:otherwise>
+													<li class="page-item">
+												        <a class="page-link" href="transportlist.do?pageNum=${pageCount.currentPage+1}" aria-label="Next">
+												            <span aria-hidden="true">&raquo;</span>
+												        </a>
+												    </li>
+												</c:otherwise>
+											</c:choose>
+
+										</ul>
+									
 									</div>
-									<!-- End Table with stripped rows -->
-									<c:choose>
-										<c:when test="${not empty id }">
-											<div align="right">
-												<button type="button" class="btn btn-primary"
-													onclick="location.href = 'staywriteform.do'">등록</button>
-											</div>
-										</c:when>
-										<c:otherwise>
-										</c:otherwise>
-									</c:choose>
 
-								</div>
+								<!-- End Table with stripped rows -->
+								<c:choose>
+									<c:when test="${not empty id }">
+										<div align="right">
+											<button type="button" class="btn btn-primary"
+												onclick="location.href = 'staywriteform.do'">등록</button>
+										</div>
+									</c:when>
+									<c:otherwise>
+									</c:otherwise>
+								</c:choose>
+
 							</div>
-
 						</div>
+
 					</div>
-				</section>
-			</main>
 		</div>
+	</section>
+	</main>
+	</div>
 	</section>
 	<form id="frm" action="transportlist.do" method="post">
 		<input type="hidden" id="categoryId" name="categoryId">
 	</form>
 	<form id="sform" action="staydetail.do" method="post">
-		<input type="hidden" id="tId" name="tId">
-		<input type="hidden" id="categoryId" name="categoryId">
+		<input type="hidden" id="tId" name="tId"> <input type="hidden"
+			id="categoryId" name="categoryId">
 	</form>
 
 	<script>
