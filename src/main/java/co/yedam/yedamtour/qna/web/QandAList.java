@@ -56,7 +56,7 @@ public class QandAList extends HttpServlet {
 		pageNum = (pageNum-1)*10;
 		amount = pageNum + 10;
 		
-		vo.setStartPage(pageNum);
+		vo.setStartPage(pageNum + 1);
 		vo.setEndPage(amount);
 		
 		qnalists = dao.qnaSelectList(vo);

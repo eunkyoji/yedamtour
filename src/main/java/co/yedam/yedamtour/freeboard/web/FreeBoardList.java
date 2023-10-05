@@ -57,7 +57,7 @@ public class FreeBoardList extends HttpServlet {
 		pageNum = (pageNum-1)*10;
 		amount = pageNum + 10;
 		
-		vo.setStartPage(pageNum);
+		vo.setStartPage(pageNum +1);
 		vo.setEndPage(amount);
 		
 		lists = dao.freeBoardSelectList(vo);

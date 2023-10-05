@@ -59,7 +59,7 @@ public class TransportList extends HttpServlet {
 		amount = pageNum + 10;
 		
 		vo.setCategoryId(categoryId);
-		vo.setStartPage(pageNum);
+		vo.setStartPage(pageNum + 1);
 		vo.setEndPage(amount);
 		
 		list = dao.transportSelectList(vo);
