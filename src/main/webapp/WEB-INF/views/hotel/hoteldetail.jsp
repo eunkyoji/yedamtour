@@ -66,7 +66,7 @@
 					</div>
 					
 					<!-- Contact Image -->
-					<div class="col-lg-7 contact_section_col">
+					<div class="col-lg-5 contact_section_col">
 						<img id="hotelimg" src="img/rooms/${hotels.hotelImg }" alt="">
 					</div>
 					<!-- Contact Image Close-->
