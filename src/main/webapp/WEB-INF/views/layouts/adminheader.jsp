@@ -8,7 +8,7 @@
 <title></title>
 </head>
 <body>
-<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
+<c:set var="name" value='<%=(String) session.getAttribute("name")%>' />
 	<header id="header" class="header fixed-top d-flex align-items-center">
 
 		<div class="d-flex align-items-center justify-content-between">
@@ -39,11 +39,17 @@
 
 				<li class="nav-item dropdown pe-3"><a
 					class="nav-link nav-profile d-flex align-items-center pe-0"
-					href="#" data-bs-toggle="dropdown">  <span
-						class="d-none d-md-block ps-2">K. Anderson</span>
+					href="#">  <span
+						class="d-none d-md-block ps-2">${name }</span>
 				</a>
-
-					</li>
+				</li>
+				<li class="nav-item dropdown pe-3"><a
+					class="nav-link nav-profile d-flex align-items-center pe-0"
+					href="logout.do">  <span
+						class="d-none d-md-block ps-2">Logout</span>
+				</a>
+				</li>
+				
 				<!-- End Profile Nav -->
 
 			</ul>

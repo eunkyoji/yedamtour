@@ -43,6 +43,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("password", vo.getMemberPassword());
 			session.setAttribute("author", vo.getMemberAuthor());
+			session.setAttribute("name", vo.getMemberName());
 			
 
 			if( "user".equals(vo.getMemberAuthor()) ) {
