@@ -12,6 +12,7 @@ float: right;
 <title>Insert title here</title>
 </head>
 <body>
+<c:set var="id" value='<%=(String) session.getAttribute("id")%>' />
 	<main id="main" class="main">
 		<!-- End Page Title -->
 
@@ -64,9 +65,11 @@ float: right;
 								</tbody>
 							</table>
 							<!-- End Table with stripped rows -->
-							<div align="right">
-								<button type="button" class="btn btn-primary" onclick="location.href = 'signupform.do'">관리자등록</button>
-							</div>
+							<c:if test="${id == 'admin@ydtour.com' }">
+								<div align="right">
+									<button type="button" class="btn btn-primary" onclick="location.href = 'signupform.do'">관리자등록</button>
+								</div>
+							</c:if>
 						</div>
 					</div>
 
