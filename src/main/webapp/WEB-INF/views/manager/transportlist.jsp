@@ -47,8 +47,9 @@
 												</c:when>
 												<c:otherwise>
 													<c:forEach items="${list}" var="t">
-														<tr style="cursor: pointer"
-															onclick="ticketSelect(${t.transportId}, ${t.categoryId })">
+														<!-- tr style="cursor: pointer"
+															onclick="ticketSelect(${t.transportId}, ${t.categoryId })"-->
+														<tr>
 															<th scope="row">${t.rowN }</th>
 															<td align="left">${t.categoryName}</td>
 															<td align="left">${t.transportStart}</td>
@@ -110,7 +111,7 @@
 
 								<!-- End Table with stripped rows -->
 								<c:choose>
-									<c:when test="${not empty id }">
+									<c:when test="${empty id }">
 										<div align="right">
 											<button type="button" class="btn btn-primary"
 												onclick="location.href = 'staywriteform.do'">등록</button>

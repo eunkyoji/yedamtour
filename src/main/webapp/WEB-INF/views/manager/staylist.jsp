@@ -50,8 +50,9 @@ img{
 												</c:when>
 												<c:otherwise>
 													<c:forEach items="${list}" var="s">
-														<tr style="cursor: pointer"
-															onclick="staySelect(${s.stayId}, ${s.categoryId })">
+														<!-- tr style="cursor: pointer"
+															onclick="staySelect(${s.stayId}, ${s.categoryId })"-->
+														<tr>
 															<th scope="row">${s.rowN }</th>
 															<c:choose>
 																<c:when test="${empty s.stayImg }">
@@ -117,7 +118,7 @@ img{
 									</div>
 									<!-- End Table with stripped rows -->
 									<c:choose>
-										<c:when test="${not empty id }">
+										<c:when test="${empty id }">
 											<div align="right">
 												<button type="button" class="btn btn-primary"
 													onclick="location.href = 'staywriteform.do'">등록</button>
