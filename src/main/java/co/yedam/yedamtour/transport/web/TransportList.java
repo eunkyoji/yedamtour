@@ -54,7 +54,7 @@ public class TransportList extends HttpServlet {
 		}
 		
 		Page pageVO = new Page(totalCount, pageNum, 10, 10);
-		
+		System.out.println("pageNum::: " + pageNum);
 		pageNum = (pageNum-1)*10;
 		amount = pageNum + 10;
 		

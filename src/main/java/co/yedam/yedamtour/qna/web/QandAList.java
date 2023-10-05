@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import co.yedam.yedamtour.common.Page;
 import co.yedam.yedamtour.common.ViewResolve;
 import co.yedam.yedamtour.qna.service.QandAService;
 import co.yedam.yedamtour.qna.service.QandAVO;
@@ -32,49 +33,31 @@ public class QandAList extends HttpServlet {
 		QandAVO vo = new QandAVO();
 		
 		String author = (String)session.getAttribute("author");
-		System.out.println("111111111111111111111111");
+		
 		vo = dao.qnaTotalCount(vo);
-		System.out.println(vo);
-		String currNum = request.getParameter("pageNum");
-		int pageNum = 0;
-		if( currNum != null ) {
-			pageNum = Integer.parseInt(currNum);
-		}
-		
-		int pageN = 0;
-		int countList = 10; // 한 페이지에 보여줄 글 갯수
-		int countPage = 10; // 페이지 갯수 ex ) [1] [2] [3] 다음
-		
 		int totalCount = vo.getTotalCount();
-		System.out.println("totalCount :: " + totalCount);
-		int block = totalCount / countList ;
-		if(totalCount % countList != 0){
-			block++;
+		
+		int pageNum = 1;
+		int amount = 10;
+		
+		String pNum = request.getParameter("pageNum");
+		String aNum = request.getParameter("amount");
+		System.out.println("pNum ::: " + pNum);
+		if( pNum != null ) {
+			pageNum = Integer.parseInt(pNum);
+		}
+		System.out.println("pageNum ::: " + pageNum);
+		if( aNum != null ) {
+			amount = Integer.parseInt(aNum);
 		}
 		
-		if (pageNum == 0) {
-			pageN = 1;
-		}else {
-			pageN = pageNum;
-			if(pageN <= 0 ) {
-				pageN = 1;
-			}
-			if(pageN > block) {
-				pageN -= 10;
-			}
-		}
+		Page pageVO = new Page(totalCount, pageNum, 10, 10);
 		
-		int startPage = (pageN-1) / countPage * countPage + 1; // 시작 페이지
-		int endPage = startPage + countPage - 1; // 끝 페이지
-		if (endPage > block) {
-			endPage = block;
-		}
+		pageNum = (pageNum-1)*10;
+		amount = pageNum + 10;
 		
-		int start = pageN*10 - 9;
-		int end = pageN*10;
-		
-		vo.setStartPage(start);
-		vo.setEndPage(end);
+		vo.setStartPage(pageNum);
+		vo.setEndPage(amount);
 		
 		qnalists = dao.qnaSelectList(vo);
 		
@@ -91,8 +74,7 @@ public class QandAList extends HttpServlet {
 		}
 		
 		request.setAttribute("qnalists", qnalists);
-		request.setAttribute("startPage", startPage);
-		request.setAttribute("endPage", endPage);
+		request.setAttribute("pageCount", pageVO);
 		
 		if( "Admin".equals(author) ) {
 			String page = "admin/qna/qnalist";

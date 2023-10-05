@@ -79,25 +79,49 @@ body {
 										</tbody>
 									</table>
 									<div align="center">
-
+									
 										<ul class="pagination" style="text-align: center;">
-											<li class="page-item"><a class="page-link"
-												href="freeboardlist.do?pageNum=${(endPage - 5)}"
-												aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-											</a></li>
-
-											<c:forEach var="i" begin="${startPage }" end="${endPage }">
-												<li class="page-item"><a class="page-link"
-													href="freeboardlist.do?pageNum=${i}" id="btn${i }"
-													onClick="clickEvent(${i})">${i}</a></li>
+											<c:choose>
+												<c:when test="${pageCount.currentPage <=1}">
+													<li/>
+												</c:when>
+												<c:otherwise>
+													<li class="page-item"><a class="page-link"
+														href="freeboardlist.do?pageNum=${pageCount.currentPage-1}"
+														aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+													</a></li>
+												</c:otherwise>
+											</c:choose>
+											
+											<c:forEach var="idx" begin="${pageCount.min }" end="${pageCount.max }">
+												<c:choose>
+													<%--전체페이지 수 보다 현재페이지번호가 크거나 같으면 페이지 넘어가지 않게--%>
+													<c:when test="${idx==pageCount.currentPage}">
+														<li class="page-item"><a class="page-link"
+														href="freeboardlist.do?pageNum=${idx}" style="font-weight: bold;">${idx}</a></li>
+													</c:when>
+													<c:otherwise>
+														<li class="page-item"><a class="page-link"
+														href="freeboardlist.do?pageNum=${idx}">${idx}</a></li>
+													</c:otherwise>
+												</c:choose>
 											</c:forEach>
+											<c:choose>
+												<%--전체페이지 수 보다 현재페이지번호가 크거나 같으면 페이지 넘어가지 않게--%>
+												<c:when test="${pageCount.currentPage>=pageCount.pageCnt}">
+													<li></li>
+												</c:when>
+												<c:otherwise>
+													<li class="page-item">
+												        <a class="page-link" href="freeboardlist.do?pageNum=${pageCount.currentPage+1}" aria-label="Next">
+												            <span aria-hidden="true">&raquo;</span>
+												        </a>
+												    </li>
+												</c:otherwise>
+											</c:choose>
 
-											<li class="page-item"><a class="page-link"
-												href="freeboardlist.do?pageNum=${startPage + 5}"
-												aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-											</a></li>
 										</ul>
-
+									
 									</div>
 									<!-- End Table with stripped rows -->
 									<c:choose>
