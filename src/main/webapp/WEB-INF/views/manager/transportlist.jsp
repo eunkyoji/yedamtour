@@ -47,12 +47,12 @@
 												<c:otherwise>
 													<c:forEach items="${list}" var="t">
 														<tr style="cursor: pointer"
-															onclick="ticketSelect(${t.tId}, ${t.categoryId })">
+															onclick="ticketSelect(${t.transportId}, ${t.categoryId })">
 															<th scope="row">${t.rowN }</th>
 															<td align="left">${t.categoryName}</td>
-															<td align="left">${t.tStart}</td>
-															<td align="left">${t.tFinish}</td>
-															<td align="left">${t.tdepTime}</td>
+															<td align="left">${t.transportStart}</td>
+															<td align="left">${t.transportFinish}</td>
+															<td align="left">${t.depTime}</td>
 															<td align="left">${t.arrTime}</td>
 														</tr>
 													</c:forEach>
@@ -62,24 +62,24 @@
 									</table>
 									<div align="center">
 
-										<ul class="pagination" style="text-align: center;">
-											<li class="page-item"><a class="page-link"
-												href="ticketlist.do?pageNum=${(endPage - 5)}"
-												aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-											</a></li>
-
-											<c:forEach var="i" begin="${startPage }" end="${endPage }">
-												<li class="page-item"><a class="page-link"
-													href="ticketlist.do?pageNum=${i}" id="btn${i }"
-													onClick="clickEvent(${i})">${i}</a></li>
-											</c:forEach>
-
-											<li class="page-item"><a class="page-link"
-												href="ticketlist.do?pageNum=${startPage + 5}"
-												aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-											</a></li>
-										</ul>
-
+									 <ul class="pagination pagination-sm">
+	               			
+			               				<!-- 2. 이전버튼 활성화 여부 -->
+			               				<c:if test="${pageVO.prev }">
+		                        			<li><a href="transportlist.do?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount}">이전</a></li>
+										</c:if>
+										                        		
+		                        		<!-- 1. 페이지번호 처리 -->
+		                        		<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
+			                        		<li  class="${pageVO.pageNum eq num ? 'active' : '' }">
+			                        		<a href="transportlist.do?pageNum=${num }&amount=${pageVO.amount}">${num }</a></li>
+		                        		</c:forEach>
+		                        		
+		                        		<!-- 3. 다음버튼 활성화 여부 -->
+		                        		<c:if test="${pageVO.next }">
+		                        			<li><a href="transportlist.do?pageNum=${pageVO.endPage + 1 }&amount=${pageVO.amount}">다음</a></li>
+		                        		</c:if>
+		                    		</ul>
 									</div>
 									<!-- End Table with stripped rows -->
 									<c:choose>

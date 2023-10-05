@@ -8,9 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TransportVO {
-	private int		tId;
-	private String	tStart;
-	private String	tFinish;
+	private int		transportId;
+	private String	transportStart;
+	private String	transportFinish;
 	private Date	goDay;
 	private Date	comeDay;
 	private String	grade;
@@ -24,8 +24,9 @@ public class TransportVO {
 	private int		endPage;
 	private int		currNum;
 	private int		rowN;
-	private int		start;
-	private int		end;
+	private boolean	previ;
+	private boolean	nexti;
+	private int		amount;
 	private	int		categoryId;
 	private String	categoryName;
 }
