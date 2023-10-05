@@ -29,8 +29,7 @@
     <link rel="stylesheet" href="jadoo/public/assets-book/css/style.css">
 </head>
 <body>
-<section class="probootstrap-cover overflow-hidden relative"  style="margin-top: 200px;" data-stellar-background-ratio="0.5"  id="section-home">
-      
+<section class="probootstrap-cover overflow-hidden relative"  style="margin-top: 200px;" data-stellar-background-ratio="0.5"  id="section-home">      
 <div class="container">
  <div class="row mt-5">
           <div class="col">
@@ -116,7 +115,7 @@
                 <!-- END row -->
                 <div class="row">                	       
                   <div class="col-md">
-                    <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>
+                    <a href="#"><input type="submit" value="시간표 확인" class="btn btn-primary btn-block"></a>
                   </div>
                 </div>
               </div>

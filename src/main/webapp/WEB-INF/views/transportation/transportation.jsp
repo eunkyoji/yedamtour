@@ -49,8 +49,7 @@ margin-top: 10px;
             </div>
 	          </div>
 	         <div class="card">
-	         	<img src="jadoo/public/assets/img/transportation/travel.jpeg" width="700" alt="steps" />
-	          	
+	         	<img src="jadoo/public/assets/img/transportation/travel.jpeg" width="700" alt="steps" />	          	
 	         </div>
         </div><!-- end of .container-->
       </section>

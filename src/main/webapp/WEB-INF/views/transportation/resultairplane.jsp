@@ -16,7 +16,7 @@ width: 400px;
 </head>
 <body>
 <!-- 편도 -->
-<form action="reservationlist.do" class="col-md-12" method="post">
+<form action="transportation.do" class="col-md-12" method="post">
 <input type="hidden" id="categoryId" name="categoryId" value="13">
 	<div id="container" style="margin: 200px 0 0 570px;">
 		<div id="leftcard" class="col-lg-6 justify-content-center align-items-start" style="float: left;">
@@ -52,8 +52,7 @@ width: 400px;
               </div>
         <div class="row">
 			<div class="col-md-12">
-				<button class="btn btn-black btn-lg py-3 btn-block"
-							onclick="window.location='transportation.do'">예매 완료</button>
+				<button class="btn btn-black btn-lg py-3 btn-block"	onclick="window.location='transportation.do'">예매 완료</button>
 			</div>
 		</div>
 	</div>

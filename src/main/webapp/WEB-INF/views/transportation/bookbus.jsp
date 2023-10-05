@@ -111,7 +111,7 @@
                   </div>              
                 <div class="row">                  
                   <div class="col-md">
-                    <a href="#"><input type="submit" value="Submit" class="btn btn-primary btn-block"></a>                    
+                    <a href="#"><input type="submit" value="시간표 확인" class="btn btn-primary btn-block"></a>                    
                   </div>
                 </div>
               </div>
