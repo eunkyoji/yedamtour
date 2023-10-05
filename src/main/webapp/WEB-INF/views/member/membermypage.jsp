@@ -243,7 +243,7 @@
 							<button type="button" class="btn btn-primary"
 								onclick="location.href = 'tour.do'">Home</button>
 						</div>
-						<div class="credits">
+						<div class="credits" style="text-align: center;">
 							<!-- All the links in the footer should remain intact. -->
 							<!-- You can delete the links only if you purchased the pro version. -->
 							<!-- Licensing information: https://bootstrapmade.com/license/ -->
@@ -360,6 +360,7 @@
 	 		
 		  	var ticketCount = td[2].textContent;
 		   	var ticketPrice = td[3].textContent;
+		   	let productName = td[1].textContent;
 		   	let memberId = $('#memberId').val();
 		   	console.log(memberId);
 			  IMP.init('imp81834657');
@@ -368,7 +369,7 @@
 						    pg : 'kakaopay.TC0ONETIME', 
 						    pay_method : 'card',
 						    merchant_uid : 'merchant_' + new Date().getTime(),
-						    name : '주문명:결제테스트'/*상품명*/,
+						    name : productName/*상품명*/,
 						    amount : ticketPrice/*상품 가격*/, 
 						    buyer_email : memberId/*구매자 이메일*/,
 						    buyer_name : '구매자이름',
