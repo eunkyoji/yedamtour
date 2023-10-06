@@ -87,9 +87,14 @@ textarea{
 									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<div class="input-group mb-3">
-										<textarea class="form-control" aria-describedby="basic-addon1" rows="10" id="qnaReplay" name="qnaReplay" readonly>${q.qnaReplay }</textarea>
-									</div>
+									<c:choose>
+										<c:when test="${not empty q.qnaReplay }">
+											<div class="input-group mb-3">
+												<textarea class="form-control" aria-describedby="basic-addon1" rows="10" id="qnaReplay" name="qnaReplay" readonly>${q.qnaReplay }</textarea>
+											</div>
+										</c:when>
+										<c:otherwise></c:otherwise>
+									</c:choose>
 								</c:otherwise>
 							</c:choose>
 							<!-- End Quill Editor Full -->

@@ -5,7 +5,7 @@ import java.util.List;
 import co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO;
 
 public interface FreeBoardReplayMapper {
-		List<FreeBoardReplayVO>	freeBoardReplaySelectLsit(int freeBoardId, int sartPage, int endPage);
+		List<FreeBoardReplayVO>	freeBoardReplaySelectLsit(int freeBoardId);
 		FreeBoardReplayVO		freeBoardReplaySelect(FreeBoardReplayVO vo);
 		FreeBoardReplayVO		freeBoardReplayCount(int freeBoardId);
 		int						freeBoardReplayInsert(FreeBoardReplayVO vo);

@@ -83,7 +83,7 @@ input{
 
 						<div class="card">
 							<div class="card-body">
-								<h5 class="card-title">자유게시판</h5>
+								<h5 class="card-title" align="left">자유게시판</h5>
 								<div class="card mb-3">
 									<div class="row g-0">
 										<c:choose>
@@ -129,6 +129,7 @@ input{
 								</div>
 							</div>
 						</div>
+						<c:if test="${not empty id }">
 						 <form id="frm" action="freeboardreplayregist.do" method="post" enctype="form-data">
 							<div id="replayregist">
 			                    <input type="text" class="input-form" style="width: 80%" id="replayConent" name="replayContent">&nbsp;&nbsp;<button type="button" class="btn btn-primary" id="regist">등록</button>
@@ -137,6 +138,7 @@ input{
 			                    <input type="hidden" id="memberNickname" name="memberNickname" value=${f.freeBoardNicname }>
 			                </div>
 		                </form>
+		                </c:if>
 		               	<div>
 							<br>
 						</div>
@@ -191,16 +193,15 @@ input{
 	         type:"post",
 	         datatype:"html",
 	         success:function(data){
+	        	 console.log(data.length);
 				for( let i = 0; i < data.length; i++ ){
 		   		 	let replayId = data[i].replayId;
 		   		 	let clone = $('#replay').clone();
 		   		 	
-		   		 	$('#replay').detach();
-		   		 	
-		          	let replayWriter = data[i].replayWriter;
+		   		 	let replayWriter = data[i].replayWriter;
 		            let id = "${id}";
 		            clone.css('display', 'block');
-		            if( id == replayWriter ){
+		            if( id == replayWriter || id == 'admin@ydtour.com'){
 		            	clone.find('h6').text(data[i].memberNickname)
 		            	.append(`&nbsp;&nbsp;<span id='delete' style="cursor:pointer;">삭제</span>`)
 		            	.attr('onclick', 'replayDelete('+data[i].replayId+')');
@@ -211,7 +212,8 @@ input{
 		            clone.find('#replayContent').val(data[i].replayContent);
 		            clone.find('#replayId').val(data[i].replayId);
 		            $('#replayrow').append(clone);
-		            $('#replay:eq('+i+')').attr('id', 'replay'+replayId);
+		            //$('#replay:eq('+i+')').attr('id', 'replay'+replayId);
+		            $('#replay').attr('id', 'replay'+replayId);
 		       }
 	         }   
 	      })
@@ -219,6 +221,8 @@ input{
 
 	
 	$('#regist').on('click', function (){
+		console.log("");
+		
 		let content = $('input[name=replayContent]').val();
 		let boardId = "${f.freeBoardId}";
 		let writerId= "${id}";
@@ -252,13 +256,16 @@ input{
 	function replayDelete(replayId){
 		console.log("replayId :: " + replayId);
 		if(confirm("삭제하시겠습니까?") ){
-				$.ajax({
+			console.log("삭제???");	
+			$.ajax({
 			         url:"freeboardreplaydelete.do?freeBoardId="+${f.freeBoardId}+"&replayId="+replayId,
 			         type:"post",
 			         datatype:"html",
 			         success:function(e){
 			        	//$('#replay').detach();
-			        	$('#replay'+replayId).detach();
+			        	//$('#replay'+replayId).detach();
+			        	$('#replayId'+replayId).detach();
+			        	location.reload();
 			         },
 			         error: function(e){
 			        	 alert("댓글 삭제가 실패되었습니다.")

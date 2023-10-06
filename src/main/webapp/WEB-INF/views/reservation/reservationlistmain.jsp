@@ -63,10 +63,6 @@
 							</table>
 							<!-- End Table with stripped rows -->
 
-							<div align="right">
-								<button type="button" class="btn btn-primary"
-									onclick="location.href = 'noticewrite.do'">글쓰기</button>
-							</div>
 						</div>
 					</div>
 				</div>

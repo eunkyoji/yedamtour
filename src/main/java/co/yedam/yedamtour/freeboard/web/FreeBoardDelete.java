@@ -12,6 +12,9 @@ import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.freeboard.service.FreeBoardService;
 import co.yedam.yedamtour.freeboard.service.FreeBoardVO;
 import co.yedam.yedamtour.freeboard.serviceImpl.FreeBoardServiceImpl;
+import co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayService;
+import co.yedam.yedamtour.freeboardreplay.service.FreeBoardReplayVO;
+import co.yedam.yedamtour.freeboardreplay.serviceImpl.FreeBoardReplayServiceImpl;
 
 @WebServlet("/freeboarddelete.do")
 public class FreeBoardDelete extends HttpServlet {
@@ -22,17 +25,24 @@ public class FreeBoardDelete extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FreeBoardService dao = new FreeBoardServiceImpl();
-		FreeBoardVO vo = new FreeBoardVO();
-		HttpSession session = request.getSession();
+		FreeBoardService		dao = new FreeBoardServiceImpl();
+		FreeBoardVO 			 vo = new FreeBoardVO();
+		FreeBoardReplayVO 		rvo = new FreeBoardReplayVO();
+		FreeBoardReplayService rdao = new FreeBoardReplayServiceImpl();
+		HttpSession 		session = request.getSession();
 		
 		String author = (String)session.getAttribute("author");
 		
 		vo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
+		rvo.setFreeBoardId(Integer.valueOf(request.getParameter("freeBoardId")));
 		
 		if( author == "user" ) {
 			vo.setFreeBoardWriter(session.getId());
 		}
+		
+		int r = rdao.freeBoardReplayDelete(rvo);
+		
+
 		int n = dao.freeBoardDelete(vo);
 		
 		if( n != 0 ) {

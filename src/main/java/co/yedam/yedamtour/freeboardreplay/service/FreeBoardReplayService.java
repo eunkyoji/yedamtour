@@ -3,7 +3,7 @@ package co.yedam.yedamtour.freeboardreplay.service;
 import java.util.List;
 
 public interface FreeBoardReplayService {
-	List<FreeBoardReplayVO>	freeBoardReplaySelectLsit(int freeBoardId, int sartPage, int endPage);
+	List<FreeBoardReplayVO>	freeBoardReplaySelectLsit(int freeBoardId);
 	FreeBoardReplayVO		freeBoardReplaySelect(FreeBoardReplayVO vo);
 	FreeBoardReplayVO		freeBoardReplayCount(int freeBoardId);
 	int						freeBoardReplayInsert(FreeBoardReplayVO vo);
