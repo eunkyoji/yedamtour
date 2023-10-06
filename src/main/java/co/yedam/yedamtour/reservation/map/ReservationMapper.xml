@@ -20,9 +20,9 @@
 	</selectKey>
 	INSERT INTO TOUR_RESERVATION(RESERVATION_ID, STAY_ID, RESERVATION_PERSONNEL, RESERVATION_WRITER_ID,
 	RESERVATION_PRICE, CATEGORY_ID, RESERVATION_STARTDATE, RESERVATION_ENDDATE, RESERVATION_NAME,
-	RESERVATION_PHONE, STAY_SUB_ID)
+	RESERVATION_PHONE, STAY_SUB_ID, PRODUCT_NAME)
 	VALUES(#{reservationId}, #{stayId}, #{reservationPersonnel}, #{reservationWriterId}, #{reservationPrice},
-		   #{categoryId}, #{reservationStartDate}, #{reservationFinishDate}, #{reservationName}, #{reservationPhone}, #{staySubId})
+		   #{categoryId}, #{reservationStartDate}, #{reservationFinishDate}, #{reservationName}, #{reservationPhone}, #{staySubId}, #{productName})
 </insert>
 
 	<select id="reservationCartSelectList"
