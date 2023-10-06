@@ -14,8 +14,8 @@ public class FreeBoardReplayServiceImpl implements FreeBoardReplayService {
 	private FreeBoardReplayMapper map = sqlSession.getMapper(FreeBoardReplayMapper.class);
 	
 	@Override
-	public List<FreeBoardReplayVO> freeBoardReplaySelectLsit(int freeBoardId, int sartPage, int endPage) {
-		return map.freeBoardReplaySelectLsit(freeBoardId, sartPage, endPage);
+	public List<FreeBoardReplayVO> freeBoardReplaySelectLsit(int freeBoardId) {
+		return map.freeBoardReplaySelectLsit(freeBoardId);
 	}
 	
 	@Override

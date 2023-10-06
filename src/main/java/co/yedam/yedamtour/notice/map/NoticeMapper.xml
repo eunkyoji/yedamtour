@@ -4,7 +4,7 @@
 	<select id="noticeSelectList" resultType="co.yedam.yedamtour.notice.service.NoticeVO">
 		SELECT * FROM (
 			SELECT ROWNUM NUM, A.* FROM(
-				SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_COUNT, NOTICE_WRITER, NOTICE_WRITE_DATE, NOTICE_UPDATE_DATE  
+				SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_WRITER, NOTICE_WRITE_DATE, NOTICE_UPDATE_DATE  
 				  FROM TOUR_NOTICE
 				 <if test="noticeSearch != null">
 				 WHERE notice_title like '%'||#{noticeSearch}||'%'

@@ -155,18 +155,6 @@ body {
 		form.noticeId.value = id;
 		form.submit();
 	}
-	
-	function clickEvent(id){
-		for( let b = ${startPage}; b < ${endPage}; b++ ){
-			if(b == id){
-				console.log("b ::: " + b);
-				console.log("btn :: " + ('#btn'+b));
-				$('#btn'+b).css({'background':'blue','color':'white'});
-			} else {
-				$('#btn'+b).css({'background':'white','color':'blue'});
-			}
-		}
-	}
 	</script>
 </body>
 </html>
