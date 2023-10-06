@@ -225,6 +225,7 @@
 			if(a != 'Yes' ) {
 				alert("아이디 중복체크를 해주세요");
 				document.getElementById("memberId").focus();
+				return;
 			}
 			document.getElementById("sign").setAttribute("type","submit");
 	}
