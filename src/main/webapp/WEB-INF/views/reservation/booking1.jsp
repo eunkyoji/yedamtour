@@ -100,9 +100,9 @@
 											</table>
 											<div class="row">
 												<div class="col-md-12">
-													<a href="membermypage.do">
-													<input type="button" class="btn-lg" value="예약하기">
-													</a>
+													
+													<button onclick="reservationInsert.do" ype="button" class="btn-lg">예약하기</button>
+													
 												</div>
 											</div>
 											<input type="hidden" id="hotelId" name="hotelId"
@@ -112,6 +112,10 @@
 												type="hidden" id="memberId" name="memberId" value="${id }">
 											<input type="hidden" id="categoryId" name="categoryId"
 												value="${reserves.categoryId }">
+												<input type="hidden" id="hotelId" name="hotelId"
+												value="${reserves.hotelId }">
+											<input type="hidden" id="hotelName" name="hotelName"
+												value="${reserves.hotelName }">				
 										</div>
 									</div>
 								</div>

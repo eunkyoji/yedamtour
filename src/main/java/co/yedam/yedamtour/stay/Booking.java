@@ -39,10 +39,13 @@ public class Booking extends HttpServlet {
 		
 		String hotelId = request.getParameter("hotelId");
 		String hotelSubId = request.getParameter("hotelSubId");
+		String hotelName = request.getParameter("hotelName");
 		String pensionId = request.getParameter("pensionId");
 		String pensionSubId = request.getParameter("pensionSubId");
+		String pensionName = request.getParameter("pensionName");
 		String campingId = request.getParameter("campingId");
 		String campingSubId = request.getParameter("campingSubId");
+		String campingName = request.getParameter("campingName");
 		String categoryId = request.getParameter("categoryId");
 		
 		MemberService mdao = new MemberServiceImpl();
@@ -62,6 +65,7 @@ public class Booking extends HttpServlet {
 			
 			hvo.setHotelId(Integer.parseInt(hotelId));
 			hvo.setHotelSubId(Integer.parseInt(hotelSubId));
+			hvo.setHotelName(hotelName);
 			hvo = hdao.hotelRoomSelect(hvo);			
 			
 			hvo.setMemberId(mvo.getMemberId());
@@ -79,6 +83,7 @@ public class Booking extends HttpServlet {
 			
 			pvo.setPensionId(Integer.parseInt(pensionId));
 			pvo.setPensionSubId(Integer.parseInt(pensionSubId));
+			pvo.setPensionName(pensionName);
 			pvo = pdao.pensionRoomSelect(pvo);
 			
 			pvo.setMemberId(mvo.getMemberId());
@@ -96,6 +101,7 @@ public class Booking extends HttpServlet {
 
 			cvo.setCampingId(Integer.parseInt(campingId));
 			cvo.setCampingSubId(Integer.parseInt(campingSubId));
+			cvo.setCampingName(campingName);
 			cvo = cdao.campingRoomSelect(cvo);
 			
 			cvo.setMemberId(mvo.getMemberId());
