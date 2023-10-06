@@ -28,4 +28,7 @@ public class ReservationVO {
 	private String categoryName;
 	private String companyEmail;
 	private String sendCheck;
+	
+	
+	
 }
