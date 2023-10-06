@@ -16,6 +16,7 @@ width: 400px;
 <body>
 <!-- 편도 -->
 <div id="container" style="margin: 200px 0 0 570px;">
+<form action="reservationregister.do" method="post">
 	<div id="leftcard" class="col-lg-6 justify-content-center align-items-start" style="float: left;">
               <div class="card position-relative shadow" style="max-width: 370px;">               
                 <div class="card-body p-3"> <img class="mb-4 mt-2 rounded-2 w-100" src="jadoo/public/assets/img/transportation/bus2.jpg" alt="booking" />
@@ -47,10 +48,25 @@ width: 400px;
               </div>
             	<div class="row">
 					<div class="col-md-12">
-						<button class="btn btn-black btn-lg py-3 btn-block"
-							onclick="window.location='transportation.do'">예매 완료</button>
+						<button type="submit" id="transReservation" class="btn btn-black btn-lg py-3 btn-block">예매 완료</button>
 					</div>
 				</div>
+				<input type="hidden" id="categoryId" name="categoryId" value="13">
+				<input type="hidden" id="startDate" name="startDate" value="${startDate}">
+				<input type="hidden" id="busStartGrade" name="busStartGrade" value="${startBus.busGrade }">
+				<input type="hidden" id="busStartPrice" name="busStartPrice" value="${startPrice }">
+				<input type="hidden" id="finishDate" name="finishDate" value="${finishDate }">
+				<input type="hidden" id="busFinishGo" name="busFinishGo" value="${finishBus.busFinish }">
+				<input type="hidden" id="busFinishEnd" name="busFinishEnd" value="${finishBus.busStart }">
+				<input type="hidden" id="busFinishGrade" name="busFinishGrade" value="${finishBus.busGrade }">
+				<input type="hidden" id="busFinishPrice" name="busFinishPrice" value="${finishPrice }"> 
+				
+				<input type="hidden" id="busPerson" name="busPerson" value="${person }">
+				<input type="hidden" id="totalPrice" name="totalPrice" value="${finishPrice + startPrice}">
+				<input type="hidden" id="busStartGo" name="busStartGo" value="${startBus.busStart }">
+				<input type="hidden" id="busStartEnd" name="busStartEnd" value="${startBus.busFinish }">
+	</form>
 </div>
 </body>
+
 </html>

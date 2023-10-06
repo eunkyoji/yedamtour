@@ -16,7 +16,7 @@ width: 400px;
 </head>
 <body>
 <!-- 편도 -->
-<form action="transportation.do" class="col-md-12" method="post">
+<form action="reservationregister.do" class="col-md-12" method="post">
 <input type="hidden" id="categoryId" name="categoryId" value="13">
 	<div id="container" style="margin: 200px 0 0 570px;">
 		<div id="leftcard" class="col-lg-6 justify-content-center align-items-start" style="float: left;">
@@ -52,10 +52,21 @@ width: 400px;
               </div>
         <div class="row">
 			<div class="col-md-12">
-				<button class="btn btn-black btn-lg py-3 btn-block"	onclick="window.location='transportation.do'">예매 완료</button>
+				<button type="button" class="btn btn-black btn-lg py-3 btn-block"	onclick="reservationregister.do">예매 완료</button>
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="startDate" name="startDate" value="${startDate}">
+				<input type="hidden" id="airplaneStartGo" name="airplaneStartGo" value="${startAirplane.airplaneStart }">
+				<input type="hidden" id="airplaneStartEnd" name="busStartEnd" value="${startAirplane.airplaneFinish }">
+				<input type="hidden" id="airplaneStartGrade" name="busStartGrade" value="${startAirplane.airplaneGrade }">
+				<input type="hidden" id="airplanePerson" name="busPerson" value="${person }">
+				<input type="hidden" id="airplaneStartPrice" name="busStartPrice" value="${startPrice }">
+				<input type="hidden" id="finishDate" name="finishDate" value="${finishDate }">
+				<input type="hidden" id="airplaneFinishGo" name="busFinishGo" value="${finishAirplane.airplaneFinish }">
+				<input type="hidden" id="airplaneFinishEnd" name="busFinishEnd" value="${finishAirplane.airplaneStart }">
+				<input type="hidden" id="airplaneFinishGrade" name="busFinishGrade" value="${finishAirplane.airplaneGrade }">
+				<input type="hidden" id="airplaneFinishPrice" name="busFinishPrice" value="${finishPrice }">
 </form>
 </body>
 

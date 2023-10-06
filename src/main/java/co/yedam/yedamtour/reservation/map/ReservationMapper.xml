@@ -55,6 +55,19 @@
 		WHERE RESERVATION_ID =
 		#{reservationId}
 	</select>
+	
+	<insert id="reservationTransInsert" parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">
+		<selectKey keyProperty="reservationId" resultType="int"
+			order="BEFORE">
+			SELECT NVL(MAX(RESERVATION_ID), 0) + 1 AS ID
+			FROM
+			TOUR_RESERVATION
+		</selectKey>
+		INSERT INTO TOUR_RESERVATION(RESERVATION_ID, RESERVATION_PERSONNEL, RESERVATION_PRICE, RESERVATION_WRITER_ID,
+									 CATEGORY_ID, RESERVATION_START, RESERVATION_FINISH, product_name)
+		values(#{reservationId}, #{reservationPersonnel}, #{reservationPrice}, #{reservationWriterId},
+		#{categoryId}, #{reservationStart}, #{reservationFinish}, #{productName})
+	</insert>
 
 	<update id="reservationTransUpdate"
 		parameterType="co.yedam.yedamtour.reservation.service.ReservationVO">

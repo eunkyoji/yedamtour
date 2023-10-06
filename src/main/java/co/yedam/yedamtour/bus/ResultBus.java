@@ -53,6 +53,8 @@ public class ResultBus extends HttpServlet {
 		request.setAttribute("startPrice", startPrice);
 		request.setAttribute("finishPrice", finishPrice);
 		
+		String totalPrice = startPrice + finishPrice + "";
+		
 		String page = "transportation/resultbus";
 		ViewResolve.forward(request, response, page);
 	}
