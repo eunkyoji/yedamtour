@@ -102,6 +102,7 @@ textarea{
 								<c:choose>
 									<c:when test="${author == 'Admin' }">
 										<button type="submit" class="btn btn-primary" onclick="qnaReplayInsert()">저장</button>
+										<button type="submit" class="btn btn-primary" onclick="qnaDelete(${q.qnaId})">삭제</button>
 										<button type="reset" class="btn btn-primary" onclick="location.href = 'qnalist.do'">목록</button>
 									</c:when>
 									<c:otherwise>

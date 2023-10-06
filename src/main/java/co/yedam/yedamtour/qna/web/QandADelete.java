@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.yedamtour.common.AlertControl;
 import co.yedam.yedamtour.qna.service.QandAService;
@@ -23,13 +24,17 @@ public class QandADelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QandAService dao = new QandAServiceImpl();
 		QandAVO vo = new QandAVO();
+		HttpSession session = request.getSession();
 		
 		String qnaWriter = request.getParameter("qnaWriter");
 		String qnaId	 = request.getParameter("qnaId");
 		
-		vo.setQnaId(Integer.valueOf(qnaId));
-		vo.setQnaWriter(qnaWriter);
+		String author	= (String) session.getAttribute("author");
 		
+		vo.setQnaId(Integer.valueOf(qnaId));
+		if( !"Admin".equals(author) ) {
+			vo.setQnaWriter(qnaWriter);
+		}
 		int n = dao.qnaDelete(vo);
 		
 		if( n != 0 ) {
