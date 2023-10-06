@@ -19,13 +19,7 @@
 							<div class="card">
 								<div class="card-body">
 									<h5 class="card-title" align="left">Ticket List</h5>
-									<select class="datatable-selector" name="categoryId" id="categoryId" onchange="categorySelect(this.value)">
-										<option value="null">전체</option>
-									    <option value="21">아쿠아리움</option>
-									    <option value="22">테마파크</option>
-									    <option value="23">워터파크</option>
-									</select>
-									<!-- Table with stripped rows -->
+																		<!-- Table with stripped rows -->
 									<table class="table">
 										<thead>
 											<tr>

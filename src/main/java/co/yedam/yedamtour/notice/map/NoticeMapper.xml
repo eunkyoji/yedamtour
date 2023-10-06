@@ -28,9 +28,9 @@
 			SELECT NVL(MAX(NOTICE_ID), 0) + 1 AS ID
 			  FROM TOUR_NOTICE
 		</selectKey>
-		INSERT INTO TOUR_NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_WRITER, NOTICE_IMG, NOTICE_THUMB, NOTICE_COUNT, NOTICE_WRITE_DATE)
+		INSERT INTO TOUR_NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_WRITER, NOTICE_IMG, NOTICE_THUMB, NOTICE_WRITE_DATE)
 
-		VALUES(#{noticeId}, #{noticeTitle}, #{noticeContent}, #{noticeWriter}, #{noticeImg}, #{noticeThumb}, 0, SYSDATE)
+		VALUES(#{noticeId}, #{noticeTitle}, #{noticeContent}, #{noticeWriter}, #{noticeImg}, #{noticeThumb}, SYSDATE)
 	</insert>
 	<update id="noticeUpdate" parameterType="co.yedam.yedamtour.notice.service.NoticeVO">
 		UPDATE TOUR_NOTICE

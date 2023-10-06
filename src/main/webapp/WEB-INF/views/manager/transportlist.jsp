@@ -19,13 +19,6 @@
 							<div class="card">
 								<div class="card-body">
 									<h5 class="card-title" align="left">Transport List</h5>
-									<select class="datatable-selector" name="categoryId"
-										id="categoryId" onchange="categorySelect(this.value)">
-										<option value="null">전체</option>
-										<option value="11">버스</option>
-										<option value="12">기차</option>
-										<option value="13">비행기</option>
-									</select>
 									<!-- Table with stripped rows -->
 									<table class="table">
 										<thead>
